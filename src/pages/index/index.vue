@@ -9,7 +9,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { fun } from '../../test/import-sort'
 const title = ref('Hello')
+fun()
 </script>
 
 <style>
