@@ -7,9 +7,10 @@
   </view>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
 import { fun } from '../../test/import-sort'
+
 const title = ref('Hello')
 fun()
 </script>
