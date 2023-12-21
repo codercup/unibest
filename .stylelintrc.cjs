@@ -29,5 +29,11 @@ module.exports = {
         ignorePseudoClasses: ['global', 'export', 'v-deep', 'deep'],
       },
     ],
+    'unit-no-unknown': [
+      true,
+      {
+        ignoreUnits: ['rpx'],
+      },
+    ],
   },
 }

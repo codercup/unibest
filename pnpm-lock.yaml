@@ -97,6 +97,18 @@ devDependencies:
   eslint-plugin-prettier:
     specifier: ^5.1.0
     version: 5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+  postcss:
+    specifier: ^8.4.32
+    version: 8.4.32
+  postcss-html:
+    specifier: ^1.5.0
+    version: 1.5.0
+  postcss-scss:
+    specifier: ^4.0.9
+    version: 4.0.9(postcss@8.4.32)
+  sass:
+    specifier: ^1.69.5
+    version: 1.69.5
   stylelint:
     specifier: ^16.0.2
     version: 16.0.2(typescript@4.9.5)
@@ -120,7 +132,7 @@ devDependencies:
     version: 4.9.5
   vite:
     specifier: 4.1.4
-    version: 4.1.4(terser@5.26.0)
+    version: 4.1.4(sass@1.69.5)(terser@5.26.0)
   vue-global-api:
     specifier: ^0.4.1
     version: 0.4.1(vue@3.2.47)
@@ -1900,7 +1912,7 @@ packages:
       magic-string: 0.30.5
       picocolors: 1.0.0
       terser: 5.26.0
-      vite: 4.1.4(terser@5.26.0)
+      vite: 4.1.4(sass@1.69.5)(terser@5.26.0)
     transitivePeerDependencies:
       - postcss
       - supports-color
@@ -3321,7 +3333,7 @@ packages:
       regenerator-runtime: 0.13.11
       systemjs: 6.14.2
       terser: 5.26.0
-      vite: 4.1.4(terser@5.26.0)
+      vite: 4.1.4(sass@1.69.5)(terser@5.26.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3336,7 +3348,7 @@ packages:
       '@babel/core': 7.23.6
       '@babel/plugin-transform-typescript': 7.23.6(@babel/core@7.23.6)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.23.6)
-      vite: 4.1.4(terser@5.26.0)
+      vite: 4.1.4(sass@1.69.5)(terser@5.26.0)
       vue: 3.2.47
     transitivePeerDependencies:
       - supports-color
@@ -3349,7 +3361,7 @@ packages:
       vite: ^4.0.0 || ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.1.4(terser@5.26.0)
+      vite: 4.1.4(sass@1.69.5)(terser@5.26.0)
       vue: 3.2.47
 
   /@volar/language-core@1.11.1:
@@ -5474,6 +5486,9 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immutable@4.3.4:
+    resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -7377,6 +7392,15 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
+  /sass@1.69.5:
+    resolution: {integrity: sha512-qg2+UCJibLr2LCVOt3OlPhr/dqVHWOa9XtZf2OjbLs/T4VPSJ00udtgJxH3neXZm+QqX8B+3cU7RaLqp1iVfcQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.4
+      source-map-js: 1.0.2
+
   /sax@1.3.0:
     resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==}
     dev: false
@@ -8155,7 +8179,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vite@4.1.4(terser@5.26.0):
+  /vite@4.1.4(sass@1.69.5)(terser@5.26.0):
     resolution: {integrity: sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -8184,6 +8208,7 @@ packages:
       postcss: 8.4.32
       resolve: 1.22.8
       rollup: 3.29.4
+      sass: 1.69.5
       terser: 5.26.0
     optionalDependencies:
       fsevents: 2.3.3
