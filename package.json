@@ -53,7 +53,7 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3081220230817001",
-    "vue": "^3.2.45",
+    "vue": "3.2.47",
     "vue-i18n": "^9.1.9"
   },
   "devDependencies": {
@@ -62,10 +62,19 @@
     "@dcloudio/uni-cli-shared": "3.0.0-3081220230817001",
     "@dcloudio/uni-stacktracey": "3.0.0-3081220230817001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3081220230817001",
-    "@vue/tsconfig": "^0.1.3",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
     "@vue/runtime-core": "^3.2.45",
+    "@vue/tsconfig": "^0.1.3",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.0",
     "typescript": "^4.9.4",
     "vite": "4.1.4",
+    "vue-global-api": "^0.4.1",
     "vue-tsc": "^1.0.24"
   }
 }
