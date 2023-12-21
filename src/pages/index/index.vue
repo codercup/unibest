@@ -9,10 +9,11 @@
 
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
-import { fun } from '../../test/import-sort'
+import { fun, fun as yy } from '../../test/import-sort'
 
 const title = ref('Hello')
 fun()
+yy()
 </script>
 
 <style>
