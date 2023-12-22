@@ -4,12 +4,19 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
+    <view class="flex text-red-500">
+      Demo Count: {{ countStore.count }}
+      <button @click="countStore.increment">新增</button>
+    </view>
   </view>
 </template>
 
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
+import { useCountStore } from '@/store/count'
 import { fun, fun as yy } from '../../test/import-sort'
+
+const countStore = useCountStore()
 
 uni.showModal({
   title: '提示',
