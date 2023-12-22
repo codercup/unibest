@@ -1,7 +1,15 @@
 {
-  "name": "uni-preset-vue",
+  "name": "vue3-uniapp-template",
   "version": "0.0.0",
   "type": "commonjs",
+  "author": {
+    "name": "Burt",
+    "zhName": "菲鸽",
+    "email": "1020103647@qq.com",
+    "url": "https://github.com/fly-vue3-templates/vue3-uniapp-template",
+    "github": "https://github.com/fly-vue3-templates/vue3-uniapp-template",
+    "gitee": "https://gitee.com/fly-vue3-templates/vue3-uniapp-template"
+  },
   "scripts": {
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
