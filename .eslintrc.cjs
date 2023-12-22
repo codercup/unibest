@@ -72,4 +72,7 @@ module.exports = {
       typescript: {},
     },
   },
+  globals: {
+    uni: true,
+  },
 }
