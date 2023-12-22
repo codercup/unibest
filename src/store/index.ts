@@ -1,8 +1,15 @@
 // src/store/index.ts
 import { createPinia } from 'pinia'
-import piniaPersist from 'pinia-plugin-persistedstate' // 数据持久化
+import { createPersistedState } from 'pinia-plugin-persistedstate' // 数据持久化
 
 const store = createPinia()
-store.use(piniaPersist)
+store.use(
+  createPersistedState({
+    storage: {
+      getItem: uni.getStorageSync,
+      setItem: uni.setStorageSync,
+    },
+  }),
+)
 
 export default store

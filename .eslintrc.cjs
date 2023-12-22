@@ -62,6 +62,7 @@ module.exports = {
     'no-plusplus': 'off',
     'no-shadow': 'off',
     'vue/multi-word-component-names': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   // eslint-import-resolver-typescript 插件，@see https://www.npmjs.com/package/eslint-import-resolver-typescript
   settings: {

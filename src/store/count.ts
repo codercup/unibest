@@ -1,4 +1,4 @@
-// src/store/use_count_store.ts
+// src/store/useCountStore.ts
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
