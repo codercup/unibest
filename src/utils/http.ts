@@ -10,7 +10,7 @@ type Data<T> = {
 }
 
 // 请求基地址
-const baseURL = 'http://localhost:5565/api'
+const baseURL = import.meta.env.VITE_SERVER_BASEURL
 
 // 拦截器配置
 const httpInterceptor = {

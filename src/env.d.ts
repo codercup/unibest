@@ -11,6 +11,8 @@ declare module '*.vue' {
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string
   readonly VITE_SERVER_PORT: string
+  readonly VITE_SERVER_BASEURL: string
+  readonly VITE_DELETE_CONSOLE: string
   // 更多环境变量...
 }
 
