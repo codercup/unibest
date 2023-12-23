@@ -4,6 +4,8 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
+    <button @click="setUserInfo">设置UserInfo</button>
+    <button @click="clearUserInfo">清除UserInfo</button>
     <view class="flex justify-center items-center text-blue-500">
       Demo Count: {{ countStore.count }}
       <button class="ml-2" @click="countStore.increment">新增</button>
@@ -22,13 +24,22 @@
 
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
-import { useCountStore } from '@/store/count'
+import { useCountStore, useUserStore } from '@/store'
 
 const countStore = useCountStore()
 const title = ref('Hello')
 
 const uniLayout = ref()
 console.log(uniLayout)
+
+const userStore = useUserStore()
+
+const setUserInfo = () => {
+  userStore.setUserInfo({ username: 'fly', token: 'abcdef' })
+}
+const clearUserInfo = () => {
+  userStore.clearUserInfo()
+}
 </script>
 
 <style>
