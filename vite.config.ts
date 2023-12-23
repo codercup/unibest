@@ -22,11 +22,13 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import UnoCSS from 'unocss/vite'
 import autoprefixer from 'autoprefixer'
 
-const htmlPlugin = () => {
+const htmlPlugin = (title: string) => {
   return {
     name: 'html-transform',
     transformIndexHtml(html) {
-      return html.replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+      return html
+        .replace(/<title>(.*?)<\/title>/, `<title>${title}</title>`)
+        .replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
     },
   }
 }
@@ -46,7 +48,7 @@ export default ({ mode }) => {
       UniLayouts(),
       Uni(),
       UnoCSS(),
-      htmlPlugin(),
+      htmlPlugin(env.VITE_APP_TITLE),
       svgLoader(),
       // 打包分析插件
       visualizer(),
@@ -134,7 +136,7 @@ export default ({ mode }) => {
     server: {
       host: '0.0.0.0',
       hmr: true,
-      port: 7001,
+      port: Number.parseInt(env.VITE_APP_PORT, 10),
       // 自定义代理规则
       proxy: {
         // 选项写法
@@ -142,6 +144,15 @@ export default ({ mode }) => {
           target: 'http://localhost:6666',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
+    },
+    build: {
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: env.VITE_DELETE_CONSOLE === 'true',
+          drop_debugger: env.VITE_DELETE_CONSOLE === 'true',
         },
       },
     },

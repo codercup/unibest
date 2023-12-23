@@ -175,6 +175,9 @@ devDependencies:
   stylelint-config-standard-scss:
     specifier: ^12.0.0
     version: 12.0.0(postcss@8.4.32)(stylelint@16.0.2)
+  terser:
+    specifier: ^5.26.0
+    version: 5.26.0
   typescript:
     specifier: ^4.9.4
     version: 4.9.5
