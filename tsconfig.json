@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
     "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
@@ -12,6 +16,5 @@
   "vueCompilerOptions": {
     "nativeTags": ["block", "template", "component", "slot"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
