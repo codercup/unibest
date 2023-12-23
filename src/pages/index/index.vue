@@ -17,6 +17,14 @@ import { useCountStore } from '@/store/count'
 
 const countStore = useCountStore()
 const title = ref('Hello')
+
+// 获取屏幕边界到安全区域距离
+const { safeAreaInsets } = uni.getSystemInfoSync()
+console.log(safeAreaInsets)
+const rect = {
+  top: `${safeAreaInsets.top}px`,
+  bottom: `${safeAreaInsets.bottom}px`,
+}
 </script>
 
 <style>
@@ -25,6 +33,7 @@ const title = ref('Hello')
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: v-bind('rect.top');
 }
 
 .logo {

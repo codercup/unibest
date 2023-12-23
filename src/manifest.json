@@ -54,6 +54,7 @@
     "setting": {
       "urlCheck": false
     },
+    "styleIsolation": "shared",
     "usingComponents": true
   },
   "mp-alipay": {
