@@ -11,6 +11,14 @@
   </view>
 </template>
 
+<route lang="json">
+{
+  "style": {
+    "navigationBarTitleText": "我才是标题"
+  }
+}
+</route>
+
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
 import { useCountStore } from '@/store/count'
