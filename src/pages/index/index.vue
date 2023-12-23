@@ -16,6 +16,7 @@
     <uni-badge text="1"></uni-badge>
     <!-- Sun in light mode, Moon in dark mode, from Carbon -->
     <button class="i-carbon-sun dark:i-carbon-moon" />
+    <fly-header></fly-header>
   </view>
 </template>
 
