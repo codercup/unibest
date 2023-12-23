@@ -1,5 +1,5 @@
 <h2 align="center">
-Vue3+ts for uni-app
+vue3-uniapp-template
 </h2>
 
 ## 特性
