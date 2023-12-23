@@ -2,15 +2,17 @@
 import {
   defineConfig,
   presetAttributify,
-  presetUno,
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
 
+import { presetUni } from '@uni-helper/unocss-preset-uni'
+
 export default defineConfig({
   presets: [
-    presetUno(),
+    // @ts-expect-error 类型兼容性
+    presetUni(),
     // 支持css class属性化，eg: `<button bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600" text="sm white">attributify Button</button>`
     presetAttributify(),
     // 支持图标，需要搭配图标库，eg: @iconify-json/carbon, 使用 `<button class="i-carbon-sun dark:i-carbon-moon" />`

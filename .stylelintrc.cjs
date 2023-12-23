@@ -35,5 +35,12 @@ module.exports = {
         ignoreUnits: ['rpx'],
       },
     ],
+    // 处理小程序page标签不认识的问题
+    'selector-type-no-unknown': [
+      true,
+      {
+        ignoreTypes: ['page'],
+      },
+    ],
   },
 }
