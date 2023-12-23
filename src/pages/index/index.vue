@@ -4,9 +4,9 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
-    <view class="flex text-red-500">
+    <view class="flex justify-center items-center text-blue-500">
       Demo Count: {{ countStore.count }}
-      <button @click="countStore.increment">新增</button>
+      <button class="ml-2" @click="countStore.increment">新增</button>
     </view>
   </view>
 </template>
