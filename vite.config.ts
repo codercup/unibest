@@ -7,13 +7,6 @@ import dayjs from 'dayjs'
 import svgLoader from 'vite-svg-loader'
 import { visualizer } from 'rollup-plugin-visualizer'
 import ViteRestart from 'vite-plugin-restart'
-import Components from 'unplugin-vue-components/vite'
-// ElementPlusResolver,
-// AntDesignVueResolver,
-// VantResolver,
-// HeadlessUiResolver,
-// ElementUiResolver
-import {} from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import viteCompression from 'vite-plugin-compression'
@@ -62,20 +55,6 @@ export default ({ mode }) => {
         restart: ['vite.config.js'],
       }),
       vueSetupExtend(),
-      // 原先引用组件的时候需要在目标文件里面import相关组件，现在就可以直接使用无需在目标文件import了
-      Components({
-        dirs: ['src/components'], // 目标文件夹
-        extensions: ['vue'], // 文件类型
-        dts: 'src/components.d.ts', // 输出文件，里面都是一些import的组件键值对
-        // ui库解析器，也可以自定义，需要安装相关UI库
-        resolvers: [
-          // VantResolver(),
-          // ElementPlusResolver(),
-          // AntDesignVueResolver(),
-          // HeadlessUiResolver(),
-          // ElementUiResolver()
-        ],
-      }),
       AutoImport({
         imports: ['vue'],
         dts: 'src/auto-import.d.ts',
