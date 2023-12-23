@@ -2,6 +2,7 @@ import path from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 import UniPages from '@uni-helper/vite-plugin-uni-pages'
+import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import dayjs from 'dayjs'
 import svgLoader from 'vite-svg-loader'
 import { visualizer } from 'rollup-plugin-visualizer'
@@ -41,6 +42,8 @@ export default ({ mode }) => {
     plugins: [
       // https://github.com/uni-helper/vite-plugin-uni-pages
       UniPages(),
+      // https://github.com/uni-helper/vite-plugin-uni-layouts
+      UniLayouts(),
       Uni(),
       UnoCSS(),
       htmlPlugin(),

@@ -13,6 +13,7 @@
 
 <route lang="json">
 {
+  "layout": "home",
   "style": {
     "navigationBarTitleText": "我才是标题"
   }
@@ -25,6 +26,9 @@ import { useCountStore } from '@/store/count'
 
 const countStore = useCountStore()
 const title = ref('Hello')
+
+const uniLayout = ref()
+console.log(uniLayout)
 </script>
 
 <style>
