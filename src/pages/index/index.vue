@@ -8,14 +8,12 @@
       Demo Count: {{ countStore.count }}
       <button class="ml-2" @click="countStore.increment">新增</button>
     </view>
-    <Test />
   </view>
 </template>
 
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
 import { useCountStore } from '@/store/count'
-import Test from './Test.vue'
 
 const countStore = useCountStore()
 const title = ref('Hello')
