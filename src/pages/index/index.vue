@@ -12,6 +12,8 @@
       Demo Count: {{ countStore.count }}
       <button class="ml-2" @click="countStore.increment">新增</button>
     </view>
+    <!-- Sun in light mode, Moon in dark mode, from Carbon -->
+    <button class="i-carbon-sun dark:i-carbon-moon" />
   </view>
 </template>
 
