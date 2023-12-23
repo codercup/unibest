@@ -8,4 +8,11 @@ export default defineUniPages({
     navigationBarTextStyle: 'black',
     navigationBarTitleText: 'vue3-uniapp',
   },
+  easycom: {
+    autoscan: true,
+    custom: {
+      // uni-ui 规则如下配置
+      '^uni-(.*)': '@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue',
+    },
+  },
 })
