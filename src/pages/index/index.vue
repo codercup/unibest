@@ -7,7 +7,7 @@
     <button @click="setUserInfo">设置UserInfo</button>
     <button @click="clearUserInfo">清除UserInfo</button>
 
-    <button @click="request">请求</button>
+    <button @click="handleRequest">请求</button>
     <view class="flex justify-center items-center text-blue-500">
       Demo Count: {{ countStore.count }}
       <button class="ml-2" @click="countStore.increment">新增</button>
@@ -28,6 +28,7 @@
 import { ref } from 'vue'
 import { useCountStore, useUserStore } from '@/store'
 import { http } from '@/utils/http'
+import { UserItem } from '@/typings'
 
 const countStore = useCountStore()
 const title = ref('Hello')
@@ -43,8 +44,8 @@ const setUserInfo = () => {
 const clearUserInfo = () => {
   userStore.clearUserInfo()
 }
-const request = () => {
-  const res = http({
+const handleRequest = () => {
+  const res = http<UserItem[]>({
     url: '/getUserList',
     method: 'GET',
   })
