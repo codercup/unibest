@@ -51,7 +51,12 @@ export default ({ mode }) => {
       htmlPlugin(env.VITE_APP_TITLE),
       svgLoader(),
       // 打包分析插件
-      visualizer(),
+      visualizer({
+        filename: './node_modules/.cache/visualizer/stats.html',
+        open: true,
+        gzipSize: true,
+        brotliSize: true,
+      }),
       ViteRestart({
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],
