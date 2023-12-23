@@ -6,6 +6,8 @@
     </view>
     <button @click="setUserInfo">设置UserInfo</button>
     <button @click="clearUserInfo">清除UserInfo</button>
+
+    <button @click="request">请求</button>
     <view class="flex justify-center items-center text-blue-500">
       Demo Count: {{ countStore.count }}
       <button class="ml-2" @click="countStore.increment">新增</button>
@@ -25,6 +27,7 @@
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
 import { useCountStore, useUserStore } from '@/store'
+import { http } from '@/utils/http'
 
 const countStore = useCountStore()
 const title = ref('Hello')
@@ -39,6 +42,13 @@ const setUserInfo = () => {
 }
 const clearUserInfo = () => {
   userStore.clearUserInfo()
+}
+const request = () => {
+  const res = http({
+    url: '/getUserList',
+    method: 'GET',
+  })
+  console.log(res)
 }
 </script>
 

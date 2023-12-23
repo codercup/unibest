@@ -75,5 +75,6 @@ module.exports = {
   },
   globals: {
     uni: true,
+    UniApp: true,
   },
 }
