@@ -42,5 +42,6 @@ module.exports = {
         ignoreTypes: ['page'],
       },
     ],
+    'comment-empty-line-before': 'never',
   },
 }
