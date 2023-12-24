@@ -20,5 +20,10 @@
   },
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  // 配置语言的文件关联
+  "files.associations": {
+    "pages.json": "jsonc", // pages.json 可以写注释
+    "manifest.json": "jsonc" // manifest.json 可以写注释
   }
 }
