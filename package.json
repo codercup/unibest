@@ -95,7 +95,6 @@
     "@uni-helper/uni-app-types": "^0.5.12",
     "@uni-helper/uni-ui-types": "^0.5.11",
     "@uni-helper/unocss-preset-uni": "^0.2.5",
-    "@uni-helper/vite-plugin-uni-layouts": "^0.1.7",
     "@uni-helper/vite-plugin-uni-pages": "^0.2.12",
     "@vue/runtime-core": "^3.2.45",
     "@vue/tsconfig": "^0.1.3",
