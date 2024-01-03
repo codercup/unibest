@@ -17,8 +17,8 @@
     <!-- Sun in light mode, Moon in dark mode, from Carbon -->
     <button class="i-carbon-sun dark:i-carbon-moon text-green-300" />
     <fly-header></fly-header>
-    <navigator url="/pages/test1/index" open-type="navigate" hover-class="navigator-hover">
-      去二级页
+    <navigator url="/pages/my/index" open-type="navigate" hover-class="navigator-hover">
+      去我的
     </navigator>
   </view>
 </template>

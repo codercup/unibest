@@ -7,12 +7,18 @@
       }
     },
     {
-      "path": "pages/my/index",
+      "path": "pages/throughout/index",
       "style": {
-        "navigationBarTitleText": "我的",
+        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
         "enablePullDownRefresh": true,
         "backgroundColor": "#23c09c", // 这个背景色要与页面的.top-section的背景图差不多，这样下拉刷新看起来才比较协调
         "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my/index",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     }
   ],
@@ -29,12 +35,26 @@
     }
   },
   "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "24px",
+    "spacing": "3px",
     "list": [
       {
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tab-icons/extui.png",
+        "selectedIconPath": "static/tab-icons/extuiHL.png",
+        "text": "首页"
       },
       {
-        "pagePath": "pages/my/index"
+        "pagePath": "pages/throughout/index",
+        "iconPath": "static/tab-icons/template.png",
+        "selectedIconPath": "static/tab-icons/templateHL.png",
+        "text": "通屏"
       }
     ]
   },
