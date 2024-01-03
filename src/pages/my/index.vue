@@ -40,8 +40,17 @@
 
 <script lang="ts" setup>
 import useNavbarWeixin from '@/hooks/useNavbarWeixin'
+import { onPullDownRefresh } from '@dcloudio/uni-app'
 
 const { pages, isTabbar, onScrollToLower, safeAreaInsets } = useNavbarWeixin()
+
+// 发现原生下拉刷新效果并不好，在微信里面只有顶部导航栏下拉才生效，页面区域下拉不生效，体验不好
+onPullDownRefresh(() => {
+  console.log('refresh')
+  setTimeout(function fn() {
+    uni.stopPullDownRefresh()
+  }, 1000)
+})
 </script>
 
 <style lang="scss">

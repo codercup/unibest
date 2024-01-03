@@ -10,6 +10,7 @@
       "path": "pages/my/index",
       "style": {
         "navigationBarTitleText": "我的",
+        "enablePullDownRefresh": true,
         "navigationStyle": "custom"
       }
     }
