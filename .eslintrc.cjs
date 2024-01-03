@@ -76,5 +76,10 @@ module.exports = {
   globals: {
     uni: true,
     UniApp: true,
+    wx: true,
+    WechatMiniprogram: true,
+    getCurrentPages: true,
+    UniHelper: true,
+    Page: true,
   },
 }
