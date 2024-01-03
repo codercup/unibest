@@ -18,7 +18,7 @@
     <button class="i-carbon-sun dark:i-carbon-moon text-green-300" />
     <fly-header></fly-header>
     <navigator url="/pages/my/index" open-type="navigate" hover-class="navigator-hover">
-      去我的
+      <button type="primary">跳转到“我的”页面</button>
     </navigator>
   </view>
 </template>
