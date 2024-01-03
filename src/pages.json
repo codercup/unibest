@@ -11,6 +11,7 @@
       "style": {
         "navigationBarTitleText": "我的",
         "enablePullDownRefresh": true,
+        "backgroundColor": "#23c09c",
         "navigationStyle": "custom"
       }
     }

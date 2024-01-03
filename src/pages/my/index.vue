@@ -20,21 +20,26 @@
   <scroll-view
     enable-back-to-top
     scroll-y
-    class="bg-white flex-1 h-full"
+    class="scroll-view-bg flex-1 h-full"
     id="scroller"
+    refresher-enabled
     @scrolltolower="onScrollToLower"
+    @refresherrefresh="onRefresherRefresh"
+    :refresher-triggered="isTriggered"
   >
     <view class="top-section" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
       <view class="pt-1">顶部区域</view>
       <view>可以是标题，也可以是个人中心头像等</view>
       <view>建议本区域高度不低于200rpx</view>
     </view>
-    <view class="p-2 leading-6">
+    <view class="p-2 leading-6 bg-white">
       注意，上面的导航栏渐变效果仅微信端支持，且上面的导航栏无法抽为组件引入使用，否则滚动效果没有了。如果不只是微信小程序使用，可以
       onPageScroll 实现全端效果一样，另外如果是app端，还可以配置 titleNView。参考
       https://uniapp.dcloud.net.cn/tutorial/page.html#onpagescroll 。
     </view>
-    <fly-content :line="30" />
+    <view class="bg-white">
+      <fly-content :line="30" />
+    </view>
   </scroll-view>
 </template>
 
@@ -44,13 +49,27 @@ import { onPullDownRefresh } from '@dcloudio/uni-app'
 
 const { pages, isTabbar, onScrollToLower, safeAreaInsets } = useNavbarWeixin()
 
-// 发现原生下拉刷新效果并不好，在微信里面只有顶部导航栏下拉才生效，页面区域下拉不生效，体验不好
+// 发现原生下拉刷新效果并不好，在微信里面只有顶部导航栏下拉才生效，页面区域下拉不生效，体验不好，结合自定义下拉刷新效果很好
 onPullDownRefresh(() => {
-  console.log('refresh')
   setTimeout(function fn() {
+    console.log('refresh - onPullDownRefresh')
+    // 关闭动画
     uni.stopPullDownRefresh()
   }, 1000)
 })
+
+// 当前下拉刷新状态
+const isTriggered = ref(false)
+// 自定义下拉刷新被触发
+const onRefresherRefresh = async () => {
+  // 开始动画
+  isTriggered.value = true
+  setTimeout(function fn() {
+    console.log('refresh - onRefresherRefresh')
+    // 关闭动画
+    isTriggered.value = false
+  }, 1000)
+}
 </script>
 
 <style lang="scss">
@@ -59,6 +78,11 @@ page {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+}
+
+.scroll-view-bg {
+  // 这个背景色要与.top-section的背景图差不多，这样下拉刷新看起来才比较协调
+  background-color: #23c09c;
 }
 
 // 这个区域最好要大于200rpx，效果会更好
