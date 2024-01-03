@@ -13,6 +13,7 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import UnoCSS from 'unocss/vite'
 import autoprefixer from 'autoprefixer'
 
+/** 这个修改只对web生效，小程序没有index.html这个文件 */
 const htmlPlugin = (title: string) => {
   return {
     name: 'html-transform',
@@ -25,8 +26,14 @@ const htmlPlugin = (title: string) => {
 }
 
 // https://vitejs.dev/config/
-export default ({ mode }) => {
+export default ({ command, mode }) => {
   // mode: 区分生产环境还是开发环境
+  console.log(command, mode)
+  // pnpm dev:h5 时得到 => serve development
+  // pnpm build:h5 时得到 => build development
+  // pnpm dev:mp-weixin 时得到 => build development (注意区别，command为build)
+  // pnpm build:mp-weixin 时得到 => build production
+
   // process.cwd(): 获取当前文件的目录跟地址
   // loadEnv(): 返回当前环境env文件中额外定义的变量
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
@@ -38,12 +45,13 @@ export default ({ mode }) => {
       htmlPlugin(env.VITE_APP_TITLE),
       svgLoader(),
       // 打包分析插件
-      visualizer({
-        filename: './node_modules/.cache/visualizer/stats.html',
-        open: true,
-        gzipSize: true,
-        brotliSize: true,
-      }),
+      mode === 'production' &&
+        visualizer({
+          filename: './node_modules/.cache/visualizer/stats.html',
+          open: true,
+          gzipSize: true,
+          brotliSize: true,
+        }),
       ViteRestart({
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],
