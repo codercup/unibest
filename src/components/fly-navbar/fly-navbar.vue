@@ -8,14 +8,14 @@
     <!-- 2/3，只有1个页面，如果不是tabbar，需要首页图标 -->
     <!-- 这种情况一般出现在用户直接打开分享出去的详情页面，或者使用redirectTo等API -->
     <navigator
-      v-else-if="isTabbar"
+      v-else-if="!isTabbar"
       open-type="switchTab"
       url="/pages/index/index"
       class="left-icon"
     >
       <button class="i-carbon-home text-white"></button>
     </navigator>
-    <!-- 如果当前页就是tabbar页，不用去首页，也就是什么图标都不需要 -->
+    <!-- 3/3，如果当前页就是tabbar页，不用去首页，也就是什么图标都不需要 -->
     <view class="title">{{ title || '' }}</view>
   </view>
 </template>
@@ -24,11 +24,12 @@
 import { getIsTabbar } from '@/utils/index'
 
 defineProps<{ title?: string }>()
-// 获取屏幕边界到安全区域距离
-const { safeAreaInsets } = uni.getSystemInfoSync()
 // 获取页面栈
 const pages = getCurrentPages()
 const isTabbar = getIsTabbar()
+
+// 获取屏幕边界到安全区域距离
+const { safeAreaInsets } = uni.getSystemInfoSync()
 </script>
 
 <style lang="scss" scoped>
