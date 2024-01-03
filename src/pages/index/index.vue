@@ -12,10 +12,10 @@
       Demo Count: {{ countStore.count }}
       <button class="ml-2" @click="countStore.increment">新增</button>
     </view>
-    <uni-icons type="contact" size="30"></uni-icons>
+    <uni-icons type="contact" size="30" color="red"></uni-icons>
     <uni-badge text="1"></uni-badge>
     <!-- Sun in light mode, Moon in dark mode, from Carbon -->
-    <button class="i-carbon-sun dark:i-carbon-moon" />
+    <button class="i-carbon-sun dark:i-carbon-moon text-green-300" />
     <fly-header></fly-header>
   </view>
 </template>

@@ -5,6 +5,13 @@
       "style": {
         "navigationBarTitleText": "我才是标题"
       }
+    },
+    {
+      "path": "pages/my/index",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationStyle": "custom"
+      }
     }
   ],
   "globalStyle": {
