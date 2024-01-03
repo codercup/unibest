@@ -81,5 +81,6 @@ module.exports = {
     getCurrentPages: true,
     UniHelper: true,
     Page: true,
+    App: true,
   },
 }

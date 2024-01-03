@@ -27,5 +27,3 @@ stats.html
 auto-import.d.ts
 # unplugin-vue-components 生成的类型文件
 components.d.ts
-# vite-plugin-uni-pages 生成的类型文件
-uni-pages.d.ts

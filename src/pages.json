@@ -8,7 +8,7 @@
     }
   ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "vue3-uniapp"
   },
   "easycom": {
