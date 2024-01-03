@@ -11,7 +11,7 @@
       "style": {
         "navigationBarTitleText": "我的",
         "enablePullDownRefresh": true,
-        "backgroundColor": "#23c09c",
+        "backgroundColor": "#23c09c", // 这个背景色要与页面的.top-section的背景图差不多，这样下拉刷新看起来才比较协调
         "navigationStyle": "custom"
       }
     }
