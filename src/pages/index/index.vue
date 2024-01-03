@@ -20,15 +20,6 @@
   </view>
 </template>
 
-<route lang="json">
-{
-  "layout": "home",
-  "style": {
-    "navigationBarTitleText": "我才是标题"
-  }
-}
-</route>
-
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
 import { useCountStore, useUserStore } from '@/store'

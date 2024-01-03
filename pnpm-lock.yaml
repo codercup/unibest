@@ -106,9 +106,6 @@ devDependencies:
   '@uni-helper/unocss-preset-uni':
     specifier: ^0.2.5
     version: 0.2.5(eslint-import-resolver-typescript@3.6.1)(postcss@8.4.32)(typescript@4.9.5)(vite@4.1.4)
-  '@uni-helper/vite-plugin-uni-pages':
-    specifier: ^0.2.12
-    version: 0.2.12(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
   '@vue/runtime-core':
     specifier: ^3.2.45
     version: 3.3.13
@@ -3655,16 +3652,6 @@ packages:
       '@types/node': 20.10.5
     dev: true
 
-  /@types/lodash-es@4.17.12:
-    resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
-    dependencies:
-      '@types/lodash': 4.14.202
-    dev: true
-
-  /@types/lodash@4.14.202:
-    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
-    dev: true
-
   /@types/mdast@3.0.15:
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
     dependencies:
@@ -3882,10 +3869,6 @@ packages:
       vue3: /vue@3.3.13(typescript@4.9.5)
     dev: true
 
-  /@uni-helper/uni-env@0.0.3:
-    resolution: {integrity: sha512-K6MEnmN7Dg+NnEkfUUhjaKc/rPVY7tcGdsVUKOlC1/z2E6H6zjSSTdJg8z+sVJtZ03Ff1G/MHz2PYDyAS6gjQQ==}
-    dev: true
-
   /@uni-helper/uni-env@0.1.1(eslint-import-resolver-typescript@3.6.1)(typescript@4.9.5):
     resolution: {integrity: sha512-NGQMOyqCF8VAEi3wWbJLKRwqhMldmFvITMs0j/bvVJ2jjUwN+0ofpPF3aHakCGpuY577DRx4coVN2iYmCb75fw==}
     dependencies:
@@ -3935,26 +3918,6 @@ packages:
       - typescript
       - vite
       - vitest
-    dev: true
-
-  /@uni-helper/vite-plugin-uni-pages@0.2.12(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21):
-    resolution: {integrity: sha512-7Y5nX5o8BrUGWQyHYLSHbE5HxzXxkVpis988SDHAPOY+Kl6acpcg2hvfUNM99l1h4l1KwzW/JCr9u4Ib62HkjA==}
-    dependencies:
-      '@uni-helper/uni-env': 0.0.3
-      '@vue/compiler-sfc': 3.3.13
-      chokidar: 3.5.3
-      debug: 4.3.4
-      fast-glob: 3.3.2
-      json5: 2.2.3
-      lodash-unified: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
-      magic-string: 0.30.5
-      unconfig: 0.3.11
-      yaml: 2.3.4
-    transitivePeerDependencies:
-      - '@types/lodash-es'
-      - lodash
-      - lodash-es
-      - supports-color
     dev: true
 
   /@unocss-applet/preset-applet@0.7.8:
@@ -9938,22 +9901,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
-    dev: true
-
-  /lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: true
-
-  /lodash-unified@1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21):
-    resolution: {integrity: sha512-WK9qSozxXOD7ZJQlpSqOT+om2ZfcT4yO+03FuzAHD0wF6S0l0090LRPDx3vhTTLZ8cFKpBn+IOcVXK6qOcIlfQ==}
-    peerDependencies:
-      '@types/lodash-es': '*'
-      lodash: '*'
-      lodash-es: '*'
-    dependencies:
-      '@types/lodash-es': 4.17.12
-      lodash: 4.17.21
-      lodash-es: 4.17.21
     dev: true
 
   /lodash.camelcase@4.3.0:
