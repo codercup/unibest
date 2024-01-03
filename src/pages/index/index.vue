@@ -25,6 +25,7 @@ import { ref } from 'vue'
 import { useCountStore, useUserStore } from '@/store'
 import { http } from '@/utils/http'
 import { UserItem } from '@/typings'
+import { onShareAppMessage } from '@dcloudio/uni-app'
 
 const countStore = useCountStore()
 const title = ref('Hello')
@@ -47,6 +48,15 @@ const handleRequest = () => {
   })
   console.log(res)
 }
+onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {
+  console.log('options:', options)
+  return {
+    title: '自定义分享标题',
+    path: '/pages/index/index?id=xxx',
+    imageUrl:
+      'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/pretty-girl.png',
+  }
+})
 </script>
 
 <style>
