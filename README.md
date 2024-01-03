@@ -1,16 +1,12 @@
-<h2 align="center">
-vue3-uniapp-template
-</h2>
+# vue3-uniapp-template
 
 ## 特性
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/), [esbuild](https://github.com/evanw/esbuild) - 就是快！
 
-- 🗂 [基于文件的路由](./src/pages)
-
 - 📦 [组件自动化加载](./src/components)
 
-- 📑 [布局系统](./src/layouts)
+- 📑 pinia+适用于多端的持久化方案
 
 - 🎨 [UnoCSS](https://github.com/unocss/unocss) - 高性能且极具灵活性的即时原子化 CSS 引擎
 
@@ -22,12 +18,28 @@ vue3-uniapp-template
 
 - 🦾 [TypeScript](https://www.typescriptlang.org/) & [ESLint](https://eslint.org/) & [stylelint](https://stylelint.io/) - 保证代码质量
 
-- &#x1F44D; [husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) + [commitlint](https://commitlint.js.org/) - 保证代码提交质量
+- 🗂 [husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) + [commitlint](https://commitlint.js.org/) - 保证代码提交质量
 
-- &#x1F308; ES6 import 顺序自动排序，css 属性自动排序，增强编码一致性
+- 🗂 ES6 import 顺序自动排序，css 属性自动排序，增强编码一致性
 
-- &#x1F353; 使用请求拦截器，封装好您的请求
+- 🗂 使用请求拦截器，封装好您的请求
 
-- &#x1F3C6; 图片自动压缩，再也不用去tinyPng等网站压缩图片了
+- 🗂 图片自动压缩，再也不用去tinyPng等网站压缩图片了
 
-- &#x1F493; 多环境配置分开，想则怎么配置就怎么配置
+- 🗂 多环境配置分开，想则怎么配置就怎么配置
+
+## 环境
+
+- pnpm>=8.12
+- node>=16
+
+## 运行
+
+- web平台： `pnpm dev:h5`, 然后打开 [http://localhost:9000/](http://localhost:9000/)。
+- weixin平台：`pnpm dev:mp-weixin` 然后打开微信开发者工具，导入本地文件夹，选择本项目的`dist/dev/mp-weixin` 文件。
+
+## 发布
+
+- web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `vite.config.ts` 的 `base` 属性进行配置。[vite官网](https://cn.vitejs.dev/config/shared-options.html#base)
+  ![vite.base](./screenshots/vite-base.png)
+- weixin平台：`pnpm build:h5`, 打包后的文件在 `dist/build/mp-weixin`，然后通过微信开发者工具导入，并点击右上角的“上传”按钮进行上传。
