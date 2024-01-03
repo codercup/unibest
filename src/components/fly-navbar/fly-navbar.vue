@@ -1,22 +1,34 @@
 <template>
   <!-- 自定义导航栏: 默认透明不可见, scroll-view 滚动到 50 时展示 -->
   <view class="fly-navbar" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
-    <navigator v-if="pages.length > 1" open-type="navigateBack" class="back">
-      <uni-icons type="left" color="white" size="24" />
+    <!-- 1/3，多于1个页面，用返回图标 -->
+    <navigator v-if="pages.length > 1" open-type="navigateBack" class="left-icon">
+      <button class="i-carbon-chevron-left text-white"></button>
     </navigator>
-    <navigator v-else open-type="switchTab" url="/pages/index/index" class="back">
-      <uni-icons type="home" color="white" size="24" />
+    <!-- 2/3，只有1个页面，如果不是tabbar，需要首页图标 -->
+    <!-- 这种情况一般出现在用户直接打开分享出去的详情页面，或者使用redirectTo等API -->
+    <navigator
+      v-else-if="isTabbar"
+      open-type="switchTab"
+      url="/pages/index/index"
+      class="left-icon"
+    >
+      <button class="i-carbon-home text-white"></button>
     </navigator>
+    <!-- 如果当前页就是tabbar页，不用去首页，也就是什么图标都不需要 -->
     <view class="title">{{ title || '' }}</view>
   </view>
 </template>
 
 <script lang="ts" setup>
+import { getIsTabbar } from '@/utils/index'
+
 defineProps<{ title?: string }>()
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 // 获取页面栈
 const pages = getCurrentPages()
+const isTabbar = getIsTabbar()
 </script>
 
 <style lang="scss" scoped>
@@ -29,7 +41,7 @@ const pages = getCurrentPages()
   color: #000;
   background-color: transparent;
 
-  .back {
+  .left-icon {
     position: absolute;
     left: 0;
     display: flex;
