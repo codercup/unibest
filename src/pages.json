@@ -24,6 +24,8 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
     "navigationBarTitleText": "vue3-uniapp"
   },
   "easycom": {
@@ -36,7 +38,7 @@
   },
   "tabBar": {
     "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "selectedColor": "blue",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "height": "50px",
