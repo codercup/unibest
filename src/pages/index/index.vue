@@ -25,7 +25,7 @@ import { ref } from 'vue'
 import { useCountStore, useUserStore } from '@/store'
 import { http } from '@/utils/http'
 import { UserItem } from '@/typings'
-import { onShareAppMessage } from '@dcloudio/uni-app'
+import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
 
 const countStore = useCountStore()
 const title = ref('Hello')
@@ -48,6 +48,7 @@ const handleRequest = () => {
   })
   console.log(res)
 }
+/** 激活“分享给好友” */
 onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {
   console.log('options:', options)
   return {
@@ -55,6 +56,13 @@ onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent
     path: '/pages/index/index?id=xxx',
     imageUrl:
       'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/pretty-girl.png',
+  }
+})
+/** 激活“分享到朋友圈”， 注意：需要先激活“分享给好友” */
+onShareTimeline((): Page.ShareTimelineContent => {
+  return {
+    title: '自定义分享标题',
+    query: 'a=1&b=2',
   }
 })
 </script>
