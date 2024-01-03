@@ -2,8 +2,6 @@
   "pages": [
     {
       "path": "pages/index/index",
-      "type": "home",
-      "layout": "home",
       "style": {
         "navigationBarTitleText": "我才是标题"
       }
