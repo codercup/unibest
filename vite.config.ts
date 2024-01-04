@@ -17,6 +17,7 @@ import autoprefixer from 'autoprefixer'
 
 /** 这个修改只对web生效，小程序没有index.html这个文件 */
 const htmlPlugin = (title: string) => {
+  console.log('---htmlPlugin---')
   return {
     name: 'html-transform',
     transformIndexHtml(html) {
@@ -40,13 +41,14 @@ export default ({ command, mode }) => {
   // loadEnv(): 返回当前环境env文件中额外定义的变量
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
   console.log(env)
+  console.log(process.env.UNI_PLATFORM) // 得到 mp-weixin, h5 等
   return defineConfig({
     plugins: [
       // UniPages() 需要在 Uni() 之前引入
       UniPages(),
       Uni(),
       UnoCSS(),
-      htmlPlugin(env.VITE_APP_TITLE),
+      process.env.UNI_PLATFORM === 'h5' && htmlPlugin(env.VITE_APP_TITLE),
       svgLoader(),
       // 打包分析插件
       mode === 'production' &&
