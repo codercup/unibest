@@ -27,6 +27,7 @@
     <navigator url="/pages/my/index" open-type="navigate" hover-class="navigator-hover">
       <button type="primary">跳转到“我的”页面</button>
     </navigator>
+    <demo />
   </view>
 </template>
 
@@ -36,6 +37,7 @@ import { useCountStore, useUserStore } from '@/store'
 import { http } from '@/utils/http'
 import { UserItem } from '@/typings'
 import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
+import Demo from './components/demo.vue'
 
 const countStore = useCountStore()
 const title = ref('Hello')

@@ -1,8 +1,18 @@
 <template>
   <view>
     <view>demo</view>
-    <view>测试是否会自动引入到pages，发现会</view>
-    <view>说明components里面的vue文件也会注册为page，这个特性感觉不太好</view>
-    <view>我已经在pages.config.ts里面配置了exclude，但是没生效</view>
+    <view>测试是否会自动引入到pages，发现会，除非增加exclude配置</view>
+    <view>需要在vite.config.ts（注意不是pages.config.ts）中UniPages()配置exclude</view>
+    <view>配置如下: </view>
+    <pre>
+export default defineConfig({
+  plugins: [
+    UniPages({
+      exclude: ['**/components/**/**.*'],
+    }),
+    uni(),
+  ],
+})
+    </pre>
   </view>
 </template>
