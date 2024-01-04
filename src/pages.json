@@ -1,31 +1,6 @@
 {
-  "pages": [
-    {
-      "path": "pages/index/index",
-      "style": {
-        "navigationBarTitleText": "我才是标题"
-      }
-    },
-    {
-      "path": "pages/throughout/index",
-      "style": {
-        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
-        "enablePullDownRefresh": true,
-        "backgroundColor": "#23c09c", // 这个背景色要与页面的.top-section的背景图差不多，这样下拉刷新看起来才比较协调
-        "navigationStyle": "custom"
-      }
-    },
-    {
-      "path": "pages/my/index",
-      "style": {
-        "navigationBarTitleText": "我的"
-      }
-    }
-  ],
   "globalStyle": {
-    "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "white",
     "navigationBarTitleText": "vue3-uniapp"
   },
   "easycom": {
@@ -38,7 +13,7 @@
   },
   "tabBar": {
     "color": "#7A7E83",
-    "selectedColor": "blue",
+    "selectedColor": "#00f",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "height": "50px",
@@ -60,5 +35,36 @@
       }
     ]
   },
+  "exclude": ["**/components/**/*.*"],
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "我才是标题"
+      }
+    },
+    {
+      "path": "pages/my/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/throughout/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#23c09c",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/index/components/demo",
+      "type": "page"
+    }
+  ],
   "subPackages": []
 }

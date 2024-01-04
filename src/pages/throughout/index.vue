@@ -1,3 +1,14 @@
+<route lang="json5">
+{
+  style: {
+    navigationBarTitleText: '通屏+下拉刷新+自定义导航栏',
+    enablePullDownRefresh: true,
+    backgroundColor: '#23c09c', // 这个背景色要与页面的.top-section的背景图差不多，这样下拉刷新看起来才比较协调
+    navigationStyle: 'custom',
+  },
+}
+</route>
+
 <template>
   <view class="fly-navbar" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
     <!-- 1/3，多于1个页面，用返回图标 -->
