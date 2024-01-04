@@ -2,8 +2,10 @@ import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
   globalStyle: {
-    navigationStyle: 'white',
+    navigationStyle: 'default',
     navigationBarTitleText: 'vue3-uniapp',
+    navigationBarBackgroundColor: '#f8f8f8',
+    navigationBarTextStyle: 'black',
   },
   easycom: {
     autoscan: true,
@@ -43,7 +45,7 @@ export default defineUniPages({
    * 排除的页面，相对于 dir 和 subPackages，通常把这些目录里面的components里面的文件排除掉
    * @default []
    */
-  exclude: ['**/components/**/**.*', '**/components/**.*', 'pages/index/components/demo'],
+  exclude: ['components/**/**.*', 'components/**.*', 'pages/index/components/demo'],
   /**
    * subPackages 扫描的目录，例如：src/pages-sub
    * @type SubPackage[] | undefined

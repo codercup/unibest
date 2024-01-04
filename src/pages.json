@@ -1,7 +1,9 @@
 {
   "globalStyle": {
-    "navigationStyle": "white",
-    "navigationBarTitleText": "vue3-uniapp"
+    "navigationStyle": "default",
+    "navigationBarTitleText": "vue3-uniapp",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTextStyle": "black"
   },
   "easycom": {
     "autoscan": true,
@@ -68,6 +70,6 @@
       "type": "page"
     }
   ],
-  "exclude": ["**/components/**/**.*", "**/components/**.*", "pages/index/components/demo"],
+  "exclude": ["components/**/**.*", "components/**.*", "pages/index/components/demo"],
   "subPackages": []
 }
