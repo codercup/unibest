@@ -53,3 +53,8 @@
 - web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `vite.config.ts` 的 `base` 属性进行配置。[vite官网](https://cn.vitejs.dev/config/shared-options.html#base)
   ![vite.base](./screenshots/vite-base.png)
 - weixin平台：`pnpm build:h5`, 打包后的文件在 `dist/build/mp-weixin`，然后通过微信开发者工具导入，并点击右上角的“上传”按钮进行上传。
+  -app: 需要配置 `manifest.json`，有3个地方需要填，如下图
+  ![app打包](./screenshots/build-app.png)
+  然后打开HBuildX--发行--原生APP云打包，然后出现如下图，按图填写即可。
+  ![app打包](./screenshots/build-app2.png),打包成功如下图
+  ![app打包成功](./screenshots/build-app-success.png)
