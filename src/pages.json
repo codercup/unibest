@@ -43,6 +43,10 @@
       }
     },
     {
+      "path": "pages/demo/index",
+      "type": "page"
+    },
+    {
       "path": "pages/my/index",
       "type": "page",
       "style": {
