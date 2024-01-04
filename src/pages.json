@@ -64,12 +64,7 @@
         "backgroundColor": "#23c09c",
         "navigationStyle": "custom"
       }
-    },
-    {
-      "path": "pages/index/components/demo",
-      "type": "page"
     }
   ],
-  "exclude": ["**/components/**/**.*"],
   "subPackages": []
 }

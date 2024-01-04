@@ -45,7 +45,7 @@ export default ({ command, mode }) => {
   return defineConfig({
     plugins: [
       // UniPages() 需要在 Uni() 之前引入
-      UniPages(),
+      UniPages({ exclude: ['**/components/**/**.*'] }),
       Uni(),
       UnoCSS(),
       process.env.UNI_PLATFORM === 'h5' && htmlPlugin(env.VITE_APP_TITLE),
