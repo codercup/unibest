@@ -112,6 +112,9 @@ devDependencies:
   '@uni-helper/vite-plugin-uni-pages':
     specifier: ^0.2.13
     version: 0.2.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
+  '@uni-helper/vite-plugin-uni-platform':
+    specifier: ^0.0.4
+    version: 0.0.4
   '@vue/runtime-core':
     specifier: ^3.2.45
     version: 3.3.13
@@ -3972,6 +3975,12 @@ packages:
       - lodash
       - lodash-es
       - supports-color
+    dev: true
+
+  /@uni-helper/vite-plugin-uni-platform@0.0.4:
+    resolution: {integrity: sha512-aQnhpiLpxlxr6C2i6FsEbY6aFJH1igZUC5DsqoDscD/dBnpCPnovW9bFL/ig8qHsq87iAnqwhZtEpsLrzgrDaw==}
+    dependencies:
+      '@uni-helper/uni-env': 0.0.3
     dev: true
 
   /@unocss-applet/preset-applet@0.7.8:
