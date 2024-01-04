@@ -68,5 +68,6 @@
       "type": "page"
     }
   ],
+  "exclude": ["**/components/**/**.*", "**/components/**.*", "pages/index/components/demo"],
   "subPackages": []
 }
