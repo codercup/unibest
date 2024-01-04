@@ -6,7 +6,6 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^Fly(.*)": "@/components/fly-$1/fly-$1.vue",
       "^fly-(.*)": "@/components/fly-$1/fly-$1.vue",
       "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
     }
@@ -35,7 +34,6 @@
       }
     ]
   },
-  "exclude": ["**/components/**/*.*"],
   "pages": [
     {
       "path": "pages/index/index",
