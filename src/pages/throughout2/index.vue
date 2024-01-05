@@ -2,7 +2,7 @@
 {
   style: {
     navigationBarTitleText: '通屏+下拉刷新+自定义导航栏',
-    enablePullDownRefresh: true,
+    enablePullDownRefresh: false,
     backgroundColor: '#23c09c', // 这个背景色要与页面的.top-section的背景图差不多，这样下拉刷新看起来才比较协调
     'app-plus': {
       titleNView: {
@@ -37,6 +37,7 @@
     <view class="title">{{ '我是标题' }}</view>
   </view>
   <!-- #endif -->
+
   <scroll-view
     enable-back-to-top
     scroll-y
@@ -57,9 +58,6 @@
       onPageScroll 实现全端效果一样，另外如果是app端，还可以配置 titleNView。参考
       https://uniapp.dcloud.net.cn/tutorial/page.html#onpagescroll 。
     </view>
-    <navigator url="/pages/throughout2/index" open-type="navigate" hover-class="navigator-hover">
-      <button>去二级详情页</button>
-    </navigator>
     <view class="bg-white">
       <fly-content :line="30" />
     </view>

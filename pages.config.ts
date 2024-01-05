@@ -6,6 +6,7 @@ export default defineUniPages({
     navigationBarTitleText: 'vue3-uniapp',
     navigationBarBackgroundColor: '#f8f8f8',
     navigationBarTextStyle: 'black',
+    backgroundColor: '#FFFFFF',
   },
   easycom: {
     autoscan: true,

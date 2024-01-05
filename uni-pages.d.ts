@@ -7,19 +7,20 @@ interface NavigateToOptions {
   url: "pages/index/index" |
        "pages/demo/index" |
        "pages/my/index" |
-       "pages/throughout/index";
+       "pages/throughout/index" |
+       "pages/throughout2/index";
 }
 interface RedirectToOptions extends NavigateToOptions {}
 
 interface SwitchTabOptions {
-  url: 'pages/index/index' | 'pages/throughout/index'
+  url: "pages/index/index" | "pages/throughout/index"
 }
 
-type ReLaunchOptions = NavigateToOptions | SwitchTabOptions
+type ReLaunchOptions = NavigateToOptions | SwitchTabOptions;
 
 declare interface Uni {
-  navigateTo(options: UniNamespace.NavigateToOptions & NavigateToOptions): void
-  redirectTo(options: UniNamespace.RedirectToOptions & RedirectToOptions): void
-  switchTab(options: UniNamespace.SwitchTabOptions & SwitchTabOptions): void
-  reLaunch(options: UniNamespace.ReLaunchOptions & ReLaunchOptions): void
+  navigateTo(options: UniNamespace.NavigateToOptions & NavigateToOptions): void;
+  redirectTo(options: UniNamespace.RedirectToOptions & RedirectToOptions): void;
+  switchTab(options: UniNamespace.SwitchTabOptions & SwitchTabOptions): void;
+  reLaunch(options: UniNamespace.ReLaunchOptions & ReLaunchOptions): void;
 }

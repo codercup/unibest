@@ -19,6 +19,9 @@
       Demo Count: {{ countStore.count }}
       <button class="ml-2" @click="countStore.increment">新增</button>
     </view>
+    <uni-card>
+      <text>这是一个基础卡片示例，内容较少，此示例展示了一个没有任何属性不带阴影的卡片。</text>
+    </uni-card>
     <uni-icons type="contact" size="30" color="red"></uni-icons>
     <uni-badge text="1"></uni-badge>
     <!-- Sun in light mode, Moon in dark mode, from Carbon -->

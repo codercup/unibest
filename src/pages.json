@@ -3,7 +3,8 @@
     "navigationStyle": "default",
     "navigationBarTitleText": "vue3-uniapp",
     "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF"
   },
   "easycom": {
     "autoscan": true,
@@ -62,7 +63,31 @@
         "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
         "enablePullDownRefresh": true,
         "backgroundColor": "#23c09c",
-        "navigationStyle": "custom"
+        "app-plus": {
+          "titleNView": {
+            "type": "transparent"
+          }
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
+        }
+      }
+    },
+    {
+      "path": "pages/throughout2/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
+        "enablePullDownRefresh": false,
+        "backgroundColor": "#23c09c",
+        "app-plus": {
+          "titleNView": {
+            "type": "transparent"
+          }
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
+        }
       }
     }
   ],
