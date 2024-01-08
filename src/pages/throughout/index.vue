@@ -57,7 +57,11 @@
       onPageScroll 实现全端效果一样，另外如果是app端，还可以配置 titleNView。参考
       https://uniapp.dcloud.net.cn/tutorial/page.html#onpagescroll 。
     </view>
-    <navigator url="/pages/throughout2/index" open-type="navigate" hover-class="navigator-hover">
+    <navigator
+      url="/pages/index/demo/throughout"
+      open-type="navigate"
+      hover-class="navigator-hover"
+    >
       <button>去二级详情页</button>
     </navigator>
     <view class="bg-white">

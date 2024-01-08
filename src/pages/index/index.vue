@@ -60,7 +60,7 @@ const list = ref([
   },
   {
     name: '自定义导航栏渐变',
-    url: 'navbar-plus',
+    url: 'throughout',
   },
   {
     name: '请求封装+请求拦截器',

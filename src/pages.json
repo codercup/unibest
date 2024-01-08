@@ -74,23 +74,6 @@
       }
     },
     {
-      "path": "pages/throughout2/index",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
-        "enablePullDownRefresh": false,
-        "backgroundColor": "#23c09c",
-        "app-plus": {
-          "titleNView": {
-            "type": "transparent"
-          }
-        },
-        "mp-weixin": {
-          "navigationStyle": "custom"
-        }
-      }
-    },
-    {
       "path": "pages/index/demo/component-auto-import",
       "type": "page"
     },
@@ -116,6 +99,23 @@
     {
       "path": "pages/index/demo/request",
       "type": "page"
+    },
+    {
+      "path": "pages/index/demo/throughout",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
+        "enablePullDownRefresh": false,
+        "backgroundColor": "#23c09c",
+        "app-plus": {
+          "titleNView": {
+            "type": "transparent"
+          }
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
+        }
+      }
     },
     {
       "path": "pages/index/demo/uni-ui-icons",

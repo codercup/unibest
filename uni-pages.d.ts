@@ -8,13 +8,13 @@ interface NavigateToOptions {
        "pages/demo/index" |
        "pages/my/index" |
        "pages/throughout/index" |
-       "pages/throughout2/index" |
        "pages/index/demo/component-auto-import" |
        "pages/index/demo/mp-weixin-share" |
        "pages/index/demo/navbar" |
        "pages/index/demo/pages-auto-import" |
        "pages/index/demo/pinia" |
        "pages/index/demo/request" |
+       "pages/index/demo/throughout" |
        "pages/index/demo/uni-ui-icons" |
        "pages/index/demo/uni-ui" |
        "pages/index/demo/unocss-icons" |
