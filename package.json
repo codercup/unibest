@@ -1,6 +1,7 @@
 {
   "name": "vue3-uniapp-template",
   "version": "0.0.0",
+  "description": "VSCode开发UniApp的最佳实践，Vue3+ts+Vite5+UnoCss+UniHelper+prettier+eslint+stylelint+husky+lint-staged+commitlint，自动格式化，ts的import顺序自动调整，scss文件的属性顺序自动排序。同时提供开箱即用的常用功能。",
   "type": "commonjs",
   "author": {
     "name": "Burt",
