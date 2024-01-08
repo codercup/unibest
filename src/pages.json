@@ -89,6 +89,49 @@
           "navigationStyle": "custom"
         }
       }
+    },
+    {
+      "path": "pages/index/demo/component-auto-import",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/mp-weixin-share",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/navbar",
+      "type": "page",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/index/demo/pages-auto-import",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/pinia",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/request",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/uni-ui-icons",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/uni-ui",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/unocss-icons",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/demo/unocss",
+      "type": "page"
     }
   ],
   "subPackages": []

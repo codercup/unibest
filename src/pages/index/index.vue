@@ -6,80 +6,77 @@
 </route>
 
 <template>
-  <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
+  <view class="bg-slate-100">
+    <view class="bg-slate-100 w-full">
+      <view v-for="item in list" :key="item.url" class="mt-3">
+        <view
+          class="flex bg-white items-center justify-between p-3 mb-2"
+          @click="goDetailPage(item.url)"
+        >
+          <text class="flex-1 text-5 text-dark">{{ item.name }}</text>
+          <text class="i-carbon-chevron-right"></text>
+        </view>
+      </view>
     </view>
-    <button @click="setUserInfo">设置UserInfo</button>
-    <button @click="clearUserInfo">清除UserInfo</button>
-
-    <button @click="handleRequest">请求</button>
-    <view class="flex justify-center items-center text-blue-500">
-      Demo Count: {{ countStore.count }}
-      <button class="ml-2" @click="countStore.increment">新增</button>
+    <view class="m-4">
+      <text>测试配置exclude后，还会自动导入页面吗？</text>
+      <PagesAutoImport />
     </view>
-    <uni-card>
-      <text>这是一个基础卡片示例，内容较少，此示例展示了一个没有任何属性不带阴影的卡片。</text>
-    </uni-card>
-    <uni-icons type="contact" size="30" color="red"></uni-icons>
-    <uni-badge text="1"></uni-badge>
-    <!-- Sun in light mode, Moon in dark mode, from Carbon -->
-    <button class="i-carbon-sun dark:i-carbon-moon text-green-300" />
-    <fly-header></fly-header>
-    <navigator url="/pages/my/index" open-type="navigate" hover-class="navigator-hover">
-      <button type="primary">跳转到“我的”页面</button>
-    </navigator>
-    <demo />
   </view>
 </template>
 
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
-import { useCountStore, useUserStore } from '@/store'
-import { http } from '@/utils/http'
-import { UserItem } from '@/typings'
-import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
-import Demo from './components/demo.vue'
+import PagesAutoImport from './components/pages-auto-import.vue'
 
-const countStore = useCountStore()
-const title = ref('Hello')
-
-const uniLayout = ref()
-console.log(uniLayout)
-
-const userStore = useUserStore()
-
-const setUserInfo = () => {
-  userStore.setUserInfo({ username: 'fly', token: 'abcdef' })
-}
-const clearUserInfo = () => {
-  userStore.clearUserInfo()
-}
-const handleRequest = () => {
-  const res = http<UserItem[]>({
-    url: '/getUserList',
-    method: 'GET',
+const list = ref([
+  {
+    name: 'UnoCSS',
+    url: 'unocss',
+  },
+  {
+    name: 'UnoCSS Icons',
+    url: 'unocss-icons',
+  },
+  {
+    name: 'UniUI',
+    url: 'uni-ui',
+  },
+  {
+    name: 'UniUI Icons',
+    url: 'uni-ui-icons',
+  },
+  {
+    name: 'Pinia+持久化',
+    url: 'pinia',
+  },
+  {
+    name: '微信分享',
+    url: 'mp-weixin-share',
+  },
+  {
+    name: '自定义导航栏',
+    url: 'navbar',
+  },
+  {
+    name: '自定义导航栏渐变',
+    url: 'navbar-plus',
+  },
+  {
+    name: '请求封装+请求拦截器',
+    url: 'request',
+  },
+  {
+    name: 'page自动引入',
+    url: 'pages-auto-import',
+  },
+])
+const goDetailPage = (path: string) => {
+  const url = `/pages/index/demo/${path}`
+  uni.navigateTo({
+    url,
   })
-  console.log(res)
 }
-/** 激活“分享给好友” */
-onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {
-  console.log('options:', options)
-  return {
-    title: '自定义分享标题',
-    path: '/pages/index/index?id=xxx',
-    imageUrl:
-      'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/pretty-girl.png',
-  }
-})
-/** 激活“分享到朋友圈”， 注意：需要先激活“分享给好友” */
-onShareTimeline((): Page.ShareTimelineContent => {
-  return {
-    title: '自定义分享标题',
-    query: 'a=1&b=2',
-  }
-})
 </script>
 
 <style>
