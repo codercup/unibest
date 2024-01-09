@@ -6,7 +6,6 @@ import UniPages from '@uni-helper/vite-plugin-uni-pages'
 // @see https://github.com/uni-helper/vite-plugin-uni-platform
 // 需要与 @uni-helper/vite-plugin-uni-pages 插件一起使用
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
-import dayjs from 'dayjs'
 import svgLoader from 'vite-svg-loader'
 import { visualizer } from 'rollup-plugin-visualizer'
 import ViteRestart from 'vite-plugin-restart'
@@ -17,19 +16,6 @@ import viteImagemin from 'vite-plugin-imagemin'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import UnoCSS from 'unocss/vite'
 import autoprefixer from 'autoprefixer'
-
-/** 这个修改只对web生效，小程序没有index.html这个文件 */
-const htmlPlugin = (title: string) => {
-  console.log('---htmlPlugin---')
-  return {
-    name: 'html-transform',
-    transformIndexHtml(html) {
-      return html
-        .replace(/<title>(.*?)<\/title>/, `<title>${title}</title>`)
-        .replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
-    },
-  }
-}
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
@@ -46,14 +32,13 @@ export default ({ command, mode }) => {
   console.log(env)
   console.log(process.env.UNI_PLATFORM) // 得到 mp-weixin, h5 等
   return defineConfig({
-    envDir: './env',
+    envDir: './env', // 自定义env目录
     plugins: [
       UniPages({ exclude: ['**/components/**/**.*'] }),
       UniPlatform(),
       // UniXX() 都需要在 Uni() 之前引入
       Uni(),
       UnoCSS(),
-      process.env.UNI_PLATFORM === 'h5' && htmlPlugin(env.VITE_APP_TITLE),
       svgLoader(),
       // 打包分析插件
       mode === 'production' &&
