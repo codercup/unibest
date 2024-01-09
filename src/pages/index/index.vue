@@ -13,7 +13,7 @@
           class="flex bg-white items-center justify-between p-3 mb-2"
           @click="goDetailPage(item.url)"
         >
-          <text class="flex-1 text-5 text-dark">{{ item.name }}</text>
+          <text class="flex-1 text-4 text-dark">{{ item.name }}</text>
           <text class="i-carbon-chevron-right"></text>
         </view>
       </view>
