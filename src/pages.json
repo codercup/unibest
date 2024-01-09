@@ -75,30 +75,46 @@
     },
     {
       "path": "pages/index/demo/component-auto-import",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "easycom 自动导入"
+      }
     },
     {
       "path": "pages/index/demo/mp-weixin-share",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "微信分享"
+      }
     },
     {
       "path": "pages/index/demo/navbar",
       "type": "page",
       "style": {
+        "navigationBarTitleText": "自定义导航栏",
         "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/index/demo/pages-auto-import",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "pages 自动导入"
+      }
     },
     {
       "path": "pages/index/demo/pinia",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "pinia+持久化"
+      }
     },
     {
       "path": "pages/index/demo/request",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "request请求+请求拦截"
+      }
     },
     {
       "path": "pages/index/demo/throughout",
@@ -119,19 +135,31 @@
     },
     {
       "path": "pages/index/demo/uni-ui-icons",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "UniUI Icons 使用"
+      }
     },
     {
       "path": "pages/index/demo/uni-ui",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "UniUI 使用"
+      }
     },
     {
       "path": "pages/index/demo/unocss-icons",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "UnoCss Icons 使用"
+      }
     },
     {
       "path": "pages/index/demo/unocss",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "UnoCss 使用"
+      }
     }
   ],
   "subPackages": []

@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'UniUI Icons 使用' },
+}
+</route>
+
 <template>
   <view class="m-4">
     <uni-icons type="contact" size="30"></uni-icons>

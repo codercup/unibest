@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'pages 自动导入' },
+}
+</route>
+
 <template>
   <view class="m-4">
     <view>vite.config.ts里面没有配置exclude的都会自动导入</view>

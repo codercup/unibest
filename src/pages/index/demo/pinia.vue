@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'pinia+持久化' },
+}
+</route>
+
 <template>
   <view class="flex justify-center items-center text-blue-500 mt-4 mb-4">
     <view class="w-20">Count: {{ countStore.count }}</view>

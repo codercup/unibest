@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: '微信分享' },
+}
+</route>
+
 <template>
   <view class="m-10 text-center">
     <view class="text-8">微信分享页</view>

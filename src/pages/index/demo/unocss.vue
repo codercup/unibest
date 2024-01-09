@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'UnoCss 使用' },
+}
+</route>
+
 <template>
   <view class="flex flex-col justify-center items-center text-5 h-8 leading-8 mt-20">
     <view class="text-green-500">文字颜色 text-light-50</view>

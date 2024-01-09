@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'request请求+请求拦截' },
+}
+</route>
+
 <template>
   <view>
     <button @click="handleRequest">请求</button>

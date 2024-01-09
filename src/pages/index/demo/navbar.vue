@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: '自定义导航栏', navigationStyle: 'custom' },
+}
+</route>
+
 <template>
   <fly-navbar />
   <view class="bg-green-300 min-h-20" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">

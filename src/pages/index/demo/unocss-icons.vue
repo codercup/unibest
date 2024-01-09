@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'UnoCss Icons 使用' },
+}
+</route>
+
 <template>
   <view class="m-4">
     <view class="mb-2">
