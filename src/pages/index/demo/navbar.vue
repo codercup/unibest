@@ -1,6 +1,10 @@
 <template>
   <fly-navbar />
-  <view class="m-4"> 需要设置页面 "navigationStyle": "custom" </view>
+  <view class="bg-green-300 min-h-20" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
+    <view class="p-4"> 自定义导航栏，设置"navigationStyle":"custom" </view>
+    <view class="p-4"> 通常页面顶部有一个图片或背景色 </view>
+  </view>
+  <fly-content :line="20" />
 </template>
 
 <route lang="json5">
@@ -8,3 +12,8 @@
   style: { navigationStyle: 'custom' },
 }
 </route>
+
+<script lang="ts" setup>
+// 获取屏幕边界到安全区域距离
+const { safeAreaInsets } = uni.getSystemInfoSync()
+</script>
