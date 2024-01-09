@@ -16,6 +16,9 @@
 
   - `npx degit https://gitee.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
 
+- github template
+  ![Github template](./screenshots/github-template.png)
+
 ## 文件整理
 
 可以把不要的文件统统删除，或者留着当做参考。
