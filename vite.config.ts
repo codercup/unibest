@@ -46,6 +46,7 @@ export default ({ command, mode }) => {
   console.log(env)
   console.log(process.env.UNI_PLATFORM) // 得到 mp-weixin, h5 等
   return defineConfig({
+    envDir: './env',
     plugins: [
       UniPages({ exclude: ['**/components/**/**.*'] }),
       UniPlatform(),
