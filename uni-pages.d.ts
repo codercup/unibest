@@ -6,6 +6,7 @@
 interface NavigateToOptions {
   url: "pages/index/index" |
        "pages/demo/index" |
+       "pages/login/login" |
        "pages/my/index" |
        "pages/throughout/index" |
        "pages/index/demo/component-auto-import" |
