@@ -44,6 +44,23 @@
 - pnpm>=8.12
 - node>=18
 
+## 拉取代码
+
+- git 拉取
+
+  - github：`git clone https://github.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
+
+  - gitee：`git clone https://gitee.com/fly-vue3-templates/vue3-uniapp-template.git fly-uniapp`
+
+- degit 拉取（不包含git，需要自己git init）
+
+  - `npx degit https://github.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
+
+  - `npx degit https://gitee.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
+
+- github template
+  ![Github template](./screenshots/github-template.png)
+
 ## 运行
 
 - web平台： `pnpm dev:h5`, 然后打开 [http://localhost:9000/](http://localhost:9000/)。
@@ -54,3 +71,7 @@
 - web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `vite.config.ts` 的 `base` 属性进行配置。[vite官网](https://cn.vitejs.dev/config/shared-options.html#base)
   ![vite.base](./screenshots/vite-base.png)
 - weixin平台：`pnpm build:h5`, 打包后的文件在 `dist/build/mp-weixin`，然后通过微信开发者工具导入，并点击右上角的“上传”按钮进行上传。
+
+## 文件整理
+
+可以把不要的文件统统删除，或者留着当做参考。
