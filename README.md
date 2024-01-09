@@ -78,7 +78,11 @@
 
 ## 最佳推荐
 
-- 无登录+无tabbar(最简APP)
+- 无登录+无tabbar
 - 无登录+有tabbar
 - 有登录+无tabbar
 - 有登录+有tabbar
+
+## 注意事项
+
+暂不支持APP，尝试过程见 `README.issue.md` 文件。
