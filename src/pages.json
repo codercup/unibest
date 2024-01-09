@@ -42,7 +42,7 @@
       "path": "pages/index/index",
       "type": "home",
       "style": {
-        "navigationBarTitleText": "我才是标题"
+        "navigationBarTitleText": "首页"
       }
     },
     {
