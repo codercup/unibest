@@ -8,12 +8,16 @@
   <view class="mt-4 h-10 text-center">大转盘抽奖</view>
   <div class="lottery-box">
     <div class="lottery-list">
-      <div class="lottery-item" v-for="(n, index) in 1" :key="n">
+      <div class="lottery-item" v-for="(n, index) in giftLen" :key="n">
         <div class="lottery-item-inner">
           <div class="lottery-item-gift">奖品{{ index + 1 }}</div>
         </div>
       </div>
-      <div ref="pointer" class="pointer" @click="handleClick">
+      <div
+        class="pointer"
+        @click="handleClick"
+        :style="{ transform: `rotate(${state.stopDeg}deg)` }"
+      >
         <div>开始</div>
         <div>抽奖</div>
       </div>
@@ -40,8 +44,6 @@ const state = reactive({
   loading: false,
 })
 
-const pointer = ref()
-
 function handleClick() {
   if (state.loading) return
   state.loading = true
@@ -50,8 +52,6 @@ function handleClick() {
   console.log(state.lottery)
   // 最终的旋转角度，指针指向本次奖品的旋转角度+指针从上一次的奖品指向回归0的旋转角度+ 默认转动三圈
   state.stopDeg += (state.lottery + (giftLen - state.lastLottery)) * deg + loop * 360
-  // 旋转
-  pointer.value.style.transform = `rotate(${state.stopDeg}deg)`
 
   // uni不支持addEventListener所以改用下面的
   setTimeout(() => {
@@ -63,14 +63,6 @@ function handleClick() {
     })
   }, 3000)
 }
-
-// 旋转动画结束，弹出奖品
-// pointer.value.addEventListener('transitionend', () => {
-//   alert(`恭喜获得奖品${state.lottery + 1}`)
-//   // 保留奖品索引
-//   state.lastLottery = state.lottery
-//   state.loading = false
-// })
 </script>
 
 <style lang="scss">
@@ -100,9 +92,8 @@ function handleClick() {
   left: var(--half);
   width: var(--half);
   height: var(--size);
-
-  // overflow: hidden; // 把这个注释掉可以看到最初的模样
-  background-color: #ff5350a1; // 放开这个可以看到最初的模样
+  overflow: hidden; // 把这个注释掉可以看到最初的模样
+  // background-color: #ff5350a1; // 放开这个可以看到最初的模样
   transform-origin: left center;
 }
 
