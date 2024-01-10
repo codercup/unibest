@@ -1,5 +1,6 @@
 <template>
-  <view class="clock-box mt-10">
+  <view class="mt-4 h-10 text-center">动态时钟</view>
+  <view class="clock-box">
     <view class="clock" :style="{ '--ds': ds, '--dm': dm, '--dh': dh }">
       <view class="clock-pane">
         <text class="clock-num" :style="{ '--i': n }" v-for="n in 12" :key="n">{{ n }}</text>
@@ -33,8 +34,8 @@ const dh = ref(h + m / 60 + s / 3600)
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 380px;
-  height: 380px;
+  width: 350px;
+  height: 350px;
   font-size: 24px;
   border-radius: 20px;
   box-shadow: 2px 2px 20px #0000001a;
