@@ -60,6 +60,13 @@
       }
     },
     {
+      "path": "pages/demo/lottery2",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "大转盘抽奖"
+      }
+    },
+    {
       "path": "pages/login/login",
       "type": "page",
       "style": {
