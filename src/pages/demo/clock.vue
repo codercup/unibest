@@ -1,5 +1,5 @@
 <template>
-  <view class="clock-box">
+  <view class="clock-box mt-10">
     <view class="clock" :style="{ '--ds': ds, '--dm': dm, '--dh': dh }">
       <view class="clock-pane">
         <text class="clock-num" :style="{ '--i': n }" v-for="n in 12" :key="n">{{ n }}</text>
@@ -22,6 +22,12 @@ const dh = ref(h + m / 60 + s / 3600)
 </script>
 
 <style lang="scss">
+.clock-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .clock {
   position: relative;
   display: flex;
@@ -111,10 +117,5 @@ const dh = ref(h + m / 60 + s / 3600)
   to {
     transform: translateY(-50%) rotate(360deg);
   }
-}
-
-a {
-  width: 8px;
-  height: 9px;
 }
 </style>
