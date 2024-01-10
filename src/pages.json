@@ -47,7 +47,17 @@
     },
     {
       "path": "pages/demo/clock",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "动态时钟"
+      }
+    },
+    {
+      "path": "pages/demo/lottery",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "九宫格抽奖"
+      }
     },
     {
       "path": "pages/login/login",

@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: '动态时钟' },
+}
+</route>
+
 <template>
   <view class="mt-4 h-10 text-center">动态时钟</view>
   <view class="clock-box">
