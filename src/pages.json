@@ -46,7 +46,7 @@
       }
     },
     {
-      "path": "pages/demo/index",
+      "path": "pages/demo/clock",
       "type": "page"
     },
     {
