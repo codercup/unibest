@@ -85,13 +85,10 @@ const totalRunAngle = computed(() => {
 
 // 计算绘制转盘背景
 const bgColor = (() => {
-  const _len = prizeList.length
-  const colorList = ['#5352b3', '#363589']
-  let colorVal = ''
-  for (let i = 0; i < _len; i++) {
-    colorVal += `${colorList[i % 2]} ${rotateAngle.value * i}deg ${rotateAngle.value * (i + 1)}deg,`
-  }
-  return `background: conic-gradient(${colorVal.slice(0, -1)});`
+  const [c1, c2] = ['#5352b3', '#363589']
+  // repeating-conic-gradient(red 0 15deg, blue  15deg 30deg);
+  return `background: repeating-conic-gradient(${c1} 0 ${rotateAngle.value}deg,
+  ${c2} ${rotateAngle.value}deg ${2 * rotateAngle.value}deg);`
 })()
 
 const styleObj = ref(bgColor)
