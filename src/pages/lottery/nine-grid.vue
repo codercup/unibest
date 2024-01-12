@@ -1,3 +1,8 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: '九宫格抽奖' },
+}
+</route>
 <template>
   <view>
     <view class="container">
@@ -23,43 +28,43 @@ const currentIndex = ref(0) // 当前位置
 const prizeList = [
   {
     id: 0,
-    name: '手机',
-    pic: 'https://bkimg.cdn.bcebos.com/pic/3801213fb80e7bec54e7d237ad7eae389b504ec23d9e',
+    name: '双肩包',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/backpack.jpg',
   },
   {
     id: 1,
-    name: '手表',
-    pic: 'https://img1.baidu.com/it/u=2631716577,1296460670&fm=253&fmt=auto&app=120&f=JPEG',
+    name: '积木',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/jimu.jpg',
   },
   {
     id: 2,
-    name: '苹果',
-    pic: 'https://img2.baidu.com/it/u=2611478896,137965957&fm=253&fmt=auto&app=138&f=JPEG',
+    name: '红包',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/red-envelope.jpg',
   },
   {
     id: 3,
-    name: '棒棒糖',
-    pic: 'https://img2.baidu.com/it/u=576980037,1655121105&fm=253&fmt=auto&app=138&f=PNG',
+    name: '茶具',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/tea-set.jpg',
   },
   {
     id: 5,
-    name: '娃娃',
-    pic: 'https://img2.baidu.com/it/u=4075390137,3967712457&fm=253&fmt=auto&app=138&f=PNG',
+    name: '可爱脸',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/tushetou.jpg',
   },
   {
     id: 6,
-    name: '木马',
-    pic: 'https://img1.baidu.com/it/u=2434318933,2727681086&fm=253&fmt=auto&app=120&f=JPEG',
+    name: '挖掘机',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/wajueji.jpg',
   },
   {
     id: 7,
-    name: '德芙',
-    pic: 'https://img0.baidu.com/it/u=1378564582,2397555841&fm=253&fmt=auto&app=120&f=JPEG',
+    name: '无辜脸',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/xiaolian.jpg',
   },
   {
     id: 8,
-    name: '玫瑰',
-    pic: 'https://img1.baidu.com/it/u=1125656938,422247900&fm=253&fmt=auto&app=120&f=JPEG',
+    name: '烟灰缸',
+    pic: 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/yanhuigang.jpg',
   },
 ]
 const startBtn = {

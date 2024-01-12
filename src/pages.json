@@ -74,8 +74,18 @@
       }
     },
     {
+      "path": "pages/lottery/big-wheel",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "大转盘抽奖"
+      }
+    },
+    {
       "path": "pages/lottery/nine-grid",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "九宫格抽奖"
+      }
     },
     {
       "path": "pages/my/index",
