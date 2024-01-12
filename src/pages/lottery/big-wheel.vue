@@ -4,7 +4,7 @@
 }
 </route>
 <template>
-  <view>
+  <view class="text-center">
     <view class="container">
       <view class="prize-list" :style="styleObj">
         <view
@@ -19,11 +19,14 @@
       </view>
       <view class="lottery-btn" @click="start"> </view>
     </view>
+    <view class="text-blue-600 my-2">目标是实现如下的效果，但是我感觉只用css还是太难了</view>
+    <image :src="targetImg" mode="widthFix" width="552px" />
   </view>
 </template>
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
+import targetImg from './target.png'
 
 // 后台配置的奖品数据
 const prizeList = [
