@@ -74,6 +74,10 @@
       }
     },
     {
+      "path": "pages/lottery/nine-grid",
+      "type": "page"
+    },
+    {
       "path": "pages/my/index",
       "type": "page",
       "style": {

@@ -9,6 +9,7 @@ interface NavigateToOptions {
        "pages/demo/lottery" |
        "pages/demo/lottery2" |
        "pages/login/login" |
+       "pages/lottery/nine-grid" |
        "pages/my/index" |
        "pages/throughout/index" |
        "pages/index/demo/component-auto-import" |
