@@ -147,6 +147,7 @@
     {
       "path": "pages/index/demo/pinia",
       "type": "page",
+      "layout": "display",
       "style": {
         "navigationBarTitleText": "pinia+持久化"
       }

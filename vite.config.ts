@@ -3,6 +3,8 @@ import { defineConfig, loadEnv } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 // @see https://uni-helper.js.org/vite-plugin-uni-pages
 import UniPages from '@uni-helper/vite-plugin-uni-pages'
+// @see https://uni-helper.js.org/vite-plugin-uni-layouts
+import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 // @see https://github.com/uni-helper/vite-plugin-uni-platform
 // 需要与 @uni-helper/vite-plugin-uni-pages 插件一起使用
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
@@ -35,6 +37,7 @@ export default ({ command, mode }) => {
     envDir: './env', // 自定义env目录
     plugins: [
       UniPages({ exclude: ['**/components/**/**.*'] }),
+      UniLayouts(),
       UniPlatform(),
       // UniXX() 都需要在 Uni() 之前引入
       Uni(),

@@ -97,6 +97,7 @@
     "@uni-helper/uni-cloud-types": "^0.5.2",
     "@uni-helper/uni-ui-types": "^0.5.11",
     "@uni-helper/unocss-preset-uni": "^0.2.5",
+    "@uni-helper/vite-plugin-uni-layouts": "^0.1.7",
     "@uni-helper/vite-plugin-uni-pages": "^0.2.13",
     "@uni-helper/vite-plugin-uni-platform": "^0.0.4",
     "@vue/runtime-core": "^3.2.45",
