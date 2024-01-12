@@ -147,6 +147,8 @@ const start = () => {
   width: 90vw;
   height: 90vw;
   margin: 20px auto;
+  border: 10px solid #98d3fc;
+  border-radius: 50%;
 }
 
 .prize-list {
@@ -157,7 +159,7 @@ const start = () => {
   border-radius: 50%;
 
   // 使用outline代替border可以省很多定位的问题
-  outline: 10px solid #98d3fc;
+  // outline: 10px solid #98d3fc;
 }
 
 .prize-item {
@@ -192,7 +194,7 @@ const start = () => {
   top: 50%;
   left: 50%;
   width: 80px;
-  height: 80px;
+  height: 96px;
   margin: auto;
   cursor: pointer;
   background: url('https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery-prize/btn-enable.png')
