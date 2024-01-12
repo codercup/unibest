@@ -77,11 +77,8 @@ const rotateAngle = computed(() => {
   const _degree = 360 / prizeList.length
   return _degree
 })
-
 // 要执行总角度数
-const totalRunAngle = computed(() => {
-  return baseRunAngle + 360 - prizeId * rotateAngle.value - rotateAngle.value / 2
-})
+const totalRunAngle = ref(baseRunAngle - (prizeId + 0.5) * rotateAngle.value)
 
 // 计算绘制转盘背景
 const bgColor = (() => {
@@ -114,7 +111,13 @@ const getRandomNum = () => {
 
 const stopRun = () => {
   isRunning = false
-  styleObj.value = `${bgColor} transform: rotate(${totalRunAngle.value - baseRunAngle}deg);`
+  const prizeName = prizeList.find((e) => e.id === prizeId)!.name
+  uni.showModal({
+    title: `恭喜你中奖 ${prizeName}`,
+    success() {
+      styleObj.value = `${bgColor} transform: rotate(0deg);`
+    },
+  })
 }
 
 const startRun = () => {
@@ -128,12 +131,13 @@ const start = () => {
     isRunning = true
 
     console.log('开始抽奖，后台请求中奖奖品')
-    setTimeout(() => {
-      // 请求返回的奖品编号 这里使用随机数
-      prizeId = getRandomNum()
-      console.log('中奖ID>>>', prizeId, prizeList[prizeId])
-    }, 2000)
-    startRun()
+    // 请求返回的奖品编号 这里使用随机数
+    prizeId = getRandomNum()
+    totalRunAngle.value = baseRunAngle - (prizeId + 0.5) * rotateAngle.value
+    console.log('中奖ID>>>', prizeId, prizeList[prizeId], totalRunAngle.value)
+    nextTick(() => {
+      startRun()
+    })
   }
 }
 </script>
