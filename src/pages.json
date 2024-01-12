@@ -112,6 +112,10 @@
       }
     },
     {
+      "path": "pages/demo/img-min/index",
+      "type": "page"
+    },
+    {
       "path": "pages/index/demo/component-auto-import",
       "type": "page",
       "style": {

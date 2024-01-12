@@ -13,6 +13,7 @@ interface NavigateToOptions {
        "pages/lottery/nine-grid" |
        "pages/my/index" |
        "pages/throughout/index" |
+       "pages/demo/img-min/index" |
        "pages/index/demo/component-auto-import" |
        "pages/index/demo/mp-weixin-share" |
        "pages/index/demo/navbar" |
