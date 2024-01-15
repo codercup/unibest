@@ -46,7 +46,9 @@ export default ({ command, mode }) => {
   return defineConfig({
     envDir: './env', // 自定义env目录
     plugins: [
-      UniPages({ exclude: ['**/components/**/**.*'] }),
+      UniPages({
+        exclude: ['**/components/**/**.*'],
+      }),
       UniLayouts(),
       UniPlatform(),
       UniManifest(),

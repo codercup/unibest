@@ -5,31 +5,32 @@
 
 interface NavigateToOptions {
   url: "pages/index/index" |
-       "pages/demo/clock" |
-       "pages/demo/lottery" |
-       "pages/demo/lottery2" |
+       "pages/demo/index" |
        "pages/login/login" |
-       "pages/lottery/big-wheel" |
-       "pages/lottery/nine-grid" |
        "pages/my/index" |
-       "pages/throughout/index" |
-       "pages/demo/img-min/index" |
-       "pages/index/demo/component-auto-import" |
-       "pages/index/demo/mp-weixin-share" |
-       "pages/index/demo/navbar" |
-       "pages/index/demo/pages-auto-import" |
-       "pages/index/demo/pinia" |
-       "pages/index/demo/request" |
-       "pages/index/demo/throughout" |
-       "pages/index/demo/uni-ui-icons" |
-       "pages/index/demo/uni-ui" |
-       "pages/index/demo/unocss-icons" |
-       "pages/index/demo/unocss";
+       "pages/demo/demo/clock" |
+       "pages/demo/demo/component-auto-import" |
+       "pages/demo/demo/lottery" |
+       "pages/demo/demo/lottery2" |
+       "pages/demo/demo/mp-weixin-share" |
+       "pages/demo/demo/navbar" |
+       "pages/demo/demo/pages-auto-import" |
+       "pages/demo/demo/pinia" |
+       "pages/demo/demo/request" |
+       "pages/demo/demo/throughout" |
+       "pages/demo/demo/uni-ui-icons" |
+       "pages/demo/demo/uni-ui" |
+       "pages/demo/demo/unocss-icons" |
+       "pages/demo/demo/unocss" |
+       "pages/demo/demo/img-min/index" |
+       "pages/demo/demo/lottery/big-wheel" |
+       "pages/demo/demo/lottery/nine-grid" |
+       "pages/demo/demo/throughout/index";
 }
 interface RedirectToOptions extends NavigateToOptions {}
 
 interface SwitchTabOptions {
-  url: 'pages/index/index' | 'pages/throughout/index'
+  url: 'pages/index/index' | 'pages/demo/index' | 'pages/my/index'
 }
 
 type ReLaunchOptions = NavigateToOptions | SwitchTabOptions

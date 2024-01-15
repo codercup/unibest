@@ -14,9 +14,9 @@
     }
   },
   "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#00f",
-    "backgroundColor": "#ffffff",
+    "color": "#999999",
+    "selectedColor": "#018d71",
+    "backgroundColor": "#F8F8F8",
     "borderStyle": "black",
     "height": "50px",
     "fontSize": "10px",
@@ -24,16 +24,22 @@
     "spacing": "3px",
     "list": [
       {
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
-        "iconPath": "static/tab-icons/extui.png",
-        "selectedIconPath": "static/tab-icons/extuiHL.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/throughout/index",
-        "iconPath": "static/tab-icons/template.png",
-        "selectedIconPath": "static/tab-icons/templateHL.png",
-        "text": "通屏"
+        "iconPath": "static/tabbar/example.png",
+        "selectedIconPath": "static/tabbar/exampleHL.png",
+        "pagePath": "pages/demo/index",
+        "text": "示例"
+      },
+      {
+        "iconPath": "static/tabbar/personal.png",
+        "selectedIconPath": "static/tabbar/personalHL.png",
+        "pagePath": "pages/my/index",
+        "text": "我的"
       }
     ]
   },
@@ -46,45 +52,14 @@
       }
     },
     {
-      "path": "pages/demo/clock",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "动态时钟"
-      }
-    },
-    {
-      "path": "pages/demo/lottery",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "九宫格抽奖"
-      }
-    },
-    {
-      "path": "pages/demo/lottery2",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "大转盘抽奖"
-      }
+      "path": "pages/demo/index",
+      "type": "page"
     },
     {
       "path": "pages/login/login",
       "type": "page",
       "style": {
         "navigationBarTitleText": "登录"
-      }
-    },
-    {
-      "path": "pages/lottery/big-wheel",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "大转盘抽奖"
-      }
-    },
-    {
-      "path": "pages/lottery/nine-grid",
-      "type": "page",
-      "style": {
-        "navigationBarTitleText": "九宫格抽奖"
       }
     },
     {
@@ -95,42 +70,42 @@
       }
     },
     {
-      "path": "pages/throughout/index",
+      "path": "pages/demo/demo/clock",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
-        "enablePullDownRefresh": true,
-        "backgroundColor": "#23c09c",
-        "app-plus": {
-          "titleNView": {
-            "type": "transparent"
-          }
-        },
-        "mp-weixin": {
-          "navigationStyle": "custom"
-        }
+        "navigationBarTitleText": "动态时钟"
       }
     },
     {
-      "path": "pages/demo/img-min/index",
-      "type": "page"
-    },
-    {
-      "path": "pages/index/demo/component-auto-import",
+      "path": "pages/demo/demo/component-auto-import",
       "type": "page",
       "style": {
         "navigationBarTitleText": "easycom 自动导入"
       }
     },
     {
-      "path": "pages/index/demo/mp-weixin-share",
+      "path": "pages/demo/demo/lottery",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "九宫格抽奖"
+      }
+    },
+    {
+      "path": "pages/demo/demo/lottery2",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "大转盘抽奖"
+      }
+    },
+    {
+      "path": "pages/demo/demo/mp-weixin-share",
       "type": "page",
       "style": {
         "navigationBarTitleText": "微信分享"
       }
     },
     {
-      "path": "pages/index/demo/navbar",
+      "path": "pages/demo/demo/navbar",
       "type": "page",
       "style": {
         "navigationBarTitleText": "自定义导航栏",
@@ -138,14 +113,14 @@
       }
     },
     {
-      "path": "pages/index/demo/pages-auto-import",
+      "path": "pages/demo/demo/pages-auto-import",
       "type": "page",
       "style": {
         "navigationBarTitleText": "pages 自动导入"
       }
     },
     {
-      "path": "pages/index/demo/pinia",
+      "path": "pages/demo/demo/pinia",
       "type": "page",
       "layout": "display",
       "style": {
@@ -153,14 +128,14 @@
       }
     },
     {
-      "path": "pages/index/demo/request",
+      "path": "pages/demo/demo/request",
       "type": "page",
       "style": {
         "navigationBarTitleText": "request请求+请求拦截"
       }
     },
     {
-      "path": "pages/index/demo/throughout",
+      "path": "pages/demo/demo/throughout",
       "type": "page",
       "style": {
         "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
@@ -177,31 +152,66 @@
       }
     },
     {
-      "path": "pages/index/demo/uni-ui-icons",
+      "path": "pages/demo/demo/uni-ui-icons",
       "type": "page",
       "style": {
         "navigationBarTitleText": "UniUI Icons 使用"
       }
     },
     {
-      "path": "pages/index/demo/uni-ui",
+      "path": "pages/demo/demo/uni-ui",
       "type": "page",
       "style": {
         "navigationBarTitleText": "UniUI 使用"
       }
     },
     {
-      "path": "pages/index/demo/unocss-icons",
+      "path": "pages/demo/demo/unocss-icons",
       "type": "page",
       "style": {
         "navigationBarTitleText": "UnoCss Icons 使用"
       }
     },
     {
-      "path": "pages/index/demo/unocss",
+      "path": "pages/demo/demo/unocss",
       "type": "page",
       "style": {
         "navigationBarTitleText": "UnoCss 使用"
+      }
+    },
+    {
+      "path": "pages/demo/demo/img-min/index",
+      "type": "page"
+    },
+    {
+      "path": "pages/demo/demo/lottery/big-wheel",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "大转盘抽奖"
+      }
+    },
+    {
+      "path": "pages/demo/demo/lottery/nine-grid",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "九宫格抽奖"
+      }
+    },
+    {
+      "path": "pages/demo/demo/throughout/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#23c09c",
+        "app-plus": {
+          "titleNView": {
+            "type": "transparent"
+          }
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
+        }
       }
     }
   ],
