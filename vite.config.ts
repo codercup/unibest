@@ -1,4 +1,5 @@
 import path from 'node:path'
+import dayjs from 'dayjs'
 import { defineConfig, loadEnv } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 // @see https://uni-helper.js.org/vite-plugin-uni-pages
@@ -25,6 +26,14 @@ import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
 // import viteImagemin from 'vite-plugin-imagemin'
 
+const htmlPlugin = () => {
+  return {
+    name: 'html-transform',
+    transformIndexHtml(html) {
+      return html.replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+    },
+  }
+}
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
   console.log(mode === process.env.NODE_ENV)
@@ -70,6 +79,7 @@ export default ({ command, mode }) => {
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],
       }),
+      process.env.UNI_PLATFORM === 'h5' && htmlPlugin(),
       // 打包分析插件
       mode === 'production' &&
         visualizer({
