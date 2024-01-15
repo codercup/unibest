@@ -131,7 +131,6 @@
     "unplugin-auto-import": "^0.17.2",
     "vite": "4.1.4",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-restart": "^0.4.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
