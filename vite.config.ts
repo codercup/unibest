@@ -26,14 +26,6 @@ import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
 // import viteImagemin from 'vite-plugin-imagemin'
 
-const htmlPlugin = () => {
-  return {
-    name: 'html-transform',
-    transformIndexHtml(html) {
-      return html.replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
-    },
-  }
-}
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
   console.log(mode === process.env.NODE_ENV)
@@ -79,7 +71,13 @@ export default ({ command, mode }) => {
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],
       }),
-      process.env.UNI_PLATFORM === 'h5' && htmlPlugin(),
+      // h5环境增加编译时间
+      process.env.UNI_PLATFORM === 'h5' && {
+        name: 'html-transform',
+        transformIndexHtml(html) {
+          return html.replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+        },
+      },
       // 打包分析插件
       mode === 'production' &&
         visualizer({
