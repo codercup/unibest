@@ -1,6 +1,6 @@
 {
-  "name": "unifly",
-  "appid": "",
+  "name": "unifly-uniapp",
+  "appid": "H5871D791",
   "description": "",
   "versionName": "1.0.0",
   "versionCode": "100",
@@ -46,7 +46,7 @@
   },
   "quickapp": {},
   "mp-weixin": {
-    "appid": "",
+    "appid": "wxa2abb91f64032a2b",
     "setting": {
       "urlCheck": false
     },
