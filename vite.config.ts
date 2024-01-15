@@ -24,6 +24,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import viteCompression from 'vite-plugin-compression'
 import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
+// TODO: 很多用户无法安装这个插件所以先注释掉了，如果你可以安装成功，那就可以放开这个注释，以及下面的配置
 // import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vitejs.dev/config/
