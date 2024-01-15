@@ -112,6 +112,9 @@ devDependencies:
   '@uni-helper/vite-plugin-uni-layouts':
     specifier: ^0.1.7
     version: 0.1.7(eslint-import-resolver-typescript@3.6.1)(typescript@4.9.5)
+  '@uni-helper/vite-plugin-uni-manifest':
+    specifier: ^0.2.3
+    version: 0.2.3
   '@uni-helper/vite-plugin-uni-pages':
     specifier: ^0.2.13
     version: 0.2.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
@@ -3981,6 +3984,13 @@ packages:
       - supports-color
       - typescript
       - vitest
+    dev: true
+
+  /@uni-helper/vite-plugin-uni-manifest@0.2.3:
+    resolution: {integrity: sha512-cWwefP9mWCrxdHYnVndmYx++diium4jp1WLiBFTCULUFdBSnSWZCpQHITBQfuyGohdSUBSUx9Fe72Av1qOh+Ag==}
+    dependencies:
+      c12: 1.6.1
+      type-fest: 4.9.0
     dev: true
 
   /@uni-helper/vite-plugin-uni-pages@0.2.13(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21):
@@ -13106,6 +13116,11 @@ packages:
   /type-fest@3.13.1:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
+    dev: true
+
+  /type-fest@4.9.0:
+    resolution: {integrity: sha512-KS/6lh/ynPGiHD/LnAobrEFq3Ad4pBzOlJ1wAnJx9N4EYoqFhMfLIBjUT2UEx4wg5ZE+cC1ob6DCSpppVo+rtg==}
+    engines: {node: '>=16'}
     dev: true
 
   /type-is@1.6.18:

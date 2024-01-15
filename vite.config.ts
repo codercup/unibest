@@ -8,6 +8,8 @@ import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 // @see https://github.com/uni-helper/vite-plugin-uni-platform
 // 需要与 @uni-helper/vite-plugin-uni-pages 插件一起使用
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
+// @see https://github.com/uni-helper/vite-plugin-uni-manifest
+import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 import svgLoader from 'vite-svg-loader'
 import { visualizer } from 'rollup-plugin-visualizer'
 import ViteRestart from 'vite-plugin-restart'
@@ -31,7 +33,7 @@ export default ({ command, mode }) => {
   // process.cwd(): 获取当前文件的目录跟地址
   // loadEnv(): 返回当前环境env文件中额外定义的变量
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
-  console.log(env)
+  // console.log(env)
   console.log(process.env.UNI_PLATFORM) // 得到 mp-weixin, h5 等
   return defineConfig({
     envDir: './env', // 自定义env目录
@@ -41,6 +43,7 @@ export default ({ command, mode }) => {
       UniPlatform(),
       // UniXX() 都需要在 Uni() 之前引入
       Uni(),
+      UniManifest(),
       UnoCSS(),
       svgLoader(),
       // 打包分析插件
