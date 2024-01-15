@@ -10,16 +10,20 @@ import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
 // @see https://github.com/uni-helper/vite-plugin-uni-manifest
 import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
-import svgLoader from 'vite-svg-loader'
-import { visualizer } from 'rollup-plugin-visualizer'
-import ViteRestart from 'vite-plugin-restart'
-import AutoImport from 'unplugin-auto-import/vite'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import viteCompression from 'vite-plugin-compression'
-import viteImagemin from 'vite-plugin-imagemin'
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+// @see https://unocss.dev/
 import UnoCSS from 'unocss/vite'
 import autoprefixer from 'autoprefixer'
+// @see https://github.com/jpkleemans/vite-svg-loader
+import svgLoader from 'vite-svg-loader'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+// @see https://github.com/vbenjs/vite-plugin-vue-setup-extend
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+// @see https://github.com/vbenjs/vite-plugin-svg-icons
+import AutoImport from 'unplugin-auto-import/vite'
+import viteCompression from 'vite-plugin-compression'
+import ViteRestart from 'vite-plugin-restart'
+import { visualizer } from 'rollup-plugin-visualizer'
+import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
@@ -43,11 +47,29 @@ export default ({ command, mode }) => {
       UniPages({ exclude: ['**/components/**/**.*'] }),
       UniLayouts(),
       UniPlatform(),
-      // UniXX() 都需要在 Uni() 之前引入
-      Uni(),
       UniManifest(),
+      // UniXXX 需要在 Uni 之前引入
+      Uni(),
       UnoCSS(),
+      // svg 可以当做组件来使用(Vite plugin to load SVG files as Vue components, using SVGO for optimization.)
       svgLoader(),
+      createSvgIconsPlugin({
+        // 指定要缓存的文件夹
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+        // 指定symbolId格式
+        symbolId: 'icon-[dir]-[name]',
+      }),
+      vueSetupExtend(),
+      AutoImport({
+        imports: ['vue'],
+        dts: 'src/auto-import.d.ts',
+      }),
+
+      viteCompression(),
+      ViteRestart({
+        // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
+        restart: ['vite.config.js'],
+      }),
       // 打包分析插件
       mode === 'production' &&
         visualizer({
@@ -56,22 +78,6 @@ export default ({ command, mode }) => {
           gzipSize: true,
           brotliSize: true,
         }),
-      ViteRestart({
-        // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
-        restart: ['vite.config.js'],
-      }),
-      vueSetupExtend(),
-      AutoImport({
-        imports: ['vue'],
-        dts: 'src/auto-import.d.ts',
-      }),
-      createSvgIconsPlugin({
-        // 指定要缓存的文件夹
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
-        // 指定symbolId格式
-        symbolId: 'icon-[dir]-[name]',
-      }),
-      viteCompression(), // 会多出一些.gz文件，如xxx.js.gz，这里默认是不会删除xxx.js文件的，如果想删除也可以增加配置
       // 这个图片压缩插件比较耗时，希望仅在生产环境使用
       mode === 'production' &&
         viteImagemin({
