@@ -1,4 +1,5 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
+import { isWxProd } from './vite.config'
 
 export default defineUniPages({
   globalStyle: {
@@ -24,26 +25,42 @@ export default defineUniPages({
     fontSize: '10px',
     iconWidth: '24px',
     spacing: '3px',
-    list: [
-      {
-        iconPath: 'static/tabbar/home.png',
-        selectedIconPath: 'static/tabbar/homeHL.png',
-        pagePath: 'pages/index/index',
-        text: '首页',
-      },
-      {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
-        pagePath: 'pages/demo/index',
-        text: '示例',
-      },
-      {
-        iconPath: 'static/tabbar/personal.png',
-        selectedIconPath: 'static/tabbar/personalHL.png',
-        pagePath: 'pages/my/index',
-        text: '我的',
-      },
-    ],
+    list: isWxProd
+      ? [
+          {
+            iconPath: 'static/tabbar/home.png',
+            selectedIconPath: 'static/tabbar/homeHL.png',
+            pagePath: 'pages/index/index',
+            text: '首页',
+          },
+          {
+            iconPath: 'static/tabbar/personal.png',
+            selectedIconPath: 'static/tabbar/personalHL.png',
+            pagePath: 'pages/my/index',
+            text: '我的',
+          },
+        ]
+      : [
+          {
+            iconPath: 'static/tabbar/home.png',
+            selectedIconPath: 'static/tabbar/homeHL.png',
+            pagePath: 'pages/index/index',
+            text: '首页',
+          },
+          // 生产环境要注释掉demo，所以分开来写
+          {
+            iconPath: 'static/tabbar/example.png',
+            selectedIconPath: 'static/tabbar/exampleHL.png',
+            pagePath: 'pages/demo/index',
+            text: '示例',
+          },
+          {
+            iconPath: 'static/tabbar/personal.png',
+            selectedIconPath: 'static/tabbar/personalHL.png',
+            pagePath: 'pages/my/index',
+            text: '我的',
+          },
+        ],
   },
   // 你也可以定义 pages 字段，它具有最高的优先级。
   pages: [],

@@ -24,8 +24,12 @@ import AutoImport from 'unplugin-auto-import/vite'
 import viteCompression from 'vite-plugin-compression'
 import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
-// TODO: 很多用户无法安装这个插件所以先注释掉了，如果你可以安装成功，那就可以放开这个注释，以及下面的配置
+// TODO: 很多用户无法安装这个插件所以先注释掉了，如果你可以安装成功，那就可以放开这个注释，以及下面的viteImagemin配置
+// 另外，小程序有主包2M的限制，所以一般图片会放到图片服务器（不放本地），那这个插件就没用，所以在开发h5的时候，使用本地图片才用得到，既然如此那就不装吧
 // import viteImagemin from 'vite-plugin-imagemin'
+
+export const isWxProd =
+  process.env.UNI_PLATFORM === 'mp-weixin' && process.env.NODE_ENV === 'production'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
@@ -43,11 +47,15 @@ export default ({ command, mode }) => {
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
   // console.log(env)
   console.log(process.env.UNI_PLATFORM) // 得到 mp-weixin, h5 等
+
   return defineConfig({
     envDir: './env', // 自定义env目录
     plugins: [
       UniPages({
-        exclude: ['**/components/**/**.*'],
+        // TODO: 生产环境小程序要过滤掉demo（demo里面很多图片，超过2M的包大小）
+        exclude: isWxProd
+          ? ['**/components/**/**.*', '**/demo/**/**.*']
+          : ['**/components/**/**.*'],
       }),
       UniLayouts(),
       UniPlatform(),

@@ -1,6 +1,6 @@
 export type UserInfo = {
-  username: string
-  token: string
+  nickname: string
+  avatar: string
 }
 export type UserItem = {
   username: string
