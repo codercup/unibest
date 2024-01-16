@@ -1,5 +1,5 @@
 <template>
-  <view class="fly-login" v-if="show">
+  <view class="fly-login" v-if="modelValue">
     <view class="fly-login-mask" />
     <view class="fly-login-content px-4">
       <view class="font-bold h-16 leading-16">获取您的昵称、头像</view>
@@ -28,7 +28,7 @@
         class="flex items-center h-16 leading-16 border-b-gray-400 border-b-solid border-1 mt-4"
       >
         <text class="mr-4 flex-shrink-0">昵称</text>
-        <input type="nickname" placeholder="请输入昵称" @change="onChange" />
+        <input type="nickname" placeholder="请输入昵称" @change="onChange" @blur="onChange" />
       </view>
 
       <button
@@ -47,14 +47,16 @@
 import { useUserStore } from '@/store'
 import defaultAvatarUrl from './defaultAvatar.png'
 
+const emit = defineEmits(['update:modelValue'])
+defineProps<{ modelValue: boolean }>()
+
 const userStore = useUserStore()
 
-const show = ref(true)
 const avatarUrl = ref(defaultAvatarUrl)
 const nickname = ref('')
 
 const onClose = () => {
-  show.value = false
+  emit('update:modelValue', false)
 }
 
 const onChooseAvatar = (e) => {
@@ -67,6 +69,7 @@ const onChooseAvatar = (e) => {
 const onChange = (e) => {
   const { value } = e.detail
   nickname.value = value
+  console.log(value)
 }
 
 const onSubmit = () => {
@@ -87,6 +90,7 @@ const onSubmit = () => {
     return
   }
 
+  emit('update:modelValue', false)
   console.log('保存用户信息')
   userStore.setUserInfo({ nickname: nickname.value, avatar: avatarUrl.value })
 }
