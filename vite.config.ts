@@ -28,8 +28,10 @@ import { visualizer } from 'rollup-plugin-visualizer'
 // 另外，小程序有主包2M的限制，所以一般图片会放到图片服务器（不放本地），那这个插件就没用，所以在开发h5的时候，使用本地图片才用得到，既然如此那就不装吧
 // import viteImagemin from 'vite-plugin-imagemin'
 
-export const isWxProd =
-  process.env.UNI_PLATFORM === 'mp-weixin' && process.env.NODE_ENV === 'production'
+// 微信生产环境、本地真机调试不要demo路由，本地开发可以有；TODO: 下面2个根据使用条件选一个即可
+export const hideDemoPages = process.env.UNI_PLATFORM === 'mp-weixin'
+// export const hideDemoPages =
+//   process.env.UNI_PLATFORM === 'mp-weixin' && process.env.NODE_ENV === 'production'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
@@ -53,7 +55,7 @@ export default ({ command, mode }) => {
     plugins: [
       UniPages({
         // TODO: 生产环境小程序要过滤掉demo（demo里面很多图片，超过2M的包大小）
-        exclude: isWxProd
+        exclude: hideDemoPages
           ? ['**/components/**/**.*', '**/demo/**/**.*']
           : ['**/components/**/**.*'],
       }),

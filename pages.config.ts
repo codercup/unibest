@@ -1,5 +1,5 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
-import { isWxProd } from './vite.config'
+import { hideDemoPages } from './vite.config'
 
 export default defineUniPages({
   globalStyle: {
@@ -25,7 +25,7 @@ export default defineUniPages({
     fontSize: '10px',
     iconWidth: '24px',
     spacing: '3px',
-    list: isWxProd
+    list: hideDemoPages
       ? [
           {
             iconPath: 'static/tabbar/home.png',
