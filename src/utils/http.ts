@@ -2,7 +2,6 @@
 import { useUserStore } from '@/store'
 import { UserInfo } from '@/typings'
 
-const userStore = useUserStore()
 type Data<T> = {
   code: number
   msg: string
@@ -29,6 +28,7 @@ const httpInterceptor = {
       ...options.header,
     }
     // 4. 添加 token 请求头标识
+    const userStore = useUserStore()
     const { token } = userStore.userInfo as unknown as UserInfo
     if (token) {
       options.header.Authorization = `Bearer ${token}`
@@ -54,8 +54,8 @@ export const http = <T>(options: UniApp.RequestOptions) => {
           resolve(res.data as Data<T>)
         } else if (res.statusCode === 401) {
           // 401错误  -> 清理用户信息，跳转到登录页
-          userStore.clearUserInfo()
-          uni.navigateTo({ url: '/pages/login/login' })
+          // userStore.clearUserInfo()
+          // uni.navigateTo({ url: '/pages/login/login' })
           reject(res)
         } else {
           // 其他错误 -> 根据后端错误信息轻提示
