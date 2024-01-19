@@ -66,7 +66,7 @@
 
   - `npx degit https://github.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
 
-  - `npx degit https://gitee.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
+  - ~~`npx degit https://gitee.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`~~（degit 不支持 gitee）
 
 - github template
   ![Github template](./screenshots/github-template.png)
