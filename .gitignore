@@ -33,3 +33,7 @@ uni-pages.d.ts
 # 插件生成的2个文件
 src/pages.json
 src/manifest.json
+
+# lock 文件还是不要了，我主要的版本写死就好了
+pnpm-lock.yaml
+package-lock.json
