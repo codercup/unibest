@@ -27,3 +27,7 @@ stats.html
 auto-import.d.ts
 # unplugin-vue-components 生成的类型文件
 components.d.ts
+src/pages.json
+uni-pages.d.ts
+src/pages.json
+src/manifest.json

@@ -59,6 +59,8 @@ export default ({ command, mode }) => {
         exclude: hideDemoPages
           ? ['**/components/**/**.*', '**/demo/**/**.*']
           : ['**/components/**/**.*'],
+        homePage: 'pages/index/index',
+        subPackages: ['src/pages-sub'],
       }),
       UniLayouts(),
       UniPlatform(),
