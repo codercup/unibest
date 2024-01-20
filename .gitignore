@@ -27,7 +27,9 @@ stats.html
 auto-import.d.ts
 # unplugin-vue-components 生成的类型文件
 components.d.ts
-src/pages.json
+# vite-plugin-uni-pages 生成的类型文件
 uni-pages.d.ts
+
+# 插件生成的2个文件
 src/pages.json
 src/manifest.json
