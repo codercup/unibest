@@ -24,8 +24,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import viteCompression from 'vite-plugin-compression'
 import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
-// TODO: 很多用户无法安装这个插件所以先注释掉了，如果你可以安装成功，那就可以放开这个注释，以及下面的viteImagemin配置
-// 另外，小程序有主包2M的限制，所以一般图片会放到图片服务器（不放本地），那这个插件就没用，所以在开发h5的时候，使用本地图片才用得到，既然如此那就不装吧
+// TODO: 很多用户无法安装这个插件所以先注释掉了，如果您可以安装成功，那就可以放开这个注释，以及下面的viteImagemin配置
+// 注意，小程序有主包2M的限制，所以一般图片会放到图片服务器（不放本地），那就不需要这个插件
 // import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vitejs.dev/config/
