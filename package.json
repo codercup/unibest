@@ -74,12 +74,12 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3081220230817001",
-    "@dcloudio/uni-ui": "^1.4.28",
-    "dayjs": "^1.11.10",
-    "pinia": "^2.0.36",
-    "pinia-plugin-persistedstate": "^3.2.1",
+    "@dcloudio/uni-ui": "1.4.28",
+    "dayjs": "1.11.10",
+    "pinia": "2.0.36",
+    "pinia-plugin-persistedstate": "3.2.1",
     "vue": "3.2.47",
-    "vue-i18n": "^9.1.9"
+    "vue-i18n": "9.8.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
