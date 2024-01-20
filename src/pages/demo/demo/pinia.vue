@@ -28,7 +28,7 @@ const countStore = useCountStore()
 const userStore = useUserStore()
 
 const setUserInfo = () => {
-  userStore.setUserInfo({ username: 'fly', token: 'abcdef' })
+  userStore.setUserInfo({ nickname: 'fly', avatar: '', token: 'abcdef' })
 }
 const clearUserInfo = () => {
   userStore.clearUserInfo()

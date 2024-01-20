@@ -5,7 +5,7 @@ import { UserInfo } from '../typings'
 export const useUserStore = defineStore(
   'user',
   () => {
-    const userInfo = ref<UserInfo>()
+    const userInfo = ref<UserInfo>({ nickname: '', avatar: '' })
 
     const setUserInfo = (val: UserInfo) => {
       userInfo.value = val
