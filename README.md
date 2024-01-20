@@ -1,4 +1,8 @@
-# vue3-uniapp-template
+# unifly
+
+（原名 vue3-uniapp-template）
+
+由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快速启动模板，VS Code + Prettier +ESLint + husky + lint-staged + commitlint
 
 ## 特性
 
@@ -54,22 +58,21 @@
 - pnpm>=8.12
 - node>=18
 
-## 拉取代码
+## 仓库地址
 
-- git 拉取
+- github
 
-  - github：`git clone https://github.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
+  - ~~`https://github.com/fly-vue3-templates/vue3-uniapp-template`~~ （旧地址）
 
-  - gitee：`git clone https://gitee.com/fly-vue3-templates/vue3-uniapp-template.git fly-uniapp`
+  - `https://github.com/codercup/unifly` （新地址）
 
-- degit 拉取（不包含git，需要自己git init）
+- gitee
 
-  - `npx degit https://github.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`
+  - ~~`https://gitee.com/fly-vue3-templates/vue3-uniapp-template.git fly`~~ （旧地址）
 
-  - ~~`npx degit https://gitee.com/fly-vue3-templates/vue3-uniapp-template fly-uniapp`~~（degit 不支持 gitee）
+  - `https://gitee.com/codercup/unifly` （新地址）
 
-- github template
-  ![Github template](./screenshots/github-template.png)
+> 旧地址也可以访问，会自动跳转到新地址
 
 ## 运行
 
@@ -81,8 +84,7 @@
 ## 发布
 
 - web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `vite.config.ts` 的 `base` 属性进行配置。[vite官网](https://cn.vitejs.dev/config/shared-options.html#base)
-  ![vite.base](./screenshots/vite-base.png)
 - weixin平台：`pnpm build:h5`, 打包后的文件在 `dist/build/mp-weixin`，然后通过微信开发者工具导入，并点击右上角的“上传”按钮进行上传。
 - APP平台：`pnpm build:app`, 然后打开 `HBuilderX`，导入刚刚生成的`dist/build/app` 文件夹，选择发行 - APP云打包。
 
-![app发行](./screenshots/app-build.png)
+  ![app发行](./screenshots/app-build.png)
