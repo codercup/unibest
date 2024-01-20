@@ -20,7 +20,7 @@
   </view>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="WxLogin">
 import { useUserStore } from '@/store'
 
 const show = ref(false)
