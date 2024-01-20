@@ -99,3 +99,10 @@
 
 > mac 可以安装多个版本的软件，
 > ![multiple-version](./screenshots/multiple-version.png)
+
+## 给作者加鸡腿
+
+如果你觉得不错，请给作者加鸡腿~
+
+![PayWeixin](./screenshots/pay-weixin.png)
+![PayAli](./screenshots/pay-ali.png)
