@@ -75,7 +75,7 @@ function handleClick() {
 .lottery-list {
   --size: 600rpx;
   --half: calc(var(--size) / 2);
-  --len: 8; // 与代码一直
+  --len: 8; // 与代码 giftLen 长度一致
   --deg: calc(360 / var(--len) * 1deg);
   --deg-num: calc(360 / var(--len));
 
@@ -127,7 +127,7 @@ function handleClick() {
   background: #ffffffa1;
 }
 
-// TODO 与上面的--len一致
+// TIPS: 与上面的--len一致
 @for $i from 1 through 8 {
   .lottery-item:nth-child(#{$i}) {
     transform: rotate(calc(($i - 1 - 0.5) * var(--deg)));

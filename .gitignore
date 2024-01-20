@@ -37,5 +37,5 @@ src/pages.json
 pnpm-lock.yaml
 package-lock.json
 
-# TODO：如果某些文件已经加入了版本管理，现在重新加入 .gitignore 是不生效的，需要执行下面的操作
+# TIPS：如果某些文件已经加入了版本管理，现在重新加入 .gitignore 是不生效的，需要执行下面的操作
 # `git rm -r cached .` 然后提交 commit 即可。
