@@ -100,9 +100,15 @@
 > mac 可以安装多个版本的软件，
 > ![multiple-version](./screenshots/multiple-version.png)
 
+## `v3` 代码段
+
+在 `vue` 文件里面输入 `v3` 触发这个代码段。如下图
+
+![v3 snippets](./screenshots/snippets.gif)
+
 ## 给作者加鸡腿
 
-如果你觉得不错，请给作者加鸡腿~
+如果对你有帮助，请给作者加鸡腿~
 
 ![PayWeixin](./screenshots/pay-weixin.png)
 ![PayAli](./screenshots/pay-ali.png)
