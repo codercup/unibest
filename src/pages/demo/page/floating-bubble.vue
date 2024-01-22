@@ -1,3 +1,10 @@
+<route lang="json5">
+{
+  layout: 'default',
+  style: { navigationBarTitleText: '页面悬浮球' },
+}
+</route>
+
 <template>
   <view>
     <movable-area class="movable-area">
