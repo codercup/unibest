@@ -17,6 +17,7 @@
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
 
+// TODO: 通过pages.json 文件里面的 path 和 navigationBarTitleText，生成数组
 const list = ref([
   {
     name: 'UnoCSS',
