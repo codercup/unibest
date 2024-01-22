@@ -100,21 +100,6 @@ const onRefresherRefresh = async () => {
 </script>
 
 <style lang="scss">
-page {
-  display: flex;
-  flex-direction: column;
-
-  // #ifdef MP-WEIXIN
-  height: 100%;
-
-  // #endif
-  // #ifndef MP-WEIXIN
-  min-height: 100%;
-
-  // #endif
-  overflow: hidden;
-}
-
 .scroll-view-bg {
   // 这个背景色要与.top-section的背景图差不多，这样下拉刷新看起来才比较协调
   background-color: #23c09c;
