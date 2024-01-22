@@ -13,12 +13,6 @@
   <fly-content :line="20" />
 </template>
 
-<route lang="json5">
-{
-  style: { navigationStyle: 'custom' },
-}
-</route>
-
 <script lang="ts" setup>
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()

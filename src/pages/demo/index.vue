@@ -11,17 +11,12 @@
         </view>
       </view>
     </view>
-    <view class="m-4">
-      <text>测试配置exclude后，还会自动导入页面吗？</text>
-      <PagesAutoImport />
-    </view>
   </view>
 </template>
 
 <script setup lang="ts" name="TestIndex">
 import { ref } from 'vue'
 import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
-import PagesAutoImport from './components/pages-auto-import.vue'
 /** 激活“分享给好友” */
 onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {
   console.log('options:', options)
@@ -76,10 +71,6 @@ const list = ref([
   {
     name: '请求封装+请求拦截器',
     url: 'request',
-  },
-  {
-    name: 'page自动引入',
-    url: 'pages-auto-import',
   },
 ])
 const goDetailPage = (path: string) => {
