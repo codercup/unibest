@@ -1,8 +1,10 @@
-# unifly
+# UniBest
 
 （原名 vue3-uniapp-template）
 
 由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快速启动模板，VS Code + Prettier +ESLint + husky + lint-staged + commitlint
+
+使用 UniBest 写 UniApp，让你拥有 Best 体验
 
 ## 特性
 
@@ -64,13 +66,13 @@
 
   - ~~`https://github.com/fly-vue3-templates/vue3-uniapp-template`~~ （旧地址）
 
-  - `https://github.com/codercup/unifly` （新地址）
+  - `https://github.com/codercup/unibest` （新地址）
 
 - gitee
 
   - ~~`https://gitee.com/fly-vue3-templates/vue3-uniapp-template.git fly`~~ （旧地址）
 
-  - `https://gitee.com/codercup/unifly` （新地址）
+  - `https://gitee.com/codercup/unibest` （新地址）
 
 > 旧地址也可以访问，会自动跳转到新地址
 
