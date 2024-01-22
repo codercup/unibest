@@ -27,9 +27,17 @@
     <view class="mt-8 text-center text-green-600">下面是调试过程图片</view>
     <view class="mb-8 text-center text-green-600">欢迎感兴趣的玩家继续优化</view>
     <view class="text-center text-blue-600">计算lottery-item-inner节点的padding-left值</view>
-    <image src="./lottery2-1.png" mode="widthFix" class="w-full" />
+    <image
+      src="https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery/lottery2-1.png"
+      mode="widthFix"
+      class="w-full"
+    />
     <view class="text-center text-blue-600">调整lottery-item-gift节点</view>
-    <image src="./lottery2-2.png" mode="widthFix" class="w-full" />
+    <image
+      src="https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery/lottery2-2.png"
+      mode="widthFix"
+      class="w-full"
+    />
   </view>
 </template>
 

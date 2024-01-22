@@ -9,9 +9,15 @@
     <view class="text-green">微信分享页</view>
     <view class="text-green-500">请在微信小程序中体验，或者开发者工具</view>
     <view>1) 默认是不激活”发送给朋友“和”分享到朋友圈“的，如下图</view>
-    <image src="/static/screenshots/wx-share-before.png" mode="widthFix" />
+    <image
+      src="https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/wx-share/wx-share-before.png"
+      mode="widthFix"
+    />
     <view>2) 增加了onShareAppMessage和onShareTimeline后，就可以微信分享了，如下图</view>
-    <image src="/static/screenshots/wx-share-after.png" mode="widthFix" />
+    <image
+      src="https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/wx-share/wx-share-after.png"
+      mode="widthFix"
+    />
   </view>
 </template>
 
