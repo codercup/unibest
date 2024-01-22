@@ -53,7 +53,8 @@
     "setting": {
       "urlCheck": false
     },
-    "usingComponents": true
+    "usingComponents": true,
+    "__usePrivacyCheck__": true
   },
   "mp-alipay": {
     "usingComponents": true
