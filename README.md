@@ -1,10 +1,6 @@
 # UniBest
 
-（原名 vue3-uniapp-template）
-
-由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快速启动模板，VS Code + Prettier +ESLint + husky + lint-staged + commitlint
-
-使用 UniBest 写 UniApp，让你拥有 Best 体验
+UniBest 是由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，拥有代码提示、自动格式化、统一配置、代码片段等能力，另外整合了大量基础示例，开箱即用，让你编写 UnitAPP 拥有 Best 体验。
 
 ## 特性
 
