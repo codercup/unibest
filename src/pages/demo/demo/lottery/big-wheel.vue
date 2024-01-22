@@ -1,8 +1,10 @@
 <route lang="json5">
 {
+  layout: 'demo',
   style: { navigationBarTitleText: '大转盘抽奖' },
 }
 </route>
+
 <template>
   <view class="text-center">
     <view class="container">

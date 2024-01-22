@@ -1,5 +1,6 @@
 <route lang="json5">
 {
+  layout: 'demo',
   style: { navigationBarTitleText: '九宫格抽奖' },
 }
 </route>

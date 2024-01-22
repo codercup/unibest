@@ -1,5 +1,6 @@
 <route lang="json5">
 {
+  layout: 'demo',
   style: { navigationBarTitleText: '动态时钟' },
 }
 </route>

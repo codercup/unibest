@@ -10,7 +10,7 @@ type Data<T> = {
 
 // 请求基地址
 const baseURL = import.meta.env.VITE_SERVER_BASEURL
-console.log(import.meta.env)
+// console.log(import.meta.env)
 
 // 拦截器配置
 const httpInterceptor = {

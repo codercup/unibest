@@ -1,5 +1,6 @@
 <route lang="json5">
 {
+  layout: 'demo',
   style: { navigationBarTitleText: 'UnoCss Icons 使用' },
 }
 </route>

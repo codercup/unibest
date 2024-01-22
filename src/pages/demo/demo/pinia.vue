@@ -1,6 +1,6 @@
 <route lang="json5">
 {
-  layout: 'display',
+  layout: 'demo',
   style: { navigationBarTitleText: 'pinia+持久化' },
 }
 </route>

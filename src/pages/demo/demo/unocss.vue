@@ -1,5 +1,6 @@
 <route lang="json5">
 {
+  layout: 'demo',
   style: { navigationBarTitleText: 'UnoCss 使用' },
 }
 </route>

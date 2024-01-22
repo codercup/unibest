@@ -1,3 +1,10 @@
+<route lang="json5">
+{
+  layout: 'demo',
+  style: { navigationBarTitleText: '图片压缩' },
+}
+</route>
+
 <template lang="">
   <view class="m-4 text-center">
     <view class="mb-2 text-orange-500">
