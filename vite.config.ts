@@ -49,10 +49,7 @@ export default ({ command, mode }) => {
     envDir: './env', // 自定义env目录
     plugins: [
       UniPages({
-        exclude:
-          env.VITE_SHOW_DEMO === '1'
-            ? ['**/components/**/**.*']
-            : ['**/components/**/**.*', '**/demo/**/**.*'],
+        exclude: ['**/components/**/**.*'],
         homePage: 'pages/index/index',
         subPackages: ['src/pages-sub'],
       }),
