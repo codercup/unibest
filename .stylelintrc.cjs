@@ -45,5 +45,6 @@ module.exports = {
     'comment-empty-line-before': 'never',
     'custom-property-empty-line-before': 'never',
     'no-empty-source': null,
+    'scss/comment-no-empty': null,
   },
 }

@@ -20,11 +20,20 @@
     "scope": "vue",
     "prefix": "v3",
     "body": [
+      "<route lang=\"json5\" type=\"page\">",
+      "{",
+      "  style: { navigationBarTitleText: '$1' },",
+      "}",
+      "</route>\n",
       "<template>",
-      "  <view class=\"\">$1</view>",
-      "</template>",
-      "<script lang=\"ts\" setup></script>",
-      "<style lang=\"scss\" scoped></style>\n"
+      "  <view class=\"\">$2</view>",
+      "</template>\n",
+      "<script lang=\"ts\" setup>",
+      "//",
+      "</script>\n",
+      "<style lang=\"scss\" scoped>",
+      "//",
+      "</style>\n"
     ]
   }
 }
