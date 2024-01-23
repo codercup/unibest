@@ -5,27 +5,24 @@
 }
 </route>
 <template>
-  <view class="bg-white h-full overflow-hidden pt-24 px-4">
+  <view class="bg-white h-full overflow-hidden pt-2 px-4">
     <view class="mt-8">
-      <image src="/static/logo.png" alt="" class="w-20 h-20 block mx-auto" />
-      <view class="text-2xl text-center mt-4 font-bold"> UniBest </view>
+      <image src="/static/logo.svg" alt="" class="w-40 h-40 block mx-auto" />
     </view>
-    <view class="mt-8">
-      <view class="text-center mt-4 font-bold text-xl">开箱即用的 uniapp+vue3+ts 模板</view>
-      <view class="text-center mt-4 font-bold"
-        ><text class="text-red"> UniBest </text> 写 <text class="text-blue">uni</text>app，拥有
-        <text class="text-blue"> Best</text> 体验 ^_^</view
-      >
-      <!--
-        <view class="mt-8">果然UniIcons 在 微信小程序下颜色丢失</view>
-        <uni-icons type="contact" size="30"></uni-icons>
-        <uni-icons type="contact" size="30" color="red"></uni-icons>
-        <view mt-4>UnoCSS Icons就正常，以后还是多用UnoCSS Icons 吧</view>
-        <view class="i-carbon-car" />
-        <view class="i-carbon-car text-red" />
-      -->
-    </view>
+    <view class="text-center text-4xl main-title-color mt-4">unibest</view>
+    <view class="text-center text-2xl mt-4 mb-8">最好用的 uniapp 开发模板</view>
+    <view class="text-center text-xl"
+      >unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code
+      开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写
+      uniapp 拥有 best 体验。</view
+    >
   </view>
 </template>
 
 <script lang="ts" setup></script>
+
+<style>
+.main-title-color {
+  color: #d14328;
+}
+</style>

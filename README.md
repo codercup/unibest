@@ -1,8 +1,14 @@
-<p align="center"><img width="100" src="./src/static/logo.svg"></p>
-
-<h2 align="center">unibest - 最好用的 uniapp 开发模板</h2>
-
 <p align="center">
+  <a href="https://github.com/codercup/unibest">
+    <img width="200" src="./src/static/logo.svg">
+  </a>
+</p>
+
+<h1 align="center">
+  <a href="https://github.com/codercup/unibest" target="_blank">unibest - 最好用的 uniapp 开发模板</a>
+</h1>
+
+<div align="center">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
 [![GitHub forks](https://img.shields.io/github/forks/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
@@ -10,9 +16,9 @@
 [![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest/members)![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
 ![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
-</p>
+</div>
 
-<p align="center"><b>unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写 uniapp 拥有 best 体验。</b></p>
+<div align="center"><b>unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写 uniapp 拥有 best 体验。</b></div>
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
