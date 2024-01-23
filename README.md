@@ -1,27 +1,18 @@
-<p align="center"><img width="100" src="https://vuejs.org/images/logo.png"></p>
+<p align="center"><img width="100" src="./src/static/logo.svg"></p>
 
-<h2 align="center">unibest - 最好用的 uniapp 开发框架</h2>
+<h2 align="center">unibest - 最好用的 uniapp 开发模板</h2>
 
-<h3>github</h3> 
 <p align="center">
 
-[![star](https://img.shields.io/github/stars/codercup/unibest)](https://github.com/codercup/unibest)
-[![forks](https://img.shields.io/github/forks/codercup/unibest)](https://github.com/codercup/unibest)
-[![version](https://img.shields.io/github/package-json/v/codercup/unibest/main)](https://github.com/codercup)
-[![release](https://img.shields.io/github/v/release/codercup/unibest)](https://github.com/codercup/unibest)
-[![license](https://img.shields.io/github/license/elemefe/vue-amap.svg?style=flat-square)](https://gitee.com/codercup/unibest)
+[![GitHub Repo stars](https://img.shields.io/github/stars/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
+[![GitHub forks](https://img.shields.io/github/forks/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
+[![star](https://gitee.com/codercup/unibest/badge/star.svg?theme=dark)](https://gitee.com/codercup/unibest/stargazers)
+[![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest/members)![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
+![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
 </p>
 
-<h3>gitee</h3> 
-<p align="center">
-
-[![star](https://gitee.com/codercup/unibest/badge/star.svg?theme=dark)](https://giett.com/codercup/unibest)[![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest)
-[![license](https://img.shields.io/github/license/elemefe/vue-amap.svg?style=flat-square)](https://gitee.com/codercup/unibest)
-
-</p>
-<h3>简介</h3> 
-<p align="center"><b>unibest 是由 uni-app + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，具有代码提示、自动格式化、统一配置、代码片段等功能，另外内置了大量平时开发常用的基本组件，开箱即用，让你编写 UnitAPP 拥有 Best 体验。</b></p>
+<p align="center"><b>unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写 uniapp 拥有 best 体验。</b></p>
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
