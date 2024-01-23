@@ -1,8 +1,31 @@
-# UniBest
+<p align="center"><img width="100" src="https://vuejs.org/images/logo.png"></p>
 
-UniBest 是由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，拥有代码提示、自动格式化、统一配置、代码片段等能力，另外整合了大量基础示例，开箱即用，让你编写 UnitAPP 拥有 Best 体验。
+<h2 align="center">unibest - 最好用的 uniapp 开发框架</h2>
 
-## 特性
+<h3>github</h3> 
+<p align="center">
+
+[![star](https://img.shields.io/github/stars/codercup/unibest)](https://github.com/codercup/unibest)
+[![forks](https://img.shields.io/github/forks/codercup/unibest)](https://github.com/codercup/unibest)
+[![version](https://img.shields.io/github/package-json/v/codercup/unibest/main)](https://github.com/codercup)
+[![release](https://img.shields.io/github/v/release/codercup/unibest)](https://github.com/codercup/unibest)
+[![license](https://img.shields.io/github/license/elemefe/vue-amap.svg?style=flat-square)](https://gitee.com/codercup/unibest)
+
+</p>
+
+<h3>gitee</h3> 
+<p align="center">
+
+[![star](https://gitee.com/codercup/unibest/badge/star.svg?theme=dark)](https://giett.com/codercup/unibest)[![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest)
+[![license](https://img.shields.io/github/license/elemefe/vue-amap.svg?style=flat-square)](https://gitee.com/codercup/unibest)
+
+</p>
+<h3>简介</h3> 
+<p align="center"><b>unibest 是由 uni-app + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，具有代码提示、自动格式化、统一配置、代码片段等功能，另外内置了大量平时开发常用的基本组件，开箱即用，让你编写 UnitAPP 拥有 Best 体验。</b></p>
+
+![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## ✨ 特性
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/), [esbuild](https://github.com/evanw/esbuild) - 就是快！
 
@@ -20,22 +43,22 @@ UniBest 是由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快�
 
 - 🦾 [TypeScript](https://www.typescriptlang.org/) & [ESLint](https://eslint.org/) & [stylelint](https://stylelint.io/) - 保证代码质量
 
-- 🗂 [husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) + [commitlint](https://commitlint.js.org/) - 保证代码提交质量
+- 🌈 [husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) + [commitlint](https://commitlint.js.org/) - 保证代码提交质量
 
 - 🗂 ES6 import 顺序自动排序，css 属性自动排序，增强编码一致性
 
-- 🗂 使用请求拦截器，封装好您的请求
+- 🌍 使用请求拦截器，封装好您的请求
 
-- 🗂 图片自动压缩，再也不用去tinyPng等网站压缩图片了
+- 🛡 图片自动压缩，再也不用去tinyPng等网站压缩图片了
 
-- 🗂 多环境配置分开，想则怎么配置就怎么配置
+- 🖥 多环境配置分开，想则怎么配置就怎么配置
 
-## 业务功能 TODO LIST
+## 🗂 业务功能
 
 - [x] 页面下拉刷新（全局+局部）
 - [x] 页面上拉加载
 - [x] 导航栏返回or去首页
-- [x] 导航栏渐变（微信+h5)
+- [x] 导航栏渐变（微信+h5+App)
 - [x] 自定义导航栏顶部机型适配
 - [x] 微信小程序分享（好友+朋友圈）
 - [x] 微信登录
@@ -54,35 +77,18 @@ UniBest 是由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快�
 - [ ] 仿网易云音乐APP（独立项目）
 - [ ] 仿网易云音乐APP（独立项目）
 
-## 环境
+## ⚙️ 环境
 
 - pnpm>=8.12
 - node>=18
 
-## 仓库地址
-
-- github
-
-  - ~~`https://github.com/fly-vue3-templates/vue3-uniapp-template`~~ （旧地址）
-
-  - `https://github.com/codercup/unibest` （新地址）
-
-- gitee
-
-  - ~~`https://gitee.com/fly-vue3-templates/vue3-uniapp-template.git fly`~~ （旧地址）
-
-  - `https://gitee.com/codercup/unibest` （新地址）
-
-> 旧地址也可以访问，会自动跳转到新地址
-
-## 运行
+## 📦 运行
 
 - web平台： `pnpm dev:h5`, 然后打开 [http://localhost:9000/](http://localhost:9000/)。
 - weixin平台：`pnpm dev:mp-weixin` 然后打开微信开发者工具，导入本地文件夹，选择本项目的`dist/dev/mp-weixin` 文件。
-- APP平台：`pnpm dev:app`, 然后打开 `HBuilderX`，导入刚刚生成的`dist/dev/app` 文件夹，选择运行到模拟器，或者运行的安卓/ios基座。
-  ![app运行](./screenshots/app-dev.png)
+- APP平台：`pnpm dev:app`, 然后打开 `HBuilderX`，导入刚刚生成的`dist/dev/app` 文件夹，选择运行到模拟器(开发时优先使用)，或者运行的安卓/ios基座。
 
-## 发布
+## 🔗 发布
 
 - web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `vite.config.ts` 的 `base` 属性进行配置。[vite官网](https://cn.vitejs.dev/config/shared-options.html#base)
 - weixin平台：`pnpm build:h5`, 打包后的文件在 `dist/build/mp-weixin`，然后通过微信开发者工具导入，并点击右上角的“上传”按钮进行上传。
@@ -90,26 +96,23 @@ UniBest 是由 Vue3 & Ts & Vite4 & uni-app & UnoCss & UniUI 驱动的跨端快�
 
   ![app发行](./screenshots/app-build.png)
 
-## **APP 打包注意事项**
+## 🎨 `v3` 代码段
 
-本模板使用的是 `3.8.12` 的库版本(` "@dcloudio/uni-app": "3.0.0-3081220230817001",`)，所以尽量使用 `3.8.12` 版本的 `HBuilderX` 来打包，否则可能有未知的风险，出现情况如下图。
-
-点击 `ignore` 后可以正常使用，万一以后出现什么特殊情况，记得看看是不是版本问题。
-
-![ios-run-app](./screenshots/ios-run-app.gif)
-
-> mac 可以安装多个版本的软件，
-> ![multiple-version](./screenshots/multiple-version.png)
-
-## `v3` 代码段
-
-在 `vue` 文件里面输入 `v3` 触发这个代码段。如下图
+在 `vue` 文件里面输入 `v3` 触发这个代码段。如下图，用户可以在`.vscode/vue3.code-snippets` 里面自行修改。
 
 ![v3 snippets](./screenshots/snippets.gif)
 
-## 给作者加鸡腿
+## 🌍 License
+
+[MIT](https://opensource.org/license/mit/)
+
+Copyright (c) 2024 菲鸽
+
+## 🤝 给作者加鸡腿
 
 如果对你有帮助，请给作者加鸡腿~
 
-![PayWeixin](./screenshots/pay-weixin.png)
-![PayAli](./screenshots/pay-ali.png)
+<p align='center'>
+<img alt="special sponsor appwrite" src="./screenshots/pay-weixin.png" width="300">
+<img alt="special sponsor appwrite" src="./screenshots/pay-ali.png" width="300">
+</p>

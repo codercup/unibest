@@ -41,9 +41,7 @@
     "refresherrefresh",
     "scrolltolower",
     "tabbar",
+    "unibest",
     "WechatMiniprogram"
-  ],
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  ]
 }
