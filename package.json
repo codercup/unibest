@@ -12,7 +12,7 @@
     "gitee": "https://gitee.com/codercup/unibest"
   },
   "scripts": {
-    "postinstall": "sh ./build/postinstall.sh",
+    "postinstall": "sh ./shell/postinstall.sh",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
