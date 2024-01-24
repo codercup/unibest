@@ -84,6 +84,15 @@ Copyright (c) 2024 菲鸽
 如果对你有帮助，请给作者加鸡腿~
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/pay-weixin.png" width="300">
-<img alt="special sponsor appwrite" src="./screenshots/pay-ali.png" width="300">
+<img alt="special sponsor appwrite" src="./screenshots/pay-weixin.png" width="200">
+<img alt="special sponsor appwrite" src="./screenshots/pay-ali.png" width="200">
+</p>
+
+## 官方微信群
+
+如果群名片已经过期，请加作者wx，作者拉你进去，备注：`unibest` 即可。
+
+<p align='center'>
+<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="200">
+<img alt="special sponsor appwrite" src="./screenshots/wx-author.png" width="200">
 </p>
