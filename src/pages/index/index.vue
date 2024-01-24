@@ -11,15 +11,30 @@
     </view>
     <view class="text-center text-4xl main-title-color mt-4">unibest</view>
     <view class="text-center text-2xl mt-4 mb-8">最好用的 uniapp 开发模板</view>
-    <view class="text-center text-xl"
-      >unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code
+    <view class="text-center text-xl">
+      unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code
       开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写
       uniapp 拥有 best 体验。</view
     >
+    <view class="text-blue mt-8 text-center text-xl">详细示例参考 hello-unibest</view>
+    <view class="m-2"> https://github.com/codercup/hello-unibest </view>
+    <button @click="onCopy">复制hello-unibest github地址</button>
   </view>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const onCopy = () => {
+  uni.setClipboardData({
+    data: 'https://github.com/codercup/hello-unibest',
+    fail: (fail) => {
+      console.error('fail', fail)
+    },
+    success: (success) => {
+      console.log('success', success)
+    },
+  })
+}
+</script>
 
 <style>
 .main-title-color {
