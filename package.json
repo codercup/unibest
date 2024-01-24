@@ -11,6 +11,11 @@
     "gitee": "https://gitee.com/codercup/unibest"
   },
   "repository": "https://github.com/codercup/unibest",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7.30"
+  },
   "scripts": {
     "postinstall": "sh ./shell/postinstall.sh",
     "dev:app": "uni -p app",
