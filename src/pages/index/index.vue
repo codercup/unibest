@@ -8,7 +8,10 @@
 }
 </route>
 <template>
-  <view class="bg-white h-full overflow-hidden pt-2 px-4">
+  <view
+    class="bg-white h-full overflow-hidden pt-2 px-4"
+    :style="{ marginTop: safeAreaInsets?.top + 'px' }"
+  >
     <view class="mt-8">
       <image src="/static/logo.svg" alt="" class="w-40 h-40 block mx-auto" />
     </view>
@@ -22,12 +25,15 @@
     <view class="text-blue mt-8 text-center text-xl">
       <text class="font-800">详细示例 </text>参考 hello-unibest
     </view>
-    <view class="m-2"> https://github.com/codercup/hello-unibest </view>
-    <button @click="onCopy">复制hello-unibest github地址</button>
+    <view class="m-4"> https://github.com/codercup/hello-unibest </view>
+    <button @click="onCopy">复制 hello-unibest github地址</button>
   </view>
 </template>
 
 <script lang="ts" setup>
+// 获取屏幕边界到安全区域距离
+const { safeAreaInsets } = uni.getSystemInfoSync()
+
 const onCopy = () => {
   uni.setClipboardData({
     data: 'https://github.com/codercup/hello-unibest',
