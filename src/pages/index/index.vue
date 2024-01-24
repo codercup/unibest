@@ -17,7 +17,7 @@
     </view>
     <view class="text-center text-4xl main-title-color mt-4">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发框架</view>
-    <view class="text-center text-xl">
+    <view class="text-justify text-xl">
       unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code
       开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写
       uniapp 拥有 best 体验。</view
