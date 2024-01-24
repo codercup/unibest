@@ -1,7 +1,10 @@
 <!-- 使用 type="home" 属性设置首页，其他页面不需要设置，默认为page；推荐使用json5，更强大，且允许注释 -->
 <route lang="json5" type="home">
 {
-  style: { navigationBarTitleText: '首页' },
+  style: {
+    navigationStyle: 'custom',
+    navigationBarTitleText: '首页',
+  },
 }
 </route>
 <template>
@@ -16,7 +19,9 @@
       开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写
       uniapp 拥有 best 体验。</view
     >
-    <view class="text-blue mt-8 text-center text-xl">详细示例参考 hello-unibest</view>
+    <view class="text-blue mt-8 text-center text-xl">
+      <text class="font-800">详细示例 </text>参考 hello-unibest
+    </view>
     <view class="m-2"> https://github.com/codercup/hello-unibest </view>
     <button @click="onCopy">复制hello-unibest github地址</button>
   </view>
