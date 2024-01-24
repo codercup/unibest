@@ -13,7 +13,10 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
 [![GitHub forks](https://img.shields.io/github/forks/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
 [![star](https://gitee.com/codercup/unibest/badge/star.svg?theme=dark)](https://gitee.com/codercup/unibest/stargazers)
-[![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest/members)![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
+[![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest/members)
+![node version](https://img.shields.io/badge/node-%3E%3D18-green)
+![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)
+![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
 ![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
 </div>
@@ -52,8 +55,8 @@
 
 ## ⚙️ 环境
 
-- pnpm>=7.30
 - node>=18
+- pnpm>=7.30
 
 ## 📦 运行（支持热更新）
 
