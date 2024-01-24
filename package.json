@@ -7,10 +7,11 @@
     "name": "Burt",
     "zhName": "菲鸽",
     "email": "1020103647@qq.com",
-    "github": "https://github.com/codercup/unibest",
-    "gitee": "https://gitee.com/codercup/unibest"
+    "github": "https://github.com/codercup",
+    "gitee": "https://gitee.com/codercup"
   },
   "repository": "https://github.com/codercup/unibest",
+  "repository-gitee": "https://gitee.com/codercup/unibest",
   "license": "MIT",
   "engines": {
     "node": ">=18",
