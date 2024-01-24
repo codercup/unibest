@@ -11,7 +11,6 @@ export default defineUniPages({
   easycom: {
     autoscan: true,
     custom: {
-      '^fly-(.*)': '@/components/fly-$1/fly-$1.vue',
       '^uni-(.*)': '@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue',
     },
   },
