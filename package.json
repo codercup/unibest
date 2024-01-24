@@ -1,16 +1,16 @@
 {
   "name": "unibest",
   "version": "0.1.0",
-  "description": "VSCode开发UniApp的最佳模版，Vue3+ts+Vite5+UnoCss+UniHelper+prettier+eslint+stylelint+husky+lint-staged+commitlint，自动格式化，ts的import顺序自动调整，scss文件的属性顺序自动排序。同时提供开箱即用的常用功能。",
+  "description": "unibest - 最好用的 uniapp 开发框架",
   "type": "commonjs",
   "author": {
     "name": "Burt",
     "zhName": "菲鸽",
     "email": "1020103647@qq.com",
-    "url": "https://github.com/codercup/unibest",
     "github": "https://github.com/codercup/unibest",
     "gitee": "https://gitee.com/codercup/unibest"
   },
+  "repository": "https://github.com/codercup/unibest",
   "scripts": {
     "postinstall": "sh ./shell/postinstall.sh",
     "dev:app": "uni -p app",
