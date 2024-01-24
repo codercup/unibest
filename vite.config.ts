@@ -30,7 +30,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
-  console.log(mode === process.env.NODE_ENV)
+  // console.log(mode === process.env.NODE_ENV) // true
 
   // mode: 区分生产环境还是开发环境
   console.log(command, mode)
