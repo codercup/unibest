@@ -18,7 +18,7 @@
     "pnpm": ">=7.30"
   },
   "scripts": {
-    "postinstall": "sh ./shell/postinstall.sh",
+    "postinstall": "node ./shell/postinstall.js",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
