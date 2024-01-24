@@ -20,7 +20,7 @@
     "scope": "vue",
     "prefix": "v3",
     "body": [
-      "<route type=\"page\">",
+      "<route lang=\"json5\" type=\"page\">",
       "{",
       "  style: { navigationBarTitleText: '$1' },",
       "}",

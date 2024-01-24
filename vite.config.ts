@@ -50,9 +50,8 @@ export default ({ command, mode }) => {
     plugins: [
       UniPages({
         exclude: ['**/components/**/**.*'],
-        // routeBlockLang: 'json5',
-        // homePage: 'pages/index/index',
-        subPackages: ['src/pages-sub'], // 是一个数组，可以设置多个
+        homePage: 'pages/index/index',
+        subPackages: ['src/pages-sub'],
       }),
       UniLayouts(),
       UniPlatform(),
