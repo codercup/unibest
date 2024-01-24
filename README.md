@@ -71,7 +71,7 @@
 
 在 `vue` 文件里面输入 `v3` 触发这个代码段。如下图，用户可以在`.vscode/vue3.code-snippets` 里面自行修改。
 
-![v3 snippets](./screenshots/snippets.gif)
+![v3 snippets](./screenshots/snippets2.gif)
 
 ## 🌍 License
 

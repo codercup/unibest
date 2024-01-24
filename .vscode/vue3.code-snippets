@@ -29,7 +29,7 @@
       "  <view class=\"\">$2</view>",
       "</template>\n",
       "<script lang=\"ts\" setup>",
-      "//",
+      "//$3",
       "</script>\n",
       "<style lang=\"scss\" scoped>",
       "//",
