@@ -12,20 +12,18 @@
     class="bg-white h-full overflow-hidden pt-2 px-4"
     :style="{ marginTop: safeAreaInsets?.top + 'px' }"
   >
-    <view class="mt-8">
+    <view class="mt-20">
       <image src="/static/logo.svg" alt="" class="w-40 h-40 block mx-auto" />
     </view>
     <view class="text-center text-4xl main-title-color mt-4">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发框架</view>
-    <view class="text-justify text-xl">
+    <view class="text-justify">
       unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code
       开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写
       uniapp 拥有 best 体验。</view
     >
-    <view class="text-blue mt-8 text-center text-xl">
-      <text class="font-800">详细示例 </text>参考 hello-unibest
-    </view>
-    <view class="m-4"> https://github.com/codercup/hello-unibest </view>
+    <view class="text-blue mt-8 text-center"> 详细示例 参考 hello-unibest </view>
+    <view class="my-2 text-center">https://github.com/codercup/hello-unibest</view>
     <button @click="onCopy">复制 hello-unibest github地址</button>
   </view>
 </template>
