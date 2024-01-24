@@ -4,7 +4,5 @@
 
 点击 `ignore` 后可以正常使用，万一以后出现什么特殊情况，记得看看是不是版本问题。
 
-![ios-run-app](./screenshots/ios-run-app.gif)
-
-> mac 可以安装多个版本的软件，
+> tips: mac 可以安装多个版本的软件，
 > ![multiple-version](./screenshots/multiple-version.png)
