@@ -50,8 +50,9 @@ export default ({ command, mode }) => {
     plugins: [
       UniPages({
         exclude: ['**/components/**/**.*'],
+        routeBlockLang: 'json5', // 虽然设了默认值，但是vue文件还是要加上 lang="json5", 这样才能很好地格式化
         homePage: 'pages/index/index',
-        subPackages: ['src/pages-sub'],
+        subPackages: ['src/pages-sub'], // 这是个数组，可以写多个
       }),
       UniLayouts(),
       UniPlatform(),
