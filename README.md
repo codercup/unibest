@@ -100,3 +100,7 @@ Copyright (c) 2024 菲鸽
 <p align='center'>
 <img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="300" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
 </p>
+
+## Github Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest&type=Date)](https://star-history.com/#codercup/unibest&Date)
