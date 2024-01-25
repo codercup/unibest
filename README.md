@@ -17,6 +17,7 @@
 ![node version](https://img.shields.io/badge/node-%3E%3D18-green)
 ![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
+![author](https://img.shields.io/badge/author-菲鸽-blue)
 ![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
 </div>
