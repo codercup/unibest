@@ -83,26 +83,20 @@
 
 Copyright (c) 2024 菲鸽
 
-## 🤝 给作者加鸡腿
+## 🤝 捐赠鼓励
 
-如果对你有帮助，请给作者加鸡腿~
-
-> 一毛钱也是鼓励 ^\_^
+开源不易，如果 `unibest` 对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/pay-weixin.png" width="200" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
-<img alt="special sponsor appwrite" src="./screenshots/pay-ali.png" width="200" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="200" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-5.png" width="200" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-10.png" width="200" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
 </p>
 
-## 官方微信群、QQ群
+## 官方微信群
 
-- 扫码进微信群，如果群名片已过期，请进QQ群（QQ群不会过期）
-
-- 扫码进 QQ 群，备注 `unibest` 即可。
-
-> 微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
+扫码进微信群，微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="240" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
-<img alt="special sponsor appwrite" src="./screenshots/qq-group.png" width="240" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="300" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
 </p>
