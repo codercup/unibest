@@ -29,29 +29,29 @@
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/), [esbuild](https://github.com/evanw/esbuild) - 就是快！
 
-- 📦 [组件自动化加载](./src/components)
-
-- 📑 pinia+适用于多端的持久化方案
+- 🔥 最新语法：使用新的 `<script setup>` 语法
 
 - 🎨 [UnoCSS](https://unocss.dev/) - 高性能且极具灵活性的即时原子化 CSS 引擎
 
-- 😃 [UnoCSS Icons](https://unocss.dev/presets/icons), [海量图标-https://icones.js.org/](https://icones.js.org/)
-
-- 🔥 使用 [新的 `<script setup>` 语法](https://github.com/vuejs/rfcs/pull/227)
-
-- 📥 [API 自动加载](https://github.com/antfu/unplugin-auto-import) - 直接使用 Composition API 无需引入
+- 🍍 [pinia](https://pinia.vuejs.org/) & [pinia-plugin-persistedstate](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/) - 全端适配的全局数据管理
 
 - 🦾 [TypeScript](https://www.typescriptlang.org/) & [ESLint](https://eslint.org/) & [stylelint](https://stylelint.io/) - 保证代码质量
 
+- 😃 [UnoCSS Icons](https://unocss.dev/presets/icons) & [icones](https://icones.js.org/) - 海量图标供你选择
+
+- 📦 [组件自动化加载](./src/components) - 可配置化的组件加载方式，轻松加载组件
+
+- 📥 [API 自动加载](https://github.com/antfu/unplugin-auto-import) - 直接使用 Composition API 无需引入
+
 - 🌈 [husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) + [commitlint](https://commitlint.js.org/) - 保证代码提交质量
 
-- 🗂 ES6 import 顺序自动排序，css 属性自动排序，增强编码一致性
+- 🎉 `v3` Code Snippets 加快你的页面生成
 
-- 🗂 使用请求拦截器，封装好您的请求
+- 🗂 `uni.request` & `uni.addInterceptor` - 封装好的请求拦截，一键引入
+
+- 💡 ES6 import 顺序自动排序，css 属性自动排序，增强编码一致性
 
 - 🖥 多环境配置分开，想则怎么配置就怎么配置
-
-- ⚡️ `v3` Code Snippets 加快你的页面生成
 
 ## ⚙️ 环境
 
