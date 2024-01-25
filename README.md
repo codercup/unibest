@@ -85,7 +85,7 @@ Copyright (c) 2024 菲鸽
 
 ## 🤝 捐赠鼓励
 
-开源不易，如果 `unibest` 对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
+开源不易，如果 `unibest` 对你有些帮助，可以请作者喝杯奶茶，算是对开源做出的一点点鼓励吧！
 
 <p align='center'>
 <img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="200" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
