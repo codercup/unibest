@@ -89,8 +89,8 @@ Copyright (c) 2024 菲鸽
 > 一毛钱也是鼓励 ^\_^
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/pay-weixin.png" width="200">
-<img alt="special sponsor appwrite" src="./screenshots/pay-ali.png" width="200">
+<img alt="special sponsor appwrite" src="./screenshots/pay-weixin.png" width="200" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-ali.png" width="200" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
 </p>
 
 ## 官方微信群、QQ群
@@ -102,6 +102,6 @@ Copyright (c) 2024 菲鸽
 > 微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="200">
-<img alt="special sponsor appwrite" src="./screenshots/qq-group.png" width="200">
+<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="240" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/qq-group.png" width="240" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
 </p>
