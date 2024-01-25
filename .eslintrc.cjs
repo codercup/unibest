@@ -16,6 +16,7 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
     'vue-global-api',
+    './src/eslintrc-auto-import.json',
   ],
   overrides: [
     {

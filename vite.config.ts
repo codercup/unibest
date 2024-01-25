@@ -72,6 +72,12 @@ export default ({ command, mode }) => {
       AutoImport({
         imports: ['vue'],
         dts: 'src/auto-import.d.ts',
+        // 配置eslint
+        eslintrc: {
+          enabled: true, // Default `false`
+          filepath: 'src/eslintrc-auto-import.json',
+          globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+        },
       }),
 
       viteCompression(),
