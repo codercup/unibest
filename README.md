@@ -93,11 +93,11 @@ Copyright (c) 2024 菲鸽
 <img alt="special sponsor appwrite" src="./screenshots/pay-ali.png" width="200">
 </p>
 
-## 官方微信群
+## 官方微信群、QQ群
 
-如果群名片已经过期，请加作者wx，作者拉你进去，备注：`unibest` 即可。
+- 扫码进微信群，如果群名片已过期，请进QQ群
 
-扫码进 QQ 群，备注 `unibest` 即可。
+- 扫码进 QQ 群，备注 `unibest` 即可。
 
 <p align='center'>
 <img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="200">
