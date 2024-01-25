@@ -99,6 +99,8 @@ Copyright (c) 2024 菲鸽
 
 - 扫码进 QQ 群，备注 `unibest` 即可。
 
+> 微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
+
 <p align='center'>
 <img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="200">
 <img alt="special sponsor appwrite" src="./screenshots/qq-group.png" width="200">
