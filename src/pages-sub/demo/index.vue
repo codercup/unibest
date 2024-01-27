@@ -1,11 +1,11 @@
 <route lang="json5" type="page">
 {
-  style: { navigationBarTitleText: 'title' },
+  style: { navigationBarTitleText: '分包页面标题' },
 }
 </route>
 
 <template>
-  <view class="">xxx yyy</view>
+  <view class="text-green-500 text-center">分包页面demo</view>
 </template>
 
 <script lang="ts" setup>
