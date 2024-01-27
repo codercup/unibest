@@ -83,6 +83,10 @@
 
 Copyright (c) 2024 菲鸽
 
+## ☁️ Github Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest&type=Date)](https://star-history.com/#codercup/unibest&Date)
+
 ## 🤝 捐赠鼓励
 
 开源不易，如果 `unibest` 对你有些帮助，可以请作者喝杯奶茶，算是对开源做出的一点点鼓励吧！
@@ -93,14 +97,18 @@ Copyright (c) 2024 菲鸽
 <img alt="special sponsor appwrite" src="./screenshots/pay-wx-10.png" width="200" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
 </p>
 
-## 官方微信群
+## 🤝 微信交流群
 
 扫码进微信群，微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
 
 <p align='center'>
 <img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="300" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
 </p>
+ 
+## 🤝 微信公众号
 
-## Github Star History
+欢迎关注公众号“菲鸽爱编程”——坚持原创，用心写文，分享知识，共同成长。里面会不定期分享前端、Nodejs、微信小程序、开源库等方面的优秀文章。
 
-[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest&type=Date)](https://star-history.com/#codercup/unibest&Date)
+<p align='center'>
+<img alt="special sponsor appwrite" src="./screenshots/wx-gzh.png" width="300" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
+</p>
