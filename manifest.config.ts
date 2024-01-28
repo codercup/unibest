@@ -6,7 +6,7 @@ import { loadEnv } from 'vite'
 // 获取环境变量的范例
 const env = loadEnv(process.env.NODE_ENV!, path.resolve(process.cwd(), 'env'))
 // console.log(env)
-const { VITE_APP_TITLE, VITE_UNI_APPID, VITE_WX_APPID } = env
+const { VITE_APP_TITLE, VITE_UNI_APPID, VITE_WX_APPID, VITE_APP_PUBLIC_BASE } = env
 
 export default defineManifestConfig({
   name: VITE_APP_TITLE,
@@ -15,6 +15,11 @@ export default defineManifestConfig({
   versionName: '1.0.0',
   versionCode: '100',
   transformPx: false,
+  h5: {
+    router: {
+      base: VITE_APP_PUBLIC_BASE,
+    },
+  },
   /* 5+App特有相关 */
   'app-plus': {
     usingComponents: true,
