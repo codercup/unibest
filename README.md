@@ -26,6 +26,16 @@
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<p align="center">
+  <a href="https://codercup.github.io/unibest/">📱 在线预览(github)</a> 
+  <span style="margin:0 10px;">|</span> 
+  <a href="https://codercup.gitee.io/unibest/">📱 在线预览(gitee)</a> 
+  <span style="margin:0 10px;">|</span> 
+  <a href="#">📖 阅读文档(github)</a>
+  <span style="margin:0 10px;">|</span> 
+  <a href="#">📖 阅读文档(gitee)</a>
+</p>
+
 ## ✨ 特性
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/), [esbuild](https://github.com/evanw/esbuild) - 就是快！
@@ -48,7 +58,7 @@
 
 - 🎉 `v3` Code Snippets 加快你的页面生成
 
-- 🗂 `uni.request` & `uni.addInterceptor` - 封装好的请求拦截，一键引入
+- 🗂 `uni.request` 请求封装 & 请求拦截，一键引入，快捷使用
 
 - 💡 ES6 import 顺序自动排序，css 属性自动排序，增强编码一致性
 
