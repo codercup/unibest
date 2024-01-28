@@ -1,7 +1,7 @@
 <template>
   <view class="default-layout">
     <slot />
-    <view class="text-gray-400 m-auto mt-16">[default layout]</view>
+    <view class="text-gray-400 m-auto mt-12">[default layout]</view>
   </view>
 </template>
 
