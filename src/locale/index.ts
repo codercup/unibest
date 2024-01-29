@@ -9,9 +9,31 @@ const messages = {
 }
 console.log(uni.getLocale())
 
+const getLocale = () => {
+  const browserLang = uni.getLocale()
+  if (Object.keys(messages).includes(browserLang)) {
+    return browserLang
+  }
+  return 'zh' // fallback language, 可以配置，必须是 message 的key
+}
+
+console.log(getLocale())
+
 const i18n = createI18n({
-  locale: 'zh',
+  locale: getLocale(), //
   messages,
 })
 
+/**
+ * 非 vue 文件使用这个方法
+ * @param { string } localeKey 多语言的key，eg: "app.name"
+ */
+export const translate = (localeKey: string) => {
+  const locale = getLocale()
+  const message = messages[locale]
+  if (Object.keys(message).includes(localeKey)) {
+    return message[localeKey]
+  }
+  return localeKey
+}
 export default i18n
