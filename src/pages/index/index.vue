@@ -2,8 +2,8 @@
 <route lang="json5" type="home">
 {
   style: {
-    navigationStyle: 'custom',
-    navigationBarTitleText: '首页',
+    // "navigationStyle": "custom",
+    navigationBarTitleText: '%app.name%',
   },
 }
 </route>
@@ -15,6 +15,7 @@
     <view class="mt-12">
       <image src="/static/logo.svg" alt="" class="w-40 h-40 block mx-auto" />
     </view>
+    <view>{{ $t('app.name') }}</view>
     <view class="text-center text-4xl main-title-color mt-8">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
     <view class="text-justify max-w-100 m-auto">

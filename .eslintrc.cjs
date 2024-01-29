@@ -75,6 +75,7 @@ module.exports = {
     },
   },
   globals: {
+    $t: true,
     uni: true,
     UniApp: true,
     wx: true,
