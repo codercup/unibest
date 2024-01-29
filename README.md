@@ -64,6 +64,39 @@
 
 - 🖥 多环境配置分开，想则怎么配置就怎么配置
 
+## 👍 业务功能
+
+- [x] 页面下拉刷新（全局+局部）
+- [x] 页面上拉加载
+- [x] 导航栏返回 or 去首页
+- [x] 导航栏渐变（微信+h5+App)
+- [x] 自定义导航栏顶部机型适配
+- [x] 微信小程序分享（好友+朋友圈）
+- [x] 微信登录
+- [x] 非微信登录（h5 和 App)
+- [x] 微信小程序获取头像昵称+隐私协议
+- [x] 微信小程序 vconsole 调试
+- [ ] 微信一键登录（基于手机号）- 需要非个人认证用户
+- [x] 页面悬浮球(floating bubble)
+- [x] 多 tab 列表功能
+- [x] 瀑布流
+- [ ] 仿`BOSS直聘`个人中心
+- [ ] 仿华为商城个人中心
+- [ ] 仿网易云音乐 APP（独立项目）
+
+## 👉 Road Map
+
+`Road Map` 如下，期待有心人一起完成。
+
+- 1、`unibest` 官方文档编写，类似 `vue` 文档，新开一个项目，文档用 `vitepress` 生成。
+- 2、`hello-unibest` 项目继续完成，还有很多使用功能未加入/未完成，如多语言、微信登录、自定义tabbar等。
+- 3、`unibest` 新增运行时“自动打开微信开发者工具”和打包时可以“自动上传代码到微信开发者平台”，通过编写VSCODE插件完成。
+- 4、发布 `npm` 包 `create-unibest`，用户可以通过 `npm create-uni` 命令生成项目，基本模板与 `unibest` 项目类似，额外可选择项为：
+  - 是否使用多语言
+  - 是否使用自定义tabbar (非APP项目)
+  - 未想好
+  - ...
+
 ## ⚙️ 环境
 
 - node>=18
@@ -87,24 +120,24 @@
 
 ![v3 snippets](./screenshots/snippets.gif)
 
-## 🌍 License
+## 📂 License
 
 [MIT](https://opensource.org/license/mit/)
 
 Copyright (c) 2024 菲鸽
 
-## ☁️ Github Star History
+## 📊 Github Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest&type=Date)](https://star-history.com/#codercup/unibest&Date)
 
-## 🤝 捐赠鼓励
+## 💓 捐赠鼓励
 
 开源不易，如果 `unibest` 对你有些帮助，可以请作者喝杯奶茶，算是对开源做出的一点点鼓励吧！
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="200" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx-5.png" width="200" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx-10.png" width="200" style="margin-left:10px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="120" style="margin-left:0px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-5.png" width="120" style="margin-left:2px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-10.png" width="120" style="margin-left:2px;">
 </p>
 
 ## 🤝 微信交流群
@@ -112,13 +145,13 @@ Copyright (c) 2024 菲鸽
 扫码进微信群，微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="300" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="300" style="margin-left:0px;">
 </p>
  
-## 🤝 微信公众号
+## 💖 微信公众号
 
 欢迎关注公众号“菲鸽爱编程”——坚持原创，用心写文，分享知识，共同成长。里面会不定期分享前端、Nodejs、微信小程序、开源库等方面的优秀文章。
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/wx-gzh.png" width="300" style="margin-left:0px;border: 1px solid #ccc; border-radius:4px;">
+<img alt="special sponsor appwrite" src="./screenshots/wx-gzh.png" width="300" style="margin-left:0px;">
 </p>
