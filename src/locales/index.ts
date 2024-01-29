@@ -9,7 +9,7 @@ const messages = {
 }
 console.log(uni.getLocale())
 
-const getLocale = () => {
+export const getLocale = () => {
   const browserLang = uni.getLocale()
   if (Object.keys(messages).includes(browserLang)) {
     return browserLang
