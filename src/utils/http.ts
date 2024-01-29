@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { useUserStore } from '@/store'
 import { UserInfo } from '@/typings'
-import { translate as t } from '@/locale/index'
+import { translate as t } from '@/locales/index'
 
 type Data<T> = {
   code: number
