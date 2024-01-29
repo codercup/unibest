@@ -135,9 +135,10 @@ Copyright (c) 2024 菲鸽
 开源不易，如果 `unibest` 对你有些帮助，可以请作者喝杯奶茶，算是对开源做出的一点点鼓励吧！
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="120" style="margin-left:0px;">
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx-5.png" width="120" style="margin-left:2px;">
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx-10.png" width="120" style="margin-left:2px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="150" style="margin-left:0px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-5.png" width="150" style="margin-left:2px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-10.png" width="150" style="margin-left:2px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx.png" width="150" style="margin-left:2px;">
 </p>
 
 ## 🤝 微信交流群
