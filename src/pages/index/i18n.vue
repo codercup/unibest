@@ -80,4 +80,3 @@ const radioChange = (evt) => {
   background-color: #bcecd1;
 }
 </style>
-@/locale/index
