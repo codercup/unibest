@@ -14,11 +14,4 @@ export default defineUniPages({
       '^uni-(.*)': '@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue',
     },
   },
-  // 你也可以定义 pages 字段，它具有最高的优先级。
-  pages: [],
-  /**
-   * subPackages 扫描的目录，例如：src/pages-sub
-   * @type SubPackage[] | undefined
-   */
-  subPackages: undefined,
 })
