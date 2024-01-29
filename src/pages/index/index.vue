@@ -12,10 +12,10 @@
     class="bg-white h-full overflow-hidden pt-2 px-4"
     :style="{ marginTop: safeAreaInsets?.top + 'px' }"
   >
+    <view>{{ $t('app.name') }}</view>
     <view class="mt-12">
       <image src="/static/logo.svg" alt="" class="w-40 h-40 block mx-auto" />
     </view>
-    <view>{{ $t('app.name') }}</view>
     <view class="text-center text-4xl main-title-color mt-8">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
     <view class="text-justify max-w-100 m-auto">
@@ -38,9 +38,11 @@
 </template>
 
 <script lang="ts" setup>
-// 获取屏幕边界到安全区域距离
-import '@/utils/http'
+import { testI18n } from '@/utils/index'
 
+testI18n()
+
+// 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
 const author = ref('菲鸽')

@@ -1,18 +1,12 @@
 /* eslint-disable no-param-reassign */
 import { useUserStore } from '@/store'
 import { UserInfo } from '@/typings'
-import { translate as t } from '@/locales/index'
 
 type Data<T> = {
   code: number
   msg: string
   result: T
 }
-
-uni.showModal({
-  title: '菲鸽',
-  content: t('app.name'),
-})
 
 // 请求基地址
 const baseURL = import.meta.env.VITE_SERVER_BASEURL
