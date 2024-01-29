@@ -1,4 +1,4 @@
-import { translate as t } from '@/locales/index'
+import { translate as t } from '@/locale/index'
 
 /**
  * test i18n in not .vue file

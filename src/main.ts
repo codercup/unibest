@@ -1,7 +1,7 @@
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 import store from './store'
-import i18n from './locales/index'
+import i18n from './locale/index'
 import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
 

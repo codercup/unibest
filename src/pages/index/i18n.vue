@@ -29,13 +29,13 @@
 </template>
 
 <script lang="ts" setup>
-import { getLocale } from '@/locales/index'
+import i18n from '@/locale/index'
 import { testI18n } from '@/utils/index'
 
-const current = ref(getLocale())
+const current = ref(uni.getLocale())
 const languages = [
   {
-    value: 'zh',
+    value: 'zh-Hans',
     name: '中文',
     checked: 'true',
   },
@@ -48,8 +48,9 @@ const languages = [
 const radioChange = (evt) => {
   // console.log(evt)
   current.value = evt.detail.value
-  // https://uniapp.dcloud.net.cn/api/ui/locale.html#setlocale
+  // 下面2句缺一不可！！！
   uni.setLocale(evt.detail.value)
+  i18n.global.locale = evt.detail.value
 }
 </script>
 
@@ -79,3 +80,4 @@ const radioChange = (evt) => {
   background-color: #bcecd1;
 }
 </style>
+@/locale/index
