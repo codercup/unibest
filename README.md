@@ -120,7 +120,7 @@
 
 ![v3 snippets](./screenshots/snippets.gif)
 
-## 📂 License
+## 📄 License
 
 [MIT](https://opensource.org/license/mit/)
 
