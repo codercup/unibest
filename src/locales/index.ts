@@ -29,6 +29,10 @@ const i18n = createI18n({
  * @param { string } localeKey 多语言的key，eg: "app.name"
  */
 export const translate = (localeKey: string) => {
+  if (!localeKey) {
+    console.error(`[i18n] Function translate(), localeKey param is required`)
+    return ''
+  }
   const locale = getLocale()
   const message = messages[locale]
   if (Object.keys(message).includes(localeKey)) {

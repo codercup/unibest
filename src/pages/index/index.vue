@@ -2,8 +2,8 @@
 <route lang="json5" type="home">
 {
   style: {
-    // "navigationStyle": "custom",
-    navigationBarTitleText: '%app.name%',
+    navigationStyle: 'custom',
+    navigationBarTitleText: '首页',
   },
 }
 </route>
@@ -12,7 +12,6 @@
     class="bg-white h-full overflow-hidden pt-2 px-4"
     :style="{ marginTop: safeAreaInsets?.top + 'px' }"
   >
-    <view>{{ $t('app.name') }}</view>
     <view class="mt-12">
       <image src="/static/logo.svg" alt="" class="w-40 h-40 block mx-auto" />
     </view>
@@ -38,15 +37,8 @@
 </template>
 
 <script lang="ts" setup>
-import { testI18n } from '@/utils/index'
-
-testI18n()
-
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
-
-const author = ref('菲鸽')
-console.log(author)
 </script>
 
 <style>
