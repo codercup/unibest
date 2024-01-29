@@ -91,7 +91,7 @@
 - 1、`unibest` 官方文档编写，类似 `vue` 文档，新开一个项目，文档用 `vitepress` 生成。
 - 2、`hello-unibest` 项目继续完成，还有很多使用功能未加入/未完成，如多语言、微信登录、自定义tabbar等。
 - 3、`unibest` 新增运行时“自动打开微信开发者工具”和打包时可以“自动上传代码到微信开发者平台”，通过编写VSCODE插件完成。
-- 4、发布 `npm` 包 `create-unibest`，用户可以通过 `npm create-uni` 命令生成项目，基本模板与 `unibest` 项目类似，额外可选择项为：
+- 4、发布 `npm` 包 `create-unibest`，用户可以通过 `npm create unibest` 命令生成项目，默认模板与 `unibest` 项目类似，额外可选择项为：
   - 是否使用多语言
   - 是否使用自定义tabbar (非APP项目)
   - 未想好
