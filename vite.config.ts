@@ -130,6 +130,7 @@ export default ({ command, mode }) => {
       //     },
       //   }),
     ],
+
     css: {
       postcss: {
         plugins: [
@@ -150,15 +151,6 @@ export default ({ command, mode }) => {
       host: '0.0.0.0',
       hmr: true,
       port: Number.parseInt(env.VITE_APP_PORT, 10),
-      // 自定义代理规则
-      proxy: {
-        // 选项写法
-        '/api': {
-          target: 'http://localhost:6666',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
-        },
-      },
     },
     build: {
       minify: 'terser',
