@@ -79,7 +79,7 @@
 - [ ] 微信一键登录（基于手机号）- 需要非个人认证用户
 - [x] 页面悬浮球(floating bubble)
 - [x] 多 tab 列表功能
-- [x] 瀑布流
+- [ ] 瀑布流
 - [ ] 仿`BOSS直聘`个人中心
 - [ ] 仿华为商城个人中心
 - [ ] 仿网易云音乐 APP（独立项目）
@@ -88,9 +88,9 @@
 
 `Road Map` 如下，期待有心人一起完成。
 
-- 1、`unibest` 官方文档编写，类似 `vue` 文档，新开一个项目，文档用 `vitepress` 生成。
-- 2、`hello-unibest` 项目继续完成，还有很多使用功能未加入/未完成，如多语言、微信登录、自定义tabbar等。
-- 3、`unibest` 新增运行时“自动打开微信开发者工具”和打包时可以“自动上传代码到微信开发者平台”，通过编写VSCODE插件完成。
+- 1、`unibest` 官方文档编写，类似 `vue` 文档，新开一个项目，使用 `vitepress` 生成。
+- 2、`hello-unibest` 项目继续完成，还有很多实用功能未加入/未完成，如多语言、微信登录、自定义tabbar、瀑布流等。
+- 3、`unibest` 新增运行时“自动打开微信开发者工具”和打包时可以“自动上传代码到微信开发者平台”，通过编写 `VSCODE插件` 完成。
 - 4、发布 `npm` 包 `create-unibest`，用户可以通过 `npm create unibest` 命令生成项目，默认模板与 `unibest` 项目类似，额外可选择项为：
   - 是否使用多语言
   - 是否使用自定义tabbar (非APP项目)
@@ -110,7 +110,7 @@
 
 ## 🔗 发布
 
-- web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `vite.config.ts` 的 `base` 属性进行配置。[vite官网](https://cn.vitejs.dev/config/shared-options.html#base)
+- web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `manifest.config.ts` 文件的 `h5.router.base` 属性进行修改。
 - weixin平台：`pnpm build:h5`, 打包后的文件在 `dist/build/mp-weixin`，然后通过微信开发者工具导入，并点击右上角的“上传”按钮进行上传。
 - APP平台：`pnpm build:app`, 然后打开 `HBuilderX`，导入刚刚生成的`dist/build/app` 文件夹，选择发行 - APP云打包。
 
