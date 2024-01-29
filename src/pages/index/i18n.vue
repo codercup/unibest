@@ -11,7 +11,7 @@
     <view class="text-green-500">多语言测试</view>
     <view class="m-4">{{ $t('app.name') }}</view>
 
-    <view class="text-green-500">切换语言 </view>
+    <view class="text-green-500 mt-12">切换语言 </view>
     <view class="uni-list">
       <radio-group @change="radioChange" class="radio-group">
         <label class="uni-list-cell uni-list-cell-pd" v-for="item in languages" :key="item.value">
@@ -24,7 +24,7 @@
     </view>
 
     <!-- http://localhost:9000/#/pages/index/i18n -->
-    <button @click="testI18n">测试弹窗</button>
+    <button @click="testI18n" class="mt-20 mb-44">测试弹窗</button>
   </view>
 </template>
 
@@ -66,7 +66,7 @@ const radioChange = (evt) => {
 
 .radio-group {
   width: 200px;
-  margin: auto;
+  margin: 10px auto;
   border-radius: 12px;
 }
 
