@@ -23,13 +23,25 @@
       uniapp 拥有 best 体验。</view
     >
     <view class="text-blue mt-8 text-center"> 详细示例 参考 hello-unibest 项目 </view>
+    <!-- #ifdef H5 -->
+    <view class="my-2 text-center">
+      <a class="my-2 text-center" href="https://github.com/codercup/hello-unibest" target="_blank">
+        https://github.com/codercup/hello-unibest
+      </a>
+    </view>
+    <!-- #endif -->
+    <!-- #ifndef H5 -->
     <view class="my-2 text-center">https://github.com/codercup/hello-unibest</view>
+    <!-- #endif -->
   </view>
 </template>
 
 <script lang="ts" setup>
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
+
+const author = ref('菲鸽')
+console.log(author)
 </script>
 
 <style>
