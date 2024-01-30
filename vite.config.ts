@@ -70,10 +70,10 @@ export default ({ command, mode }) => {
       }),
       vueSetupExtend(),
       AutoImport({
-        imports: ['vue', 'uni-app'], // 自动导入Vue
-        dts: 'src/auto-import.d.ts', // 输出文件 自动导入的类型声明文件输出给ts 识别
-        // dirs: ['src/composables'], // 自动导入自己写的composables api
-        eslintrc: { enabled: true }, // 输出文件.eslintrc-auto-import.json 自动导入的类型声明文件输出给eslint 识别
+        imports: ['vue', 'uni-app'],
+        dts: 'src/auto-import.d.ts',
+        dirs: ['src/hooks'], // 自动导入 hooks
+        eslintrc: { enabled: true },
       }),
 
       viteCompression(),
