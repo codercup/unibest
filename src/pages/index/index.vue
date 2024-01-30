@@ -29,6 +29,7 @@
         https://github.com/codercup/hello-unibest
       </a>
     </view>
+    <view class="test">test global css</view>
     <!-- #endif -->
     <!-- #ifndef H5 -->
     <view class="my-2 text-center">https://github.com/codercup/hello-unibest</view>
