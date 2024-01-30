@@ -5,6 +5,7 @@ import store from './store'
 import i18n from './locale/index'
 import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
+import '@/style/index.scss'
 
 export function createApp() {
   const app = createSSRApp(App)
