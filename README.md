@@ -22,7 +22,7 @@
 
 </div>
 
-<div align="center"><b>unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode 驱动的跨端快速启动模板，具有代码提示、自动格式化、统一配置、代码片段等功能，内置了许多常用的基本组件和基本功能，开箱即用，让你编写 uniapp 拥有 best 体验。</b></div>
+<div align="center"><b>unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode 驱动的跨端快速启动模板，具有代码提示、自动格式化、统一配置、代码片段、多语言支持等功能，内置了许多常用的基本组件和基本功能，开箱即用，让你编写 uniapp 拥有 best 体验。</b></div>
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -73,10 +73,11 @@
 - [x] 自定义导航栏顶部机型适配
 - [x] 微信小程序分享（好友+朋友圈）
 - [x] 微信登录
-- [x] 非微信登录（h5 和 App)
+- [ ] 非微信登录（h5 和 App)
+- [ ] 微信一键登录（基于手机号）- 需要非个人认证用户
 - [x] 微信小程序获取头像昵称+隐私协议
 - [x] 微信小程序 vconsole 调试
-- [ ] 微信一键登录（基于手机号）- 需要非个人认证用户
+- [x] 多语言模板
 - [x] 页面悬浮球(floating bubble)
 - [x] 多 tab 列表功能
 - [ ] 瀑布流
