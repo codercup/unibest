@@ -41,7 +41,12 @@
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
 const author = ref('菲鸽')
-console.log(author)
+
+// TODO: fix 下面的
+// eslint-disable-next-line no-undef
+onLoad(() => {
+  console.log(author)
+})
 </script>
 
 <style>
