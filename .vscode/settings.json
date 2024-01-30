@@ -38,10 +38,12 @@
   "cSpell.words": [
     "commitlint",
     "dcloudio",
+    "qrcode",
     "refresherrefresh",
     "scrolltolower",
     "tabbar",
     "unibest",
+    "uvui",
     "WechatMiniprogram"
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib"
