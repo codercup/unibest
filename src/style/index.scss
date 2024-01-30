@@ -1,5 +1,10 @@
 .test {
   margin-top: 4px;
+
+  @apply mt-4;
+
+  // 上面2个方式都会出现问题（如截图所示 issue.png），建议不在这个全局文件写宽高大小的变量
+
   color: red;
 }
 
