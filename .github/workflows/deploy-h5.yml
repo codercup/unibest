@@ -1,4 +1,4 @@
-name: Deploy unibest site to Pages
+name: Deploy Pages
 
 on:
   # Runs on pushes targeting the default branch
