@@ -2,3 +2,12 @@
   margin-top: 4px;
   color: red;
 }
+
+@font-face {
+  font-family: TiTi;
+  src: url('./PangMenZhengDaoBiaoTiTi-1.ttf');
+}
+
+.titi {
+  font-family: TiTi, Arial, sans-serif;
+}
