@@ -90,7 +90,7 @@
 - node>=18
 - pnpm>=7.30
 
-## 安装
+## &#x1F4C2; 安装
 
 执行 `pnpm i` 安装依赖
 
@@ -112,7 +112,7 @@
 
 ![v3 snippets](./screenshots/snippets.gif)
 
-## 贡献者
+## &#x1F3C6; 贡献者
 
 感谢以下参与项目的人：
 
