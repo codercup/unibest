@@ -13,7 +13,7 @@ import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
 import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 // @see https://unocss.dev/
 import UnoCSS from 'unocss/vite'
-import autoprefixer from 'autoprefixer'
+// import autoprefixer from 'autoprefixer'
 // @see https://github.com/jpkleemans/vite-svg-loader
 import svgLoader from 'vite-svg-loader'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
@@ -136,10 +136,10 @@ export default ({ command, mode }) => {
     css: {
       postcss: {
         plugins: [
-          autoprefixer({
-            // 指定目标浏览器
-            overrideBrowserslist: ['> 1%', 'last 2 versions'],
-          }),
+          // autoprefixer({
+          //   // 指定目标浏览器
+          //   overrideBrowserslist: ['> 1%', 'last 2 versions'],
+          // }),
         ],
       },
     },

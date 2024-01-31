@@ -3,7 +3,7 @@
 # 如果中途自己删除了 'src/manifest.json' 文件，记得手动执行本文件，可以右键 `Run Code` 快速执行
 
 if test -f ./src/manifest.json; then
-  echo ./src/manifest.json 存在
+  # echo ./src/manifest.json 存在
 else
   touch ./src/manifest.json
   echo "{}" >./src/manifest.json
