@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/codercup/unibest">
-    <img width="200" src="./src/static/logo.svg">
+    <img width="160" src="./src/static/logo.svg">
   </a>
 </p>
 
@@ -108,6 +108,12 @@
 
 ![v3 snippets](./screenshots/snippets.gif)
 
+## 贡献者
+
+感谢以下参与项目的人：
+
+TODO ADD
+
 ## 📄 License
 
 [MIT](https://opensource.org/license/mit/)
@@ -117,6 +123,10 @@ Copyright (c) 2024 菲鸽
 ## 📊 Github Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest&type=Date)](https://star-history.com/#codercup/unibest&Date)
+
+与其他几个同行库的对比
+
+[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest,Ares-Chang/uni-vitesse,uni-helper/vitesse-uni-app&type=Date)](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&Date)
 
 ## 💓 捐赠鼓励
 
