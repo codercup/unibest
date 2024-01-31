@@ -18,7 +18,7 @@
     <view class="text-center text-4xl main-title-color mt-3">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }} </view>
-    <view class="text-blue mt-8 text-left text-4"> 详细示例 参考 hello-unibest 项目 </view>
+    <view class="text-blue mt-8 text-center text-sm"> 详细示例 参考 hello-unibest 项目 </view>
 
     <!-- #ifdef H5 -->
     <view class="my-2 text-center">
@@ -27,7 +27,7 @@
     <!-- #endif -->
 
     <!-- #ifndef H5 -->
-    <view class="my-2 text-left text-4">{{ quoteUrl }}</view>
+    <view class="my-2 text-left text-sm">{{ quoteUrl }}</view>
     <!-- #endif -->
   </view>
 </template>
