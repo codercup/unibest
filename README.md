@@ -90,6 +90,10 @@
 - node>=18
 - pnpm>=7.30
 
+## 安装
+
+执行 `pnpm i` 安装依赖
+
 ## 📦 运行（支持热更新）
 
 - web平台： `pnpm dev:h5`, 然后打开 [http://localhost:9000/](http://localhost:9000/)。
