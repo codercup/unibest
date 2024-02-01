@@ -1,3 +1,11 @@
+// 全局要用的类型放到这里
+
+export type IResData<T> = {
+  code: number
+  msg: string
+  result: T
+}
+
 export type UserInfo = {
   nickname?: string
   avatar?: string
@@ -5,6 +13,7 @@ export type UserInfo = {
   openid?: string
   token?: string
 }
+
 export type UserItem = {
   username: string
   age: number
