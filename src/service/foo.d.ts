@@ -1,4 +1,4 @@
-export type IFooItem = {
+export interface IFooItem {
   id: string
   name: string
 }
