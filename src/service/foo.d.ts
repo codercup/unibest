@@ -1,4 +1,4 @@
-export type FooItem = {
+export type IFooItem = {
   id: string
   name: string
 }

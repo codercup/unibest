@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getFoo, postFoo, FooItem } from '@/service/foo'
+import { getFoo, postFoo, IFooItem } from '@/service/foo'
 
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
 
@@ -41,13 +41,13 @@ onLoad(() => {
   testRequest2()
 })
 
-const data = ref<FooItem>()
+const data = ref<IFooItem>()
 const testRequest = async () => {
   const res = await getFoo('菲鸽')
   data.value = res.result
 }
 
-const data2 = ref<FooItem>()
+const data2 = ref<IFooItem>()
 const testRequest2 = async () => {
   const res = await postFoo('菲鸽2')
   data2.value = res.result
