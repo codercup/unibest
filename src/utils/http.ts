@@ -1,6 +1,9 @@
 /* eslint-disable no-param-reassign */
+import qs from 'qs'
 import { useUserStore } from '@/store'
 import { UserInfo } from '@/typings'
+
+type CustomRequestOptions = UniApp.RequestOptions & { query?: Record<string, any> }
 
 type Data<T> = {
   code: number
@@ -15,7 +18,19 @@ const baseURL = import.meta.env.VITE_SERVER_BASEURL
 // 拦截器配置
 const httpInterceptor = {
   // 拦截前触发
-  invoke(options: UniApp.RequestOptions) {
+  invoke(options: CustomRequestOptions) {
+    console.log(options)
+
+    // 接口请求支持通过 query 参数配置 queryString
+    if (options.query) {
+      const queryStr = qs.stringify(options.query)
+      if (options.url.includes('?')) {
+        options.url += `&${queryStr}`
+      } else {
+        options.url += `?${queryStr}`
+      }
+    }
+
     // 1. 非 http 开头需拼接地址
     if (!options.url.startsWith('http')) {
       options.url = baseURL + options.url
@@ -41,11 +56,13 @@ uni.addInterceptor('request', httpInterceptor)
 // 拦截 uploadFile 文件上传
 uni.addInterceptor('uploadFile', httpInterceptor)
 
-export const http = <T>(options: UniApp.RequestOptions) => {
+export const http = <T>(options: CustomRequestOptions) => {
   // 1. 返回 Promise 对象
   return new Promise<Data<T>>((resolve, reject) => {
     uni.request({
       ...options,
+      dataType: 'json',
+      responseType: 'json',
       // 响应成功
       success(res) {
         // 状态码 2xx，参考 axios 的设计
