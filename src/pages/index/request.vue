@@ -16,11 +16,30 @@
     <button @click="testRequest2" class="my-4">测试 POST 请求</button>
     <view class="text-xl">请求数据如下</view>
     <view class="text-green h-10">{{ JSON.stringify(data2) }}</view>
+
+    <view class="my-2">使用的是 laf 云后台</view>
+    <view class="text-green-400">我的推荐码，可以获得佣金</view>
+    <!-- #ifdef H5 -->
+    <view class="my-2 text-center">
+      <a class="my-2 text-center" :href="recommendUrl" target="_blank">{{ recommendUrl }}</a>
+    </view>
+    <!-- #endif -->
+
+    <!-- #ifndef H5 -->
+    <view class="my-2 text-left text-sm">{{ recommendUrl }}</view>
+    <!-- #endif -->
   </view>
 </template>
 
 <script lang="ts" setup>
 import { getFoo, postFoo, FooItem } from '@/service/foo'
+
+const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
+
+onLoad(() => {
+  testRequest()
+  testRequest2()
+})
 
 const data = ref<FooItem>()
 const testRequest = async () => {
