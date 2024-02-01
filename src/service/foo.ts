@@ -4,7 +4,7 @@ import type { IFooItem } from './foo.d'
 export { IFooItem }
 
 /** get 请求 */
-export const getFoo = (name: string) => {
+export const getFooAPI = (name: string) => {
   return http<IFooItem>({
     url: `/foo`,
     method: 'GET',
@@ -13,7 +13,7 @@ export const getFoo = (name: string) => {
 }
 
 /** get 请求 */
-export const postFoo = (name: string) => {
+export const postFooAPI = (name: string) => {
   return http<IFooItem>({
     url: `/foo`,
     method: 'POST',
