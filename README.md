@@ -27,13 +27,11 @@
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <p align="center">
-  <a href="https://codercup.github.io/unibest/">📱 在线预览(github)</a> 
+  <a href="https://codercup.github.io/unibest/">📱 在线预览</a> 
   <span style="margin:0 10px;">|</span> 
-  <a href="https://codercup.gitee.io/unibest/">📱 在线预览(gitee)</a> 
+  <a href="https://codercup.github.io/hello-unibest/">📱 在线预览 hello 项目</a> 
   <span style="margin:0 10px;">|</span> 
-  <a href="#">📖 阅读文档(github)</a>
-  <span style="margin:0 10px;">|</span> 
-  <a href="#">📖 阅读文档(gitee)</a>
+  <a href="#">📖 阅读文档(comming soon)</a>
 </p>
 
 ## ✨ 特性
