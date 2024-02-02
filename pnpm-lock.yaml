@@ -216,9 +216,6 @@ devDependencies:
   vite:
     specifier: 4.0.3
     version: 4.0.3(@types/node@20.11.5)(sass@1.69.5)(terser@5.26.0)
-  vite-plugin-compression:
-    specifier: ^0.5.1
-    version: 0.5.1(vite@4.0.3)
   vite-plugin-restart:
     specifier: ^0.4.0
     version: 0.4.0(vite@4.0.3)
@@ -11994,19 +11991,6 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vite-plugin-compression@0.5.1(vite@4.0.3):
-    resolution: {integrity: sha512-5QJKBDc+gNYVqL/skgFAP81Yuzo9R+EAf19d+EtsMF/i8kFUpNi3J/H01QD3Oo8zBQn+NzoCIFkpPLynoOzaJg==}
-    peerDependencies:
-      vite: '>=2.0.0'
-    dependencies:
-      chalk: 4.1.2
-      debug: 4.3.4
-      fs-extra: 10.1.0
-      vite: 4.0.3(@types/node@20.11.5)(sass@1.69.5)(terser@5.26.0)
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /vite-plugin-restart@0.4.0(vite@4.0.3):
     resolution: {integrity: sha512-SXeyKQAzRFmEmEyGP2DjaTbx22D1K5MapyNiAP7Xa14UyFgNSDjZ86bfjWksA0pqn+bZyxnVLJpCiqDuG+tOcg==}
     peerDependencies:
@@ -12101,6 +12085,22 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.47
+    dev: false
+
+  /vue-demi@0.14.7(vue@3.2.47):
+    resolution: {integrity: sha512-EOG8KXDQNwkJILkx/gPcoL/7vH+hORoBaKgGe+6W7VFMvCYJfmF2dGbvgDroVnI8LU7/kTu8mbjRZGBU1z9NTA==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.47
+    dev: true
 
   /vue-eslint-parser@9.3.2(eslint@8.56.0):
     resolution: {integrity: sha512-q7tWyCVaV9f8iQyIA5Mkj/S6AoJ9KBN8IeUSf3XEmBrOtxOZnfTg5s4KClbZBCK3GtnT/+RyCLZyDHuZwTuBjg==}
@@ -12124,7 +12124,7 @@ packages:
     resolution: {integrity: sha512-283vpYOhVHJCpMkjNVEwZdgaAb+Y93zFaXGAWTI378MLoNuwQydjD/BAy1e81QYEmyA+JbxqcmMZVWcM9rbriw==}
     dependencies:
       eslint-config-vue-global-api: 0.4.1
-      vue-demi: 0.14.6(vue@3.2.47)
+      vue-demi: 0.14.7(vue@3.2.47)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
