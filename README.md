@@ -140,11 +140,3 @@ Copyright (c) 2024 菲鸽
 <p align='center'>
 <img alt="special sponsor appwrite" src="./screenshots/wx-group.jpg" width="300" style="margin-left:0px;">
 </p>
-
-## 💖 微信公众号
-
-欢迎关注公众号“菲鸽爱编程”——坚持原创，用心写文，分享知识，共同成长。里面会不定期分享前端、Nodejs、微信小程序、开源库等方面的优秀文章。
-
-<p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/wx-gzh.png" width="300" style="margin-left:0px;">
-</p>
