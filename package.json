@@ -52,7 +52,7 @@
     "build:quickapp-webview": "uni build -p quickapp-webview",
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-    "prepare": "husky install && node ./shell/postinstall.js",
+    "prepare": "node ./shell/postinstall.js & git init && husky install ",
     "type-check": "vue-tsc --noEmit"
   },
   "lint-staged": {
