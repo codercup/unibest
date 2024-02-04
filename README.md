@@ -14,10 +14,12 @@
 [![GitHub forks](https://img.shields.io/github/forks/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
 [![star](https://gitee.com/codercup/unibest/badge/star.svg?theme=dark)](https://gitee.com/codercup/unibest/stargazers)
 [![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest/members)
-![node version](https://img.shields.io/badge/node-%3E%3D18-green)
+![node version](https://img.shields.io/badge/node-%3E%3D16-green)
 ![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
-![author](https://img.shields.io/badge/author-菲鸽-blue)
+[![Github](https://img.shields.io/badge/github-菲鸽-1e80ff?logo=github)](https://github.com/codercup)
+[![Gitee](https://img.shields.io/badge/gitee-菲鸽-1e80ff?logo=gitee)](https://gitee.com/codercup)
+[![Juejin](https://img.shields.io/badge/juejin-菲鸽-1e80ff?logo=juejin)](https://juejin.cn/user/3263006241460792)
 ![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
 </div>
@@ -27,9 +29,9 @@
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <p align="center">
-  <a href="https://codercup.github.io/hello-unibest/">📱 在线预览</a> 
+  <a href="https://codercup.github.io/hello-unibest/" target="_blank">📱 在线预览</a> 
   <span style="margin:0 10px;">|</span> 
-  <a href="#">📖 阅读文档(comming soon)</a>
+  <a href="#" target="_blank">📖 阅读文档(comming soon)</a>
 </p>
 
 ## ✨ 特性
