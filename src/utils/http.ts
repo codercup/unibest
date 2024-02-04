@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import qs from 'qs'
 import { useUserStore } from '@/store'
-import { IResData, UserInfo } from '@/typings'
+import { IResData, IUserInfo } from '@/typings'
 
 type CustomRequestOptions = UniApp.RequestOptions & { query?: Record<string, any> }
 
@@ -36,7 +36,7 @@ const httpInterceptor = {
     }
     // 4. 添加 token 请求头标识
     const userStore = useUserStore()
-    const { token } = userStore.userInfo as unknown as UserInfo
+    const { token } = userStore.userInfo as unknown as IUserInfo
     if (token) {
       options.header.Authorization = `Bearer ${token}`
     }
