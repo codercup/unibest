@@ -14,7 +14,7 @@
   "repository-gitee": "https://gitee.com/codercup/unibest",
   "license": "MIT",
   "engines": {
-    "node": ">=18",
+    "node": ">=16",
     "pnpm": ">=7.30"
   },
   "scripts": {
