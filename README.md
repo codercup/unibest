@@ -29,7 +29,7 @@
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <p align="center">
-  <a href="https://codercup.github.io/hello-unibest/" target="_blank">📱 在线预览</a> 
+  <a href="https://codercup.github.io/unibest/" target="_blank">📱 在线预览</a> 
   <span style="margin:0 10px;">|</span> 
   <a href="#" target="_blank">📖 阅读文档(comming soon)</a>
 </p>
@@ -110,12 +110,6 @@
 
 ![v3 snippets](./screenshots/snippets.gif)
 
-## &#x1F3C6; 贡献者
-
-感谢以下参与项目的人：
-
-TODO ADD
-
 ## 📄 License
 
 [MIT](https://opensource.org/license/mit/)
@@ -144,7 +138,7 @@ Copyright (c) 2024 菲鸽
 扫码进微信群，微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/wx-group.png" width="300" style="margin-left:0px;">
+<img alt="special sponsor appwrite" src="./screenshots/wx-group.jpg" width="300" style="margin-left:0px;">
 </p>
 
 ## 💖 微信公众号
