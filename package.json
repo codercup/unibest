@@ -1,8 +1,8 @@
 {
   "name": "unibest",
   "version": "1.0.0",
-  "description": "unibest - 最好用的 uniapp 开发框架",
   "type": "commonjs",
+  "description": "unibest - 最好用的 uniapp 开发框架",
   "author": {
     "name": "Burt",
     "zhName": "菲鸽",
@@ -18,7 +18,6 @@
     "pnpm": ">=7.30"
   },
   "scripts": {
-    "postinstall": "node ./shell/postinstall.js",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
@@ -53,7 +52,7 @@
     "build:quickapp-webview": "uni build -p quickapp-webview",
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-    "prepare": "husky install",
+    "prepare": "husky install && node ./shell/postinstall.js",
     "type-check": "vue-tsc --noEmit"
   },
   "lint-staged": {
