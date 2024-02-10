@@ -13,12 +13,11 @@
     :style="{ marginTop: safeAreaInsets?.top + 'px' }"
   >
     <view class="mt-12">
-      <image src="/static/logo.svg" alt="" class="w-26 h-26 block mx-auto" />
+      <image src="/static/logo.svg" alt="" class="w-28 h-28 block mx-auto" />
     </view>
-    <view class="text-center text-4xl main-title-color mt-3">unibest</view>
+    <view class="text-center text-4xl main-title-color mt-4">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }} </view>
-    <view class="text-blue mt-8 text-center text-sm"> 详细示例 参考 hello-unibest 项目 </view>
   </view>
 </template>
 
