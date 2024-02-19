@@ -66,6 +66,9 @@
       "stylelint --fix"
     ]
   },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
+  },
   "dependencies": {
     "@climblee/uv-ui": "^1.1.20",
     "@dcloudio/uni-app": "3.0.0-3090920231225001",
