@@ -124,13 +124,18 @@ Copyright (c) 2024 菲鸽
 
 [![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest,Ares-Chang/uni-vitesse,uni-helper/vitesse-uni-app&type=Date)](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&Date)
 
+## 贡献者
+
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
+
 ## 💓 捐赠鼓励
 
 开源不易，如果 `unibest` 对你有些帮助，可以请作者吃块糖果 ，算是对开源做出的一点点鼓励吧！
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="150" style="margin-left:0px;">
-<img alt="special sponsor appwrite" src="./screenshots/pay-wx.png" width="150" style="margin-left:2px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx-2.png" width="300" style="margin-left:0px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-wx.png" width="300" style="margin-left:2px;">
 </p>
 
 ## 🤝 微信交流群
