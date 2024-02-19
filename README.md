@@ -126,8 +126,9 @@ Copyright (c) 2024 菲鸽
 
 ## 贡献者
 
-<!-- readme: collaborators,contributors -start -->
-<!-- readme: collaborators,contributors -end -->
+<a href="https://github.com/codercup/unibest/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=codercup/unibest" />
+</a>
 
 ## 💓 捐赠鼓励
 
