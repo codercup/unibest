@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "unibest - 最好用的 uniapp 开发框架",
   "author": {
-    "name": "Burt",
+    "name": "codercup",
     "zhName": "菲鸽",
     "email": "1020103647@qq.com",
     "github": "https://github.com/codercup",
@@ -13,6 +13,10 @@
   "license": "MIT",
   "repository": "https://github.com/codercup/unibest",
   "repository-gitee": "https://gitee.com/codercup/unibest",
+  "bugs": {
+    "url": "https://github.com/codercup/unibest/issues"
+  },
+  "homepage": "https://codercup.github.io/unibest/",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7.30"
