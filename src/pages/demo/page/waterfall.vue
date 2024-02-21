@@ -66,9 +66,6 @@
 </template>
 
 <script lang="ts" setup>
-// eslint-disable-next-line import/extensions
-import { guid } from '@climblee/uv-ui/libs/function/index.js'
-
 const list = ref([]) // 瀑布流全部数据
 const lists = reactive({
   list1: [], // 瀑布流第一列数据
@@ -126,7 +123,7 @@ const getData = (): Promise<{ data: any[] }> => {
     const doFn = (i: number) => {
       const randomIndex = Math.floor(Math.random() * 10)
       return {
-        id: guid(),
+        id: uni.$uv.guid(),
         allowEdit: i === 0,
         image: imgs[randomIndex].url,
         w: imgs[randomIndex].width,
