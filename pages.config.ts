@@ -13,6 +13,7 @@ export default defineUniPages({
     custom: {
       '^uni-(.*)': '@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue',
       '^uv-(.*)': '@climblee/uv-ui/components/uv-$1/uv-$1.vue',
+      '^tm-(.*)': '@/tmui/components/tm-$1/tm-$1.vue',
     },
   },
   tabBar: {

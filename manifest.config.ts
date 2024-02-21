@@ -39,7 +39,10 @@ export default defineManifestConfig({
       delay: 0,
     },
     /* 模块配置 */
-    modules: {},
+    modules: {
+      /* TMUI 使用Canvas模块，需要添加下面这一行 */
+      Canvas: 'nvue canvas',
+    },
     /* 应用发布信息 */
     distribute: {
       /* android打包配置 */
