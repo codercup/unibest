@@ -95,6 +95,12 @@ onLoad(async () => {
   const { data } = await getData()
   list.value = data
 })
+
+const waterfall = ref()
+// 如果页面还没渲染结束，页面就跳走，但此时@changeList回调还在返回数据，可能会造成渲染出错，所以要想办法停止渲染
+onHide(() => {
+  waterfall.value.clear()
+})
 // 这点非常重要：e.name在这里返回是list1或list2，要手动将数据追加到相应列
 const changeList = (e: { name: 'list1' | 'list2'; value: any }) => {
   lists[e.name].push(e.value)
