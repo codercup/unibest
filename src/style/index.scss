@@ -1,13 +1,12 @@
 .test {
-  margin-top: 4px;
+  // 可以通过 @apply 多个样式封装整体样式
+  @apply mt-4 ml-4;
 
-  @apply mt-4;
-
-  // 上面2个方式都会出现问题（如截图所示 issue.png），建议不在这个全局文件写宽高大小的变量
-
+  padding-top: 4px;
   color: red;
 }
 
+// 全局字体引用 DEMO
 // @font-face {
 //   font-family: TiTi;
 //   src: url('./fonts/PangMenZhengDaoBiaoTiTi-1.ttf');
