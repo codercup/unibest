@@ -15,8 +15,7 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-
-  "Print Vue3 Uniapp SFC": {
+  "Print unibest Vue3 SFC": {
     "scope": "vue",
     "prefix": "v3",
     "body": [
@@ -33,7 +32,22 @@
       "</script>\n",
       "<style lang=\"scss\" scoped>",
       "//",
-      "</style>\n"
-    ]
-  }
+      "</style>\n",
+    ],
+  },
+  "Print unibest style": {
+    "scope": "vue",
+    "prefix": "st",
+    "body": ["<style lang=\"scss\" scoped>", "//", "</style>\n"],
+  },
+  "Print unibest script": {
+    "scope": "vue",
+    "prefix": "sc",
+    "body": ["<script lang=\"ts\" setup>", "//$3", "</script>\n"],
+  },
+  "Print unibest template": {
+    "scope": "vue",
+    "prefix": "te",
+    "body": ["<template>", "  <view class=\"\">$1</view>", "</template>\n"],
+  },
 }
