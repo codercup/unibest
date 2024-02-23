@@ -70,3 +70,9 @@ export default defineConfig({
     ['pb-safe', { 'padding-bottom': 'env(safe-area-inset-bottom)' }],
   ],
 })
+
+/**
+ * 最终这一套组合下来会得到：
+ * mp 里面：mt-4 => margin-top: 32rpx
+ * h5 里面：mt-4 => margin-top: 1rem
+ */
