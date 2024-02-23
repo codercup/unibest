@@ -17,10 +17,11 @@
 ![node version](https://img.shields.io/badge/node-%3E%3D16-green)
 ![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
+![GitHub License](https://img.shields.io/github/license/codercup/unibest)
+
 [![Github](https://img.shields.io/badge/github-菲鸽-1e80ff?logo=github)](https://github.com/codercup)
 [![Gitee](https://img.shields.io/badge/gitee-菲鸽-1e80ff?logo=gitee)](https://gitee.com/codercup)
 [![Juejin](https://img.shields.io/badge/juejin-菲鸽-1e80ff?logo=juejin)](https://juejin.cn/user/3263006241460792)
-![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
 </div>
 
