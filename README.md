@@ -11,18 +11,17 @@
 <div align="center">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
-[![GitHub forks](https://img.shields.io/github/forks/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
 [![star](https://gitee.com/codercup/unibest/badge/star.svg?theme=dark)](https://gitee.com/codercup/unibest/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
 [![fork](https://gitee.com/codercup/unibest/badge/fork.svg?theme=dark)](https://gitee.com/codercup/unibest/members)
 ![node version](https://img.shields.io/badge/node-%3E%3D16-green)
 ![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
 ![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
-[![Github](https://img.shields.io/badge/github-菲鸽-1e80ff?logo=github)](https://github.com/codercup)
+<!-- [![Github](https://img.shields.io/badge/github-菲鸽-1e80ff?logo=github)](https://github.com/codercup)
 [![Gitee](https://img.shields.io/badge/gitee-菲鸽-1e80ff?logo=gitee)](https://gitee.com/codercup)
-[![Juejin](https://img.shields.io/badge/juejin-菲鸽-1e80ff?logo=juejin)](https://juejin.cn/user/3263006241460792)
-
+[![Juejin](https://img.shields.io/badge/juejin-菲鸽-1e80ff?logo=juejin)](https://juejin.cn/user/3263006241460792) -->
 </div>
 
 <div align="center"><b>unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode 驱动的跨端快速启动模板，具有代码提示、自动格式化、统一配置、代码片段、多语言支持等功能，内置了许多常用的基本组件和基本功能，开箱即用，让你编写 uniapp 拥有 best 体验。</b></div>
@@ -32,36 +31,25 @@
 <p align="center">
   <a href="https://codercup.github.io/unibest/" target="_blank">📱 在线预览</a> 
   <span style="margin:0 10px;">|</span> 
-  <a href="#" target="_blank">📖 阅读文档(comming soon)</a>
+  <a href="https://codercup.github.io/unibest-docs/" target="_blank">📖 阅读文档</a>
 </p>
 
 ## ✨ 特性
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/), [esbuild](https://github.com/evanw/esbuild) - 就是快！
-
-- 🔥 最新语法：使用新的 `<script setup>` 语法
-
+- 🔥 最新语法 - `<script lang="ts" setup>` 语法
 - 🎨 [UnoCSS](https://unocss.dev/) - 高性能且极具灵活性的即时原子化 CSS 引擎
-
-- 🍍 [pinia](https://pinia.vuejs.org/) & [pinia-plugin-persistedstate](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/) - 全端适配的全局数据管理
-
-- 🦾 [TypeScript](https://www.typescriptlang.org/) & [ESLint](https://eslint.org/) & [stylelint](https://stylelint.io/) - 保证代码质量
-
 - 😃 [UnoCSS Icons](https://unocss.dev/presets/icons) & [icones](https://icones.js.org/) - 海量图标供你选择
-
+- 🍍 [pinia](https://pinia.vuejs.org/) & [pinia-plugin-persistedstate](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/) - 全端适配的全局数据管理
+- 🗂 `uni.request` 请求封装 - 一键引入，快捷使用
 - 📦 [组件自动化加载](./src/components) - 可配置化的组件加载方式，轻松加载组件
-
 - 📥 [API 自动加载](https://github.com/antfu/unplugin-auto-import) - 直接使用 Composition API 无需引入
-
-- 🌈 [husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) + [commitlint](https://commitlint.js.org/) - 保证代码提交质量
-
 - 🎉 `v3` Code Snippets 加快你的页面生成
+- 🦾 [TypeScript](https://www.typescriptlang.org/) & [ESLint](https://eslint.org/) & [stylelint](https://stylelint.io/) - 保证代码质量
+- 🌈 [husky](https://typicode.github.io/husky/) & [lint-staged](https://github.com/lint-staged/lint-staged) + [commitlint](https://commitlint.js.org/) - 保证代码提交质量
+- 💡 `ES6 import` 自动排序，`css 属性` 自动排序，增强编码一致性
 
-- 🗂 `uni.request` 请求封装 & 请求拦截，一键引入，快捷使用
-
-- 💡 ES6 import 顺序自动排序，css 属性自动排序，增强编码一致性
-
-- 🖥 多环境配置分开，想则怎么配置就怎么配置
+- 🖥 `多环境` 配置分开，想则怎么配置就怎么配置
 
 ## 👍 业务功能
 
