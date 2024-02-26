@@ -17,11 +17,15 @@
       "@types/wechat-miniprogram",
       "@uni-helper/uni-app-types",
       "@uni-helper/uni-ui-types",
-      "@uni-helper/uni-cloud-types"
+      "@uni-helper/uni-cloud-types",
+      "@ttou/uv-typings/shim",
+      "@ttou/uv-typings/v3"
     ]
   },
   "vueCompilerOptions": {
+    "target": 3,
     "nativeTags": ["block", "template", "component", "slot"]
   },
+  "exclude": ["node_modules"],
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.json"]
 }

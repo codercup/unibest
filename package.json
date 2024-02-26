@@ -107,6 +107,7 @@
     "@dcloudio/uni-stacktracey": "3.0.0-3090920231225001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3090920231225001",
     "@iconify-json/carbon": "^1.1.27",
+    "@ttou/uv-typings": "^1.10.2",
     "@types/node": "^20.11.5",
     "@types/wechat-miniprogram": "^3.4.7",
     "@typescript-eslint/eslint-plugin": "^6.15.0",

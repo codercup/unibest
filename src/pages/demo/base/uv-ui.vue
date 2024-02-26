@@ -6,6 +6,7 @@
 
 <template>
   <view class="mt-10">
+    <uv-button type="primary">button</uv-button>
     <uv-qrcode ref="qrcode" class="m-auto" size="300px" value="https://h5.uvui.cn"></uv-qrcode>
   </view>
 </template>

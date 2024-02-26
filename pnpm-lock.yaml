@@ -100,6 +100,9 @@ devDependencies:
   '@iconify-json/carbon':
     specifier: ^1.1.27
     version: 1.1.27
+  '@ttou/uv-typings':
+    specifier: ^1.10.2
+    version: 1.10.2
   '@types/node':
     specifier: ^20.11.5
     version: 20.11.5
@@ -3795,6 +3798,10 @@ packages:
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
+    dev: true
+
+  /@ttou/uv-typings@1.10.2:
+    resolution: {integrity: sha512-aGXUWIuYjqA3dvWXWkrOO1T5yUHZqiXOGNR3sEl37s2xdlUlqXIbP2PMeDnP9fNMyJfemgSX5FZrlfKbYk6ypg==}
     dev: true
 
   /@types/babel__core@7.20.5:
