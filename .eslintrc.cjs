@@ -86,5 +86,6 @@ module.exports = {
     UniHelper: true,
     Page: true,
     App: true,
+    NodeJS: true,
   },
 }
