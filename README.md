@@ -28,7 +28,7 @@
 <p align="center">
   <a href="https://codercup.github.io/unibest/" target="_blank">📱 在线预览</a>
   <span style="margin:0 10px;">|</span>
-  <a href="#" target="_blank">📖 阅读文档 (comming soon)</a>
+  <a href="https://codercup.github.io/unibest-docs/" target="_blank">📖 阅读文档</a>
 </p>
 
 ## ⚙️ 环境
