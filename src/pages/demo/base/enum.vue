@@ -1,12 +1,11 @@
 <route lang="json5" type="page">
 {
-  style: { navigationBarTitleText: 'enum' },
+  style: { navigationBarTitleText: 'enum 使用' },
 }
 </route>
 
 <template>
-  <view class="">enum</view>
-  <fly-content :line="20" />
+  <view class="center mt-8 text-green-600">enum 使用，script setup 里面这样写不会报错</view>
 </template>
 
 <script lang="ts" setup>

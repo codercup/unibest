@@ -65,8 +65,8 @@
 </template>
 
 <script lang="ts" setup>
-import useNavbarWeixin from '@/hooks/useNavbarWeixin'
 import { onPullDownRefresh } from '@dcloudio/uni-app'
+import useNavbarWeixin from '@/hooks/useNavbarWeixin'
 
 const { pages, isTabbar, onScrollToLower, safeAreaInsets } = useNavbarWeixin()
 
