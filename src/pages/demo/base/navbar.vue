@@ -5,15 +5,18 @@
 </route>
 
 <template>
-  <fly-navbar />
-  <view class="bg-green-300 min-h-20" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
-    <view class="p-4"> 自定义导航栏，设置"navigationStyle":"custom" </view>
-    <view class="p-4"> 通常页面顶部有一个图片或背景色 </view>
-  </view>
+  <uni-nav-bar
+    title="自定义导航栏"
+    left-icon="left"
+    @clickLeft="goBack"
+    class="fixed w-full"
+  ></uni-nav-bar>
+  <view class="h-11"></view>
   <fly-content :line="20" />
 </template>
 
 <script lang="ts" setup>
-// 获取屏幕边界到安全区域距离
-const { safeAreaInsets } = uni.getSystemInfoSync()
+const goBack = () => {
+  uni.navigateBack()
+}
 </script>

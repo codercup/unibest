@@ -6,6 +6,7 @@
 
 <template>
   <view class="">enum</view>
+  <fly-content :line="20" />
 </template>
 
 <script lang="ts" setup>
