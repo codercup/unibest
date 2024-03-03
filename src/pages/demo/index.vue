@@ -5,25 +5,27 @@
 </route>
 
 <template>
-  <view class="tab-container sticky top-0 bg-white px-4 center h-12 z-1">
-    <view
-      class="w-full text-center h-10 leading-10 rounded-md"
-      :class="{ 'bg-green-300': idx === currIdx }"
-      v-for="(tab, idx) in tabList"
-      :key="tab.id"
-    >
-      <view class="font-800" @click="currIdx = idx">{{ tab.title }}</view>
+  <view class="bg-slate-100 min-h-full box-border pb-3">
+    <view class="tab-container sticky top-0 bg-white px-4 center h-12 z-1">
+      <view
+        class="w-full text-center h-10 leading-10 rounded-md"
+        :class="{ 'bg-green-300': idx === currIdx }"
+        v-for="(tab, idx) in tabList"
+        :key="tab.id"
+      >
+        <view class="font-800" @click="currIdx = idx">{{ tab.title }}</view>
+      </view>
     </view>
-  </view>
-  <view class="bg-slate-100 px-4 pt-3">
-    <view class="list-container">
-      <view v-for="item in currContentList" :key="item.path" class="mb-3">
-        <view
-          class="flex bg-white items-center justify-between p-3 mb-2"
-          @click="goDetailPage(item.path)"
-        >
-          <text class="flex-1 text-4 text-dark">{{ item.title }}</text>
-          <text class="i-carbon-chevron-right"></text>
+    <view class="bg-slate-100 px-4 pt-3">
+      <view class="list-container">
+        <view v-for="item in currContentList" :key="item.path" class="mb-3">
+          <view
+            class="flex bg-white items-center justify-between p-3 mb-2"
+            @click="goDetailPage(item.path)"
+          >
+            <text class="flex-1 text-4 text-dark">{{ item.title }}</text>
+            <text class="i-carbon-chevron-right"></text>
+          </view>
         </view>
       </view>
     </view>
@@ -83,6 +85,10 @@ const goDetailPage = (path: string) => {
 </script>
 
 <style>
+page {
+  height: 100%;
+}
+
 .tab-container {
   display: flex;
 }
