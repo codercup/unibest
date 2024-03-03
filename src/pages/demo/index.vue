@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'unibest 示例' },
+}
+</route>
+
 <template>
   <view class="bg-slate-100 p-4">
     <view class="bg-slate-100 w-full" v-for="item in listData" :key="item.id">
