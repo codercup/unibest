@@ -1,7 +1,7 @@
 <route lang="json5">
 {
   layout: 'demo',
-  style: { navigationBarTitleText: '开启 vConsole' },
+  style: { navigationBarTitleText: '小程序vConsole' },
 }
 </route>
 

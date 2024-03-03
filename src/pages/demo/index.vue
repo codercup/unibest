@@ -44,7 +44,7 @@ const handleTitle = (str?: string) => {
 }
 /** 基本功能 */
 const baseDemos = pagesJson.pages
-  .filter((e) => e.path.startsWith('pages/demo/base'))
+  .filter((e) => e.path.startsWith('pages/demo/base') && !e.hide)
   .map((e) => ({
     title: handleTitle(e.style?.navigationBarTitleText),
     path: e.path,
@@ -52,7 +52,7 @@ const baseDemos = pagesJson.pages
 
 /** 页面功能 */
 const pageDemos = pagesJson.pages
-  .filter((e) => e.path.startsWith('pages/demo/page'))
+  .filter((e) => e.path.startsWith('pages/demo/page') && !e.hide)
   .map((e) => ({
     title: handleTitle(e.style?.navigationBarTitleText),
     path: e.path,
