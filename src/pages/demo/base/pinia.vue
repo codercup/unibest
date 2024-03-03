@@ -29,7 +29,7 @@ const countStore = useCountStore()
 const userStore = useUserStore()
 
 const setUserInfo = () => {
-  userStore.setUserInfo({ nickname: 'fly', avatar: '', token: 'abcdef' })
+  userStore.setUserInfo({ nickname: '菲鸽', avatar: '', token: 'abcdef' })
 }
 const clearUserInfo = () => {
   userStore.clearUserInfo()

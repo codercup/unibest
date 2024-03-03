@@ -14,6 +14,9 @@ import testBgImg from './test-bg.png'
     <view class="mb-2 text-orange-500">
       原始图片是一个很大的，2.5M，build之后生成的图片只有1.1M，体积下降 56%
     </view>
+    <view class="mb-4 text-red-500">
+      微信小程序有包体积的限制，图片通常使用线上地址，不用本地图片就用不上这个插件了。
+    </view>
     <!-- #ifdef MP -->
     <image
       src="https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/img-min/bg-1.png"

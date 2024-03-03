@@ -1,6 +1,7 @@
 <route lang="json5">
 {
   layout: 'default',
+  hide: true,
   style: { navigationBarTitleText: '页面悬浮球' },
 }
 </route>
