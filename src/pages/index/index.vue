@@ -18,6 +18,28 @@
     <view class="text-center text-4xl main-title-color mt-4">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }} </view>
+    <view class="mt-8">
+      <text class="text-green-400">在线文档：</text>
+      <!-- #ifndef H5 -->
+      https://codercup.github.io/unibest-docs/
+      <!-- #endif -->
+      <!-- #ifdef H5 -->
+      <a href="https://codercup.github.io/unibest-docs/" target="_blank">
+        https://codercup.github.io/unibest-docs/
+      </a>
+      <!-- #endif -->
+    </view>
+    <view class="mt-4">
+      <text class="text-green-400">在线预览：</text>
+      <!-- #ifndef H5 -->
+      https://codercup.github.io/unibest/
+      <!-- #endif -->
+      <!-- #ifdef H5 -->
+      <a href="https://codercup.github.io/unibest/" target="_blank">
+        https://codercup.github.io/unibest/
+      </a>
+      <!-- #endif -->
+    </view>
   </view>
 </template>
 
@@ -27,7 +49,7 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 
 const author = ref('菲鸽')
 const description = ref(
-  'unibest 是由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI 驱动的跨端快速启动模板，使用 VS Code 开发，具有代码提示、自动格式化、统一配置、代码片段等功能，同时内置了大量平时开发常用的基本组件，开箱即用，让你编写 uniapp 拥有 best 体验。',
+  'unibest 是一个集成了多种工具和技术的 uniapp 开发模板，由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 uniapp 拥有 best 体验。',
 )
 
 onLoad(() => {
