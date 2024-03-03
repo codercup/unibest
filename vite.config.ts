@@ -49,7 +49,7 @@ export default ({ command, mode }) => {
     envDir: './env', // 自定义env目录
     plugins: [
       UniPages({
-        exclude: ['**/components/**/**.*'],
+        exclude: ['**/components/**/**.*', '**/my/**/**.vue'],
         routeBlockLang: 'json5', // 虽然设了默认值，但是vue文件还是要加上 lang="json5", 这样才能很好地格式化
         homePage: 'pages/index/index',
         subPackages: ['src/pages-sub'], // 是个数组，可以配置多个

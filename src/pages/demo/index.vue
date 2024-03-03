@@ -18,11 +18,20 @@
 <script setup lang="ts" name="TestIndex">
 import pagesJson from '@/pages.json'
 
+const handleTitle = (str?: string) => {
+  if (!str) {
+    return '标题'
+  }
+  if (/%.*%/.test(str)) {
+    return '多语言'
+  }
+  return str
+}
 /** 基本功能 */
 const baseDemos = pagesJson.pages
   .filter((e) => e.path.startsWith('pages/demo/base'))
   .map((e) => ({
-    title: e.style?.navigationBarTitleText || '默认页面标题',
+    title: handleTitle(e.style?.navigationBarTitleText),
     path: e.path,
   }))
 
@@ -30,7 +39,7 @@ const baseDemos = pagesJson.pages
 const pageDemos = pagesJson.pages
   .filter((e) => e.path.startsWith('pages/demo/page'))
   .map((e) => ({
-    title: e.style?.navigationBarTitleText || '默认页面标题',
+    title: handleTitle(e.style?.navigationBarTitleText),
     path: e.path,
   }))
 
