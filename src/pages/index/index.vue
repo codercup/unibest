@@ -9,7 +9,7 @@
 </route>
 <template>
   <view
-    class="bg-white h-full overflow-hidden pt-2 px-4"
+    class="bg-white overflow-hidden pt-2 px-4"
     :style="{ marginTop: safeAreaInsets?.top + 'px' }"
   >
     <view class="mt-12">
