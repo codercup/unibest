@@ -1,13 +1,22 @@
 <template>
-  <view class="bg-slate-100 p-4">
-    <view class="bg-slate-100 w-full" v-for="item in listData" :key="item.id">
-      <view class="font-800">{{ item.title }}</view>
-      <view v-for="itemDetail in item.list" :key="itemDetail.path" class="mt-3">
+  <view class="tab-container sticky top-0 bg-white px-4 center h-12 z-1">
+    <view
+      class="w-full text-center h-10 leading-10 rounded-md"
+      :class="{ 'bg-green-300': idx === currIdx }"
+      v-for="(tab, idx) in tabList"
+      :key="tab.id"
+    >
+      <view class="font-800" @click="currIdx = idx">{{ tab.title }}</view>
+    </view>
+  </view>
+  <view class="bg-slate-100 px-4 pt-3">
+    <view class="list-container">
+      <view v-for="item in currContentList" :key="item.path" class="mb-3">
         <view
           class="flex bg-white items-center justify-between p-3 mb-2"
-          @click="goDetailPage(itemDetail.path)"
+          @click="goDetailPage(item.path)"
         >
-          <text class="flex-1 text-4 text-dark">{{ itemDetail.title }}</text>
+          <text class="flex-1 text-4 text-dark">{{ item.title }}</text>
           <text class="i-carbon-chevron-right"></text>
         </view>
       </view>
@@ -43,7 +52,7 @@ const pageDemos = pagesJson.pages
     path: e.path,
   }))
 
-const listData = reactive([
+const tabList = reactive([
   {
     id: 1,
     title: '基础功能',
@@ -55,7 +64,10 @@ const listData = reactive([
     list: pageDemos,
   },
 ])
-
+const currIdx = ref(0)
+const currContentList = computed(() => {
+  return tabList[currIdx.value].list
+})
 const goDetailPage = (path: string) => {
   const url = `/${path}`
   uni.navigateTo({
@@ -65,26 +77,7 @@ const goDetailPage = (path: string) => {
 </script>
 
 <style>
-.content {
+.tab-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  width: 200rpx;
-  height: 200rpx;
-  margin: 200rpx auto 50rpx;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
 }
 </style>
