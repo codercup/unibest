@@ -33,6 +33,16 @@ const description = ref(
 onLoad(() => {
   console.log(author)
 })
+
+/** 激活“分享给好友” */
+onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {
+  console.log('options:', options)
+  return {
+    title: 'unibest',
+    desc: 'unibest 演示示例',
+    path: '/pages/index/index?id=xxx',
+  }
+})
 </script>
 
 <style>
