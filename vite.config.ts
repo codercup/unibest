@@ -57,6 +57,7 @@ export default ({ command, mode }) => {
       UniLayouts(),
       UniPlatform(),
       UniManifest(),
+      // 自动安装 src/components 里面的组件为全局组件，非全局组件不要放到 src/components
       Components(),
       // UniXXX 需要在 Uni 之前引入
       Uni(),
@@ -74,7 +75,7 @@ export default ({ command, mode }) => {
         imports: ['vue', 'uni-app'],
         dts: 'src/auto-import.d.ts',
         dirs: ['src/hooks'], // 自动导入 hooks
-        eslintrc: { enabled: true },
+        eslintrc: { enabled: false },
       }),
 
       // viteCompression(),
