@@ -11,7 +11,6 @@ export default defineUniPages({
   easycom: {
     autoscan: true,
     custom: {
-      '^uni-(.*)': '@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue',
       '^uv-(.*)': '@climblee/uv-ui/components/uv-$1/uv-$1.vue',
     },
   },
