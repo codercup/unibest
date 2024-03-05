@@ -53,9 +53,6 @@ dependencies:
   '@dcloudio/uni-quickapp-webview':
     specifier: 3.0.0-3090920231225001
     version: 3.0.0-3090920231225001(postcss@8.4.32)(vue@3.2.47)
-  '@dcloudio/uni-ui':
-    specifier: 1.5.0
-    version: 1.5.0
   dayjs:
     specifier: 1.11.10
     version: 1.11.10
@@ -118,12 +115,6 @@ devDependencies:
   '@uni-helper/uni-app-types':
     specifier: ^0.5.12
     version: 0.5.12(typescript@4.9.5)
-  '@uni-helper/uni-cloud-types':
-    specifier: ^0.5.2
-    version: 0.5.2(@uni-helper/uni-app-types@0.5.12)
-  '@uni-helper/uni-ui-types':
-    specifier: ^0.5.11
-    version: 0.5.11(@uni-helper/uni-app-types@0.5.12)
   '@uni-helper/vite-plugin-uni-components':
     specifier: ^0.0.8
     version: 0.0.8
@@ -2455,10 +2446,6 @@ packages:
       - vue
     dev: false
 
-  /@dcloudio/uni-ui@1.5.0:
-    resolution: {integrity: sha512-E7D37VbRZeh1E2yzrIie8psBckIrErdkUbUA751rlG8zdioGovW3zOuUsKgY+Gh7csMvi6XMEoSacvboe8o4Gw==}
-    dev: false
-
   /@dcloudio/vite-plugin-uni@3.0.0-3090920231225001(postcss@8.4.32)(vite@4.0.3)(vue@3.2.47):
     resolution: {integrity: sha512-kV/J7yl5ojsd1NZZ1eMziRDrz+MPbjDMm6rWG3fyW1u8Kzj06jUzzi7HRlkaWiPJHAmeRWGDf/6RFoSd+8fYCg==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -4155,20 +4142,6 @@ packages:
       vue3: /vue@3.4.19(typescript@4.9.5)
     dev: true
 
-  /@uni-helper/uni-cloud-types@0.5.2(@uni-helper/uni-app-types@0.5.12):
-    resolution: {integrity: sha512-DnzYI4CYzBxSqDqjT9RK/lFK19igKTrqAKeXSGd2lgaE1bC+gg2DvBSNWtjGbZw24oReNeXxaQVx6f5iOjxw/Q==}
-    engines: {node: '>=14.18'}
-    peerDependencies:
-      '@uni-helper/uni-app-types': ^0.5.1
-    peerDependenciesMeta:
-      '@uni-helper/uni-app-types':
-        optional: true
-    dependencies:
-      '@dcloudio/types': 3.4.3
-      '@uni-helper/uni-app-types': 0.5.12(typescript@4.9.5)
-      vue3: /vue@3.2.47
-    dev: true
-
   /@uni-helper/uni-env@0.0.3:
     resolution: {integrity: sha512-K6MEnmN7Dg+NnEkfUUhjaKc/rPVY7tcGdsVUKOlC1/z2E6H6zjSSTdJg8z+sVJtZ03Ff1G/MHz2PYDyAS6gjQQ==}
     dev: true
@@ -4185,20 +4158,6 @@ packages:
       - supports-color
       - typescript
       - vitest
-    dev: true
-
-  /@uni-helper/uni-ui-types@0.5.11(@uni-helper/uni-app-types@0.5.12):
-    resolution: {integrity: sha512-tGX4llyJBdq9TmNjmZYKu4eueUWUU0F/YgZeTWDgVCmlgYGavhcUL7R+I0Uxe5hGoqFXkNf0ZnmG/WFZWfK/HQ==}
-    engines: {node: '>=14.18'}
-    peerDependencies:
-      '@uni-helper/uni-app-types': ^0.5.1
-    peerDependenciesMeta:
-      '@uni-helper/uni-app-types':
-        optional: true
-    dependencies:
-      '@dcloudio/types': 3.4.3
-      '@uni-helper/uni-app-types': 0.5.12(typescript@4.9.5)
-      vue3: /vue@3.2.47
     dev: true
 
   /@uni-helper/vite-plugin-uni-components@0.0.8:
