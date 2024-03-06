@@ -16,7 +16,6 @@
       鸽友们好，我是
       <text class="text-red-500">菲鸽</text>
     </view>
-    <uv-text mode="phone" text="15692001234" format="encrypt" color="red"></uv-text>
   </view>
 </template>
 
