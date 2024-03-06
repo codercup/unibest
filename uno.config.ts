@@ -55,7 +55,11 @@ export default defineConfig({
     // 支持css class组合，eg: `<div class="hover:(bg-gray-400 font-medium) font-(light mono)">测试 unocss</div>`
     transformerVariantGroup(),
     // Don't change the following order
-    transformerAttributify(),
+    transformerAttributify({
+      // 解决与第三方框架样式冲突问题
+      prefixedOnly: true,
+      prefix: 'fg',
+    }),
     transformerApplet(),
   ],
   rules: [
