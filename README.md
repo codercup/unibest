@@ -68,6 +68,9 @@
 - [x] 页面悬浮球(floating bubble)
 - [x] 多 tab 列表功能
 - [x] 瀑布流
+- [x] 路由拦截
+- [x] 大转盘抽奖
+- [x] 九宫格抽奖
 - [ ] 仿`BOSS直聘`个人中心
 - [ ] 仿华为商城个人中心
 - [ ] 仿网易云音乐 APP（独立项目）
@@ -135,5 +138,5 @@ Copyright (c) 2024 菲鸽
 ①群、②群已满，下面是③群：
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="./image.png" width="300" style="margin-left:0px;">
+<img alt="special sponsor appwrite" src="https://mp-5b51e857-a600-4088-83fd-10c4c5133d89.cdn.bspapp.com/fg/wx-group.jpg" width="300" style="margin-left:0px;">
 </p>
