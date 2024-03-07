@@ -108,3 +108,16 @@ export const getAllPagesByKey = (key = 'needLogin') => {
   console.log('needLogin pages: ', result)
   return result
 }
+
+/**
+ * 得到所有的需要登录的pages，包括主包和分包的
+ * 只得到 path 数组
+ */
+export const getAllNeedLoginPages = (): string[] =>
+  getAllPagesByKey('needLogin').map((page) => page.path)
+
+/**
+ * 得到所有的需要登录的pages，包括主包和分包的
+ * 只得到 path 数组
+ */
+export const allNeedLoginPages: string[] = getAllPagesByKey('needLogin').map((page) => page.path)
