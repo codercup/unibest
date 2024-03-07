@@ -44,21 +44,67 @@ export const currRoute = () => {
   return { path, redirectPath: decodeURIComponent(redirectPath) } // 这里需要统一 decodeURIComponent 一下，可以兼容h5和微信
 }
 
-// /**
-//  * 得到所有的pages，包括主包和分包的
-//  */
-// export const getAllPages = () => {
-//   const pages = [...pagesJson.pages] // 这里处理主包
-//   const subPages = pagesJson.subPackages.reduce((cur, acc) => {
-//     cur.acc.push({
-//       path: cur.root + cur,
-//     })
-//   }, [])
-// }
-// /**
-//  * 得到所有的需要登录的pages，包括主包和分包的
-//  */
-// export const getAllPages = () => {
-//   const pages = []
-//   pagesJson.pages
-// }
+/**
+ * 得到所有的pages，包括主包和分包的
+ * path 统一加 '/' 前缀
+ */
+export const getAllPages = () => {
+  // 这里处理主包
+  const pages = [
+    ...pagesJson.pages.map((page) => ({
+      ...page,
+      path: `/${page.path}`,
+    })),
+  ]
+  // 这里处理分包
+  const subPages = []
+  pagesJson.subPackages.forEach((subPageObj) => {
+    console.log(subPageObj)
+    const { root } = subPageObj
+    console.log('root', root)
+
+    subPageObj.pages.forEach((page) => {
+      subPages.push({
+        ...page,
+        path: `/${root}/${page.path}`,
+      })
+    })
+  })
+  const result = [...pages, ...subPages]
+  console.log('all pages: ', result)
+  return result
+}
+/**
+ * 得到所有的需要登录的pages，包括主包和分包的
+ * 这里设计得通用一点，可以传递key作为判断依据，默认是 needLogin, 与 route-block 配对使用
+ * PS: 这里为啥多写一个函数，主要是性能问题，这个函数性能好很多
+ */
+export const getAllPagesByKey = (key = 'needLogin') => {
+  // 这里处理主包
+  const pages = [
+    ...pagesJson.pages
+      .filter((page) => page[key])
+      .map((page) => ({
+        ...page,
+        path: `/${page.path}`,
+      })),
+  ]
+  // 这里处理分包
+  const subPages = []
+  pagesJson.subPackages.forEach((subPageObj) => {
+    console.log(subPageObj)
+    const { root } = subPageObj
+
+    subPageObj.pages
+      .filter((page) => page[key])
+      .forEach((page) => {
+        subPages.push({
+          ...page,
+          path: `/${root}/${page.path}`,
+        })
+      })
+  })
+  const result = [...pages, ...subPages]
+  console.log('needLogin pages: ', result)
+  return result
+}
