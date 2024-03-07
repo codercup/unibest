@@ -34,10 +34,31 @@ export const currRoute = () => {
   const currRoute = (pages.at(-1) as any).$page
   // console.log(currRoute)
   const { fullPath } = currRoute as { fullPath: string }
-  // console.log(fullPath) // eg: /pages/login/index?redirect=/pages/demo/base/route-interceptor
+  console.log(fullPath) // eg: /pages/login/index?redirect=/pages/demo/base/route-interceptor (H5)
+  // /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
   const [path, query] = fullPath.split('?')
-  // console.log(path, query) // /pages/login/index redirect=/pages/demo/base/route-interceptor
+  console.log(path, query) // /pages/login/index redirect=/pages/demo/base/route-interceptor
+  // /pages/login/index redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
   // TODO: 根据业务，可能需要调整代码逻辑
   const redirectPath = query.split('redirect=')[1] // /pages/demo/base/route-interceptor
-  return { path, redirectPath }
+  return { path, redirectPath: decodeURIComponent(redirectPath) } // 这里需要统一 decodeURIComponent 一下，可以兼容h5和微信
 }
+
+// /**
+//  * 得到所有的pages，包括主包和分包的
+//  */
+// export const getAllPages = () => {
+//   const pages = [...pagesJson.pages] // 这里处理主包
+//   const subPages = pagesJson.subPackages.reduce((cur, acc) => {
+//     cur.acc.push({
+//       path: cur.root + cur,
+//     })
+//   }, [])
+// }
+// /**
+//  * 得到所有的需要登录的pages，包括主包和分包的
+//  */
+// export const getAllPages = () => {
+//   const pages = []
+//   pagesJson.pages
+// }
