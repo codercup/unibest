@@ -5,9 +5,11 @@ export const http = <T>(options: CustomRequestOptions) => {
   // 1. 返回 Promise 对象
   return new Promise<IResData<T>>((resolve, reject) => {
     uni.request({
-      ...options,
       dataType: 'json',
-      responseType: 'text',
+      // #ifndef WP-WEIXIN
+      responseType: 'json',
+      // #endif
+      ...options,
       // 响应成功
       success(res) {
         // 状态码 2xx，参考 axios 的设计
