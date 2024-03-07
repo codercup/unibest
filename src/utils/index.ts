@@ -60,14 +60,14 @@ export const getAllPages = (key = 'needLogin') => {
       })),
   ]
   // 这里处理分包
-  const subPages = []
+  const subPages: any[] = []
   pagesJson.subPackages.forEach((subPageObj) => {
     // console.log(subPageObj)
     const { root } = subPageObj
 
     subPageObj.pages
       .filter((page) => !key || page[key])
-      .forEach((page) => {
+      .forEach((page: { path: string } & Record<string, any>) => {
         subPages.push({
           ...page,
           path: `/${root}/${page.path}`,
