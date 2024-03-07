@@ -10,6 +10,11 @@ import { getAllNeedLoginPages, allNeedLoginPages } from '@/utils'
 // TODO Check
 const loginRoute = '/pages/login/index'
 
+// https://uniapp.dcloud.net.cn/worktile/running-env.html#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83
+// 官网数说可用 process.env 判断环境， 为啥我运行报错（小程序里）（h5正常）
+// console.log(process.env)
+
+// TODO: 通过环境区分，非硬编码
 const isDev = false
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 const navigateToInterceptor = {
