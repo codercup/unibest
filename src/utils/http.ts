@@ -7,7 +7,7 @@ export const http = <T>(options: CustomRequestOptions) => {
     uni.request({
       ...options,
       dataType: 'json',
-      responseType: 'json',
+      responseType: 'text',
       // 响应成功
       success(res) {
         // 状态码 2xx，参考 axios 的设计
