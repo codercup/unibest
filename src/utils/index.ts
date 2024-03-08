@@ -34,10 +34,10 @@ export const currRoute = () => {
   const currRoute = (pages.at(-1) as any).$page
   // console.log(currRoute)
   const { fullPath } = currRoute as { fullPath: string }
-  console.log(fullPath) // eg: /pages/login/index?redirect=/pages/demo/base/route-interceptor (H5)
+  // console.log(fullPath) // eg: /pages/login/index?redirect=/pages/demo/base/route-interceptor (H5)
   // /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
   const [path, query] = fullPath.split('?')
-  console.log(path, query) // /pages/login/index redirect=/pages/demo/base/route-interceptor
+  // console.log(path, query) // /pages/login/index redirect=/pages/demo/base/route-interceptor
   // /pages/login/index redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
   // TODO: 根据业务，可能需要调整代码逻辑
   const redirectPath = query.split('redirect=')[1] // /pages/demo/base/route-interceptor
@@ -45,59 +45,29 @@ export const currRoute = () => {
 }
 
 /**
- * 得到所有的pages，包括主包和分包的
- * path 统一加 '/' 前缀
- */
-export const getAllPages = () => {
-  // 这里处理主包
-  const pages = [
-    ...pagesJson.pages.map((page) => ({
-      ...page,
-      path: `/${page.path}`,
-    })),
-  ]
-  // 这里处理分包
-  const subPages = []
-  pagesJson.subPackages.forEach((subPageObj) => {
-    console.log(subPageObj)
-    const { root } = subPageObj
-    console.log('root', root)
-
-    subPageObj.pages.forEach((page) => {
-      subPages.push({
-        ...page,
-        path: `/${root}/${page.path}`,
-      })
-    })
-  })
-  const result = [...pages, ...subPages]
-  console.log('all pages: ', result)
-  return result
-}
-/**
  * 得到所有的需要登录的pages，包括主包和分包的
  * 这里设计得通用一点，可以传递key作为判断依据，默认是 needLogin, 与 route-block 配对使用
- * PS: 这里为啥多写一个函数，主要是性能问题，这个函数性能好很多
+ * 如果没有传 key，则表示所有的pages，如果传递了 key, 则表示通过 key 过滤
  */
-export const getAllPagesByKey = (key = 'needLogin') => {
+export const getAllPages = (key = 'needLogin') => {
   // 这里处理主包
   const pages = [
     ...pagesJson.pages
-      .filter((page) => page[key])
+      .filter((page) => !key || page[key])
       .map((page) => ({
         ...page,
         path: `/${page.path}`,
       })),
   ]
   // 这里处理分包
-  const subPages = []
+  const subPages: any[] = []
   pagesJson.subPackages.forEach((subPageObj) => {
-    console.log(subPageObj)
+    // console.log(subPageObj)
     const { root } = subPageObj
 
     subPageObj.pages
-      .filter((page) => page[key])
-      .forEach((page) => {
+      .filter((page) => !key || page[key])
+      .forEach((page: { path: string } & Record<string, any>) => {
         subPages.push({
           ...page,
           path: `/${root}/${page.path}`,
@@ -105,7 +75,7 @@ export const getAllPagesByKey = (key = 'needLogin') => {
       })
   })
   const result = [...pages, ...subPages]
-  console.log('needLogin pages: ', result)
+  console.log('getAllPages result: ', result)
   return result
 }
 
@@ -113,11 +83,25 @@ export const getAllPagesByKey = (key = 'needLogin') => {
  * 得到所有的需要登录的pages，包括主包和分包的
  * 只得到 path 数组
  */
-export const getAllNeedLoginPages = (): string[] =>
-  getAllPagesByKey('needLogin').map((page) => page.path)
+export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((page) => page.path)
 
 /**
  * 得到所有的需要登录的pages，包括主包和分包的
  * 只得到 path 数组
  */
-export const allNeedLoginPages: string[] = getAllPagesByKey('needLogin').map((page) => page.path)
+export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
+/**
+ * 是否是开发环境
+ */
+export const isDev = () => {
+  let isDev = false
+  // #ifdef MP-WEIXIN
+  console.log('wx ==> miniProgram.envVersion:', uni.getAccountInfoSync().miniProgram.envVersion)
+  isDev = uni.getAccountInfoSync().miniProgram.envVersion === 'develop'
+  // #endif
+  // #ifndef MP-WEIXIN
+  console.log('非wx ==> process.env.NODE_ENV:', process.env.NODE_ENV)
+  isDev = process.env.NODE_ENV === 'development'
+  // #endif
+  return isDev
+}
