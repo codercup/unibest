@@ -21,7 +21,7 @@ const navigateToInterceptor = {
     console.log(url)
     let needLoginPages = []
     // 为了防止开发时出现BUG，这里每次都获取一下。生产环境可以移到函数外，性能更好
-    if (isDev) {
+    if (isDev()) {
       needLoginPages = getNeedLoginPages()
     } else {
       needLoginPages = _needLoginPages
