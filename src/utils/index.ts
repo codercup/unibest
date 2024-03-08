@@ -93,7 +93,7 @@ export const needLoginPages: string[] = getAllPages('needLogin').map((page) => p
 /**
  * 是否是开发环境
  */
-export const isDev = () => {
+export const isDev = !(() => {
   let isDev = false
   // #ifdef MP-WEIXIN
   console.log('wx ==> miniProgram.envVersion:', uni.getAccountInfoSync().miniProgram.envVersion)
@@ -104,4 +104,4 @@ export const isDev = () => {
   isDev = process.env.NODE_ENV === 'development'
   // #endif
   return isDev
-}
+})
