@@ -1,5 +1,6 @@
 <route lang="json5" type="page">
 {
+  hide: true,
   style: { navigationBarTitleText: 'enum 使用' },
 }
 </route>
