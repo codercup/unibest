@@ -5,9 +5,12 @@
 </route>
 
 <template>
-  <view class="">登录页面</view>
-  <view class="">登录成功后会跳转回拦截前的页面</view>
-  <uv-button type="primary" @click="login">登录</uv-button>
+  <view class="text-center">
+    <view class="leading-10">登录成功后会跳转回拦截前的页面</view>
+    <view class="p-10">
+      <uv-button type="primary" @click="login">登录</uv-button>
+    </view>
+  </view>
 </template>
 
 <script lang="ts" setup>
