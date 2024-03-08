@@ -1,5 +1,6 @@
 <route lang="json5" type="page">
 {
+  hide: true,
   style: { navigationBarTitleText: '环境获取' },
 }
 </route>
