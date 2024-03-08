@@ -99,7 +99,7 @@ export const isDev = () => {
   isDev = uni.getAccountInfoSync().miniProgram.envVersion === 'develop'
   // #endif
   // #ifdef H5
-  isDev = process.env?.NODE_ENV === 'development'
+  isDev = process?.env?.NODE_ENV === 'development'
   // #endif
   return isDev
 }
