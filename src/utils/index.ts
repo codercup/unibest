@@ -98,8 +98,5 @@ export const isDev = () => {
   // #ifdef MP-WEIXIN
   isDev = uni.getAccountInfoSync().miniProgram.envVersion === 'develop'
   // #endif
-  // #ifdef H5
-  isDev = !!process // 存在 process 变量，说明是开发环境
-  // #endif
   return isDev
 }
