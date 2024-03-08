@@ -19,3 +19,12 @@ export enum TestEnum {
   A = 'a',
   B = 'b',
 }
+
+// uni.uploadFile文件上传参数
+export type IUniUploadFileOptions = {
+  file?: File
+  files?: UniApp.UploadFileOptionFiles[]
+  filePath?: string
+  name?: string
+  formData?: any
+}
