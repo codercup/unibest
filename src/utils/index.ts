@@ -95,12 +95,12 @@ export const needLoginPages: string[] = getAllPages('needLogin').map((page) => p
  */
 export const isDev = () => {
   let isDev = false
-  console.log('wx ==> miniProgram.envVersion:', uni.getAccountInfoSync().miniProgram.envVersion)
-  console.log('非wx ==> process.env.NODE_ENV:', process.env.NODE_ENV)
   // #ifdef MP-WEIXIN
+  console.log('wx ==> miniProgram.envVersion:', uni.getAccountInfoSync().miniProgram.envVersion)
   isDev = uni.getAccountInfoSync().miniProgram.envVersion === 'develop'
   // #endif
   // #ifndef MP-WEIXIN
+  console.log('非wx ==> process.env.NODE_ENV:', process.env.NODE_ENV)
   isDev = process.env.NODE_ENV === 'development'
   // #endif
   return isDev
