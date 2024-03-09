@@ -22,9 +22,13 @@ import { useUserStore } from '@/store'
 import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
 
 const userStore = useUserStore()
+const pages = getCurrentPages()
+console.log('pages:', pages)
 
 const isLogined = computed(() => {
   console.log('userStore=>', userStore)
+  const pages = getCurrentPages()
+  console.log('pages:', pages)
   if (!userStore || !userStore.userInfo) return false
   return !!userStore.userInfo.token
 })
@@ -35,7 +39,8 @@ onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent
   return {
     title: 'unibest 路由拦截、进入指定页面',
     desc: 'unibest 演示示例',
-    path: '/pages/demo/base/route-middleware?redirect=/pages/demo/base/route-interceptor?a=1&b=2',
+    // path: '/pages/demo/base/route-middleware?redirect=/pages/demo/base/route-interceptor?a=1&b=2',
+    path: '/pages/demo/base/route-interceptor?a=1&b=2',
   }
 })
 /** 激活“分享到朋友圈”， 注意：需要先激活“分享给好友” */
