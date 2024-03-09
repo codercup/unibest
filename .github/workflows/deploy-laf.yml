@@ -9,38 +9,34 @@ env:
   LAF_APPID: ${{ secrets.LAF_APPID }}
   LAF_PAT: ${{ secrets.LAF_PAT }}
   API_URL: 'https://ukw0y1.laf.run'
-  WEB_PATH: .
   DIST_PATH: 'dist/build/h5'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: '16.x'
-      # 安装项目依赖
-      - name: Install Dependencies
-        working-directory: ${{ env.WEB_PATH }}
-        run: npm install
-      # 编译项目
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm i
       - name: Build
-        working-directory: ${{ env.WEB_PATH }}
-        run: npm run build:h5
+        run: pnpm build:h5
       # 安装 laf-cli
       - name: Install Laf-CLI
-        run: npm i laf-cli -g
+        run: pnpm i laf-cli -g
       # 登录 laf api
       - name: Login laf-cli
-        working-directory: ${{ env.WEB_PATH }}
         run: |
           laf user add ${{ env.LAF_APPID }} -r ${{ env.API_URL }}
           laf user switch ${{ env.LAF_APPID }}
           laf login ${{ env.LAF_PAT }}
       # 初始化 Laf 应用然后将编译好的代码推送到云存储
       - name: Init appid and push
-        working-directory: ${{ env.WEB_PATH }}
         env:
           LAF_APPID: ${{ env.LAF_APPID }}
         run: |
