@@ -25,7 +25,8 @@ const isLogined = () => {
 const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
   invoke({ url }: { url: string }) {
-    console.log(url)
+    console.log(url) // /pages/route-interceptor/index?name=feige&age=30
+    const path = url.split('?')[0]
     let needLoginPages: string[] = []
     // 为了防止开发时出现BUG，这里每次都获取一下。生产环境可以移到函数外，性能更好
     if (isDev) {
@@ -33,7 +34,9 @@ const navigateToInterceptor = {
     } else {
       needLoginPages = _needLoginPages
     }
-    if (needLoginPages.includes(url)) {
+    console.log(needLoginPages.includes(path))
+
+    if (needLoginPages.includes(path)) {
       const isLogin = isLogined()
       if (isLogin) {
         return true
@@ -48,7 +51,8 @@ const navigateToInterceptor = {
 
 export const routeInterceptor = {
   install() {
-    // 拦截 request 请求
     uni.addInterceptor('navigateTo', navigateToInterceptor)
+    uni.addInterceptor('reLaunch', navigateToInterceptor)
+    uni.addInterceptor('redirectTo', navigateToInterceptor)
   },
 }

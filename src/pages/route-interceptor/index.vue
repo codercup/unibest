@@ -18,7 +18,6 @@
 
 <script lang="ts" setup>
 import { useUserStore } from '@/store'
-
 import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
 
 const userStore = useUserStore()
@@ -31,6 +30,13 @@ const isLogined = computed(() => {
   console.log('pages:', pages)
   if (!userStore || !userStore.userInfo) return false
   return !!userStore.userInfo.token
+})
+
+onReady(() => {
+  const pages = getCurrentPages()
+  console.log('pages:', pages)
+  const currRoute = (pages.at(-1) as any).$page
+  console.log('currRoute:', currRoute)
 })
 
 /** 激活“分享给好友” */
