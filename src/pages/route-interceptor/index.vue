@@ -46,7 +46,7 @@ onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent
     title: 'unibest 路由拦截、进入指定页面',
     desc: 'unibest 演示示例',
     // path: '/pages/demo/base/route-middleware?redirect=/pages/demo/base/route-interceptor?a=1&b=2',
-    path: '/pages/demo/base/route-interceptor?a=1&b=2',
+    path: 'pages/route-interceptor/index?name=feige&age=30&sex=male',
   }
 })
 /** 激活“分享到朋友圈”， 注意：需要先激活“分享给好友” */
