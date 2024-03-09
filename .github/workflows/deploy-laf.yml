@@ -6,7 +6,7 @@ on:
 
 env:
   BUCKET_NAME: ${{ secrets.DOC_BUCKET_NAME }}
-  LAF_APPID: ${{ secrets.LAF_APPID }}
+  LAF_APPID: feige
   LAF_PAT: ${{ secrets.LAF_PAT }}
   API_URL: 'https://ukw0y1.laf.run'
   DIST_PATH: 'dist/build/h5'
