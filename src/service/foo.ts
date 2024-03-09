@@ -1,4 +1,4 @@
-import { http } from '@/utils/http'
+import { http, uniFileUpload } from '@/utils/http'
 import type { IFooItem } from './foo.d'
 
 export { IFooItem }
@@ -19,5 +19,14 @@ export const postFooAPI = (name: string) => {
     method: 'POST',
     query: { name }, // post 请求也支持 query
     data: { name },
+  })
+}
+
+// 文件上传
+export const fileUpload = (data: IUniUploadFileOptions) => {
+  return uniFileUpload({
+    url: `/foo/upload`,
+    method: 'POST',
+    ...data,
   })
 }

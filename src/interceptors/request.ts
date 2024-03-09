@@ -2,7 +2,9 @@
 import qs from 'qs'
 import { useUserStore } from '@/store'
 
-export type CustomRequestOptions = UniApp.RequestOptions & { query?: Record<string, any> }
+export type CustomRequestOptions = UniApp.RequestOptions & {
+  query?: Record<string, any>
+} & IUniUploadFileOptions // 添加uni.uploadFile参数类型
 
 // 请求基地址
 const baseURL = import.meta.env.VITE_SERVER_BASEURL
