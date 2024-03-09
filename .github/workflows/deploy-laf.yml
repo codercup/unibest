@@ -3,9 +3,13 @@ on:
   push:
     branches:
       - demo
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 env:
-  BUCKET_NAME: ${{ secrets.DOC_BUCKET_NAME }}
+  # 云存储名称，比如 ukw0y1-site 只需要写 site
+  BUCKET_NAME: site
+  # 目前本地测试过，随便一个名字就行
   LAF_APPID: feige
   LAF_PAT: ${{ secrets.LAF_PAT }}
   API_URL: 'https://ukw0y1.laf.run'
