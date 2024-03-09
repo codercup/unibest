@@ -1,5 +1,4 @@
 import { CustomRequestOptions } from '@/interceptors/request'
-import { IResData } from '@/typings'
 
 export const http = <T>(options: CustomRequestOptions) => {
   // 1. 返回 Promise 对象

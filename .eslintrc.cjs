@@ -66,6 +66,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'no-underscore-dangle': 'off',
     'no-use-before-define': 'off',
+    'no-undef': 'off',
   },
   // eslint-import-resolver-typescript 插件，@see https://www.npmjs.com/package/eslint-import-resolver-typescript
   settings: {
