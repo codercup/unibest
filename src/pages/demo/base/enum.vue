@@ -10,8 +10,6 @@
 </template>
 
 <script lang="ts" setup>
-import { TestEnum } from '@/typings.d'
-
 type T = TestEnum.A
 const a = 'a' as T
 console.log(a)
