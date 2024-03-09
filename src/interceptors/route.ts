@@ -5,22 +5,19 @@
  * 我这里应为大部分都可以随便进入，所以使用黑名单
  */
 import { useUserStore } from '@/store'
-import { getNeedLoginPages, needLoginPages as _needLoginPages, isDev as getIsDev } from '@/utils'
+import { getNeedLoginPages, needLoginPages as _needLoginPages } from '@/utils'
 
 // TODO Check
 const loginRoute = '/pages/login/index'
 
-// https://uniapp.dcloud.net.cn/worktile/running-env.html#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83
-// 官网数说可用 process.env 判断环境， 为啥我运行报错（小程序里）（h5正常）
-// console.log(process.env)
-
-const isDev = getIsDev()
 const isLogined = () => {
   const userStore = useUserStore()
-  console.log('userStore=>', userStore)
   if (!userStore || !userStore.userInfo) return false
-  return !!userStore.userInfo.token
+  return userStore.userInfo?.token
 }
+
+const isDev = import.meta.env.DEV
+
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
