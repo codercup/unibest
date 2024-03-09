@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import qs from 'qs'
 import { useUserStore } from '@/store'
-import { IUserInfo } from '@/typings'
 
 export type CustomRequestOptions = UniApp.RequestOptions & { query?: Record<string, any> }
 
