@@ -1,5 +1,4 @@
 import { CustomRequestOptions } from '@/interceptors/request'
-import { IResData } from '@/typings'
 
 // uni.request封装
 export const http = <T>(options: CustomRequestOptions) => {
