@@ -9,6 +9,8 @@ on:
 env:
   # 云存储名称，比如 ukw0y1-site 只需要写 site
   BUCKET_NAME: site
+  # 网站资源推送到云存储的目标目录（默认是根目录，会覆盖原有文件）
+  BUCKET_DIST_PATH: unibest-demo
   # 目前本地测试过，随便一个名字就行
   LAF_APPID: feige
   LAF_PAT: ${{ secrets.LAF_PAT }}
@@ -45,4 +47,4 @@ jobs:
           LAF_APPID: ${{ env.LAF_APPID }}
         run: |
           laf app init ${{ env.LAF_APPID }}
-          laf storage push -f ${{ env.BUCKET_NAME }} ${{ env.DIST_PATH }}/
+          laf storage push -f ${{ env.BUCKET_NAME }}/${{ env.BUCKET_DIST_PATH }} ${{ env.DIST_PATH }}/
