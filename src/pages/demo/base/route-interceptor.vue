@@ -8,7 +8,7 @@
 <template>
   <view class="mt-8 text-center">
     <view class="leading-10">
-      用户是否已登录：<text>{{ !!userStore?.userInfo?.token }}</text>
+      用户是否已登录：<text>{{ isLogined ? '是' : '否' }}</text>
     </view>
     <view class="text-gray">未登录不能来本页面</view>
     <view class="text-gray">已登录才能来本页面</view>
@@ -22,6 +22,12 @@ import { useUserStore } from '@/store'
 import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
 
 const userStore = useUserStore()
+
+const isLogined = computed(() => {
+  console.log('userStore=>', userStore)
+  if (!userStore || !userStore.userInfo) return false
+  return !!userStore.userInfo.token
+})
 
 /** 激活“分享给好友” */
 onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {

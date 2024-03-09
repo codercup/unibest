@@ -75,7 +75,7 @@ export const getAllPages = (key = 'needLogin') => {
       })
   })
   const result = [...pages, ...subPages]
-  console.log('getAllPages result: ', result)
+  console.log(`getAllPages by ${key} result: `, result)
   return result
 }
 
