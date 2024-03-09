@@ -27,7 +27,7 @@ jobs:
       # 编译项目
       - name: Build
         working-directory: ${{ env.WEB_PATH }}
-        run: npm run build
+        run: npm run build:h5
       # 安装 laf-cli
       - name: Install Laf-CLI
         run: npm i laf-cli -g
