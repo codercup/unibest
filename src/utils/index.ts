@@ -31,8 +31,9 @@ export const testI18n = () => {
  */
 export const currRoute = () => {
   const pages = getCurrentPages()
+  console.log('pages:', pages)
   const currRoute = (pages.at(-1) as any).$page
-  // console.log(currRoute)
+  console.log('currRoute:', currRoute)
   const { fullPath } = currRoute as { fullPath: string }
   // console.log(fullPath) // eg: /pages/login/index?redirect=/pages/demo/base/route-interceptor (H5)
   // /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
