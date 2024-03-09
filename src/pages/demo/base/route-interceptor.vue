@@ -33,9 +33,9 @@ const isLogined = computed(() => {
 onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {
   console.log('options:', options)
   return {
-    title: '自定义分享标题',
+    title: 'unibest 路由拦截、进入指定页面',
     desc: 'unibest 演示示例',
-    path: '/pages/index/index?id=xxx',
+    path: '/pages/demo/base/route-interceptor?a=1&b=2',
   }
 })
 /** 激活“分享到朋友圈”， 注意：需要先激活“分享给好友” */
