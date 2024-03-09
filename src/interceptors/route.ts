@@ -15,6 +15,12 @@ const loginRoute = '/pages/login/index'
 // console.log(process.env)
 
 const isDev = getIsDev()
+const isLogined = () => {
+  const userStore = useUserStore()
+  console.log('userStore=>', userStore)
+  if (!userStore || !userStore.userInfo) return false
+  return !!userStore.userInfo.token
+}
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
@@ -28,8 +34,7 @@ const navigateToInterceptor = {
       needLoginPages = _needLoginPages
     }
     if (needLoginPages.includes(url)) {
-      const userStore = useUserStore()
-      const isLogin = !!userStore.userInfo.token
+      const isLogin = isLogined()
       if (isLogin) {
         return true
       }
