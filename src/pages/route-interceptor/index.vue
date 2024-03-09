@@ -32,11 +32,18 @@ const isLogined = computed(() => {
   return !!userStore.userInfo.token
 })
 
+// TODO Check
+const loginRoute = '/pages/login/index'
+
 onReady(() => {
   const pages = getCurrentPages()
   console.log('pages:', pages)
   const currRoute = (pages.at(-1) as any).$page
   console.log('currRoute:', currRoute)
+  if (!isLogined.value) {
+    const redirectRoute = `${loginRoute}?redirect=${currRoute.fullPath}`
+    uni.redirectTo({ url: redirectRoute })
+  }
 })
 
 /** 激活“分享给好友” */
