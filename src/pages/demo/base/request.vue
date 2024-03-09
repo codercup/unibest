@@ -37,7 +37,6 @@
 
 <script lang="ts" setup>
 import { getFooAPI, postFooAPI, IFooItem } from '@/service/foo'
-import { IResData } from '@/typings'
 
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
 
