@@ -12,7 +12,7 @@ env:
   # 目前本地测试过，随便一个名字就行
   LAF_APPID: feige
   LAF_PAT: ${{ secrets.LAF_PAT }}
-  API_URL: 'https://ukw0y1.laf.run'
+  API_URL: 'https://api.laf.run'
   DIST_PATH: 'dist/build/h5'
 jobs:
   build:
