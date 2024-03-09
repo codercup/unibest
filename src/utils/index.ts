@@ -90,13 +90,3 @@ export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((p
  * 只得到 path 数组
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
-/**
- * 是否是开发环境
- */
-export const isDev = () => {
-  let isDev = false
-  // #ifdef MP-WEIXIN
-  isDev = uni.getAccountInfoSync().miniProgram.envVersion === 'develop'
-  // #endif
-  return isDev
-}
