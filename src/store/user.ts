@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { IUserInfo } from '../typings'
 
 const initState = { nickname: '', avatar: '' }
 
@@ -14,7 +13,7 @@ export const useUserStore = defineStore(
     }
 
     const clearUserInfo = () => {
-      userInfo.value = undefined
+      userInfo.value = { ...initState }
     }
     const reset = () => {
       userInfo.value = { ...initState }
