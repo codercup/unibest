@@ -8,7 +8,7 @@
 <template>
   <view class="mt-8 text-center">
     <view class="leading-10">
-      用户是否已登录：<text>{{ !!userStore.userInfo.token }}</text>
+      用户是否已登录：<text>{{ !!userStore?.userInfo?.token }}</text>
     </view>
     <view class="text-gray">未登录不能来本页面</view>
     <view class="text-gray">已登录才能来本页面</view>
