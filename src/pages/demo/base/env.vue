@@ -5,7 +5,7 @@
 </route>
 
 <template>
-  <view class="mt-4 ml-4"> 当前环境 isDev：{{ isDev }} </view>
+  <view class="mt-4 ml-4"> 当前环境 isDev：{{ isDev }} (通过 import.meta.env.DEV 获取)</view>
 </template>
 
 <script lang="ts" setup>
