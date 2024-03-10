@@ -31,8 +31,8 @@
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/index/about",
-        "text": "关于"
+        "pagePath": "pages/index/i18n",
+        "text": "多语言"
       }
     ]
   },
@@ -46,10 +46,10 @@
       }
     },
     {
-      "path": "pages/index/about",
+      "path": "pages/index/i18n",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "关于"
+        "navigationBarTitleText": "%app.name%"
       }
     }
   ],
