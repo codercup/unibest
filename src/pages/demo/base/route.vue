@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 const gotoPage = () => {
-  uni.navigateTo({ url: '/pages/route-interceptor/index?name=feige&age=30' })
+  uni.redirectTo({ url: '/pages/route-interceptor/index?name=feige&age=30' })
 }
 </script>
 

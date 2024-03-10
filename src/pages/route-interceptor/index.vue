@@ -34,13 +34,17 @@ const isLogined = computed(() => {
 // TODO Check
 const loginRoute = '/pages/login/index'
 
+onLoad((opt) => {
+  console.log('onLoad', opt)
+})
 onReady(() => {
   const pages = getCurrentPages()
-  console.log('pages:', pages)
+  console.log('last page:', pages.at(-1))
   const currRoute = (pages.at(-1) as any).$page
   console.log('currRoute:', currRoute)
   if (!isLogined.value) {
-    const redirectRoute = `${loginRoute}?redirect=${currRoute.fullPath}`
+    // redirect时都需要 encodeURIComponent 一下，否则获取到的参数不对
+    const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(currRoute.fullPath)}`
     uni.redirectTo({ url: redirectRoute })
   }
 })

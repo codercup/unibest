@@ -21,9 +21,13 @@ import { useUserStore } from '@/store'
 const userStore = useUserStore()
 const login = () => {
   userStore.setUserInfo({ nickname: '菲鸽', avatar: '', token: 'abcdef' })
-  const { redirectPath } = currRoute()
-  uni.redirectTo({ url: redirectPath })
+  const { query } = currRoute()
+  uni.redirectTo({ url: query.redirect })
 }
+
+onLoad((opt) => {
+  console.log('login onLoad', opt)
+})
 </script>
 
 <style lang="scss" scoped>
