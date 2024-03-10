@@ -74,6 +74,9 @@ dependencies:
   vue-i18n:
     specifier: 9.9.0
     version: 9.9.0(vue@3.2.47)
+  wot-design-uni:
+    specifier: ^1.1.8
+    version: 1.1.8(vue@3.2.47)
 
 devDependencies:
   '@commitlint/cli':
@@ -13960,6 +13963,15 @@ packages:
     dependencies:
       isexe: 2.0.0
     dev: true
+
+  /wot-design-uni@1.1.8(vue@3.2.47):
+    resolution: {integrity: sha512-+I9iIX6I1lJJbQCod7TCP9cPP2U7fmfcvVyO9XTv5tgMTlFkFARIFRXXVpVwZRVS+XETePsaT6oQj7mOP6RvDg==}
+    engines: {HBuilderX: ^3.8.7}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.47
+    dev: false
 
   /wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}

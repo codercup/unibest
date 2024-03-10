@@ -96,7 +96,8 @@
     "pinia-plugin-persistedstate": "3.2.1",
     "qs": "^6.11.2",
     "vue": "3.2.47",
-    "vue-i18n": "9.9.0"
+    "vue-i18n": "9.9.0",
+    "wot-design-uni": "^1.1.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
