@@ -21,13 +21,6 @@
       </view>
       <view class="lottery-btn" @click="start"> </view>
     </view>
-    <view class="text-blue-600 my-2">目标是实现如下的效果，但是我感觉只用css还是太难了</view>
-    <image
-      src="https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery/target.png"
-      mode="widthFix"
-      width="552px"
-    />
-    <!-- <image :src="targetImg" mode="widthFix" width="552px" /> -->
   </view>
 </template>
 
