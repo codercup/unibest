@@ -14,13 +14,6 @@ onHide(() => {
 
 <style lang="scss">
 /* stylelint-disable selector-type-no-unknown */
-view,
-navigator,
-input,
-scroll-view {
-  box-sizing: border-box;
-}
-
 button::after {
   border: none;
 }
@@ -38,7 +31,13 @@ image {
   vertical-align: middle;
 }
 
-// 单行省略使用 unocss: text-ellipsis
+// 单行省略，优先使用 unocss: text-ellipsis
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 // 两行省略
 .ellipsis-2 {
   display: -webkit-box;
