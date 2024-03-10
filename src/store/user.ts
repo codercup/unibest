@@ -18,11 +18,13 @@ export const useUserStore = defineStore(
     const reset = () => {
       userInfo.value = { ...initState }
     }
+    const isLogined = computed(() => !!userInfo.value.token)
 
     return {
       userInfo,
       setUserInfo,
       clearUserInfo,
+      isLogined,
       reset,
     }
   },

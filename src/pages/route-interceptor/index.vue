@@ -28,8 +28,7 @@ const isLogined = computed(() => {
   console.log('userStore=>', userStore)
   const pages = getCurrentPages()
   console.log('pages:', pages)
-  if (!userStore || !userStore.userInfo) return false
-  return !!userStore.userInfo.token
+  return userStore.isLogined
 })
 
 // TODO Check
