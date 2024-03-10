@@ -30,10 +30,15 @@ import { ref, computed } from 'vue'
 // import targetImg from 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery/target.png'
 
 let isLeaved = false
-onBackPress(({ from }: { from: 'backbutton' | 'navigateBack' }) => {
-  console.log('onBackPress', from)
+// onBackPress(({ from }: { from: 'backbutton' | 'navigateBack' }) => {
+//   console.log('onBackPress', from)
+//   isLeaved = true
+//   return false
+// })
+// onBackPress 有兼容性问题，统一使用 onUnload，测试验证OK
+onUnload(() => {
   isLeaved = true
-  return false
+  console.log('onUnload', isLeaved)
 })
 // 后台配置的奖品数据
 const prizeList = [

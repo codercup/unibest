@@ -25,10 +25,16 @@
 import { ref, computed } from 'vue'
 
 let isLeaved = false
-onBackPress(({ from }: { from: 'backbutton' | 'navigateBack' }) => {
-  console.log('onBackPress', from)
+// onBackPress(({ from }: { from: 'backbutton' | 'navigateBack' }) => {
+//   console.log('onBackPress', from)
+//   isLeaved = true
+//   return false
+// })
+
+// onBackPress 有兼容性问题，统一使用 onUnload，测试验证OK
+onUnload(() => {
   isLeaved = true
-  return false
+  console.log('onUnload', isLeaved)
 })
 
 const currentIndex = ref(0) // 当前位置
