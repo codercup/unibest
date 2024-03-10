@@ -21,7 +21,10 @@
     "body": [
       "<route lang=\"json5\" type=\"page\">",
       "{",
-      "  style: { navigationBarTitleText: '$1' },",
+      "  layout: 'default',",
+      "  style: {",
+      "    navigationBarTitleText: '$1',"
+      "  },",
       "}",
       "</route>\n",
       "<template>",
@@ -31,7 +34,7 @@
       "//$3",
       "</script>\n",
       "<style lang=\"scss\" scoped>",
-      "//",
+      "//$4",
       "</style>\n",
     ],
   },
