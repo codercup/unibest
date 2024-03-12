@@ -118,8 +118,10 @@ Copyright (c) 2024 菲鸽
 
 ## 贡献者
 
+由仓库直接生成：
+
 <a href="https://github.com/codercup/unibest/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=codercup/unibest" />
+<img src="https://contrib.rocks/image?repo=codercup/unibest" />
 </a>
 
 ## 💓 捐赠鼓励
