@@ -17,6 +17,7 @@
     "url": "https://github.com/codercup/unibest/issues"
   },
   "homepage": "https://codercup.github.io/unibest/",
+  "packageManager": "pnpm@8.15.1",
   "engines": {
     "node": ">=18",
     "pnpm": ">=7.30"
