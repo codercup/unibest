@@ -37,7 +37,7 @@ const navigateToInterceptor = {
       if (isLogin) {
         return true
       }
-      const redirectRoute = `${loginRoute}?redirect=${url}`
+      const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(url)}`
       uni.navigateTo({ url: redirectRoute })
       return false
     }
