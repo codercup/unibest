@@ -60,6 +60,24 @@ const pageDemos = pagesJson.pages
     path: e.path,
   }))
 
+const routeInterceptionList = [
+  {
+    title: '说明页面',
+    path: 'pages/demo/route-interceptor/index',
+  },
+  {
+    title: '单独登录页面',
+    path: 'pages/demo/route-interceptor/login-page?name=feige&age=30',
+  },
+  {
+    title: '登录弹窗',
+    path: 'pages/demo/route-interceptor/login-model?name=feige&age=30',
+  },
+  {
+    title: '静默登录',
+    path: 'pages/demo/route-interceptor/login-auto?name=feige&age=30',
+  },
+]
 const tabList = reactive([
   {
     id: 1,
@@ -68,6 +86,11 @@ const tabList = reactive([
   },
   {
     id: 2,
+    title: '登录拦截',
+    list: routeInterceptionList,
+  },
+  {
+    id: 3,
     title: '页面功能',
     list: pageDemos,
   },

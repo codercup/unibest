@@ -1,7 +1,7 @@
 <route lang="json5" type="page">
 {
   needLogin: true,
-  style: { navigationBarTitleText: '路由拦截' },
+  style: { navigationBarTitleText: '登陆拦截 - 登陆页面' },
 }
 </route>
 
