@@ -18,6 +18,7 @@
       "@uni-helper/uni-app-types",
       "@uni-helper/uni-ui-types",
       "@uni-helper/uni-cloud-types",
+      "wot-design-uni/global.d.ts",
       "@ttou/uv-typings/shim",
       "@ttou/uv-typings/v3"
     ]

@@ -1,4 +1,3 @@
-// src/store/index.ts
 import { createPinia } from 'pinia'
 import { createPersistedState } from 'pinia-plugin-persistedstate' // 数据持久化
 

@@ -29,6 +29,17 @@ import { ref, computed } from 'vue'
 // TODO: fix 微信小程序里面会报错
 // import targetImg from 'https://cip-shopping-page-0eysug01066a9e-1302818703.tcloudbaseapp.com/fly/lottery/target.png'
 
+let isLeaved = false
+// onBackPress(({ from }: { from: 'backbutton' | 'navigateBack' }) => {
+//   console.log('onBackPress', from)
+//   isLeaved = true
+//   return false
+// })
+// onBackPress 有兼容性问题，统一使用 onUnload，测试验证OK
+onUnload(() => {
+  isLeaved = true
+  console.log('onUnload', isLeaved)
+})
 // 后台配置的奖品数据
 const prizeList = [
   {
@@ -115,6 +126,10 @@ const getRandomNum = () => {
 
 const stopRun = () => {
   isRunning = false
+  if (isLeaved) {
+    console.log('已经离开页面了，不用显示弹窗')
+    return
+  }
   const prizeName = prizeList.find((e) => e.id === prizeId)!.name
   uni.showModal({
     title: `恭喜你中奖 ${prizeName}`,

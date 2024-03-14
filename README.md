@@ -19,9 +19,6 @@
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/codercup/unibest)
 ![GitHub License](https://img.shields.io/github/license/codercup/unibest)
 
-<!-- [![Github](https://img.shields.io/badge/github-菲鸽-1e80ff?logo=github)](https://github.com/codercup)
-[![Gitee](https://img.shields.io/badge/gitee-菲鸽-1e80ff?logo=gitee)](https://gitee.com/codercup)
-[![Juejin](https://img.shields.io/badge/juejin-菲鸽-1e80ff?logo=juejin)](https://juejin.cn/user/3263006241460792) -->
 </div>
 
 <div align="center"><b>unibest 是一个集成了多种工具和技术的 uniapp 开发模板，由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 uniapp 拥有 best 体验。</b></div>
@@ -95,12 +92,6 @@
 - web平台： `pnpm build:h5`，打包后的文件在 `dist/build/h5`，可以放到web服务器，如nginx运行。如果最终不是放在根目录，可以在 `manifest.config.ts` 文件的 `h5.router.base` 属性进行修改。
 - weixin平台：`pnpm build:mp-weixin`, 打包后的文件在 `dist/build/mp-weixin`，然后通过微信开发者工具导入，并点击右上角的“上传”按钮进行上传。
 - APP平台：`pnpm build:app`, 然后打开 `HBuilderX`，导入刚刚生成的`dist/build/app` 文件夹，选择发行 - APP云打包。
-
-## 🎨 `v3` 代码段
-
-在 `vue` 文件里面输入 `v3` 触发这个代码段。如下图，用户可以在`.vscode/vue3.code-snippets` 里面自行修改。
-
-![v3 snippets](./screenshots/snippets.gif)
 
 ## 📄 License
 

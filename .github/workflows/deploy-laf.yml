@@ -1,0 +1,50 @@
+name: Build
+on:
+  push:
+    branches:
+      - demosss
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  # 云存储名称，比如 ukw0y1-site 只需要写 site
+  BUCKET_NAME: site
+  # 网站资源推送到云存储的目标目录（默认是根目录，会覆盖原有文件）
+  BUCKET_DIST_PATH: unibest-demo
+  # 目前本地测试过，随便一个名字就行
+  LAF_APPID: feige
+  LAF_PAT: ${{ secrets.LAF_PAT }}
+  API_URL: 'https://api.laf.run'
+  DIST_PATH: 'dist/build/h5'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm i
+      - name: Build
+        run: pnpm build:h5
+      # 安装 laf-cli
+      - name: Install Laf-CLI
+        run: pnpm i laf-cli -g
+      # 登录 laf api
+      - name: Login laf-cli
+        run: |
+          laf user add ${{ env.LAF_APPID }} -r ${{ env.API_URL }}
+          laf user switch ${{ env.LAF_APPID }}
+          laf login ${{ env.LAF_PAT }}
+      # 初始化 Laf 应用然后将编译好的代码推送到云存储
+      - name: Init appid and push
+        env:
+          LAF_APPID: ${{ env.LAF_APPID }}
+        run: |
+          laf app init ${{ env.LAF_APPID }}
+          laf storage push -f ${{ env.BUCKET_NAME }}/${{ env.BUCKET_DIST_PATH }} ${{ env.DIST_PATH }}/

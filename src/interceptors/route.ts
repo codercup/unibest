@@ -12,8 +12,7 @@ const loginRoute = '/pages/login/index'
 
 const isLogined = () => {
   const userStore = useUserStore()
-  if (!userStore || !userStore.userInfo) return false
-  return !!userStore.userInfo?.token
+  return userStore.isLogined
 }
 
 const isDev = import.meta.env.DEV
@@ -38,7 +37,7 @@ const navigateToInterceptor = {
       if (isLogin) {
         return true
       }
-      const redirectRoute = `${loginRoute}?redirect=${url}`
+      const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(url)}`
       uni.navigateTo({ url: redirectRoute })
       return false
     }

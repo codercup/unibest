@@ -24,6 +24,19 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
 
+let isLeaved = false
+// onBackPress(({ from }: { from: 'backbutton' | 'navigateBack' }) => {
+//   console.log('onBackPress', from)
+//   isLeaved = true
+//   return false
+// })
+
+// onBackPress 有兼容性问题，统一使用 onUnload，测试验证OK
+onUnload(() => {
+  isLeaved = true
+  console.log('onUnload', isLeaved)
+})
+
 const currentIndex = ref(0) // 当前位置
 // 后台配置的奖品数据
 const prizeList = [
@@ -105,6 +118,10 @@ const startRun = () => {
   // 已走步数超过
   if (currentRunCount > totalRunStep.value) {
     isRunning = false
+    if (isLeaved) {
+      console.log('已经离开页面了，不用显示弹窗')
+      return
+    }
     const prizeName = prizeList.find((e) => e.id === prizeId)!.name
     uni.showModal({
       title: `恭喜你中奖 ${prizeName}`,

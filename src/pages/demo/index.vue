@@ -1,3 +1,9 @@
+<route lang="json5">
+{
+  style: { navigationBarTitleText: 'unibest 示例' },
+}
+</route>
+
 <template>
   <view class="bg-slate-100 min-h-full box-border pb-3">
     <view class="tab-container sticky top-0 bg-white px-4 center h-12 z-1">
