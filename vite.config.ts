@@ -132,6 +132,9 @@ export default ({ command, mode }) => {
           drop_debugger: env.VITE_DELETE_CONSOLE === 'true',
         },
       },
+      watch: {
+		    exclude: ['node_modules/**', "/__uno.css"] // 解决windows系统对微信小程序自动关闭服务的问题
+	    },
     },
   })
 }
