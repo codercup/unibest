@@ -1,18 +1,22 @@
 <route lang="json5" type="page">
 {
-  needLogin: true,
-  style: { navigationBarTitleText: '路由拦截' },
+  style: { navigationBarTitleText: '登陆拦截 - 登陆弹窗' },
 }
 </route>
 
 <template>
-  <view class="mt-8 text-center">
+  <view class="mt-8 text-center p-4">
     <view class="leading-10">
       用户是否已登录：<text>{{ isLogined ? '是' : '否' }}</text>
     </view>
-    <view class="text-gray">未登录不能来本页面</view>
-    <view class="text-gray">已登录才能来本页面</view>
-    <view class="text-gray">增加微信分享功能，方便测试路由拦截</view>
+    <view>这里有一个按钮（比如点赞按钮），点击这个按钮需要先登录</view>
+    <button type="primary" @tap="onClick" class="mt-4">点赞菲鸽</button>
+    <uv-modal
+      ref="modal"
+      title="登陆"
+      content="模拟登陆，点击确认按钮即可"
+      @confirm="confirmLogin"
+    ></uv-modal>
   </view>
 </template>
 
@@ -24,6 +28,8 @@ const userStore = useUserStore()
 const pages = getCurrentPages()
 console.log('pages:', pages)
 
+const modal = ref()
+
 const isLogined = computed(() => {
   console.log('userStore=>', userStore)
   const pages = getCurrentPages()
@@ -31,23 +37,20 @@ const isLogined = computed(() => {
   return userStore.isLogined
 })
 
-// TODO Check
-const loginRoute = '/pages/login/index'
-
-onLoad((opt) => {
-  console.log('onLoad', isLogined.value, opt)
-})
-onReady(() => {
-  const pages = getCurrentPages()
-  console.log('route-interception.vue onReady last page:', isLogined.value, pages.at(-1))
-  const currRoute = (pages.at(-1) as any).$page
-  console.log('route-interception.vue onReady currRoute:', currRoute)
-  if (!isLogined.value) {
-    // redirect时都需要 encodeURIComponent 一下，否则获取到的参数不对
-    const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(currRoute.fullPath)}`
-    uni.redirectTo({ url: redirectRoute })
+const confirmLogin = () => {
+  userStore.setUserInfo({ nickname: '菲鸽', avatar: '', token: 'abcdef' })
+  onClick() // 补偿机制，比较友好。当然，也可以让用户重新点击一下。
+  modal.value?.close()
+}
+const onClick = () => {
+  if (isLogined.value) {
+    console.log('用户已登录，可以点赞')
+    uni.showToast({ title: '点赞成功' })
+    // 这里执行接口请求
+    return
   }
-})
+  modal.value?.open()
+}
 
 /** 激活“分享给好友” */
 onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent => {
