@@ -6,7 +6,7 @@
 </route>
 
 <template>
-  <view class="mt-8 text-center">
+  <view class="mt-8 text-center p-4">
     <view class="leading-10">
       用户是否已登录：<text>{{ isLogined ? '是' : '否' }}</text>
     </view>

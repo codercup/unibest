@@ -8,7 +8,7 @@
 </route>
 
 <template>
-  <view class="mt-8 text-center">
+  <view class="mt-8 text-center p-4">
     <view class="">
       自动登录，通常在小程序里面都会先自动登录，所以都是登录状态，无需拦截。这个项目不方便演示，后续开个新项目演示
     </view>
