@@ -9,9 +9,11 @@ about: Create a report to help us improve
     Note: In order to better solve your problem, please refer to the template to provide complete information, accurately describe the problem, and the incomplete information issue will be closed.
 -->
 
-## Bug report（问题描述）
+# Bug report（问题描述）
 
-#### Steps to reproduce（问题复现步骤）
+please write your issue description here
+
+## Steps to reproduce（问题复现步骤）
 
 <!--
 1. [xxx]
@@ -19,16 +21,12 @@ about: Create a report to help us improve
 3. [xxxx]
 -->
 
-#### Screenshot or Gif（截图或动态图）
+## Screenshot or Gif（截图或动态图）
 
-#### Link to minimal reproduction（最小可在线还原demo）
+## minimal reproduction（最小可还原代码）
 
-<!--
-Please only use Codepen, JSFiddle, CodeSandbox or a github repo
--->
+## System Info
 
-#### Other relevant information（格外信息）
+`npx envinfo --system --npmPackages vue --binaries --browsers`
 
-- Your OS:
-- Node.js version:
-- vue-element-admin version:
+执行上面命令，将结果贴下面
