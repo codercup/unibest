@@ -17,6 +17,7 @@
     </view>
     <button v-if="!isLogined" @click="setUserInfo" class="mt-4" type="primary">登陆</button>
     <button v-else @click="clearUserInfo" class="mt-4" type="warn">登出</button>
+    <button class="mt-8" @click="testAt">测试 Array.prototype.at</button>
   </view>
 </template>
 
@@ -34,6 +35,9 @@ const setUserInfo = () => {
 }
 const clearUserInfo = () => {
   userStore.clearUserInfo()
+}
+const testAt = () => {
+  console.log('Array.prototype.at typeof: ', typeof Array.prototype.at)
 }
 </script>
 
