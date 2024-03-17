@@ -63,7 +63,9 @@ export default ({ command, mode }) => {
       Uni(),
       UnoCSS(),
       // svg 可以当做组件来使用(Vite plugin to load SVG files as Vue components, using SVGO for optimization.)
-      svgLoader(),
+      svgLoader({
+        defaultImport: 'url', // or 'raw'
+      }),
       createSvgIconsPlugin({
         // 指定要缓存的文件夹
         iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
