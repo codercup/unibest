@@ -15,7 +15,7 @@
     <view class="mt-12">
       <image src="/static/logo.svg" alt="" class="w-28 h-28 block mx-auto" />
     </view>
-    <view class="text-center text-4xl main-title-color mt-4">unibest</view>
+    <view class="text-center text-4xl main-title-color mt-4 test-unocss-apply">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }} </view>
     <view class="mt-8 text-center">
@@ -70,5 +70,9 @@ onShareAppMessage((options: Page.ShareAppMessageOption): Page.CustomShareContent
 <style>
 .main-title-color {
   color: #d14328;
+}
+
+.test-unocss-apply {
+  @apply m-4;
 }
 </style>
