@@ -28,10 +28,12 @@ if (!isMp) {
   // 支持css class属性化，eg: `<button bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600" text="sm white">attributify Button</button>`
   presets.push(presetAttributify())
 }
+if (!isH5) {
+  presets.push(presetRemRpx())
+}
 export default defineConfig({
   presets: [
     presetApplet({ enable: !isH5 }),
-    presetRemRpx(),
     ...presets,
     // 支持图标，需要搭配图标库，eg: @iconify-json/carbon, 使用 `<button class="i-carbon-sun dark:i-carbon-moon" />`
     presetIcons({
