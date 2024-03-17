@@ -127,6 +127,7 @@ export default ({ command, mode }) => {
       port: Number.parseInt(env.VITE_APP_PORT, 10),
     },
     build: {
+      target: 'es2015',
       minify: 'terser',
       terserOptions: {
         compress: {
