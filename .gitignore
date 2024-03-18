@@ -19,6 +19,7 @@ dist
 *.njsproj
 *.sln
 *.sw?
+.hbuilderx
 
 .stylelintcache
 # rollup-plugin-visualizer 生成的分析文件

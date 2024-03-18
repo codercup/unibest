@@ -6,3 +6,11 @@
 
 > tips: mac 可以安装多个版本的软件，
 > ![multiple-version](./screenshots/multiple-version.png)
+
+## arr.at(-1) 真机运行报错
+
+![Alt text](image.png)
+
+通过设置 `vite.config.ts` `build.target` 设置为 `es2015` 未能解决。
+
+只好使用传统方法替换 `at()` 。
