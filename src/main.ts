@@ -7,6 +7,7 @@ import i18n from './locale/index'
 import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
 import '@/style/index.scss'
+import './polyfill'
 
 export function createApp() {
   const app = createSSRApp(App)
