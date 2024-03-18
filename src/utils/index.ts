@@ -9,7 +9,8 @@ export const getIsTabbar = () => {
     return false
   }
   const pages = getCurrentPages()
-  const currPath = pages.at(-1).route
+  const lastPage = getArrElementByIdx(pages, -1)
+  const currPath = lastPage.route
   return !!pagesJson.tabBar.list.find((e) => e.pagePath === currPath)
 }
 
@@ -32,11 +33,13 @@ export const testI18n = () => {
 export const currRoute = () => {
   const pages = getCurrentPages()
   console.log('pages:', pages)
-  const currRoute = (pages.at(-1) as any).$page
+
+  const lastPage = getArrElementByIdx(pages, -1)
+  const currRoute = (lastPage as any).$page
   // console.log('lastPage.$page:', currRoute)
   // console.log('lastPage.$page.fullpath:', currRoute.fullPath)
   // console.log('lastPage.$page.options:', currRoute.options)
-  // console.log('lastPage.options:', (pages.at(-1) as any).options)
+  // console.log('lastPage.options:', (lastPage as any).options)
   // 经过多端测试，只有 fullPath 靠谱，其他都不靠谱
   const { fullPath } = currRoute as { fullPath: string }
   console.log(fullPath)
@@ -114,3 +117,9 @@ export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((p
  * 只得到 path 数组
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
+
+export const getArrElementByIdx = (arr: any[], index: number) => {
+  if (index < 0) return arr[arr.length + index]
+  if (index >= arr.length) return undefined
+  return arr[index]
+}

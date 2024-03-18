@@ -19,6 +19,7 @@
 <script lang="ts" setup>
 import { useUserStore } from '@/store'
 import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
+import { getArrElementByIdx } from '@/utils'
 
 const userStore = useUserStore()
 const pages = getCurrentPages()
@@ -39,8 +40,9 @@ onLoad((opt) => {
 })
 onReady(() => {
   const pages = getCurrentPages()
-  console.log('route-interception.vue onReady last page:', isLogined.value, pages.at(-1))
-  const currRoute = (pages.at(-1) as any).$page
+  const lastPage = getArrElementByIdx(pages, -1)
+  console.log('route-interception.vue onReady last page:', isLogined.value, lastPage)
+  const currRoute = (lastPage as any).$page
   console.log('route-interception.vue onReady currRoute:', currRoute)
   if (!isLogined.value) {
     // redirect时都需要 encodeURIComponent 一下，否则获取到的参数不对
