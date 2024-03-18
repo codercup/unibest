@@ -71,6 +71,35 @@
 - [ ] 仿`BOSS直聘`个人中心
 - [ ] 仿华为商城个人中心
 - [ ] 仿网易云音乐 APP（独立项目）
+<p align="center">
+<a href="https://cn.vuejs.org/" target="_blank">
+      <img src="https://img.shields.io/badge/-Vue3-34495e?logo=vue.js" />
+  </a>
+  <a href="https://cn.vitejs.dev/" target="_blank">
+      <img src="https://img.shields.io/badge/-Vite4-646cff?logo=vite&logoColor=white" />
+  </a>
+  <a href="https://www.typescriptlang.org/zh/" target="_blank">
+      <img src="https://img.shields.io/badge/-TypeScript5-blue?logo=typescript&logoColor=white" />
+  </a>
+  <a href="https://eslint.org/" target="_blank">
+      <img src="https://img.shields.io/badge/-ESLint8-4b32c3?logo=eslint&logoColor=white" />
+  </a>
+  <a href="https://stylelint.io/" target="_blank">
+      <img src="https://img.shields.io/badge/-StyleLint16-4b32c3?logo=stylelint&logoColor=white" />
+  </a>
+  <a href="https://pnpm.io/" target="_blank">
+      <img src="https://img.shields.io/badge/-pnpm8-F69220?logo=pnpm&logoColor=white" />
+  </a>
+  <a href="https://unocss.dev/" target="_blank">
+      <img src="https://img.shields.io/badge/-UnoCSS-4d4d4d?logo=unocss" />
+  </a>
+  <a href="https://icones.js.org/" target="_blank">
+      <img src="https://img.shields.io/badge/-icones-1769aa?logo=Iconify" />
+  </a>
+  <a href="https://ext.dcloud.net.cn/plugin?id=8559" target="_blank">
+      <img src="https://svg.hamm.cn/badge.svg?key=Platform&value=uni-app"/>
+  </a>
+  </p>
 
 ## ⚙️ 环境
 
