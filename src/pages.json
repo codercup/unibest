@@ -136,6 +136,14 @@
       }
     },
     {
+      "path": "pages/demo/base/route-interceptor",
+      "type": "page",
+      "needLogin": true,
+      "style": {
+        "navigationBarTitleText": "路由拦截"
+      }
+    },
+    {
       "path": "pages/demo/base/throughout",
       "type": "page",
       "style": {
