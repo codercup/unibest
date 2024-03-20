@@ -23,12 +23,15 @@ export default defineManifestConfig({
   transformPx: false,
   locale: VITE_FALLBACK_LOCALE, // 'zh-Hans'
   h5: {
+    // h5打开黑暗模式
+    darkmode: true,
     router: {
       base: VITE_APP_PUBLIC_BASE,
     },
   },
   /* 5+App特有相关 */
   'app-plus': {
+    darkmode: true,
     usingComponents: true,
     nvueStyleCompiler: 'uni-app',
     compilerVersion: 3,
@@ -80,6 +83,7 @@ export default defineManifestConfig({
   quickapp: {},
   /* 小程序特有相关 */
   'mp-weixin': {
+    darkmode: true,
     appid: VITE_WX_APPID,
     setting: {
       urlCheck: false,
