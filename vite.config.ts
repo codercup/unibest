@@ -31,6 +31,7 @@ export default ({ command, mode }) => {
   // console.log(mode === process.env.NODE_ENV) // true
 
   // mode: 区分生产环境还是开发环境
+  console.log(process.env.UNI_PLATFORM) // 得到 mp-weixin, h5 等
   console.log(command, mode)
   // pnpm dev:h5 时得到 => serve development
   // pnpm build:h5 时得到 => build production
@@ -41,7 +42,6 @@ export default ({ command, mode }) => {
   // loadEnv(): 返回当前环境env文件中额外定义的变量
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
   console.log(env)
-  console.log(process.env.UNI_PLATFORM) // 得到 mp-weixin, h5 等
 
   return defineConfig({
     envDir: './env', // 自定义env目录
