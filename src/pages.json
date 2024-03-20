@@ -1,0 +1,327 @@
+{
+  "globalStyle": {
+    "navigationStyle": "default",
+    "navigationBarTitleText": "unibest",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "h5": {
+      "navigationStyle": "custom"
+    }
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+      "^uv-(.*)": "@climblee/uv-ui/components/uv-$1/uv-$1.vue",
+      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
+    }
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#018d71",
+    "backgroundColor": "#F8F8F8",
+    "borderStyle": "black",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "24px",
+    "spacing": "3px",
+    "list": [
+      {
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/homeHL.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "static/tabbar/example.png",
+        "selectedIconPath": "static/tabbar/exampleHL.png",
+        "pagePath": "pages/demo/index",
+        "text": "示例"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "type": "home",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/demo/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "unibest 示例"
+      }
+    },
+    {
+      "path": "pages/index/request",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "请求"
+      }
+    },
+    {
+      "path": "pages/login/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/demo/base/auto-import",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "auto import component"
+      }
+    },
+    {
+      "path": "pages/demo/base/enum",
+      "type": "page",
+      "hide": true,
+      "style": {
+        "navigationBarTitleText": "enum 使用"
+      }
+    },
+    {
+      "path": "pages/demo/base/env",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "环境获取"
+      }
+    },
+    {
+      "path": "pages/demo/base/mp-weixin-share",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "微信分享"
+      }
+    },
+    {
+      "path": "pages/demo/base/navbar",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "自定义导航栏",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/demo/base/no-navbar",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "无导航栏",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/demo/base/pinia",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "pinia+持久化"
+      }
+    },
+    {
+      "path": "pages/demo/base/request",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "请求"
+      }
+    },
+    {
+      "path": "pages/demo/base/throughout",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "通屏+下拉刷新+自定义导航栏",
+        "enablePullDownRefresh": false,
+        "backgroundColor": "#23c09c",
+        "app-plus": {
+          "titleNView": {
+            "type": "transparent"
+          }
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
+        }
+      }
+    },
+    {
+      "path": "pages/demo/base/uni-ui-icons",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "UniUI Icons 使用"
+      }
+    },
+    {
+      "path": "pages/demo/base/uni-ui",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "UniUI 使用"
+      }
+    },
+    {
+      "path": "pages/demo/base/unocss-icons",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "UnoCss Icons 使用"
+      }
+    },
+    {
+      "path": "pages/demo/base/unocss",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "UnoCss 使用"
+      }
+    },
+    {
+      "path": "pages/demo/base/uv-ui",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "uv ui"
+      }
+    },
+    {
+      "path": "pages/demo/base/vconsole",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "小程序vConsole"
+      }
+    },
+    {
+      "path": "pages/demo/base/wot",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "wot"
+      }
+    },
+    {
+      "path": "pages/demo/page/clock",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "动态时钟"
+      }
+    },
+    {
+      "path": "pages/demo/page/clock2",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "动态时钟-抗锯齿"
+      }
+    },
+    {
+      "path": "pages/demo/page/floating-bubble",
+      "type": "page",
+      "layout": "default",
+      "hide": true,
+      "style": {
+        "navigationBarTitleText": "页面悬浮球"
+      }
+    },
+    {
+      "path": "pages/demo/page/i18n",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "%app.name%"
+      }
+    },
+    {
+      "path": "pages/demo/page/sign",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "签字板"
+      }
+    },
+    {
+      "path": "pages/demo/page/waterfall",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "waterfall"
+      }
+    },
+    {
+      "path": "pages/demo/route-interceptor/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "登陆拦截"
+      }
+    },
+    {
+      "path": "pages/demo/route-interceptor/login-auto",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "自动登录（无需拦截）"
+      }
+    },
+    {
+      "path": "pages/demo/route-interceptor/login-model",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "登陆拦截 - 登陆弹窗"
+      }
+    },
+    {
+      "path": "pages/demo/route-interceptor/login-page",
+      "type": "page",
+      "needLogin": true,
+      "style": {
+        "navigationBarTitleText": "登陆拦截 - 登陆页面"
+      }
+    },
+    {
+      "path": "pages/demo/page/img-min/index",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "图片压缩"
+      }
+    },
+    {
+      "path": "pages/demo/page/lottery/big-wheel",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "大转盘抽奖"
+      }
+    },
+    {
+      "path": "pages/demo/page/lottery/nine-grid",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "九宫格抽奖"
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pages-sub",
+      "pages": [
+        {
+          "path": "demo/index",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "分包页面 标题"
+          }
+        }
+      ]
+    }
+  ]
+}
