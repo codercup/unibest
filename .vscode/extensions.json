@@ -13,6 +13,7 @@
     "uni-helper.uni-highlight-vscode",
     "uni-helper.uni-ui-snippets-vscode",
     "uni-helper.uni-app-snippets-vscode",
-    "uni-helper.uni-cloud-snippets-vscode"
+    "uni-helper.uni-cloud-snippets-vscode",
+    "mrmlnc.vscode-json5"
   ]
 }
