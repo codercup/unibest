@@ -22,10 +22,29 @@
       src="https://via.placeholder.com/400x200.png/3c9cff/fff"
       @close="handleClose"
     ></wd-curtain>
+    <view class="mt-4">
+      可以通过 unocss class 类改颜色，也可以通过 color 属性修改颜色，同时存在时以 color 为优先
+    </view>
+    <wd-icon name="add-circle" color="red"></wd-icon>
+    <wd-icon class="text-green" name="add-circle"></wd-icon>
+    <wd-icon class="text-green" name="add-circle" color="red"></wd-icon>
+
+    <view @click="closeOutside">
+      <wd-popover v-model="show" content="popover content" @change="handleChange">
+        <wd-button>点击展示</wd-button>
+      </wd-popover>
+    </view>
   </view>
 </template>
 
 <script lang="ts" setup>
+import { useQueue } from 'wot-design-uni'
+
+const { closeOutside } = useQueue()
+const show = ref<boolean>(false)
+function handleChange({ show }) {
+  console.log(show)
+}
 const value = ref<boolean>(false)
 const link = ref<string>('/pages/index/index')
 
