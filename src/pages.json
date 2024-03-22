@@ -31,8 +31,8 @@
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/index/about",
-        "text": "关于"
+        "pagePath": "pages/index/ucharts",
+        "text": "图表"
       }
     ]
   },
@@ -50,6 +50,13 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "关于"
+      }
+    },
+    {
+      "path": "pages/index/ucharts",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "ucharts"
       }
     }
   ],
