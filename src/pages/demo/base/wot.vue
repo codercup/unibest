@@ -17,7 +17,6 @@
     <wd-button @click="handleClick">展示幕帘</wd-button>
     <wd-curtain
       :value="value"
-      :to="link"
       :width="300"
       src="https://via.placeholder.com/400x200.png/3c9cff/fff"
       @close="handleClose"
@@ -46,7 +45,6 @@ function handleChange({ show }) {
   console.log(show)
 }
 const value = ref<boolean>(false)
-const link = ref<string>('/pages/index/index')
 
 function handleClick() {
   value.value = true
