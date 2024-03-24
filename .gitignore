@@ -46,3 +46,6 @@ uni-pages.d.ts
 # git rm -r --cached file1 file2  ## 针对某些文件
 # git rm -r --cached dir1 dir2  ## 针对某些文件夹
 # git rm -r --cached .  ## 针对所有文件
+
+# 要跳过检查时，使用 --no-verify 过滤
+# git commit -m 'feat: 引入 ucharts' --no-verify
