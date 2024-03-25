@@ -16,6 +16,9 @@
       鸽友们好，我是
       <text class="text-red-500">菲鸽</text>
     </view>
+    <view class="text-center mt-8">
+      <wd-button type="primary">wot 组件库测试</wd-button>
+    </view>
   </view>
 </template>
 

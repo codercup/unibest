@@ -8,9 +8,6 @@ overrides:
   bin-wrapper: npm:bin-wrapper-china
 
 dependencies:
-  '@climblee/uv-ui':
-    specifier: ^1.1.20
-    version: 1.1.20
   '@dcloudio/uni-app':
     specifier: 3.0.0-3090920231225001
     version: 3.0.0-3090920231225001(@dcloudio/types@3.4.3)(postcss@8.4.32)(vue@3.2.47)
@@ -68,6 +65,9 @@ dependencies:
   vue:
     specifier: 3.2.47
     version: 3.2.47
+  wot-design-uni:
+    specifier: ^1.2.5
+    version: 1.2.5(vue@3.2.47)
 
 devDependencies:
   '@commitlint/cli':
@@ -94,9 +94,6 @@ devDependencies:
   '@iconify-json/carbon':
     specifier: ^1.1.27
     version: 1.1.27
-  '@ttou/uv-typings':
-    specifier: ^1.10.2
-    version: 1.10.2
   '@types/node':
     specifier: ^20.11.5
     version: 20.11.5
@@ -1710,10 +1707,6 @@ packages:
   /@bcoe/v8-coverage@0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
-
-  /@climblee/uv-ui@1.1.20:
-    resolution: {integrity: sha512-jkyesHJsPJkF4Nap9ZmG1/ibKlxXA5M8+ntqKXwwloIsYSYL5SOKb0gyPj17aBOU1PkJpmeiZ8PwnTolhK2/HA==}
-    dev: false
 
   /@commitlint/cli@18.4.3(typescript@4.9.5):
     resolution: {integrity: sha512-zop98yfB3A6NveYAZ3P1Mb6bIXuCeWgnUfVNkH4yhIMQpQfzFwseadazOuSn0OOfTt0lWuFauehpm9GcqM5lww==}
@@ -3761,10 +3754,6 @@ packages:
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
-    dev: true
-
-  /@ttou/uv-typings@1.10.2:
-    resolution: {integrity: sha512-aGXUWIuYjqA3dvWXWkrOO1T5yUHZqiXOGNR3sEl37s2xdlUlqXIbP2PMeDnP9fNMyJfemgSX5FZrlfKbYk6ypg==}
     dev: true
 
   /@types/babel__core@7.20.5:
@@ -13883,6 +13872,15 @@ packages:
     dependencies:
       isexe: 2.0.0
     dev: true
+
+  /wot-design-uni@1.2.5(vue@3.2.47):
+    resolution: {integrity: sha512-tbDDUsrT7NI7Hd2DNY/EpmAD1jMTD9ejN0sTeXTexyrMLh4D9B617D+H3ssCtcb4Q1eElhshb/IFu1ESPZX9WQ==}
+    engines: {HBuilderX: ^3.8.7}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.47
+    dev: false
 
   /wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
