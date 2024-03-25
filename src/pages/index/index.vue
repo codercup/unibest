@@ -29,7 +29,7 @@
       </a>
       <!-- #endif -->
     </view>
-    <view class="mt-4">
+    <view class="mt-4 text-center">
       <text class="text-green-400">在线预览：</text>
       <!-- #ifndef H5 -->
       https://codercup.github.io/unibest/
