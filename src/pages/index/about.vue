@@ -19,6 +19,7 @@
     <view class="text-center mt-8">
       <wd-button type="primary">wot 组件库测试</wd-button>
     </view>
+    <view>测试设计稿样式</view>
   </view>
 </template>
 
