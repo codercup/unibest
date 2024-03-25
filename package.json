@@ -78,7 +78,6 @@
     "bin-wrapper": "npm:bin-wrapper-china"
   },
   "dependencies": {
-    "@climblee/uv-ui": "^1.1.20",
     "@dcloudio/uni-app": "3.0.0-3090920231225001",
     "@dcloudio/uni-app-plus": "3.0.0-3090920231225001",
     "@dcloudio/uni-components": "3.0.0-3090920231225001",
@@ -98,7 +97,8 @@
     "pinia-plugin-persistedstate": "3.2.1",
     "qs": "^6.11.2",
     "vue": "3.2.47",
-    "vue-i18n": "9.9.0"
+    "vue-i18n": "9.9.0",
+    "wot-design-uni": "^1.2.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
@@ -109,7 +109,6 @@
     "@dcloudio/uni-stacktracey": "3.0.0-3090920231225001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3090920231225001",
     "@iconify-json/carbon": "^1.1.27",
-    "@ttou/uv-typings": "^1.10.2",
     "@types/node": "^20.11.5",
     "@types/wechat-miniprogram": "^3.4.7",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
