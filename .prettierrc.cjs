@@ -7,6 +7,7 @@ module.exports = {
   semi: false,
   trailingComma: 'all',
   endOfLine: 'auto',
+  htmlWhitespaceSensitivity: 'ignore',
   overrides: [
     {
       files: '*.json',
