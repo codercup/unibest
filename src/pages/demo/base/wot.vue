@@ -14,6 +14,7 @@
     <wd-button type="info">信息按钮</wd-button>
     <wd-button type="warning">警告按钮</wd-button>
     <wd-button type="error">危险按钮</wd-button>
+    <view class="h-10"></view>
     <wd-button @click="handleClick">展示幕帘</wd-button>
     <wd-curtain
       :value="value"
@@ -28,7 +29,7 @@
     <wd-icon class="text-green" name="add-circle"></wd-icon>
     <wd-icon class="text-green" name="add-circle" color="red"></wd-icon>
 
-    <view @click="closeOutside">
+    <view @click="closeOutside" class="mt-4">
       <wd-popover v-model="show" content="popover content" @change="handleChange">
         <wd-button>点击展示</wd-button>
       </wd-popover>
