@@ -28,6 +28,8 @@ import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
 import imagemin from './vite-plugins/imagemin'
 
+console.log('process.platform -> ', process.platform)
+
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
   // console.log(mode === process.env.NODE_ENV) // true
@@ -134,6 +136,13 @@ export default ({ command, mode }) => {
           drop_debugger: env.VITE_DELETE_CONSOLE === 'true',
         },
       },
+      // 解决windows系统对微信小程序自动关闭服务的问题
+      watch:
+        process.platform === 'win32' // 检测是否为 windows 系统
+          ? {
+              exclude: ['node_modules/**', '/__uno.css'],
+            }
+          : null,
     },
   })
 }
