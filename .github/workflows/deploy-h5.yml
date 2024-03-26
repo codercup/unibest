@@ -19,6 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # 设置服务器时区为东八区
+      - name: Set time zone
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
         with:
