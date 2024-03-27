@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { IUserInfo } from '../typings'
 
 const initState = { nickname: '', avatar: '' }
 

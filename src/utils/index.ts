@@ -1,5 +1,5 @@
-import pagesJson from '@/pages.json'
 import { translate as t } from '@/locale/index'
+import pagesJson from '@/pages.json'
 
 console.log(pagesJson)
 
