@@ -8,6 +8,15 @@ type IResData<T> = {
   result: T
 }
 
+// uni.uploadFile文件上传参数
+type IUniUploadFileOptions = {
+  file?: File
+  files?: UniApp.UploadFileOptionFiles[]
+  filePath?: string
+  name?: string
+  formData?: any
+}
+
 type IUserInfo = {
   nickname?: string
   avatar?: string
