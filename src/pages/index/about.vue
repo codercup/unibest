@@ -19,6 +19,11 @@
     <view class="text-center mt-8">
       <wd-button type="primary">wot 组件库测试</wd-button>
     </view>
+
+    <view class="text-center py-4">
+      当前平台是：
+      <text class="text-red-500">{{ platform }}</text>
+    </view>
     <view class="desc">测试设计稿样式</view>
     <view class="desc">设计稿是750px，css里面全部写rpx 即可</view>
   </view>
@@ -27,6 +32,12 @@
 <script lang="ts" setup>
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
+
+const platform = __UNI_PLATFORM__
+const isH5 = __UNI_PLATFORM__ === 'h5'
+const isApp = __UNI_PLATFORM__ === 'app'
+const isMp = __UNI_PLATFORM__.startsWith('mp-')
+console.log(platform, isH5, isApp, isMp)
 </script>
 
 <style lang="scss" scoped>
