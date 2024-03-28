@@ -10,12 +10,10 @@
     "tabSelectedColor": "#3cc51f",
     "tabBgColor": "#ffffff",
     "tabBorderStyle": "black",
-    "iconPath1": "/static/tabbar/homeDark.png",
-    "selectedIconPath1": "/static/tabbar/homeLight.png",
-    "iconPath2": "/static/tabbar/codeDark.png",
-    "selectedIconPath2": "/static/tabbar/codeDark.png",
-    "iconPath3": "/static/tabbar/myDark.png",
-    "selectedIconPath3": "/static/tabbar/myDark.png"
+    "iconPath1": "/static/tabbar/light-home.png",
+    "selectedIconPath1": "/static/tabbar/acty-light-home.png",
+    "iconPath2": "/static/tabbar/code-dark.png",
+    "selectedIconPath2": "/static/tabbar/acty-dark-code.png"
   },
   "dark": {
     "navBgColor": "#292929",
@@ -28,11 +26,9 @@
     "tabSelectedColor": "#51a937",
     "tabBgColor": "#292929",
     "tabBorderStyle": "white",
-    "iconPath1": "/static/tabbar/homeDark.png",
-    "selectedIconPath1": "/static/tabbar/homeLight.png",
-    "iconPath2": "/static/tabbar/codeDark.png",
-    "selectedIconPath2": "/static/tabbar/codeDark.png",
-    "iconPath3": "/static/tabbar/myDark.png",
-    "selectedIconPath3": "/static/tabbar/myDark.png"
+    "iconPath1": "/static/tabbar/light-home.png",
+    "selectedIconPath1": "/static/tabbar/acty-light-home.png",
+    "iconPath2": "/static/tabbar/code-dark.png",
+    "selectedIconPath2": "/static/tabbar/acty-dark-code.png"
   }
 }
