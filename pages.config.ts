@@ -29,14 +29,14 @@ export default defineUniPages({
     spacing: '3px',
     list: [
       {
-        iconPath: 'static/tabbar/home.png',
-        selectedIconPath: 'static/tabbar/homeHL.png',
+        iconPath: '@iconPath1',
+        selectedIconPath: '@selectedIconPath1',
         pagePath: 'pages/index/index',
         text: '首页',
       },
       {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
+        iconPath: '@iconPath2',
+        selectedIconPath: '@selectedIconPath2',
         pagePath: 'pages/demo/index',
         text: '示例',
       },
