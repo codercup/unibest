@@ -38,12 +38,21 @@ export default defineManifestConfig({
       autoclose: true,
       delay: 0,
     },
+    safearea: {
+      // iOS平台的安全区域
+      background: '@bgColorBottom',
+      backgroundDark: '#2f0508', // HX 3.1.19+支持
+      bottom: {
+        offset: 'auto',
+      },
+    },
     /* 模块配置 */
     modules: {},
     /* 应用发布信息 */
     distribute: {
       /* android打包配置 */
       android: {
+        darkmode: true, // 暗黑模式
         minSdkVersion: 30,
         targetSdkVersion: 30,
         abiFilters: ['armeabi-v7a', 'arm64-v8a'],
@@ -66,7 +75,9 @@ export default defineManifestConfig({
         ],
       },
       /* ios打包配置 */
-      ios: {},
+      ios: {
+        darkmode: true, // 暗黑模式
+      },
       /* SDK配置 */
       sdkConfigs: {},
       /* 图标配置 */
@@ -80,6 +91,7 @@ export default defineManifestConfig({
   quickapp: {},
   /* 小程序特有相关 */
   'mp-weixin': {
+    darkmode: true, // 暗黑模式
     appid: VITE_WX_APPID,
     setting: {
       urlCheck: false,
@@ -87,7 +99,9 @@ export default defineManifestConfig({
     usingComponents: true,
     // __usePrivacyCheck__: true,
   },
+  // 支付宝小程序配置
   'mp-alipay': {
+    // darkmode: true, // 暗黑模式
     usingComponents: true,
   },
   'mp-baidu': {

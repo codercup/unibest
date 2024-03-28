@@ -13,7 +13,7 @@
         v-for="(tab, idx) in tabList"
         :key="tab.id"
       >
-        <view class="font-800" @click="currIdx = idx">{{ tab.title }}</view>
+        <view class="font-800 some-text" @click="currIdx = idx">{{ tab.title }}</view>
       </view>
     </view>
     <view class="bg-slate-100 px-4 pt-3">
@@ -23,7 +23,7 @@
             class="flex bg-white items-center justify-between p-3 mb-2"
             @click="goDetailPage(item.path)"
           >
-            <text class="flex-1 text-4 text-dark">{{ item.title }}</text>
+            <text class="flex-1 text-4 some-text">{{ item.title }}</text>
             <text class="i-carbon-chevron-right"></text>
           </view>
         </view>

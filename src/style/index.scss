@@ -6,6 +6,23 @@
   color: red;
 }
 
+// 黑暗模式需要用到媒体查询来确定样式
+@media (prefers-color-scheme: dark) {
+  /* DarkMode 下的样式 start */
+  .bg-white {
+    background: #1b1b1b;
+  }
+
+  .bg-slate-100 {
+    background: #1b1b1b;
+  }
+
+  .some-text {
+    color: #fff;
+  }
+  /* DarkMode 下的样式 end */
+}
+
 // 全局字体引用 DEMO
 // @font-face {
 //   font-family: TiTi;
