@@ -10,12 +10,12 @@
     "tabSelectedColor": "#3cc51f",
     "tabBgColor": "#ffffff",
     "tabBorderStyle": "black",
-    "iconPath1": "/static/tabbar/home-w.png",
-    "selectedIconPath1": "/static/tabbar/home.png",
-    "iconPath2": "/static/tabbar/word-w.png",
-    "selectedIconPath2": "/static/tabbar/word.png",
-    "iconPath3": "/static/tabbar/order-w.png",
-    "selectedIconPath3": "/static/tabbar/order.png"
+    "iconPath1": "/static/tabbar/homeDark.png",
+    "selectedIconPath1": "/static/tabbar/homeLight.png",
+    "iconPath2": "/static/tabbar/codeDark.png",
+    "selectedIconPath2": "/static/tabbar/codeDark.png",
+    "iconPath3": "/static/tabbar/myDark.png",
+    "selectedIconPath3": "/static/tabbar/myDark.png"
   },
   "dark": {
     "navBgColor": "#292929",
@@ -28,11 +28,11 @@
     "tabSelectedColor": "#51a937",
     "tabBgColor": "#292929",
     "tabBorderStyle": "white",
-    "iconPath1": "/static/tabbar/home-b.png",
-    "selectedIconPath1": "/static/tabbar/B-home.png",
-    "iconPath2": "/static/tabbar/order-b.png",
-    "selectedIconPath2": "/static/tabbar/B-word.png",
-    "iconPath3": "/static/tabbar/word-b.png",
-    "selectedIconPath3": "/static/tabbar/B-order.png"
+    "iconPath1": "/static/tabbar/homeDark.png",
+    "selectedIconPath1": "/static/tabbar/homeLight.png",
+    "iconPath2": "/static/tabbar/codeDark.png",
+    "selectedIconPath2": "/static/tabbar/codeDark.png",
+    "iconPath3": "/static/tabbar/myDark.png",
+    "selectedIconPath3": "/static/tabbar/myDark.png"
   }
 }
