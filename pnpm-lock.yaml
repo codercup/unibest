@@ -114,15 +114,12 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.15.0
     version: 6.15.0(eslint@8.56.0)(typescript@4.9.5)
-  '@uni-helper/uni-app-types':
-    specifier: ^0.5.12
-    version: 0.5.12(typescript@4.9.5)
   '@uni-helper/uni-cloud-types':
     specifier: ^0.5.2
-    version: 0.5.2(@uni-helper/uni-app-types@0.5.12)(typescript@4.9.5)
+    version: 0.5.2(typescript@4.9.5)
   '@uni-helper/uni-ui-types':
     specifier: ^0.5.11
-    version: 0.5.13(@uni-helper/uni-app-types@0.5.12)(typescript@4.9.5)
+    version: 0.5.13(typescript@4.9.5)
   '@uni-helper/vite-plugin-uni-components':
     specifier: ^0.0.8
     version: 0.0.8
@@ -4267,18 +4264,7 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@uni-helper/uni-app-types@0.5.12(typescript@4.9.5):
-    resolution: {integrity: sha512-SeUEgDgGftI4XEp1AB3C6IFLnRPT83tgTCCmlLUBmQyHh+UhRY+CX4QtgQ0n/kF8txNUq8Bc9YwKlYdXQGx6Ww==}
-    engines: {node: '>=14.18'}
-    peerDependencies:
-      typescript: ^4.8.0 || ^5.0.0
-    dependencies:
-      '@dcloudio/types': 3.4.8
-      typescript: 4.9.5
-      vue3: /vue@3.4.19(typescript@4.9.5)
-    dev: true
-
-  /@uni-helper/uni-cloud-types@0.5.2(@uni-helper/uni-app-types@0.5.12)(typescript@4.9.5):
+  /@uni-helper/uni-cloud-types@0.5.2(typescript@4.9.5):
     resolution: {integrity: sha512-DnzYI4CYzBxSqDqjT9RK/lFK19igKTrqAKeXSGd2lgaE1bC+gg2DvBSNWtjGbZw24oReNeXxaQVx6f5iOjxw/Q==}
     engines: {node: '>=14.18'}
     peerDependencies:
@@ -4288,7 +4274,6 @@ packages:
         optional: true
     dependencies:
       '@dcloudio/types': 3.4.8
-      '@uni-helper/uni-app-types': 0.5.12(typescript@4.9.5)
       vue3: /vue@3.4.19(typescript@4.9.5)
     transitivePeerDependencies:
       - typescript
@@ -4312,7 +4297,7 @@ packages:
       - vitest
     dev: true
 
-  /@uni-helper/uni-ui-types@0.5.13(@uni-helper/uni-app-types@0.5.12)(typescript@4.9.5):
+  /@uni-helper/uni-ui-types@0.5.13(typescript@4.9.5):
     resolution: {integrity: sha512-jEOwxc9ISjtNz+noYP0eB+SKHCWqvep7z6DkiSrVbwvbNxZjQOnjga4fdXtrP4TIe41mtjcHIwKVz+sEB0B6KQ==}
     engines: {node: '>=14.18'}
     peerDependencies:
@@ -4322,7 +4307,6 @@ packages:
         optional: true
     dependencies:
       '@dcloudio/types': 3.4.8
-      '@uni-helper/uni-app-types': 0.5.12(typescript@4.9.5)
       vue3: /vue@3.4.19(typescript@4.9.5)
     transitivePeerDependencies:
       - typescript
