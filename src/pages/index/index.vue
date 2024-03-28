@@ -17,6 +17,7 @@
     </view>
     <view class="text-center text-4xl main-title-color mt-4">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
+
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</view>
     <view class="mt-8 text-center">
       <text class="text-green-400">在线文档：</text>
@@ -40,12 +41,21 @@
       </a>
       <!-- #endif -->
     </view>
+
+    <view class="text-center py-4" v-if="isH5">当前平台是 - h5</view>
+    <view class="text-center py-4" v-else-if="isApp">当前平台是 - app</view>
+    <view class="text-center py-4" v-else>当前平台是 - {{ platform }}</view>
   </view>
 </template>
 
 <script lang="ts" setup>
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
+const platform = __UNI_PLATFORM__
+const isH5 = __UNI_PLATFORM__ === 'h5'
+const isApp = __UNI_PLATFORM__ === 'app'
+const isMP = __UNI_PLATFORM__.startsWith('mp-')
+const isQuickApp = __UNI_PLATFORM__.startsWith('quickapp-')
 
 const author = ref('菲鸽')
 const description = ref(

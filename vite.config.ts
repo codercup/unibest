@@ -108,7 +108,9 @@ export default ({ command, mode }) => {
       // TODO: 缓存每次压缩过的图片，已经压缩过的不再压缩
       imagemin(mode === 'production'),
     ],
-
+    define: {
+      __UNI_PLATFORM__: JSON.stringify(process.env.UNI_PLATFORM),
+    },
     css: {
       postcss: {
         plugins: [
