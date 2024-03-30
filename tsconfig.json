@@ -28,5 +28,12 @@
     "nativeTags": ["block", "template", "component", "slot"]
   },
   "exclude": ["node_modules"],
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.json"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.json",
+    "mock/_mockProdServer.ts"
+  ]
 }

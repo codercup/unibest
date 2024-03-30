@@ -9,12 +9,13 @@ import 'virtual:uno.css'
 import '@/style/index.scss'
 
 // production mock server
-if (import.meta.env.PROD) {
-  import('./mockProdServer').then(({ setupProdMockServer }) => {
-    console.log('mockProdServer...')
-    setupProdMockServer()
-  })
-}
+// 线上报错，TODO: fix me
+// if (import.meta.env.PROD) {
+//   import('../mock/_mockProdServer').then(({ setupProdMockServer }) => {
+//     console.log('mockProdServer...')
+//     setupProdMockServer()
+//   })
+// }
 
 export function createApp() {
   const app = createSSRApp(App)
