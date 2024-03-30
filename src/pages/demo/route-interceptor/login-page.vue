@@ -8,7 +8,8 @@
 <template>
   <view class="mt-8 text-center p-4">
     <view class="leading-10">
-      用户是否已登录：<text>{{ isLogined ? '是' : '否' }}</text>
+      用户是否已登录：
+      <text>{{ isLogined ? '是' : '否' }}</text>
     </view>
     <view class="text-gray">未登录不能来本页面</view>
     <view class="text-gray">已登录才能来本页面</view>
@@ -19,7 +20,7 @@
 <script lang="ts" setup>
 import { useUserStore } from '@/store'
 import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app'
-import { getArrElementByIdx } from '@/utils'
+import { getLastItem } from '@/utils'
 
 const userStore = useUserStore()
 const pages = getCurrentPages()
@@ -40,7 +41,7 @@ onLoad((opt) => {
 })
 onReady(() => {
   const pages = getCurrentPages()
-  const lastPage = getArrElementByIdx(pages, -1)
+  const lastPage = getLastItem(pages)
   console.log('route-interception.vue onReady last page:', isLogined.value, lastPage)
   const currRoute = (lastPage as any).$page
   console.log('route-interception.vue onReady currRoute:', currRoute)

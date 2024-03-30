@@ -9,7 +9,7 @@ export const getIsTabbar = () => {
     return false
   }
   const pages = getCurrentPages()
-  const lastPage = getArrElementByIdx(pages, -1)
+  const lastPage = getLastItem(pages)
   const currPath = lastPage.route
   return !!pagesJson.tabBar.list.find((e) => e.pagePath === currPath)
 }
@@ -34,7 +34,7 @@ export const currRoute = () => {
   const pages = getCurrentPages()
   console.log('pages:', pages)
 
-  const lastPage = getArrElementByIdx(pages, -1)
+  const lastPage = getLastItem(pages)
   const currRoute = (lastPage as any).$page
   // console.log('lastPage.$page:', currRoute)
   // console.log('lastPage.$page.fullpath:', currRoute.fullPath)
@@ -118,8 +118,11 @@ export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((p
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
 
+/** 主要是处理 arr.at(-1) 在安卓机上运行报错的 兼容性问题 */
 export const getArrElementByIdx = (arr: any[], index: number) => {
   if (index < 0) return arr[arr.length + index]
   if (index >= arr.length) return undefined
   return arr[index]
 }
+
+export const getLastItem = (arr: any[]) => getArrElementByIdx(arr, -1)

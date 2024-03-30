@@ -1,5 +1,5 @@
 import { onReady } from '@dcloudio/uni-app'
-import { getIsTabbar, getArrElementByIdx } from '@/utils/index'
+import { getIsTabbar, getLastItem } from '@/utils/index'
 
 export default () => {
   // 获取页面栈
@@ -15,7 +15,7 @@ export default () => {
   // 基于小程序的 Page 类型扩展 uni-app 的 Page
   type PageInstance = Page.PageInstance & WechatMiniprogram.Page.InstanceMethods<any>
   // 获取当前页面实例，数组最后一项
-  const pageInstance = getArrElementByIdx(getCurrentPages(), -1) as PageInstance
+  const pageInstance = getLastItem(getCurrentPages()) as PageInstance
 
   // 页面渲染完毕，绑定动画效果
   onReady(() => {
