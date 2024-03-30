@@ -10,7 +10,7 @@ import '@/style/index.scss'
 
 // production mock server
 if (import.meta.env.PROD) {
-  import('./mockProdServer').then(({ setupProdMockServer }) => {
+  import('../mock/_mockProdServer').then(({ setupProdMockServer }) => {
     console.log('mockProdServer...')
     setupProdMockServer()
   })
