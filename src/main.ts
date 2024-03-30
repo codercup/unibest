@@ -8,6 +8,13 @@ import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
 import '@/style/index.scss'
 
+// production mock server
+if (process.env.NODE_ENV === 'production') {
+  import('./mockProdServer').then(({ setupProdMockServer }) => {
+    setupProdMockServer()
+  })
+}
+
 export function createApp() {
   const app = createSSRApp(App)
   app.use(store)
