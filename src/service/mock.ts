@@ -1,4 +1,4 @@
-import { http, uniFileUpload } from '@/utils/http'
+import { http } from '@/utils/http'
 import type { IFooItem } from './foo.d'
 
 export { IFooItem }
