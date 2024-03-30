@@ -10,6 +10,8 @@ Object.keys(modules).forEach((key) => {
   mockModules.push(...(modules as Recordable)[key].default)
 })
 
+console.log('mockModules -> ', mockModules)
+
 /**
  * Used in a production environment. Need to manually import all modules
  */
