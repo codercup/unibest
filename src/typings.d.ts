@@ -29,3 +29,5 @@ enum TestEnum {
   A = 'a',
   B = 'b',
 }
+
+declare type Recordable<T = any> = Record<string, T>
