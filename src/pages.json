@@ -96,6 +96,14 @@
       }
     },
     {
+      "path": "pages/demo/base/mock",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "mock"
+      }
+    },
+    {
       "path": "pages/demo/base/mp-weixin-share",
       "type": "page",
       "layout": "demo",
