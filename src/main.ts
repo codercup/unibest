@@ -8,9 +8,11 @@ import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
 import '@/style/index.scss'
 
+console.log('process.env.NODE_ENV ->', process.env.NODE_ENV)
 // production mock server
 if (process.env.NODE_ENV === 'production') {
   import('./mockProdServer').then(({ setupProdMockServer }) => {
+    console.log('mockProdServer...')
     setupProdMockServer()
   })
 }
