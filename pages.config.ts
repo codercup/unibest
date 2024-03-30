@@ -14,7 +14,6 @@ export default defineUniPages({
   easycom: {
     autoscan: true,
     custom: {
-      '^uv-(.*)': '@climblee/uv-ui/components/uv-$1/uv-$1.vue',
       '^wd-(.*)': 'wot-design-uni/components/wd-$1/wd-$1.vue',
     },
   },

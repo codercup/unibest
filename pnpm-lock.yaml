@@ -1,12 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   bin-wrapper: npm:bin-wrapper-china
 
 dependencies:
-  '@climblee/uv-ui':
-    specifier: ^1.1.20
-    version: 1.1.20
   '@dcloudio/uni-app':
     specifier: 3.0.0-4000620240325001
     version: 3.0.0-4000620240325001(@dcloudio/types@3.4.8)(postcss@8.4.32)(vue@3.4.19)
@@ -99,9 +100,6 @@ devDependencies:
   '@iconify-json/carbon':
     specifier: ^1.1.27
     version: 1.1.27
-  '@ttou/uv-typings':
-    specifier: ^1.10.2
-    version: 1.10.2
   '@types/node':
     specifier: ^20.11.5
     version: 20.11.5
@@ -114,12 +112,12 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.15.0
     version: 6.15.0(eslint@8.56.0)(typescript@4.9.5)
+  '@uni-helper/uni-app-types':
+    specifier: ^0.5.12
+    version: 0.5.12(typescript@4.9.5)
   '@uni-helper/uni-cloud-types':
     specifier: ^0.5.2
-    version: 0.5.2(typescript@4.9.5)
-  '@uni-helper/uni-ui-types':
-    specifier: ^0.5.11
-    version: 0.5.13(typescript@4.9.5)
+    version: 0.5.2(@uni-helper/uni-app-types@0.5.12)(typescript@4.9.5)
   '@uni-helper/vite-plugin-uni-components':
     specifier: ^0.0.8
     version: 0.0.8
@@ -1922,10 +1920,6 @@ packages:
   /@bcoe/v8-coverage@0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
-
-  /@climblee/uv-ui@1.1.20:
-    resolution: {integrity: sha512-jkyesHJsPJkF4Nap9ZmG1/ibKlxXA5M8+ntqKXwwloIsYSYL5SOKb0gyPj17aBOU1PkJpmeiZ8PwnTolhK2/HA==}
-    dev: false
 
   /@commitlint/cli@18.4.3(typescript@4.9.5):
     resolution: {integrity: sha512-zop98yfB3A6NveYAZ3P1Mb6bIXuCeWgnUfVNkH4yhIMQpQfzFwseadazOuSn0OOfTt0lWuFauehpm9GcqM5lww==}
@@ -3920,10 +3914,6 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@ttou/uv-typings@1.10.2:
-    resolution: {integrity: sha512-aGXUWIuYjqA3dvWXWkrOO1T5yUHZqiXOGNR3sEl37s2xdlUlqXIbP2PMeDnP9fNMyJfemgSX5FZrlfKbYk6ypg==}
-    dev: true
-
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
     dependencies:
@@ -4264,7 +4254,18 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@uni-helper/uni-cloud-types@0.5.2(typescript@4.9.5):
+  /@uni-helper/uni-app-types@0.5.12(typescript@4.9.5):
+    resolution: {integrity: sha512-SeUEgDgGftI4XEp1AB3C6IFLnRPT83tgTCCmlLUBmQyHh+UhRY+CX4QtgQ0n/kF8txNUq8Bc9YwKlYdXQGx6Ww==}
+    engines: {node: '>=14.18'}
+    peerDependencies:
+      typescript: ^4.8.0 || ^5.0.0
+    dependencies:
+      '@dcloudio/types': 3.4.8
+      typescript: 4.9.5
+      vue3: /vue@3.4.19(typescript@4.9.5)
+    dev: true
+
+  /@uni-helper/uni-cloud-types@0.5.2(@uni-helper/uni-app-types@0.5.12)(typescript@4.9.5):
     resolution: {integrity: sha512-DnzYI4CYzBxSqDqjT9RK/lFK19igKTrqAKeXSGd2lgaE1bC+gg2DvBSNWtjGbZw24oReNeXxaQVx6f5iOjxw/Q==}
     engines: {node: '>=14.18'}
     peerDependencies:
@@ -4274,6 +4275,7 @@ packages:
         optional: true
     dependencies:
       '@dcloudio/types': 3.4.8
+      '@uni-helper/uni-app-types': 0.5.12(typescript@4.9.5)
       vue3: /vue@3.4.19(typescript@4.9.5)
     transitivePeerDependencies:
       - typescript
@@ -4295,21 +4297,6 @@ packages:
       - supports-color
       - typescript
       - vitest
-    dev: true
-
-  /@uni-helper/uni-ui-types@0.5.13(typescript@4.9.5):
-    resolution: {integrity: sha512-jEOwxc9ISjtNz+noYP0eB+SKHCWqvep7z6DkiSrVbwvbNxZjQOnjga4fdXtrP4TIe41mtjcHIwKVz+sEB0B6KQ==}
-    engines: {node: '>=14.18'}
-    peerDependencies:
-      '@uni-helper/uni-app-types': ^0.5.1
-    peerDependenciesMeta:
-      '@uni-helper/uni-app-types':
-        optional: true
-    dependencies:
-      '@dcloudio/types': 3.4.8
-      vue3: /vue@3.4.19(typescript@4.9.5)
-    transitivePeerDependencies:
-      - typescript
     dev: true
 
   /@uni-helper/vite-plugin-uni-components@0.0.8:
@@ -7292,7 +7279,7 @@ packages:
       debug: 4.3.4
       enhanced-resolve: 5.15.0
       eslint: 8.56.0
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.15.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.15.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.15.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.2
@@ -7330,35 +7317,6 @@ packages:
       debug: 3.2.7
       eslint: 8.56.0
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.15.0)(eslint-plugin-import@2.29.1)(eslint@8.56.0)
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /eslint-module-utils@2.8.0(@typescript-eslint/parser@6.15.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0):
-    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      '@typescript-eslint/parser': '*'
-      eslint: '*'
-      eslint-import-resolver-node: '*'
-      eslint-import-resolver-typescript: '*'
-      eslint-import-resolver-webpack: '*'
-    peerDependenciesMeta:
-      '@typescript-eslint/parser':
-        optional: true
-      eslint:
-        optional: true
-      eslint-import-resolver-node:
-        optional: true
-      eslint-import-resolver-typescript:
-        optional: true
-      eslint-import-resolver-webpack:
-        optional: true
-    dependencies:
-      '@typescript-eslint/parser': 6.15.0(eslint@8.56.0)(typescript@4.9.5)
-      debug: 3.2.7
-      eslint: 8.56.0
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.15.0)(eslint-plugin-import@2.29.1)(eslint@8.56.0)
     transitivePeerDependencies:
       - supports-color
@@ -14286,7 +14244,3 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
