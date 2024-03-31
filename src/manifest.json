@@ -45,7 +45,9 @@
         "android": {},
         "ios": {}
       }
-    }
+    },
+    "darkmode": true,
+    "themeLocation": "theme.json"
   },
   "quickapp": {},
   "mp-weixin": {
@@ -53,7 +55,9 @@
     "setting": {
       "urlCheck": false
     },
-    "usingComponents": true
+    "usingComponents": true,
+    "darkmode": true,
+    "themeLocation": "theme.json"
   },
   "mp-alipay": {
     "usingComponents": true
@@ -70,6 +74,8 @@
   "vueVersion": "3",
   "locale": "zh-Hans",
   "h5": {
+    "darkmode": true,
+    "themeLocation": "theme.json",
     "router": {
       "base": "/"
     }
