@@ -13,10 +13,12 @@
     "outDir": "dist",
     "lib": ["esnext", "dom"],
     "types": [
+      "./vite-env.d.ts",
       "@dcloudio/types",
       "@types/wechat-miniprogram",
       "@uni-helper/uni-app-types",
-      "wot-design-uni/global.d.ts"
+      "wot-design-uni/global.d.ts",
+      "./global.d.ts"
     ]
   },
   "vueCompilerOptions": {
