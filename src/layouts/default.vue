@@ -5,18 +5,8 @@
 </template>
 
 <style lang="scss">
-page {
-  height: 100%;
-  overflow: auto;
-}
-
-body {
-  height: 100%;
-  overflow: auto;
-}
-
 .default-layout {
-  height: 100%;
+  height: 100vh;
   overflow: auto;
 }
 </style>

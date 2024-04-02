@@ -1,4 +1,3 @@
-import { translate as t } from '@/locale/index'
 import pagesJson from '@/pages.json'
 
 console.log(pagesJson)
@@ -15,17 +14,6 @@ export const getIsTabbar = () => {
 }
 
 /**
- * test i18n in not .vue file
- */
-export const testI18n = () => {
-  console.log(t('app.name'))
-  // 下面同样生效
-  uni.showModal({
-    title: 'i18n 测试',
-    content: t('app.name'),
-  })
-}
-/*
  * 获取当前页面路由的 path 路劲和 redirectPath 路径
  * path 如 ‘/pages/login/index’
  * redirectPath 如 ‘/pages/demo/base/route-interceptor’
