@@ -27,6 +27,7 @@
     <view class="desc">测试设计稿样式</view>
     <view class="desc">设计稿是750px，css里面全部写rpx 即可</view>
   </view>
+  <tabbar />
 </template>
 
 <script lang="ts" setup>

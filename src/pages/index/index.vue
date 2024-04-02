@@ -42,6 +42,7 @@
       <!-- #endif -->
     </view>
   </view>
+  <tabbar />
 </template>
 
 <script lang="ts" setup>
