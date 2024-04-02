@@ -51,6 +51,13 @@
       "style": {
         "navigationBarTitleText": "关于"
       }
+    },
+    {
+      "path": "pages/index/i18n",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "%app.name%"
+      }
     }
   ],
   "subPackages": [

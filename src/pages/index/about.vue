@@ -17,7 +17,7 @@
       <text class="text-red-500">菲鸽</text>
     </view>
     <view class="text-center mt-8">
-      <wd-button type="primary">wot 组件库测试</wd-button>
+      <wd-button type="primary" @click="gotoPage()">进入多语言页面</wd-button>
     </view>
 
     <view class="text-center py-4">
@@ -36,6 +36,12 @@ import PLATFORM from '@/utils/platform'
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
 console.log(PLATFORM)
+
+const gotoPage = () => {
+  uni.navigateTo({
+    url: '/pages/index/i18n',
+  })
+}
 </script>
 
 <style lang="scss" scoped>
