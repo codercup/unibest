@@ -24,8 +24,8 @@
       当前平台是：
       <text class="text-red-500">{{ PLATFORM.platform }}</text>
     </view>
-    <view class="desc">测试设计稿样式</view>
-    <view class="desc">设计稿是750px，css里面全部写rpx 即可</view>
+    <view class="text-center desc mt-10">设计稿样式编写：</view>
+    <view class="text-center desc">设计稿是750px，css里面全部写rpx 即可</view>
   </view>
   <tabbar />
 </template>
@@ -41,6 +41,6 @@ console.log(PLATFORM)
 
 <style lang="scss" scoped>
 .desc {
-  width: 700rpx;
+  height: 80rpx;
 }
 </style>
