@@ -19,7 +19,6 @@
     <view class="text-center mt-8">
       <wd-button type="primary">wot 组件库测试</wd-button>
     </view>
-
     <view class="text-center py-4">
       当前平台是：
       <text class="text-red-500">{{ PLATFORM.platform }}</text>

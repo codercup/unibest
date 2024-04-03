@@ -46,6 +46,22 @@
       }
     },
     {
+      "path": "pages/demo/mock",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "mock"
+      }
+    },
+    {
+      "path": "pages/demo/request",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "请求"
+      }
+    },
+    {
       "path": "pages/index/about",
       "type": "page",
       "style": {

@@ -19,6 +19,12 @@
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
 
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</view>
+
+    <wd-cell-group border>
+      <wd-cell title="数据请求案例" is-link to="/pages/demo/request" />
+      <wd-cell title="数据Mock案例" is-link to="/pages/demo/mock" />
+    </wd-cell-group>
+
     <view class="mt-8 text-center">
       <text class="text-green-400">当前模板分支：alova</text>
     </view>

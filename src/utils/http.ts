@@ -1,81 +1,55 @@
-import { CustomRequestOptions } from '@/interceptors/request'
+import { createAlova } from 'alova'
+import { createAlovaMockAdapter } from '@alova/mock'
+import AdapterUniapp, { uniappRequestAdapter, uniappMockResponse } from '@alova/adapter-uniapp'
+import mocks from '@/mocks'
 
-export const http = <T>(options: CustomRequestOptions) => {
-  // 1. 返回 Promise 对象
-  return new Promise<IResData<T>>((resolve, reject) => {
-    uni.request({
-      ...options,
-      dataType: 'json',
-      // #ifndef MP-WEIXIN
-      responseType: 'json',
-      // #endif
-      // 响应成功
-      success(res) {
-        // 状态码 2xx，参考 axios 的设计
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          // 2.1 提取核心数据 res.data
-          resolve(res.data as IResData<T>)
-        } else if (res.statusCode === 401) {
-          // 401错误  -> 清理用户信息，跳转到登录页
-          // userStore.clearUserInfo()
-          // uni.navigateTo({ url: '/pages/login/login' })
-          reject(res)
-        } else {
-          // 其他错误 -> 根据后端错误信息轻提示
-          uni.showToast({
-            icon: 'none',
-            title: (res.data as IResData<T>).msg || '请求错误',
-          })
-          reject(res)
-        }
-      },
-      // 响应失败
-      fail(err) {
-        uni.showToast({
-          icon: 'none',
-          title: '网络错误，换个网络试试',
-        })
-        reject(err)
-      },
-    })
-  })
-}
+const mockAdapter = createAlovaMockAdapter(mocks, {
+  // 指定uniapp请求适配器后，未匹配模拟接口的请求将使用这个适配器发送请求
+  httpAdapter: uniappRequestAdapter,
+  // 模拟响应适配器，指定后响应数据将转换为uniapp兼容的数据格式
+  onMockResponse: uniappMockResponse,
+})
 
-// uni.uploadFile封装
-export const uniFileUpload = <T>(options: CustomRequestOptions) => {
-  // 1. 返回 Promise 对象
-  return new Promise<IResData<T>>((resolve, reject) => {
-    uni.uploadFile({
-      ...options,
-      // 响应成功
-      success(res) {
-        // 状态码 2xx，参考 axios 的设计
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          // 文件上传接口的rea.data的类型为string，这里转一下
-          const resData = JSON.parse(res.data) as IResData<T>
-          resolve(resData)
-        } else if (res.statusCode === 401) {
-          // 401错误  -> 清理用户信息，跳转到登录页
-          // userStore.clearUserInfo()
-          // uni.navigateTo({ url: '/pages/login/login' })
-          reject(res)
-        } else {
-          // 其他错误 -> 根据后端错误信息轻提示
-          uni.showToast({
-            icon: 'none',
-            title: '文件上传错误',
-          })
-          reject(res)
-        }
-      },
+export const http = createAlova({
+  baseURL: import.meta.env.VITE_SERVER_BASEURL,
+  ...AdapterUniapp({
+    // 通过环境变量控制是否使用模拟请求适配器
+    mockRequest: import.meta.env.DEV ? mockAdapter : undefined,
+  }),
+  beforeRequest() {
+    // 给 Header 加上 token
+    // const userStore = useUserStore()
+    // const { token } = userStore.userInfo as IUserInfo
+    // if (token) {
+    //   // eslint-disable-next-line no-param-reassign
+    //   method.config.headers.Authorization = `Bearer ${token}`
+    // }
+  },
+  responded: {
+    onError(err) {
       // 响应失败
-      fail(err) {
-        uni.showToast({
-          icon: 'none',
-          title: '网络错误，换个网络试试',
-        })
-        reject(err)
-      },
-    })
-  })
-}
+      uni.showToast({
+        icon: 'none',
+        title: '网络错误，换个网络试试',
+      })
+      return Promise.reject(err)
+    },
+    async onSuccess(response) {
+      const { statusCode, data } = response as UniNamespace.RequestSuccessCallbackResult
+      if (statusCode >= 200 && statusCode < 300) {
+        return data
+      }
+      // 401错误  -> 清理用户信息，跳转到登录页
+      // if (statusCode === 401) {
+      //   useUserStore().clearUserInfo()
+      //   uni.navigateTo({ url: '/pages/login/index' })
+      //   return Promise.reject(response)
+      // }
+      uni.showToast({
+        icon: 'none',
+        title: (data as AnyObject)?.message || '请求错误',
+      })
+      return Promise.reject(response)
+    },
+  },
+})
