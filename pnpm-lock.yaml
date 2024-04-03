@@ -109,9 +109,6 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.15.0
     version: 6.15.0(eslint@8.56.0)(typescript@4.9.5)
-  '@uni-helper/uni-app-types':
-    specifier: ^0.5.12
-    version: 0.5.12(typescript@4.9.5)
   '@uni-helper/vite-plugin-uni-components':
     specifier: ^0.0.8
     version: 0.0.8
@@ -4065,17 +4062,6 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
-    dev: true
-
-  /@uni-helper/uni-app-types@0.5.12(typescript@4.9.5):
-    resolution: {integrity: sha512-SeUEgDgGftI4XEp1AB3C6IFLnRPT83tgTCCmlLUBmQyHh+UhRY+CX4QtgQ0n/kF8txNUq8Bc9YwKlYdXQGx6Ww==}
-    engines: {node: '>=14.18'}
-    peerDependencies:
-      typescript: ^4.8.0 || ^5.0.0
-    dependencies:
-      '@dcloudio/types': 3.4.8
-      typescript: 4.9.5
-      vue3: /vue@3.4.19(typescript@4.9.5)
     dev: true
 
   /@uni-helper/uni-env@0.0.3:
