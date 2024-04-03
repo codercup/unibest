@@ -120,8 +120,6 @@
     "@types/wechat-miniprogram": "^3.4.7",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "@uni-helper/uni-app-types": "^0.5.12",
-    "@uni-helper/uni-cloud-types": "^0.5.2",
     "@uni-helper/uni-ui-types": "^0.5.11",
     "@uni-helper/vite-plugin-uni-components": "^0.0.8",
     "@uni-helper/vite-plugin-uni-layouts": "^0.1.7",

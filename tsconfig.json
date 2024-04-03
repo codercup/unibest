@@ -16,7 +16,6 @@
       "./vite-env.d.ts",
       "@dcloudio/types",
       "@types/wechat-miniprogram",
-      "@uni-helper/uni-app-types",
       "@uni-helper/uni-ui-types",
       "wot-design-uni/global.d.ts",
       "@ttou/uv-typings/shim",
