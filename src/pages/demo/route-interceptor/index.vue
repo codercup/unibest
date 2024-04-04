@@ -13,7 +13,8 @@
     </view>
     <view class="">3.静默登录，小程序可以直接login，通常情况下都是登录状态的</view>
     <view class="leading-10">
-      用户是否已登录：<text>{{ isLogined ? '是' : '否' }}</text>
+      用户是否已登录：
+      <text>{{ isLogined ? '是' : '否' }}</text>
     </view>
     <button v-if="!isLogined" @click="setUserInfo" class="mt-4" type="primary">登陆</button>
     <button v-else @click="clearUserInfo" class="mt-4" type="warn">登出</button>

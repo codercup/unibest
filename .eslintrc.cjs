@@ -15,7 +15,6 @@ module.exports = {
     // 1. 接入 prettier 的规则
     'prettier',
     'plugin:prettier/recommended',
-    'vue-global-api',
     './.eslintrc-auto-import.json',
   ],
   overrides: [
