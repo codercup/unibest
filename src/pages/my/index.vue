@@ -4,7 +4,7 @@
 }
 </route>
 <template>
-  <view class="ml-4">wx的openid: </view>
+  <view class="ml-4">wx的openid:</view>
   <view class="ml-4">{{ openId }}</view>
   <wx-login />
 </template>

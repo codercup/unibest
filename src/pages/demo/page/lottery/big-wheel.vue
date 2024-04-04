@@ -19,7 +19,7 @@
           <text class="gift-name">{{ item.name }}</text>
         </view>
       </view>
-      <view class="lottery-btn" @click="start"> </view>
+      <view class="lottery-btn" @click="start"></view>
     </view>
   </view>
 </template>

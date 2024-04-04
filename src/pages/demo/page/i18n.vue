@@ -18,7 +18,7 @@
     <view class="m-4">{{ $t('app.name') }}</view>
     <view class="m-4">{{ $t('weight', { heavy: 100 }) }}</view>
 
-    <view class="text-green-500 mt-12">切换语言 </view>
+    <view class="text-green-500 mt-12">切换语言</view>
     <view class="uni-list">
       <radio-group @change="radioChange" class="radio-group">
         <label class="uni-list-cell uni-list-cell-pd" v-for="item in languages" :key="item.value">

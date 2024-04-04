@@ -39,7 +39,7 @@ const y = ref(windowHeight - ballSize - 20) // 距离底部20px
 
 const middleX = (windowWidth - ballSize) / 2
 
-const onChange: UniHelper.MovableViewOnChange = (e) => {
+const onChange = (e) => {
   const { x: _x, y: _y } = e.detail
   x.value = _x
   y.value = _y
