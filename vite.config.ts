@@ -83,6 +83,7 @@ export default ({ command, mode }) => {
         dts: 'src/auto-import.d.ts',
         // dirs: ['src/hooks'], // 自动导入 hooks
         eslintrc: { enabled: false },
+        vueTemplate: true, // default false
       }),
 
       // viteCompression(),
