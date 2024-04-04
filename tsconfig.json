@@ -14,6 +14,7 @@
     "lib": ["esnext", "dom"],
     "types": [
       "./vite-env.d.ts",
+      "./components.d.ts",
       "@dcloudio/types",
       "@types/wechat-miniprogram",
       "@uni-helper/uni-ui-types",
