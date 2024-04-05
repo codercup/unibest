@@ -48,14 +48,14 @@ const originalData = ref<IResData<IFooItem>>()
 const data = ref<IFooItem>()
 const getFoo = async () => {
   const res = await getFooAPI('菲鸽')
-  data.value = res.result
+  data.value = res.data
   originalData.value = res
 }
 
 const data2 = ref<IFooItem>()
 const postFoo = async () => {
   const res = await postFooAPI('菲鸽2')
-  data2.value = res.result
+  data2.value = res.data
 }
 
 const reset = () => {

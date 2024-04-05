@@ -9,7 +9,7 @@ export default [
     response: ({ query }) => {
       return {
         code: 0,
-        result: {
+        data: {
           name: '菲鸽',
         },
       }
@@ -21,7 +21,7 @@ export default [
     timeout: 2000,
     response: {
       code: 0,
-      result: {
+      data: {
         name: '菲鸽',
       },
     },

@@ -73,6 +73,13 @@
       }
     },
     {
+      "path": "pages/my/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
       "path": "pages/demo/base/auto-import",
       "type": "page",
       "layout": "demo",
