@@ -19,7 +19,26 @@
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</view>
     <view class="mt-8 text-center">
-      <text class="text-green-400">当前模板分支：demo</text>
+      <text class="text-green-400">在线文档：</text>
+      <!-- #ifndef H5 -->
+      https://codercup.github.io/unibest-docs/
+      <!-- #endif -->
+      <!-- #ifdef H5 -->
+      <a href="https://codercup.github.io/unibest-docs/" target="_blank">
+        https://codercup.github.io/unibest-docs/
+      </a>
+      <!-- #endif -->
+    </view>
+    <view class="mt-4 text-center">
+      <text class="text-green-400">在线预览：</text>
+      <!-- #ifndef H5 -->
+      https://codercup.github.io/unibest/
+      <!-- #endif -->
+      <!-- #ifdef H5 -->
+      <a href="https://codercup.github.io/unibest/" target="_blank">
+        https://codercup.github.io/unibest/
+      </a>
+      <!-- #endif -->
     </view>
   </view>
 </template>
