@@ -23,11 +23,9 @@ const httpInterceptor = {
       }
     }
     // api 目前为 mock 接口，所以无需处理
-    if (!options.url.startsWith('/api')) {
-      if (!options.url.startsWith('http')) {
-        // 1. 非 http 开头需拼接地址
-        options.url = baseURL + options.url
-      }
+    if (!options.url.startsWith('http')) {
+      // 1. 非 http 开头需拼接地址
+      options.url = baseURL + options.url
     }
     // 2. 请求超时
     options.timeout = 10000 // 10s
