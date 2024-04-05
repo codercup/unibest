@@ -23,20 +23,20 @@ export const currRoute = () => {
   console.log('pages:', pages)
 
   const lastPage = getArrElementByIdx(pages, -1)
-  const currRoute = (lastPage as any).$page
+  const currRoute = lastPage.$page
   // console.log('lastPage.$page:', currRoute)
   // console.log('lastPage.$page.fullpath:', currRoute.fullPath)
   // console.log('lastPage.$page.options:', currRoute.options)
   // console.log('lastPage.options:', (lastPage as any).options)
   // 经过多端测试，只有 fullPath 靠谱，其他都不靠谱
-  const { fullPath } = currRoute as { fullPath: string }
+  const { fullPath } = currRoute
   console.log(fullPath)
   // eg: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
   // eg: /pages/login/index?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
   return getUrlObj(fullPath)
 }
 
-const ensureDecodeURIComponent = (url: string) => {
+const ensureDecodeURIComponent = (url) => {
   if (url.startsWith('%')) {
     return ensureDecodeURIComponent(decodeURIComponent(url))
   }
@@ -47,11 +47,11 @@ const ensureDecodeURIComponent = (url: string) => {
  * 比如输入url: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
  * 输出: {path: /pages/login/index, query: {redirect: /pages/demo/base/route-interceptor}}
  */
-export const getUrlObj = (url: string) => {
+export const getUrlObj = (url) => {
   const [path, queryStr] = url.split('?')
   console.log(path, queryStr)
 
-  const query: Record<string, string> = {}
+  const query = {}
   queryStr.split('&').forEach((item) => {
     const [key, value] = item.split('=')
     console.log(key, value)
@@ -75,14 +75,14 @@ export const getAllPages = (key = 'needLogin') => {
       })),
   ]
   // 这里处理分包
-  const subPages: any[] = []
+  const subPages = []
   pagesJson.subPackages.forEach((subPageObj) => {
     // console.log(subPageObj)
     const { root } = subPageObj
 
     subPageObj.pages
       .filter((page) => !key || page[key])
-      .forEach((page: { path: string } & Record<string, any>) => {
+      .forEach((page) => {
         subPages.push({
           ...page,
           path: `/${root}/${page.path}`,
@@ -98,15 +98,15 @@ export const getAllPages = (key = 'needLogin') => {
  * 得到所有的需要登录的pages，包括主包和分包的
  * 只得到 path 数组
  */
-export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((page) => page.path)
+export const getNeedLoginPages = () => getAllPages('needLogin').map((page) => page.path)
 
 /**
  * 得到所有的需要登录的pages，包括主包和分包的
  * 只得到 path 数组
  */
-export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
+export const needLoginPages = getAllPages('needLogin').map((page) => page.path)
 
-export const getArrElementByIdx = (arr: any[], index: number) => {
+export const getArrElementByIdx = (arr, index) => {
   if (index < 0) return arr[arr.length + index]
   if (index >= arr.length) return undefined
   return arr[index]

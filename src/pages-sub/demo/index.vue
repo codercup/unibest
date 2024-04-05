@@ -11,7 +11,7 @@
   </view>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 // code here
 </script>
 

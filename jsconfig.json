@@ -25,5 +25,21 @@
     "nativeTags": ["block", "template", "component", "slot"]
   },
   "exclude": ["node_modules"],
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.json"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.json",
+    "src/env.d.js",
+    "src/utils/platform.js",
+    "src/utils/index.js",
+    "src/utils/http.js",
+    "src/store/user.js",
+    "src/store/index.js",
+    "src/service/foo.js",
+    "src/interceptors/route.js",
+    "src/interceptors/request.js",
+    "src/interceptors/index.js"
+  ]
 }

@@ -2,17 +2,13 @@
 import qs from 'qs'
 import { useUserStore } from '@/store'
 
-export type CustomRequestOptions = UniApp.RequestOptions & {
-  query?: Record<string, any>
-} & IUniUploadFileOptions // 添加uni.uploadFile参数类型
-
 // 请求基地址
 const baseURL = import.meta.env.VITE_SERVER_BASEURL
 
 // 拦截器配置
 const httpInterceptor = {
   // 拦截前触发
-  invoke(options: CustomRequestOptions) {
+  invoke(options) {
     // 接口请求支持通过 query 参数配置 queryString
     if (options.query) {
       const queryStr = qs.stringify(options.query)
@@ -36,7 +32,7 @@ const httpInterceptor = {
     }
     // 4. 添加 token 请求头标识
     const userStore = useUserStore()
-    const { token } = userStore.userInfo as unknown as IUserInfo
+    const { token } = userStore.userInfo
     if (token) {
       options.header.Authorization = `Bearer ${token}`
     }

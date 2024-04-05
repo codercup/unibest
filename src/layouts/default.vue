@@ -1,12 +1,5 @@
 <template>
-  <view class="default-layout">
-    <slot />
-  </view>
+  <slot />
 </template>
 
-<style lang="scss">
-.default-layout {
-  height: 100vh;
-  overflow: auto;
-}
-</style>
+<style lang="scss"></style>

@@ -29,7 +29,7 @@
   </view>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import PLATFORM from '@/utils/platform'
 
 // 获取屏幕边界到安全区域距离

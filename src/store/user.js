@@ -6,9 +6,9 @@ const initState = { nickname: '', avatar: '' }
 export const useUserStore = defineStore(
   'user',
   () => {
-    const userInfo = ref<IUserInfo>({ ...initState })
+    const userInfo = ref({ ...initState })
 
-    const setUserInfo = (val: IUserInfo) => {
+    const setUserInfo = (val) => {
       userInfo.value = val
     }
 
