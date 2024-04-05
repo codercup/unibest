@@ -20,7 +20,7 @@
 
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</view>
     <view class="mt-8 text-center">
-      <text class="text-green-400">当前模板分支：base</text>
+      <text class="text-green-400">当前模板分支：js</text>
     </view>
   </view>
 </template>
