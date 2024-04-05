@@ -144,6 +144,14 @@
       }
     },
     {
+      "path": "pages/demo/base/svg",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "svg使用"
+      }
+    },
+    {
       "path": "pages/demo/base/throughout",
       "type": "page",
       "style": {
