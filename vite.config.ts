@@ -18,10 +18,10 @@ import UnoCSS from 'unocss/vite'
 // import autoprefixer from 'autoprefixer'
 // @see https://github.com/jpkleemans/vite-svg-loader
 import svgLoader from 'vite-svg-loader'
+// @see https://github.com/vbenjs/vite-plugin-svg-icons
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // @see https://github.com/vbenjs/vite-plugin-vue-setup-extend
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
-// @see https://github.com/vbenjs/vite-plugin-svg-icons
 import AutoImport from 'unplugin-auto-import/vite'
 // import viteCompression from 'vite-plugin-compression'
 import ViteRestart from 'vite-plugin-restart'
@@ -73,7 +73,7 @@ export default ({ command, mode }) => {
       }),
       createSvgIconsPlugin({
         // 指定要缓存的文件夹
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+        iconDirs: [path.resolve(process.cwd(), 'src/assets')],
         // 指定symbolId格式
         symbolId: 'icon-[dir]-[name]',
       }),
