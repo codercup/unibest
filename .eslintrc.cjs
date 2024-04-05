@@ -6,7 +6,6 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-essential',
     // eslint-plugin-import 插件， @see https://www.npmjs.com/package/eslint-plugin-import
     'plugin:import/recommended',
@@ -28,18 +27,11 @@ module.exports = {
       },
     },
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
-  },
+
   plugins: [
-    '@typescript-eslint',
     'vue',
     // 2. 加入 prettier 的 eslint 插件
     'prettier',
-    // eslint-import-resolver-typescript 插件，@see https://www.npmjs.com/package/eslint-import-resolver-typescript
-    'import',
   ],
   rules: {
     // 3. 注意要加上这一句，开启 prettier 自动修复的功能
@@ -56,28 +48,16 @@ module.exports = {
     'import/prefer-default-export': ['off'],
     'no-console': ['off'],
     // 'no-unused-vars': ['off'],
-    // '@typescript-eslint/no-unused-vars': ['off'],
     // 解决vite.config.ts报错问题
     'import/no-extraneous-dependencies': 'off',
     'no-plusplus': 'off',
     'no-shadow': 'off',
     'vue/multi-word-component-names': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
     'no-underscore-dangle': 'off',
     'no-use-before-define': 'off',
     'no-undef': 'off',
     'no-unused-vars': 'off',
     'no-param-reassign': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-  },
-  // eslint-import-resolver-typescript 插件，@see https://www.npmjs.com/package/eslint-import-resolver-typescript
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
-    'import/resolver': {
-      typescript: {},
-    },
   },
   globals: {
     $t: true,
