@@ -116,7 +116,7 @@
     "@uni-helper/vite-plugin-uni-components": "^0.0.8",
     "@uni-helper/vite-plugin-uni-layouts": "^0.1.7",
     "@uni-helper/vite-plugin-uni-manifest": "^0.2.3",
-    "@uni-helper/vite-plugin-uni-pages": "^0.2.13",
+    "@uni-helper/vite-plugin-uni-pages": "^0.2.15",
     "@uni-helper/vite-plugin-uni-platform": "^0.0.4",
     "@vue/runtime-core": "^3.3.13",
     "@vue/tsconfig": "^0.1.3",
