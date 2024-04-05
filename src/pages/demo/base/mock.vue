@@ -30,7 +30,7 @@ const data = ref()
 
 const getFoo = async () => {
   const res = await getMockAPI('菲鸽')
-  data.value = res.result
+  data.value = res.data
   originalData.value = res
 }
 

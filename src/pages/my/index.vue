@@ -28,8 +28,10 @@ uni.login({
         code,
       },
     })
-    openId.value = res.result.openid
-    userStore.setUserInfo({ openid: res.result.openid })
+    console.log('微信登录-1：', res)
+    // {code: 0, msg: "success", data: {session_key: "JTzhLVK+oM3X58uJ/heDcQ==", openid: "oSYa06xPVqjsK-eFYzt0kSPYu1q4"}}
+    openId.value = res.data.openid
+    userStore.setUserInfo({ openid: res.data.openid })
   },
 })
 </script>

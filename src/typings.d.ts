@@ -5,7 +5,7 @@
 type IResData<T> = {
   code: number
   msg: string
-  result: T
+  data: T
 }
 
 // uni.uploadFile文件上传参数
