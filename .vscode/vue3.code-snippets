@@ -23,7 +23,7 @@
       "{",
       "  layout: 'default',",
       "  style: {",
-      "    navigationBarTitleText: '$1',"
+      "    navigationBarTitleText: '$1',",
       "  },",
       "}",
       "</route>\n",
