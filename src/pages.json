@@ -51,6 +51,14 @@
       "style": {
         "navigationBarTitleText": "关于"
       }
+    },
+    {
+      "path": "pages/index/request",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "请求"
+      }
     }
   ],
   "subPackages": [
