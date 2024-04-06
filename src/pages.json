@@ -53,6 +53,14 @@
       }
     },
     {
+      "path": "pages/index/request",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "请求"
+      }
+    },
+    {
       "path": "pages/index/ucharts",
       "type": "page",
       "style": {
