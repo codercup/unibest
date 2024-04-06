@@ -10,7 +10,7 @@ export function createApp() {
   const app = createSSRApp(App)
   app.use(store)
   app.use(routeInterceptor)
-  app.use(requestInterceptor)
+  // app.use(requestInterceptor)
   return {
     app,
   }

@@ -8,6 +8,9 @@ overrides:
   bin-wrapper: npm:bin-wrapper-china
 
 dependencies:
+  '@alova/adapter-uniapp':
+    specifier: ^1.2.2
+    version: 1.2.2(alova@2.18.2)
   '@dcloudio/uni-app':
     specifier: 3.0.0-4000720240327002
     version: 3.0.0-4000720240327002(@dcloudio/types@3.4.8)(postcss@8.4.32)(vue@3.4.19)
@@ -50,6 +53,9 @@ dependencies:
   '@dcloudio/uni-quickapp-webview':
     specifier: 3.0.0-4000720240327002
     version: 3.0.0-4000720240327002(postcss@8.4.32)(vue@3.4.19)
+  alova:
+    specifier: ^2.18.2
+    version: 2.18.2
   dayjs:
     specifier: 1.11.10
     version: 1.11.10
@@ -239,6 +245,14 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /@alova/adapter-uniapp@1.2.2(alova@2.18.2):
+    resolution: {integrity: sha512-O3Z4gEBMZWx6d2FTYdpQfR3Gb8YcC9o9RZWGoRmrJuvv6iJZUGXJLGQQXt5NMON9ON214nsgaQh4fH+D4ck9/Q==}
+    peerDependencies:
+      alova: '>=2.16.2'
+    dependencies:
+      alova: 2.18.2
+    dev: false
 
   /@ampproject/remapping@2.2.1:
     resolution: {integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==}
@@ -5103,6 +5117,11 @@ packages:
       require-from-string: 2.0.2
       uri-js: 4.4.1
     dev: true
+
+  /alova@2.18.2:
+    resolution: {integrity: sha512-Yj6r2ULZDHJMFrvgv82mHVgJlI8YqWVUgwQw75tKIHmxUatMMN+98pxadswUBqPqw1UnLHquAN1AatYcY5vshw==}
+    engines: {node: '>= 0.12.0'}
+    dev: false
 
   /ansi-escapes@4.3.2:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}

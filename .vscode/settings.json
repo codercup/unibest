@@ -36,6 +36,7 @@
     "manifest.json": "jsonc" // manifest.json 可以写注释
   },
   "cSpell.words": [
+    "alova",
     "climblee",
     "commitlint",
     "dcloudio",
