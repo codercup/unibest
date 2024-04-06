@@ -16,8 +16,7 @@
       "@dcloudio/types",
       "@types/wechat-miniprogram",
       "wot-design-uni/global.d.ts",
-      "./components.d.ts",
-      "./global.d.ts"
+      "./components.d.ts"
     ]
   },
   "vueCompilerOptions": {
