@@ -17,7 +17,8 @@
       <text class="text-red-500">菲鸽</text>
     </view>
     <view class="text-center mt-8">
-      <wd-button type="primary" @click="gotoPage()">进入多语言页面</wd-button>
+      <wd-button type="primary" @click="gotoPage('i18n')">进入多语言页面</wd-button>
+      <wd-button type="primary" @click="gotoPage('request')" class="ml-2">去请求页</wd-button>
     </view>
 
     <view class="text-center py-4">
@@ -37,9 +38,9 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 
 console.log(PLATFORM)
 
-const gotoPage = () => {
+const gotoPage = (page: string) => {
   uni.navigateTo({
-    url: '/pages/index/i18n',
+    url: `/pages/index/${page}`,
   })
 }
 </script>
