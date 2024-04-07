@@ -193,6 +193,9 @@ devDependencies:
   stylelint-config-standard-scss:
     specifier: ^12.0.0
     version: 12.0.0(postcss@8.4.32)(stylelint@16.0.2)
+  stylelint-prettier:
+    specifier: ^5.0.0
+    version: 5.0.0(prettier@3.2.5)(stylelint@16.0.2)
   terser:
     specifier: ^5.26.0
     version: 5.26.0
@@ -17474,6 +17477,18 @@ packages:
     dependencies:
       postcss: 8.4.35
       postcss-sorting: 8.0.2(postcss@8.4.35)
+      stylelint: 16.0.2(typescript@4.9.5)
+    dev: true
+
+  /stylelint-prettier@5.0.0(prettier@3.2.5)(stylelint@16.0.2):
+    resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      prettier: '>=3.0.0'
+      stylelint: '>=16.0.0'
+    dependencies:
+      prettier: 3.2.5
+      prettier-linter-helpers: 1.0.0
       stylelint: 16.0.2(typescript@4.9.5)
     dev: true
 
