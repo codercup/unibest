@@ -1,0 +1,15 @@
+// .test{
+//     background: #FFF;
+//     .test1{
+//         color: #F9FF99;
+//     }
+// }
+// 上面的代码在 scss里面格式化是OK的，在Vue里面会有问题
+
+.test {
+  background: #fff;
+
+  .test1 {
+    color: #f9ff99;
+  }
+}

@@ -208,6 +208,9 @@ devDependencies:
   stylelint-config-standard-scss:
     specifier: ^12.0.0
     version: 12.0.0(postcss@8.4.32)(stylelint@16.0.2)
+  stylelint-prettier:
+    specifier: ^5.0.0
+    version: 5.0.0(prettier@3.2.5)(stylelint@16.0.2)
   terser:
     specifier: ^5.26.0
     version: 5.26.0
@@ -2668,7 +2671,7 @@ packages:
     resolution: {integrity: sha512-OZbtOY388LPT+9Gkg3Qkow670C8E7ZOhl7N7nLFEOm2rQSr8aHTtgMioTtHQgjDktCmFu5gROq6Tp0O70TLmBw==}
     dependencies:
       parse-css-font: 4.0.0
-      postcss: 8.4.32
+      postcss: 8.4.38
     dev: false
 
   /@dcloudio/uni-push@3.0.0-4000720240327002(postcss@8.4.32)(vue@3.4.19):
@@ -11743,12 +11746,12 @@ packages:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  /postcss-sorting@8.0.2(postcss@8.4.35):
+  /postcss-sorting@8.0.2(postcss@8.4.38):
     resolution: {integrity: sha512-M9dkSrmU00t/jK7rF6BZSZauA5MAaBW4i5EnJXspMwt4iqTh/L9j6fgMnbElEOfyRyfLfVbIHj/R52zHzAPe1Q==}
     peerDependencies:
       postcss: ^8.4.20
     dependencies:
-      postcss: 8.4.35
+      postcss: 8.4.38
     dev: true
 
   /postcss-value-parser@4.2.0:
@@ -11787,7 +11790,6 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
-    dev: true
 
   /posthtml-parser@0.2.1:
     resolution: {integrity: sha512-nPC53YMqJnc/+1x4fRYFfm81KV2V+G9NZY+hTohpYg64Ay7NemWWcV4UWuy/SgMupqQ3kJ88M/iRfZmSnxT+pw==}
@@ -13013,8 +13015,20 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
     dependencies:
-      postcss: 8.4.35
-      postcss-sorting: 8.0.2(postcss@8.4.35)
+      postcss: 8.4.38
+      postcss-sorting: 8.0.2(postcss@8.4.38)
+      stylelint: 16.0.2(typescript@4.9.5)
+    dev: true
+
+  /stylelint-prettier@5.0.0(prettier@3.2.5)(stylelint@16.0.2):
+    resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      prettier: '>=3.0.0'
+      stylelint: '>=16.0.0'
+    dependencies:
+      prettier: 3.2.5
+      prettier-linter-helpers: 1.0.0
       stylelint: 16.0.2(typescript@4.9.5)
     dev: true
 

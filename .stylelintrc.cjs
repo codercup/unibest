@@ -9,6 +9,7 @@ module.exports = {
     'stylelint-config-html/vue',
     'stylelint-config-recess-order',
   ],
+  plugins: ['stylelint-prettier'],
   overrides: [
     // 扫描 .vue/html 文件中的<style>标签内的样式
     {
@@ -22,6 +23,7 @@ module.exports = {
   ],
   // 自定义规则
   rules: {
+    'prettier/prettier': true,
     // 允许 global 、export 、v-deep等伪类
     'selector-pseudo-class-no-unknown': [
       true,
@@ -42,9 +44,10 @@ module.exports = {
         ignoreTypes: ['page'],
       },
     ],
-    'comment-empty-line-before': 'never',
+    'comment-empty-line-before': 'never', // never|always|always-multi-line|never-multi-line
     'custom-property-empty-line-before': 'never',
     'no-empty-source': null,
-    'scss/comment-no-empty': null,
+    'comment-no-empty': null,
+    'no-duplicate-selectors': null,
   },
 }

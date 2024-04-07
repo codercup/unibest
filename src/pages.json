@@ -88,6 +88,14 @@
       }
     },
     {
+      "path": "pages/demo/base/css",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "css 格式化问题"
+      }
+    },
+    {
       "path": "pages/demo/base/enum",
       "type": "page",
       "hide": true,
