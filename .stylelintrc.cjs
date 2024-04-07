@@ -10,13 +10,8 @@ module.exports = {
     'stylelint-config-recess-order',
   ],
   overrides: [
-    // 扫描 .vue/html 文件中的<style>标签内的样式
     {
-      files: ['**/*.{vue,html}'],
-      customSyntax: 'postcss-html',
-    },
-    {
-      files: ['**/*.{css,scss}'],
+      files: ['**/*.{css,scss,vue}'],
       customSyntax: 'postcss-scss',
     },
   ],
