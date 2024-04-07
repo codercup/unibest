@@ -178,6 +178,9 @@ devDependencies:
   postcss:
     specifier: ^8.4.32
     version: 8.4.32
+  postcss-html:
+    specifier: ^1.5.0
+    version: 1.5.0
   postcss-scss:
     specifier: ^4.0.9
     version: 4.0.9(postcss@8.4.32)

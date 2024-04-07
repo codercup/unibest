@@ -139,6 +139,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "postcss": "^8.4.32",
+    "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.9",
     "rollup-plugin-visualizer": "^5.11.0",
     "sass": "^1.69.5",
