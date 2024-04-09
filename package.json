@@ -104,7 +104,7 @@
     "qs": "^6.11.2",
     "vue": "^3.4.19",
     "vue-i18n": "^9.10.2",
-    "wot-design-uni": "^1.2.5"
+    "wot-design-uni": "^1.2.13"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
