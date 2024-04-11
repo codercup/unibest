@@ -61,18 +61,5 @@
       }
     }
   ],
-  "subPackages": [
-    {
-      "root": "pages-sub",
-      "pages": [
-        {
-          "path": "demo/index",
-          "type": "page",
-          "style": {
-            "navigationBarTitleText": "分包页面 标题"
-          }
-        }
-      ]
-    }
-  ]
+  "subPackages": []
 }
