@@ -26,7 +26,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 // import viteCompression from 'vite-plugin-compression'
 import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
-import imagemin from './vite-plugins/imagemin'
+// import imagemin from './vite-plugins/imagemin'
 
 console.log('process.platform -> ', process.platform)
 
@@ -55,8 +55,9 @@ export default ({ command, mode }) => {
       UniPages({
         exclude: ['**/components/**/**.*'],
         routeBlockLang: 'json5', // 虽然设了默认值，但是vue文件还是要加上 lang="json5", 这样才能很好地格式化
-        homePage: 'pages/index/index',
-        subPackages: ['src/pages-sub'], // 是个数组，可以配置多个
+        // homePage 通过 vue 文件的 route-block 的type="home"来设定
+        // pages 目录为 src/pages，分包目录不能配置在pages目录下
+        // subPackages: ['src/pages-sub'], // 是个数组，可以配置多个，但是不能为pages里面的目录
       }),
       UniLayouts(),
       UniPlatform(),
@@ -107,7 +108,7 @@ export default ({ command, mode }) => {
         }),
       // 这个图片压缩插件比较耗时，希望仅在生产环境使用
       // TODO: 缓存每次压缩过的图片，已经压缩过的不再压缩
-      imagemin(mode === 'production'),
+      // imagemin(mode === 'production'),
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(process.env.UNI_PLATFORM),
