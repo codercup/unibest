@@ -1,5 +1,6 @@
 // TIPS: 很多用户无法安装这个插件所以先注释掉了，如果您可以安装成功，那就可以放开这个注释，以及下面的viteImagemin配置
 // 注意，小程序有主包2M的限制，所以一般图片会放到图片服务器（不放本地），那就不需要这个插件
+// 如果是开发h5或者app的，可以自行安装
 import viteImagemin from 'vite-plugin-imagemin'
 
 export default (enabled: boolean) => {
