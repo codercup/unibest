@@ -101,7 +101,7 @@
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
     "qs": "^6.11.2",
-    "vue": "^3.4.19",
+    "vue": "3.3.11",
     "vue-i18n": "^9.10.2",
     "wot-design-uni": "^1.2.13"
   },
