@@ -26,7 +26,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 // import viteCompression from 'vite-plugin-compression'
 import ViteRestart from 'vite-plugin-restart'
 import { visualizer } from 'rollup-plugin-visualizer'
-import imagemin from './vite-plugins/imagemin'
+// import imagemin from './vite-plugins/imagemin'
 
 console.log('process.platform -> ', process.platform)
 
@@ -107,7 +107,7 @@ export default ({ command, mode }) => {
         }),
       // 这个图片压缩插件比较耗时，希望仅在生产环境使用
       // TODO: 缓存每次压缩过的图片，已经压缩过的不再压缩
-      imagemin(mode === 'production'),
+      // imagemin(mode === 'production'),
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(process.env.UNI_PLATFORM),
