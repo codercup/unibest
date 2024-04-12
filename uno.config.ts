@@ -15,6 +15,9 @@ import {
   transformerAttributify,
 } from 'unocss-applet'
 
+// @see https://unocss.dev/presets/legacy-compat
+import presetLegacyCompat from '@unocss/preset-legacy-compat'
+
 const isH5 = process.env?.UNI_PLATFORM === 'h5'
 const isMp = process.env?.UNI_PLATFORM?.startsWith('mp') ?? false
 
@@ -44,6 +47,12 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
     }),
+    // 将颜色函数 (rgb()和hsl()) 从空格分隔转换为逗号分隔，更好的兼容性app端，example：
+    // `rgb(255 0 0)` -> `rgb(255, 0, 0)`
+    // `rgba(255 0 0 / 0.5)` -> `rgba(255, 0, 0, 0.5)`
+    presetLegacyCompat({
+      commaStyleColorFunction: true,
+    }) as Preset,
   ],
   /**
    * 自定义快捷语句
