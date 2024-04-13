@@ -90,7 +90,7 @@ const startBtn = {
 prizeList.splice(4, 0, startBtn)
 
 // 奖品高亮顺序
-const prizeSort = [0, 1, 2, 5, 8, 7, 6, 3]
+let prizeSort = [0, 1, 2, 5, 8, 7, 6, 3]
 
 // 获取随机数
 const getRandomNum = () => prizeSort[Math.floor(Math.random() * prizeSort.length)]
@@ -101,11 +101,7 @@ let timerIns = null // 定时器实例
 let currentRunCount = 0 // 已跑次数
 const totalRunCount = 32 // 总共跑动次数，8的倍数即可
 let prizeId = 0 // 中奖id(0-8，不能是4)
-
-// 要执行总步数
-const totalRunStep = computed(() => {
-  return totalRunCount + prizeSort.indexOf(prizeId)
-})
+let totalRunStep = 0 // 要执行总步数
 
 const stopRun = () => {
   // eslint-disable-next-line no-unused-expressions
@@ -113,10 +109,10 @@ const stopRun = () => {
 }
 const startRun = () => {
   stopRun()
-  console.log(currentRunCount, totalRunStep.value)
+  console.log(currentRunCount, totalRunStep)
   // 要执行总步数
   // 已走步数超过
-  if (currentRunCount > totalRunStep.value) {
+  if (currentRunCount > totalRunStep) {
     isRunning = false
     if (isLeaved) {
       console.log('已经离开页面了，不用显示弹窗')
@@ -143,10 +139,15 @@ const startRun = () => {
 
 const start = (i) => {
   if (i === 4 && !isRunning) {
+    uni.showLoading()
     // 重置数据
     currentRunCount = 0
     speed = 100
     isRunning = true
+    prizeSort = [
+      ...prizeSort.slice(prizeSort.indexOf(prizeId), prizeSort.length),
+      ...prizeSort.slice(0, prizeSort.indexOf(prizeId)),
+    ]
 
     console.log('开始抽奖，后台请求中奖奖品')
     // 请求返回的奖品编号 这里使用随机数 但不能为4
@@ -155,11 +156,14 @@ const start = (i) => {
     // prizeId = prizeId
     // 模拟接口延时返回 如果接口突然报错如何处理？直接调用stopRun()方法停止转动
     setTimeout(() => {
+      uni.hideLoading()
       prizeId = getRandomNum()
       console.log('中奖ID>>>', prizeId, prizeList[prizeId])
+      totalRunStep = totalRunCount + prizeSort.indexOf(prizeId)
+      console.log('prizeSort', prizeSort, 'totalRunStep', totalRunStep)
       // 拿到数据才可以跑
-    }, 2000)
-    startRun()
+      startRun()
+    }, 500)
   }
 }
 </script>
