@@ -13,11 +13,11 @@
     <image src="/static/svg/task.svg" mode="scaleToFill" class="h-20 w-20" />
     <image :src="iconUrl" mode="scaleToFill" class="h-20 w-20" />
     <view class="text-center m-4 text-blue-500">目前发现小程序只支持 image 方式</view>
-    <view class="text-center m-4 text-blue-500">下面的几种方式，小程序都不支持</view>
+    <view class="text-center m-4 text-blue-500">下面的几种方式，小程序和APP都不支持</view>
     <!-- #ifdef H5 -->
-    <!-- 小程序不支持 component 方式引入，运行会报错 -->
+    <!-- 小程序和APP 不支持 component 方式引入，运行会报错 -->
     <TaskComponent class="h-20 w-20" />
-    <!-- SvgIcon 的方式小程序也不支持 -->
+    <!-- SvgIcon 的方式小程序和APP也不支持 -->
     <SvgIcon name="task" class="h-20 w-20"></SvgIcon>
     <SvgIcon name="dir-task2" class="h-20 w-20"></SvgIcon>
     <!-- #endif -->
