@@ -17,7 +17,7 @@
     <!-- #ifdef H5 -->
     <!-- 小程序不支持 component 方式引入，运行会报错 -->
     <TaskComponent class="h-20 w-20" />
-    <!-- SvgIcon 的方式小程序也支持 -->
+    <!-- SvgIcon 的方式小程序也不支持 -->
     <SvgIcon name="task" class="h-20 w-20"></SvgIcon>
     <SvgIcon name="dir-task2" class="h-20 w-20"></SvgIcon>
     <!-- #endif -->

@@ -48,6 +48,7 @@ module.exports = {
     'custom-property-empty-line-before': 'never',
     'no-empty-source': null,
     'comment-no-empty': null,
+    'scss/comment-no-empty': null,
     'no-duplicate-selectors': null,
   },
 }
