@@ -115,4 +115,8 @@ page {
 .tab-container {
   display: flex;
 }
+
+.list-container {
+  padding-bottom: var(--window-bottom);
+}
 </style>
