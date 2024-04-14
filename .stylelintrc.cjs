@@ -49,5 +49,6 @@ module.exports = {
     'no-empty-source': null,
     'comment-no-empty': null,
     'no-duplicate-selectors': null,
+    'selector-class-pattern': '^([a-z][a-z0-9]*)[a-z0-9_-]*$',
   },
 }
