@@ -11,24 +11,14 @@ import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
 // @see https://github.com/uni-helper/vite-plugin-uni-manifest
 import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
-// @see https://github.com/uni-helper/vite-plugin-uni-components
-import Components from '@uni-helper/vite-plugin-uni-components'
 // @see https://unocss.dev/
 import UnoCSS from 'unocss/vite'
-// import autoprefixer from 'autoprefixer'
 // @see https://github.com/jpkleemans/vite-svg-loader
 import svgLoader from 'vite-svg-loader'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-// @see https://github.com/vbenjs/vite-plugin-vue-setup-extend
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
-// @see https://github.com/vbenjs/vite-plugin-svg-icons
 import AutoImport from 'unplugin-auto-import/vite'
-// import viteCompression from 'vite-plugin-compression'
-import ViteRestart from 'vite-plugin-restart'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { visualizer } from 'rollup-plugin-visualizer'
-// import imagemin from './vite-plugins/imagemin'
-
-console.log('process.platform -> ', process.platform)
+import ViteRestart from 'vite-plugin-restart'
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
@@ -40,13 +30,16 @@ export default ({ command, mode }) => {
   // pnpm build:h5 时得到 => build production
   // pnpm dev:mp-weixin 时得到 => build development (注意区别，command为build)
   // pnpm build:mp-weixin 时得到 => build production
+  // pnpm dev:app 时得到 => build development (注意区别，command为build)
+  // pnpm build:app 时得到 => build production
+  // dev 和 build 命令可以分别使用 .env.development 和 .env.production 的环境变量
 
-  // process.cwd(): 获取当前文件的目录跟地址
-  // loadEnv(): 返回当前环境env文件中额外定义的变量
+  const { UNI_PLATFORM } = process.env
+  console.log('UNI_PLATFORM -> ', UNI_PLATFORM) // 得到 mp-weixin, h5, app 等
+
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
-  console.log('env -> ', env)
-  console.log('process.env.UNI_PLATFORM: ', process.env.UNI_PLATFORM) // 得到 mp-weixin, h5, app 等
-  console.log('isH5: ', process.env.UNI_PLATFORM === 'h5') // 得到 mp-weixin, h5, app 等
+  const { VITE_APP_PORT, VITE_SERVER_BASEURL, VITE_DELETE_CONSOLE, VITE_SHOW_SOURCEMAP } = env
+  console.log('环境变量 env -> ', env)
 
   return defineConfig({
     envDir: './env', // 自定义env目录
@@ -58,12 +51,11 @@ export default ({ command, mode }) => {
         // homePage 通过 vue 文件的 route-block 的type="home"来设定
         // pages 目录为 src/pages，分包目录不能配置在pages目录下
         // subPackages: ['src/pages-sub'], // 是个数组，可以配置多个，但是不能为pages里面的目录
+        dts: 'src/types/uni-pages.d.ts',
       }),
       UniLayouts(),
       UniPlatform(),
       UniManifest(),
-      // 自动安装 src/components 里面的组件为全局组件，非全局组件不要放到 src/components
-      Components(),
       // UniXXX 需要在 Uni 之前引入
       Uni(),
       UnoCSS(),
@@ -71,47 +63,38 @@ export default ({ command, mode }) => {
       svgLoader({
         defaultImport: 'url', // or 'raw'
       }),
-      createSvgIconsPlugin({
-        // 指定要缓存的文件夹
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
-        // 指定symbolId格式
-        symbolId: 'icon-[dir]-[name]',
-      }),
-      vueSetupExtend(),
       AutoImport({
         imports: ['vue', 'uni-app'],
-        dts: 'src/auto-import.d.ts',
-        // dirs: ['src/hooks'], // 自动导入 hooks
-        eslintrc: { enabled: false },
+        dts: 'src/types/auto-import.d.ts',
+        dirs: ['src/hooks'], // 自动导入 hooks
+        eslintrc: { enabled: true },
         vueTemplate: true, // default false
       }),
 
-      // viteCompression(),
+      vueSetupExtend(),
       ViteRestart({
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],
       }),
       // h5环境增加编译时间
-      process.env.UNI_PLATFORM === 'h5' && {
+      UNI_PLATFORM === 'h5' && {
         name: 'html-transform',
         transformIndexHtml(html) {
           return html.replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
         },
       },
-      // 打包分析插件
-      mode === 'production' &&
+      // 打包分析插件，h5 + 生产环境才弹出
+      UNI_PLATFORM === 'h5' &&
+        mode === 'production' &&
         visualizer({
           filename: './node_modules/.cache/visualizer/stats.html',
           open: true,
           gzipSize: true,
           brotliSize: true,
         }),
-      // 这个图片压缩插件比较耗时，希望仅在生产环境使用
-      // TODO: 缓存每次压缩过的图片，已经压缩过的不再压缩
-      // imagemin(mode === 'production'),
     ],
     define: {
-      __UNI_PLATFORM__: JSON.stringify(process.env.UNI_PLATFORM),
+      __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
     },
     css: {
       postcss: {
@@ -133,23 +116,26 @@ export default ({ command, mode }) => {
     server: {
       host: '0.0.0.0',
       hmr: true,
-      port: Number.parseInt(env.VITE_APP_PORT, 10),
+      port: Number.parseInt(VITE_APP_PORT, 10),
+      proxy: {
+        '/api': {
+          target: VITE_SERVER_BASEURL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
     },
     build: {
+      // 方便非h5端调试
+      sourcemap: VITE_SHOW_SOURCEMAP === 'true', // 默认是false
+      target: 'es6',
       minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: env.VITE_DELETE_CONSOLE === 'true',
-          drop_debugger: env.VITE_DELETE_CONSOLE === 'true',
+          drop_console: VITE_DELETE_CONSOLE === 'true',
+          drop_debugger: true,
         },
       },
-      // 解决windows系统对微信小程序自动关闭服务的问题
-      watch:
-        process.platform === 'win32' // 检测是否为 windows 系统
-          ? {
-              exclude: ['node_modules/**', '/__uno.css'],
-            }
-          : null,
     },
   })
 }

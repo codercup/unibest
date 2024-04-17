@@ -1,13 +1,16 @@
 /* eslint-disable no-param-reassign */
 import qs from 'qs'
 import { useUserStore } from '@/store'
+import { platform } from '@/utils/platform'
 
 export type CustomRequestOptions = UniApp.RequestOptions & {
   query?: Record<string, any>
+  /** 出错时是否隐藏错误提示 */
+  hideErrorToast?: boolean
 } & IUniUploadFileOptions // 添加uni.uploadFile参数类型
 
-// 请求基地址
-const baseURL = import.meta.env.VITE_SERVER_BASEURL
+// 请求基准地址
+const baseUrl = import.meta.env.VITE_SERVER_BASEURL
 
 // 拦截器配置
 const httpInterceptor = {
@@ -22,19 +25,19 @@ const httpInterceptor = {
         options.url += `?${queryStr}`
       }
     }
-
-    // 1. 非 http 开头需拼接地址
+    // 非 http 开头需拼接地址
     if (!options.url.startsWith('http')) {
-      options.url = baseURL + options.url
+      options.url = baseUrl + options.url
+      // TIPS: 如果需要对接多个后端服务，也可以在这里处理，拼接成所需要的地址
     }
-    // 2. 请求超时
+    // 1. 请求超时
     options.timeout = 10000 // 10s
-    // 3. 添加小程序端请求头标识
+    // 2. （可选）添加小程序端请求头标识
     options.header = {
-      platform: 'mp-weixin', // 可选值与 uniapp 定义的平台一致，告诉后台来源
+      platform, // 可选，与 uniapp 定义的平台一致，告诉后台来源
       ...options.header,
     }
-    // 4. 添加 token 请求头标识
+    // 3. 添加 token 请求头标识
     const userStore = useUserStore()
     const { token } = userStore.userInfo as unknown as IUserInfo
     if (token) {
