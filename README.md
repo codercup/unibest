@@ -159,8 +159,8 @@ Copyright (c) 2024 菲鸽
 
 扫码进微信群，微信群7天过期，作者会定期维护，争取读者每次打开都是可用的。
 
-①群、②群已满，下面是③群：
+①②③群已满，下面是④群：
 
 <p align='center'>
-<img alt="special sponsor appwrite" src="https://mp-5b51e857-a600-4088-83fd-10c4c5133d89.cdn.bspapp.com/fg/wx-group.jpg" width="300" style="margin-left:0px;">
+<img alt="special sponsor appwrite" src="https://oss.laf.run/ukw0y1-site/wx-group.jpg" width="300" style="margin-left:0px;">
 </p>
