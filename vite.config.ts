@@ -117,6 +117,7 @@ export default ({ command, mode }) => {
       host: '0.0.0.0',
       hmr: true,
       port: Number.parseInt(VITE_APP_PORT, 10),
+      // 仅 H5 端生效，其他端不生效（其他端走build，不走devServer)
       proxy: {
         '/api': {
           target: VITE_SERVER_BASEURL,
