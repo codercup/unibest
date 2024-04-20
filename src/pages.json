@@ -9,7 +9,6 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^fg-(.*)": "@/components/fg-$1.vue",
       "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
     }
   },
