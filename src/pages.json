@@ -111,6 +111,14 @@
       }
     },
     {
+      "path": "pages/demo/base/iconfont",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "iconfont"
+      }
+    },
+    {
       "path": "pages/demo/base/mock",
       "type": "page",
       "layout": "demo",
