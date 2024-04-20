@@ -20,23 +20,12 @@
       <wd-button type="primary" @click="gotoPage('i18n')">进入多语言页面</wd-button>
       <wd-button type="primary" @click="gotoPage('request')" class="ml-2">去请求页</wd-button>
     </view>
-
-    <view class="text-center py-4">
-      当前平台是：
-      <text class="text-red-500">{{ PLATFORM.platform }}</text>
-    </view>
-    <view class="text-center desc mt-10">设计稿样式编写：</view>
-    <view class="text-center desc">设计稿是750px，css里面全部写rpx 即可</view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import PLATFORM from '@/utils/platform'
-
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
-
-console.log(PLATFORM)
 
 const gotoPage = (page: string) => {
   uni.navigateTo({

@@ -1,5 +1,5 @@
 <template>
-  <view class="text-center p-4">
+  <view class="demo-layout">
     <slot />
   </view>
 </template>
