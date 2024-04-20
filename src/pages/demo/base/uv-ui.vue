@@ -15,6 +15,12 @@
         :options="options"
       ></uv-qrcode>
     </view>
+    <view class="m-4 flex">
+      <uv-icon name="home"></uv-icon>
+      <uv-icon name="home" color="red"></uv-icon>
+      <uv-icon name="home" class="text-green"></uv-icon>
+      <uv-icon name="home" color="red" class="text-green"></uv-icon>
+    </view>
   </view>
 </template>
 

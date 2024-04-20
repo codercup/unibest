@@ -9,5 +9,7 @@
   <view class="m-4">
     <uni-icons type="contact" size="30"></uni-icons>
     <uni-icons type="contact" size="30" color="red"></uni-icons>
+    <uni-icons type="contact" size="30" class="text-green"></uni-icons>
+    <uni-icons type="contact" size="30" color="red" class="text-green"></uni-icons>
   </view>
 </template>
