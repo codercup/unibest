@@ -28,7 +28,7 @@
       <text class="text-green-500">tabbar</text>
     </view>
   </view>
-  <tabbar />
+  <fg-tabbar />
 </template>
 
 <script lang="ts" setup>

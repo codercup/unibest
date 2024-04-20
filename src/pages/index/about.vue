@@ -23,7 +23,7 @@
       </wd-button>
     </view>
   </view>
-  <tabbar />
+  <fg-tabbar />
 </template>
 
 <script lang="ts" setup>
