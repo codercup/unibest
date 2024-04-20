@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 // 全局要用的类型放到这里
 
 type IResData<T> = {

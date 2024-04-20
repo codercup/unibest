@@ -60,6 +60,14 @@
       "style": {
         "navigationBarTitleText": "请求"
       }
+    },
+    {
+      "path": "pages/index/request2",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "请求"
+      }
     }
   ],
   "subPackages": []
