@@ -4,7 +4,10 @@
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "noImplicitThis": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
@@ -12,13 +15,7 @@
     },
     "outDir": "dist",
     "lib": ["esnext", "dom"],
-    "types": [
-      "@dcloudio/types",
-      "@types/wechat-miniprogram",
-      "wot-design-uni/global.d.ts",
-      "./components.d.ts",
-      "./global.d.ts"
-    ]
+    "types": ["@dcloudio/types", "@types/wechat-miniprogram", "wot-design-uni/global.d.ts"]
   },
   "vueCompilerOptions": {
     "target": 3,
