@@ -17,5 +17,18 @@
     <view class="i-carbon-car" />
     <view class="i-carbon-car text-red" />
     <button class="i-carbon-sun dark:i-carbon-moon" />
+    <view class="h-10"></view>
+    <view class="i-carbon-user-avatar text-red" />
+    <view :class="`i-carbon-user-avatar`" />
+    <view :class="iconName" />
   </view>
 </template>
+
+<script lang="ts" setup>
+const iconName = ref<string>('i-carbon-car')
+onLoad(() => {
+  setTimeout(() => {
+    iconName.value = 'i-carbon-user-avatar'
+  }, 1000)
+})
+</script>

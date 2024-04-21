@@ -33,6 +33,9 @@
       <wd-icon name="add-circle" color="red"></wd-icon>
       <wd-icon class="text-green" name="add-circle"></wd-icon>
       <wd-icon class="text-green" name="add-circle" color="red"></wd-icon>
+      <wd-icon class="text-green w-10 h-10" name="add-circle" color="red"></wd-icon>
+
+      <wd-icon :name="iconName"></wd-icon>
     </view>
 
     <view @click="closeOutside" class="mt-4">
@@ -60,6 +63,13 @@ function handleClick() {
 function handleClose() {
   value.value = false
 }
+
+const iconName = ref<string>('add-circle')
+onLoad(() => {
+  setTimeout(() => {
+    iconName.value = 'check'
+  }, 1000)
+})
 </script>
 
 <style lang="scss" scoped>
