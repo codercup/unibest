@@ -15,6 +15,18 @@
         :options="options"
       ></uv-qrcode>
     </view>
+    <view class="m-4 flex">
+      <uv-icon name="home"></uv-icon>
+      <uv-icon name="home" color="red"></uv-icon>
+      <uv-icon name="home" class="text-green"></uv-icon>
+      <uv-icon name="home" color="red" class="text-green"></uv-icon>
+      <uv-icon name="home" color="red" class="text-green" size="20"></uv-icon>
+      <uv-icon name="home" color="red" class="text-green w-10 h-10" size="20"></uv-icon>
+      <uv-icon name="home" color="red" class="text-green w-20 h-20"></uv-icon>
+      <uv-icon name="home" color="red" class="text-green w-10" size="20"></uv-icon>
+
+      <uv-icon :name="iconName"></uv-icon>
+    </view>
   </view>
 </template>
 
@@ -42,6 +54,13 @@ const remakeQc = () => {
     },
   })
 }
+
+const iconName = ref<string>('level')
+onLoad(() => {
+  setTimeout(() => {
+    iconName.value = 'chat'
+  }, 1000)
+})
 </script>
 
 <style lang="scss" scoped>
