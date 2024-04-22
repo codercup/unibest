@@ -7,13 +7,11 @@
     "antfu.unocss",
     "antfu.iconify",
     "evils.uniapp-vscode",
-    "mrmaoddxxaa.create-uniapp-view",
     "uni-helper.uni-helper-vscode",
     "uni-helper.uni-app-schemas-vscode",
     "uni-helper.uni-highlight-vscode",
     "uni-helper.uni-ui-snippets-vscode",
     "uni-helper.uni-app-snippets-vscode",
-    "uni-helper.uni-cloud-snippets-vscode",
     "mrmlnc.vscode-json5"
   ]
 }
