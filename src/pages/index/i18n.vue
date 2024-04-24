@@ -16,6 +16,7 @@
     <view class="text-green-500">多语言测试</view>
     <view class="m-4">{{ $t('app.name') }}</view>
     <view class="m-4">{{ $t('weight', { heavy: 100 }) }}</view>
+    <view class="m-4">{{ formatString(translate('weight2'), 100) }}</view>
 
     <view class="text-green-500 mt-12">切换语言</view>
     <view class="uni-list">
@@ -35,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import i18n from '@/locale/index'
+import i18n, { formatString, translate } from '@/locale/index'
 import { testI18n } from '@/utils/i18n'
 
 const current = ref(uni.getLocale())

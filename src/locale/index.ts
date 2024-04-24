@@ -34,4 +34,19 @@ export const translate = (localeKey: string) => {
   }
   return localeKey
 }
+
+/**
+ * formatString('已阅读并同意{0}和{1}','用户协议','隐私政策') -> 已阅读并同意用户协议和隐私政策
+ * @param template
+ * @param values
+ * @returns
+ */
+export function formatString(template: string, ...values: any) {
+  console.log(template, values)
+  // 使用map来替换{0}, {1}, ...等占位符
+  return template.replace(/{(\d+)}/g, (match, index) => {
+    const value = values[index]
+    return value !== undefined ? value : match
+  })
+}
 export default i18n
