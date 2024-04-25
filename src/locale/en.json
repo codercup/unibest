@@ -1,5 +1,6 @@
 {
   "weight": "{heavy}KG",
   "weight2": "{0}KG",
+  "introduction": "I am {name},height:{detail.height},weight:{detail.weight}",
   "app.name": "En Title"
 }
