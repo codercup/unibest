@@ -49,4 +49,26 @@ export function formatString(template: string, ...values: any) {
     return value !== undefined ? value : match
   })
 }
+
+/**
+ * formatStr('我是{name},身高{detail.height},体重{detail.weight}',{name:'张三',detail:{height:178,weight:'75kg'}})
+ * 暂不支持数组
+ * @param template
+ * @param data
+ * @returns
+ */
+export function formatStr(template, data) {
+  const match = /\{(.*?)\}/g.exec(template)
+  if (match) {
+    const variableList = match[0].replace('{', '').replace('}', '').split('.')
+    let result = data
+    for (let i = 0; i < variableList.length; i++) {
+      result = result[variableList[i]] || ''
+    }
+    return formatStr(template.replace(match[0], result), data)
+  } else {
+    return template
+  }
+}
+
 export default i18n
