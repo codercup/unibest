@@ -1,7 +1,8 @@
 // uno.config.ts
 import {
-  Preset,
+  type Preset,
   defineConfig,
+  presetUno,
   presetAttributify,
   presetIcons,
   transformerDirectives,
@@ -11,28 +12,25 @@ import {
 import { presetApplet, presetRemRpx, transformerAttributify } from 'unocss-applet'
 
 // @see https://unocss.dev/presets/legacy-compat
-import presetLegacyCompat from '@unocss/preset-legacy-compat'
+import { presetLegacyCompat } from '@unocss/preset-legacy-compat'
 
-const isH5 = process.env?.UNI_PLATFORM === 'h5'
 const isMp = process.env?.UNI_PLATFORM?.startsWith('mp') ?? false
 
 const presets: Preset[] = []
-if (!isMp) {
-  /**
-   * you can add `presetAttributify()` here to enable unocss attributify mode prompt
-   * although preset is not working for applet, but will generate useless css
-   * 为了不生产无用的css,要过滤掉 applet
-   */
-  // 支持css class属性化，eg: `<button bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600" text="sm white">attributify Button</button>`
-  presets.push(presetAttributify())
-}
-if (!isH5) {
-  presets.push(presetRemRpx())
+if (isMp) {
+  // 使用小程序预设
+  presets.push(presetApplet(), presetRemRpx())
+} else {
+  presets.push(
+    // 非小程序用官方预设
+    presetUno(),
+    // 支持css class属性化
+    presetAttributify(),
+  )
 }
 export default defineConfig({
   presets: [
     ...presets,
-    presetApplet(),
     // 支持图标，需要搭配图标库，eg: @iconify-json/carbon, 使用 `<button class="i-carbon-sun dark:i-carbon-moon" />`
     presetIcons({
       scale: 1.2,

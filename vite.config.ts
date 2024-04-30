@@ -16,7 +16,6 @@ import UnoCSS from 'unocss/vite'
 // @see https://github.com/jpkleemans/vite-svg-loader
 import svgLoader from 'vite-svg-loader'
 import AutoImport from 'unplugin-auto-import/vite'
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { visualizer } from 'rollup-plugin-visualizer'
 import ViteRestart from 'vite-plugin-restart'
 
@@ -71,7 +70,6 @@ export default ({ command, mode }) => {
         vueTemplate: true, // default false
       }),
 
-      vueSetupExtend(),
       ViteRestart({
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],

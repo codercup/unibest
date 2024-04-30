@@ -33,6 +33,11 @@
 
 <script lang="ts" setup>
 import PLATFORM from '@/utils/platform'
+
+defineOptions({
+  name: 'Home',
+})
+
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 const author = ref('菲鸽')
