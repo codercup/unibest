@@ -46,6 +46,7 @@ export default ({ command, mode }) => {
 
     plugins: [
       UniPages({
+        dts: false,
         exclude: ['**/components/**/**.*'],
         routeBlockLang: 'json5', // 虽然设了默认值，但是vue文件还是要加上 lang="json5", 这样才能很好地格式化
         // homePage 通过 vue 文件的 route-block 的type="home"来设定
@@ -60,7 +61,8 @@ export default ({ command, mode }) => {
       UnoCSS(),
       AutoImport({
         imports: ['vue', 'uni-app'],
-        dts: 'src/auto-import.d.ts',
+        // dts: 'src/auto-import.d.ts',
+        dts: false,
         // dirs: ['src/hooks'], // 自动导入 hooks
         eslintrc: { enabled: false },
         vueTemplate: true, // default false
