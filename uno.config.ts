@@ -80,6 +80,13 @@ export default defineConfig({
 
 /**
  * 最终这一套组合下来会得到：
- * mp 里面：mt-4 => margin-top: 32rpx
- * h5 里面：mt-4 => margin-top: 1rem
+ * mp 里面：mt-4 => margin-top: 32rpx  == 16px
+ * h5 里面：mt-4 => margin-top: 1rem == 16px
+ *
+ * 另外，我们还可以推算出 UnoCSS 单位与设计稿差别4倍。
+ * 375 * 4 = 1500，把设计稿设置为1500，那么设计稿里多少px，unocss就写多少述职。
+ * 举个例子，设计稿显示某元素宽度100px，就写w-100即可。
+ *
+ * 如果是传统方式写样式，则推荐设计稿设置为 750，这样设计稿1px，代码写1rpx。
+ * rpx是响应式的，可以让不同设备的屏幕显示效果保持一致。
  */
