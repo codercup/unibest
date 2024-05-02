@@ -11,16 +11,9 @@ import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
 // @see https://github.com/uni-helper/vite-plugin-uni-manifest
 import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
-// @see https://github.com/uni-helper/vite-plugin-uni-components
-import Components from '@uni-helper/vite-plugin-uni-components'
 // @see https://unocss.dev/
 import UnoCSS from 'unocss/vite'
 // import autoprefixer from 'autoprefixer'
-// @see https://github.com/jpkleemans/vite-svg-loader
-import svgLoader from 'vite-svg-loader'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-// @see https://github.com/vbenjs/vite-plugin-vue-setup-extend
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 // @see https://github.com/vbenjs/vite-plugin-svg-icons
 import AutoImport from 'unplugin-auto-import/vite'
 // import viteCompression from 'vite-plugin-compression'
@@ -62,22 +55,9 @@ export default ({ command, mode }) => {
       UniLayouts(),
       UniPlatform(),
       UniManifest(),
-      // 自动安装 src/components 里面的组件为全局组件，非全局组件不要放到 src/components
-      Components(),
       // UniXXX 需要在 Uni 之前引入
       Uni(),
       UnoCSS(),
-      // svg 可以当做组件来使用(Vite plugin to load SVG files as Vue components, using SVGO for optimization.)
-      svgLoader({
-        defaultImport: 'url', // or 'raw'
-      }),
-      createSvgIconsPlugin({
-        // 指定要缓存的文件夹
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
-        // 指定symbolId格式
-        symbolId: 'icon-[dir]-[name]',
-      }),
-      vueSetupExtend(),
       AutoImport({
         imports: ['vue', 'uni-app'],
         dts: 'src/auto-import.d.ts',
