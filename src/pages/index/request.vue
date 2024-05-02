@@ -35,7 +35,7 @@
   </view>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { getFooAPI, postFooAPI } from '@/service/foo'
 
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
