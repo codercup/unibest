@@ -11,7 +11,7 @@
     class="bg-white overflow-hidden pt-2 px-4"
     :style="{ marginTop: safeAreaInsets?.top + 'px' }"
   >
-    <view class="text-center text-3xl mt-4">关于页面</view>
+    <view class="text-center text-3xl mt-4 test-css">关于页面</view>
     <view class="text-center text-3xl mt-8">
       鸽友们好，我是
       <text class="text-red-500">菲鸽</text>
@@ -38,7 +38,8 @@ const gotoPage = (page: string) => {
 </script>
 
 <style lang="scss" scoped>
-.desc {
-  height: 80rpx;
+.test-css {
+  // mt-4=>1rem=>16px;
+  margin-top: 16px;
 }
 </style>
