@@ -22,7 +22,8 @@
 </template>
 
 <script lang="ts" setup>
-const { loading, data, run } = useUpload<string>('https://ukw0y1.laf.run/upload', { user: '菲鸽' })
+// const { loading, data, run } = useUpload2<string>('https://ukw0y1.laf.run/upload', { user: '菲鸽' })
+const { loading, data, run } = useUpload<string>({ user: '菲鸽' })
 </script>
 
 <style lang="scss" scoped>

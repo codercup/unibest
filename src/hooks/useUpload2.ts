@@ -1,13 +1,15 @@
 /**
  * useUpload 是一个定制化的请求钩子，用于处理异步请求和响应。
+ * @param url 上传图片的后台地址，如 https://ukw0y1.laf.run/upload。
+ * 如果上传地址是固定的，那就可以配置到 .env 里面，函数里面不需要再传了。
  * @param formData 额外传递给后台的数据，如{name: '菲鸽'}。
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
-export default function useUpload<T>(formData: Record<string, any> = {}) {
+export default function useUpload<T>(url: string, formData: Record<string, any> = {}) {
   const loading = ref(false)
   const error = ref(false)
   const data = ref<T>()
-  const url = import.meta.env.VITE_UPLOAD_BASEURL
+
   const run = () => {
     // #ifdef MP-WEIXIN
     // 微信小程序从基础库 2.21.0 开始， wx.chooseImage 停止维护，请使用 uni.chooseMedia 代替。
