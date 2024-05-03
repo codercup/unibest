@@ -42,3 +42,6 @@ package-lock.json
 # git rm -r --cached file1 file2  ## 针对某些文件
 # git rm -r --cached dir1 dir2  ## 针对某些文件夹
 # git rm -r --cached .  ## 针对所有文件
+
+# 更新 uni-app 官方版本
+# npx @dcloudio/uvm@latest
