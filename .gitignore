@@ -22,12 +22,9 @@ dist
 .hbuilderx
 
 .stylelintcache
-# rollup-plugin-visualizer 生成的分析文件
-stats.html
+
 # unplugin-auto-import 生成的类型文件
 auto-import.d.ts
-# unplugin-vue-components 生成的类型文件
-components.d.ts
 # vite-plugin-uni-pages 生成的类型文件
 uni-pages.d.ts
 
@@ -36,7 +33,6 @@ src/pages.json
 src/manifest.json
 
 # lock 文件还是不要了，我主要的版本写死就好了
-# github actions 需要这些文件，所以main分支需要留着
 pnpm-lock.yaml
 package-lock.json
 
