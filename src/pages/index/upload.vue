@@ -32,7 +32,7 @@ const chooseImage = () => {
       console.log(res)
       const tempFilePath = res.tempFiles[0].tempFilePath
       uni.uploadFile({
-        url: 'https://ukw0y1.laf.run/uploadFile',
+        url: 'https://ukw0y1.laf.run/upload',
         filePath: tempFilePath,
         name: 'file',
         formData: {
@@ -53,7 +53,7 @@ const chooseImage = () => {
       console.log(res)
       const tempFilePath = res.tempFilePaths[0]
       uni.uploadFile({
-        url: 'https://ukw0y1.laf.run/uploadFile',
+        url: 'https://ukw0y1.laf.run/upload',
         filePath: tempFilePath,
         name: 'file',
         formData: {
