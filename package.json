@@ -96,7 +96,7 @@
     "dayjs": "1.11.10",
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
-    "qs": "^6.11.2",
+    "qs": "6.5.3",
     "vue": "3.3.11",
     "wot-design-uni": "^1.2.13"
   },
