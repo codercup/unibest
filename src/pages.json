@@ -75,6 +75,14 @@
       "style": {
         "navigationBarTitleText": "上传"
       }
+    },
+    {
+      "path": "pages/index/upload2",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "上传"
+      }
     }
   ],
   "subPackages": []

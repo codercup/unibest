@@ -24,6 +24,7 @@
     </view>
     <view class="text-center mt-8 text-#fff">
       <wd-button type="primary" @click="gotoPage('upload')">上传demo</wd-button>
+      <wd-button type="primary" @click="gotoPage('upload2')">上传demo2(请求状态一体化)</wd-button>
     </view>
   </view>
 </template>

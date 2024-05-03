@@ -87,6 +87,7 @@
     "watchEffect": true,
     "watchPostEffect": true,
     "watchSyncEffect": true,
-    "useRequest": true
+    "useRequest": true,
+    "useUpload": true
   }
 }
