@@ -1,5 +1,5 @@
 /**
- * useUpload 是一个定制化的请求钩子，用于处理异步请求和响应。
+ * useUpload 是一个定制化的请求钩子，用于处理上传图片。
  * @param formData 额外传递给后台的数据，如{name: '菲鸽'}。
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */

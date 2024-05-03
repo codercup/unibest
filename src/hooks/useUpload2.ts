@@ -1,5 +1,5 @@
 /**
- * useUpload 是一个定制化的请求钩子，用于处理异步请求和响应。
+ * useUpload 是一个定制化的请求钩子，用于处理上传图片。
  * @param url 上传图片的后台地址，如 https://ukw0y1.laf.run/upload。
  * 如果上传地址是固定的，那就可以配置到 .env 里面，函数里面不需要再传了。
  * @param formData 额外传递给后台的数据，如{name: '菲鸽'}。
