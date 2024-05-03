@@ -13,8 +13,6 @@ import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
 import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 // @see https://unocss.dev/
 import UnoCSS from 'unocss/vite'
-// @see https://github.com/jpkleemans/vite-svg-loader
-import svgLoader from 'vite-svg-loader'
 import AutoImport from 'unplugin-auto-import/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
 import ViteRestart from 'vite-plugin-restart'
@@ -58,10 +56,6 @@ export default ({ command, mode }) => {
       // UniXXX 需要在 Uni 之前引入
       Uni(),
       UnoCSS(),
-      // svg 可以当做组件来使用(Vite plugin to load SVG files as Vue components, using SVGO for optimization.)
-      svgLoader({
-        defaultImport: 'url', // or 'raw'
-      }),
       AutoImport({
         imports: ['vue', 'uni-app'],
         dts: 'src/types/auto-import.d.ts',
