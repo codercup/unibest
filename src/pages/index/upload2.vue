@@ -2,7 +2,7 @@
 {
   layout: 'default',
   style: {
-    navigationBarTitleText: '上传',
+    navigationBarTitleText: '上传-状态一体化',
   },
 }
 </route>
