@@ -51,21 +51,21 @@ export function formatString(template: string, ...values: any) {
 }
 
 /**
- * formatStr('我是{name},身高{detail.height},体重{detail.weight}',{name:'张三',detail:{height:178,weight:'75kg'}})
+ * formatI18n('我是{name},身高{detail.height},体重{detail.weight}',{name:'张三',detail:{height:178,weight:'75kg'}})
  * 暂不支持数组
- * @param template
- * @param data
+ * @param template 多语言模板字符串，eg: `我是{name}`
+ * @param obj 需要传递的数据对象，里面的key与多语言字符串对应，eg: `{name:'菲鸽'}`
  * @returns
  */
-export function formatStr(template, data) {
+export function formatI18n(template, obj) {
   const match = /\{(.*?)\}/g.exec(template)
   if (match) {
     const variableList = match[0].replace('{', '').replace('}', '').split('.')
-    let result = data
+    let result = obj
     for (let i = 0; i < variableList.length; i++) {
       result = result[variableList[i]] || ''
     }
-    return formatStr(template.replace(match[0], result), data)
+    return formatI18n(template.replace(match[0], result), obj)
   } else {
     return template
   }
