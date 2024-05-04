@@ -10,8 +10,14 @@
   <view class="center flex-col mt-6">
     <view class="text-red-500 p-4 leading-6">
       经过我的测试发现，小程序里面会有2处BUG：
-      <view>1. 页面标题多语言不生效</view>
-      <view>2. 多语言传递的参数不生效，如下 heavy</view>
+      <view>
+        <text class="line-through">1. 页面标题多语言不生效</text>
+        <text class="ml-2 text-green-500">已解决</text>
+      </view>
+      <view>
+        <text class="line-through">2. 多语言传递的参数不生效，如下 heavy</text>
+        <text class="ml-2 text-green-500">已解决</text>
+      </view>
     </view>
     <view class="text-green-500">多语言测试</view>
     <view class="m-4">{{ $t('app.name') }}</view>
