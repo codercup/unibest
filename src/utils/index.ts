@@ -1,3 +1,4 @@
+// @ts-expect-error import json file
 import { pages, subPackages, tabBar } from '@/pages.json'
 
 /** 判断当前页面是否是tabbar页  */
