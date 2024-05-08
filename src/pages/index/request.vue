@@ -41,15 +41,15 @@ import { getFooAPI, postFooAPI, IFooItem } from '@/service/index/foo'
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
 
 onLoad(() => {
-  getFoo()
   postFoo()
 })
 
-const originalData = ref<IResData<IFooItem>>()
-const data = ref<IFooItem>()
+const originalData = ref<IFooItem>()
+const { data, run } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
+  immediate: false,
+})
 const getFoo = async () => {
-  const res = await getFooAPI('菲鸽')
-  data.value = res.data
+  const res = await run()
   originalData.value = res
 }
 
