@@ -41,6 +41,7 @@ export const http = <T>(options: CustomRequestOptions) => {
     })
   })
 }
+
 /**
  * GET 请求
  * @param url 后台地址
@@ -74,3 +75,6 @@ export const httpPost = <T>(
     method: 'POST',
   })
 }
+
+http.get = httpGet
+http.post = httpPost

@@ -1,16 +1,18 @@
-import pagesJson from '@/pages.json'
-
-console.log(pagesJson)
+import { pages, subPackages, tabBar } from '@/pages.json'
 
 /** 判断当前页面是否是tabbar页  */
 export const getIsTabbar = () => {
-  if (!Object.keys(pagesJson).includes('tabBar')) {
+  if (!tabBar) {
     return false
   }
-  const pages = getCurrentPages()
-  const lastPage = pages.at(-1)
+  if (!tabBar.list.length) {
+    // 通常有tabBar的话，list不能有空，且至少有2个元素，这里其实不用处理
+    return false
+  }
+  // getCurrentPages() 至少有1个元素，所以不再额外判断
+  const lastPage = getCurrentPages().at(-1)
   const currPath = lastPage.route
-  return !!pagesJson.tabBar.list.find((e) => e.pagePath === currPath)
+  return !!tabBar.list.find((e) => e.pagePath === currPath)
 }
 
 /**
@@ -19,10 +21,8 @@ export const getIsTabbar = () => {
  * redirectPath 如 ‘/pages/demo/base/route-interceptor’
  */
 export const currRoute = () => {
-  const pages = getCurrentPages()
-  console.log('pages:', pages)
-
-  const lastPage = pages.at(-1)
+  // getCurrentPages() 至少有1个元素，所以不再额外判断
+  const lastPage = getCurrentPages().at(-1)
   const currRoute = (lastPage as any).$page
   // console.log('lastPage.$page:', currRoute)
   // console.log('lastPage.$page.fullpath:', currRoute.fullPath)
@@ -66,8 +66,8 @@ export const getUrlObj = (url: string) => {
  */
 export const getAllPages = (key = 'needLogin') => {
   // 这里处理主包
-  const pages = [
-    ...pagesJson.pages
+  const mainPages = [
+    ...pages
       .filter((page) => !key || page[key])
       .map((page) => ({
         ...page,
@@ -76,7 +76,7 @@ export const getAllPages = (key = 'needLogin') => {
   ]
   // 这里处理分包
   const subPages: any[] = []
-  pagesJson.subPackages.forEach((subPageObj) => {
+  subPackages.forEach((subPageObj) => {
     // console.log(subPageObj)
     const { root } = subPageObj
 
@@ -89,7 +89,7 @@ export const getAllPages = (key = 'needLogin') => {
         })
       })
   })
-  const result = [...pages, ...subPages]
+  const result = [...mainPages, ...subPages]
   console.log(`getAllPages by ${key} result: `, result)
   return result
 }

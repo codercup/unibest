@@ -3,7 +3,8 @@
 module.exports = {
   root: true,
   extends: [
-    'stylelint-config-standard',
+    // stylelint-config-standard 替换成了更宽松的 stylelint-config-recommended
+    'stylelint-config-recommended',
     // stylelint-config-standard-scss 替换成了更宽松的 stylelint-config-recommended-scss
     'stylelint-config-recommended-scss',
     'stylelint-config-recommended-vue/scss',
