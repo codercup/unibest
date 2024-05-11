@@ -27,16 +27,15 @@ export default defineUniPages({
     spacing: '3px',
     list: [
       {
-        iconPath: 'static/tabbar/home.png',
-        selectedIconPath: 'static/tabbar/homeHL.png',
         pagePath: 'pages/index/index',
+        icon: 'home',
         text: '首页',
       },
       {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
-        pagePath: 'pages/index/about',
-        text: '关于',
+        pagePath: 'pages/my/index',
+        icon: 'i-carbon-user-avatar',
+        isUnocssIcon: true,
+        text: '我的',
       },
     ],
   },
