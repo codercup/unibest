@@ -33,8 +33,9 @@ export default defineUniPages({
       },
       {
         pagePath: 'pages/my/index',
-        icon: 'i-carbon-user-avatar',
-        isUnocssIcon: true,
+        icon: 'user',
+        // 经过验证发现unocss这样跨文件动态图标，无法显示，所以先用wot icon 吧
+        // isUnocssIcon: true,
         text: '我的',
       },
     ],
