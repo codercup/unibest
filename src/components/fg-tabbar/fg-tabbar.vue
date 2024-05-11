@@ -36,6 +36,15 @@ function selectTabBar({ value: index }: { value: number }) {
 }
 onLoad(() => {
   // 解决原生 tabBar 未隐藏导致有2个 tabBar 的问题
-  uni.hideTabBar()
+  // #ifdef APP-PLUS
+  uni.hideTabBar({
+    fail(err) {
+      console.log('hideTabBar fail: ', err)
+    },
+    success(res) {
+      console.log('hideTabBar success: ', res)
+    },
+  })
+  // #endif
 })
 </script>
