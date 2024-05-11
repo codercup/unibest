@@ -28,15 +28,21 @@ export default defineUniPages({
     list: [
       {
         pagePath: 'pages/index/index',
-        icon: 'home',
         text: '首页',
+        icon: 'home',
+        iconType: 'wot',
+      },
+      {
+        pagePath: 'pages/index/about',
+        text: '关于',
+        icon: 'i-carbon-3d-mpr-toggle',
+        iconType: 'unocss',
       },
       {
         pagePath: 'pages/my/index',
-        icon: 'user',
-        // 经过验证发现unocss这样跨文件动态图标，无法显示，所以先用wot icon 吧
-        // isUnocssIcon: true,
         text: '我的',
+        icon: '/static/logo.svg',
+        iconType: 'local',
       },
     ],
   },

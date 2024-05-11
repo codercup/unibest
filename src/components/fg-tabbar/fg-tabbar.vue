@@ -8,7 +8,12 @@
     @change="selectTabBar"
   >
     <block v-for="(item, idx) in tabbarList" :key="item.path">
-      <!-- <wd-tabbar-item v-if="item.isUnocssIcon" :title="item.text">
+      <wd-tabbar-item
+        v-if="item.iconType === 'wot'"
+        :title="item.text"
+        :icon="item.icon"
+      ></wd-tabbar-item>
+      <wd-tabbar-item v-else-if="item.iconType === 'unocss'" :title="item.text">
         <template #icon>
           <view
             h-40rpx
@@ -16,13 +21,19 @@
             :class="[item.icon, idx === tabbarStore.curIdx ? 'is-active' : 'is-inactive']"
           ></view>
         </template>
-      </wd-tabbar-item> -->
-      <wd-tabbar-item :title="item.text" :icon="item.icon"></wd-tabbar-item>
+      </wd-tabbar-item>
+      <wd-tabbar-item v-else-if="item.iconType === 'local'" :title="item.text">
+        <template #icon>
+          <image :src="item.icon" h-40rpx w-40rpx />
+        </template>
+      </wd-tabbar-item>
     </block>
   </wd-tabbar>
 </template>
 
 <script setup lang="ts">
+// 只需要把外面的icon在这里写一遍就能生效了！注释掉也是生效的，但是必须要有！
+// i-carbon-3d-mpr-toggle
 import { tabBar } from '@/pages.json'
 import { tabbarStore } from './tabbar'
 
