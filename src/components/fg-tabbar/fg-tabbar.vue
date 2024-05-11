@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-// 只需要把外面的icon在这里写一遍就能生效了！注释掉也是生效的，但是必须要有！
+// unocss icon 默认不生效，需要在这里写一遍才能生效！注释掉也是生效的，但是必须要有！
 // i-carbon-3d-mpr-toggle
 import { tabBar } from '@/pages.json'
 import { tabbarStore } from './tabbar'
