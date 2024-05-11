@@ -48,10 +48,6 @@ const description = ref(
 onLoad(() => {
   console.log(author)
 })
-onLoad(() => {
-  // tabbar模板，直接在首页隐藏即可，全局只需要这一次
-  uni.hideTabBar()
-})
 </script>
 
 <style>

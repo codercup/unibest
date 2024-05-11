@@ -13,9 +13,13 @@ export const tabbarList = [
   },
 ]
 
+/**
+ * tabbar 状态，增加 storageSync 保证刷新浏览器时在正确的 tabbar 页面
+ */
 export const tabbarStore = reactive({
-  curIdx: 0,
+  curIdx: uni.getStorageSync('curIdx') || 0,
   setCurIdx(idx: number) {
     this.curIdx = idx
+    uni.setStorageSync('curIdx', idx)
   },
 })

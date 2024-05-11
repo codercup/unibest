@@ -34,4 +34,8 @@ function selectTabBar({ value: index }: { value: number }) {
   tabbarStore.setCurIdx(index)
   uni.switchTab({ url })
 }
+onLoad(() => {
+  // 解决原生 tabBar 未隐藏导致有2个 tabBar 的问题
+  uni.hideTabBar()
+})
 </script>
