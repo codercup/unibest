@@ -8,7 +8,7 @@
     @change="selectTabBar"
   >
     <block v-for="(item, idx) in tabbarList" :key="item.path">
-      <wd-tabbar-item v-if="item.isUnocssIcon" :title="item.text">
+      <!-- <wd-tabbar-item v-if="item.isUnocssIcon" :title="item.text">
         <template #icon>
           <view
             h-40rpx
@@ -16,8 +16,8 @@
             :class="[item.icon, idx === tabbarStore.curIdx ? 'is-active' : 'is-inactive']"
           ></view>
         </template>
-      </wd-tabbar-item>
-      <wd-tabbar-item v-else :title="item.text" :icon="item.icon"></wd-tabbar-item>
+      </wd-tabbar-item> -->
+      <wd-tabbar-item :title="item.text" :icon="item.icon"></wd-tabbar-item>
     </block>
   </wd-tabbar>
 </template>

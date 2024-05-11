@@ -62,6 +62,7 @@ module.exports = {
     'no-plusplus': 'off',
     'no-shadow': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/no-unused-vars': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'no-underscore-dangle': 'off',
     'no-use-before-define': 'off',
