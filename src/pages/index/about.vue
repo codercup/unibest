@@ -30,11 +30,11 @@
       </wd-button>
     </view>
     <view class="text-center mt-8">
-      <text mr-2>iconfont:</text>
-      <view class="gap-2 text-red">
-        <i class="iconfont icon-my" />
-        <i class="iconfont icon-chat" />
-        <i class="iconfont icon-package" />
+      <text class="mr-2">iconfont:</text>
+      <view class="inline-flex gap-2 text-red">
+        <view class="iconfont icon-my" />
+        <view class="iconfont icon-chat" />
+        <view class="iconfont icon-package" />
       </view>
     </view>
   </view>
