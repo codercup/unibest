@@ -13,6 +13,7 @@
     }
   },
   "tabBar": {
+    "custom": true,
     "color": "#999999",
     "selectedColor": "#018d71",
     "backgroundColor": "#F8F8F8",
@@ -23,16 +24,22 @@
     "spacing": "3px",
     "list": [
       {
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "icon": "home",
+        "iconType": "wot"
       },
       {
-        "iconPath": "static/tabbar/example.png",
-        "selectedIconPath": "static/tabbar/exampleHL.png",
         "pagePath": "pages/index/about",
-        "text": "关于"
+        "text": "关于",
+        "icon": "i-carbon-3d-mpr-toggle",
+        "iconType": "unocss"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "icon": "/static/logo.svg",
+        "iconType": "local"
       }
     ]
   },
@@ -40,6 +47,7 @@
     {
       "path": "pages/index/index",
       "type": "home",
+      "layout": "tabbar",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "首页"
@@ -82,6 +90,14 @@
       "layout": "default",
       "style": {
         "navigationBarTitleText": "上传-状态一体化"
+      }
+    },
+    {
+      "path": "pages/my/index",
+      "type": "page",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     }
   ],
