@@ -31,11 +31,11 @@
     </view>
     <view class="text-center mt-8">
       <text mr-2>iconfont:</text>
-      <text class="gap-2 text-red">
+      <view class="gap-2 text-red">
         <i class="iconfont icon-my" />
         <i class="iconfont icon-chat" />
         <i class="iconfont icon-package" />
-      </text>
+      </view>
     </view>
   </view>
 </template>
