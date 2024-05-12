@@ -25,6 +25,14 @@
       <wd-button type="primary" @click="gotoPage('upload')">上传demo</wd-button>
       <wd-button type="primary" @click="gotoPage('upload2')">上传demo2(请求状态一体化)</wd-button>
     </view>
+    <view class="text-center mt-8">
+      <text mr-2>iconfont:</text>
+      <text class="gap-2 text-red">
+        <i class="iconfont icon-my" />
+        <i class="iconfont icon-chat" />
+        <i class="iconfont icon-package" />
+      </text>
+    </view>
   </view>
 </template>
 
