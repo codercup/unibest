@@ -89,6 +89,7 @@ export default defineManifestConfig({
   },
   'mp-alipay': {
     usingComponents: true,
+    styleIsolation: 'shared',
   },
   'mp-baidu': {
     usingComponents: true,
