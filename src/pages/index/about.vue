@@ -18,14 +18,14 @@
     </view>
     <view class="text-center mt-8 text-#fff">
       <wd-button type="primary" @click="gotoPage('request')">去请求页</wd-button>
-      <wd-button type="primary" @click="gotoPage('request2')" class="ml-2">
+      <wd-button type="primary" @click="gotoPage('request2')" custom-class="ml-2">
         去请求页2 (状态一体)
       </wd-button>
     </view>
 
     <view class="text-center mt-8 text-#fff">
       <wd-button type="primary" @click="gotoPage('upload')">上传demo</wd-button>
-      <wd-button type="primary" @click="gotoPage('upload2')" class="ml-2">
+      <wd-button type="primary" @click="gotoPage('upload2')" custom-class="ml-2">
         上传demo2(状态一体)
       </wd-button>
     </view>
