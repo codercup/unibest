@@ -13,7 +13,10 @@
         :title="item.text"
         :icon="item.icon"
       ></wd-tabbar-item>
-      <wd-tabbar-item v-else-if="item.iconType === 'unocss'" :title="item.text">
+      <wd-tabbar-item
+        v-else-if="item.iconType === 'unocss' || item.iconType === 'iconfont'"
+        :title="item.text"
+      >
         <template #icon>
           <view
             h-40rpx
@@ -33,7 +36,7 @@
 
 <script setup lang="ts">
 // unocss icon 默认不生效，需要在这里写一遍才能生效！注释掉也是生效的，但是必须要有！
-// i-carbon-3d-mpr-toggle
+// i-carbon-code
 import { tabBar } from '@/pages.json'
 import { tabbarStore } from './tabbar'
 

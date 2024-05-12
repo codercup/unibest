@@ -37,14 +37,20 @@ export default defineUniPages({
       {
         pagePath: 'pages/index/about',
         text: '关于',
-        icon: 'i-carbon-3d-mpr-toggle',
+        icon: 'i-carbon-code',
         iconType: 'unocss',
       },
+      // {
+      //   pagePath: 'pages/my/index',
+      //   text: '我的',
+      //   icon: '/static/logo.svg',
+      //   iconType: 'local',
+      // },
       {
         pagePath: 'pages/my/index',
         text: '我的',
-        icon: '/static/logo.svg',
-        iconType: 'local',
+        icon: 'iconfont icon-my',
+        iconType: 'iconfont',
       },
     ],
   },
