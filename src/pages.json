@@ -32,7 +32,7 @@
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/index/about",
+        "pagePath": "pages/about/about",
         "text": "关于"
       }
     ]
@@ -47,7 +47,7 @@
       }
     },
     {
-      "path": "pages/index/about",
+      "path": "pages/about/about",
       "type": "page",
       "style": {
         "navigationBarTitleText": "关于"
