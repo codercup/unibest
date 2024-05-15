@@ -6,7 +6,7 @@ const VITE_UPLOAD_BASEURL = import.meta.env.VITE_UPLOAD_BASEURL
  * @param formData 额外传递给后台的数据，如{name: '菲鸽'}。
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
-export default function useUpload<T>(formData: Record<string, any> = {}) {
+export default function useUpload<T = string>(formData: Record<string, any> = {}) {
   const loading = ref(false)
   const error = ref(false)
   const data = ref<T>()
@@ -18,7 +18,6 @@ export default function useUpload<T>(formData: Record<string, any> = {}) {
       count: 1,
       mediaType: ['image'],
       success: (res) => {
-        console.log(res)
         loading.value = true
         const tempFilePath = res.tempFiles[0].tempFilePath
         uploadFile<T>({ tempFilePath, formData, data, error, loading })
@@ -33,7 +32,6 @@ export default function useUpload<T>(formData: Record<string, any> = {}) {
     uni.chooseImage({
       count: 1,
       success: (res) => {
-        console.log(res)
         loading.value = true
         const tempFilePath = res.tempFilePaths[0]
         uploadFile<T>({ tempFilePath, formData, data, error, loading })
@@ -56,8 +54,7 @@ function uploadFile<T>({ tempFilePath, formData, data, error, loading }) {
     name: 'file',
     formData,
     success: (uploadFileRes) => {
-      console.log(uploadFileRes, typeof uploadFileRes.data)
-      data.value = JSON.parse(uploadFileRes.data) as T
+      data.value = uploadFileRes.data as T
     },
     fail: (err) => {
       console.log('uni.uploadFile err->', err)
