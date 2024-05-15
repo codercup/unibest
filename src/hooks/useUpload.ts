@@ -1,3 +1,6 @@
+// TODO: 别忘加更改环境变量的 VITE_UPLOAD_BASEURL 地址。
+const VITE_UPLOAD_BASEURL = import.meta.env.VITE_UPLOAD_BASEURL
+
 /**
  * useUpload 是一个定制化的请求钩子，用于处理上传图片。
  * @param formData 额外传递给后台的数据，如{name: '菲鸽'}。
@@ -7,7 +10,6 @@ export default function useUpload<T>(formData: Record<string, any> = {}) {
   const loading = ref(false)
   const error = ref(false)
   const data = ref<T>()
-  const url = import.meta.env.VITE_UPLOAD_BASEURL
   const run = () => {
     // #ifdef MP-WEIXIN
     // 微信小程序从基础库 2.21.0 开始， wx.chooseImage 停止维护，请使用 uni.chooseMedia 代替。
@@ -19,23 +21,7 @@ export default function useUpload<T>(formData: Record<string, any> = {}) {
         console.log(res)
         loading.value = true
         const tempFilePath = res.tempFiles[0].tempFilePath
-        uni.uploadFile({
-          url,
-          filePath: tempFilePath,
-          name: 'file',
-          formData,
-          success: (uploadFileRes) => {
-            console.log(uploadFileRes.data)
-            data.value = uploadFileRes.data as T
-          },
-          fail: (err) => {
-            console.log('uni.uploadFile err->', err)
-            error.value = true
-          },
-          complete: () => {
-            loading.value = false
-          },
-        })
+        uploadFile<T>({ tempFilePath, formData, data, error, loading })
       },
       fail: (err) => {
         console.log('uni.chooseMedia err->', err)
@@ -50,23 +36,7 @@ export default function useUpload<T>(formData: Record<string, any> = {}) {
         console.log(res)
         loading.value = true
         const tempFilePath = res.tempFilePaths[0]
-        uni.uploadFile({
-          url,
-          filePath: tempFilePath,
-          name: 'file',
-          formData,
-          success: (uploadFileRes) => {
-            console.log(uploadFileRes.data)
-            data.value = uploadFileRes.data as T
-          },
-          fail: (err) => {
-            console.log('uni.uploadFile err->', err)
-            error.value = true
-          },
-          complete: () => {
-            loading.value = false
-          },
-        })
+        uploadFile<T>({ tempFilePath, formData, data, error, loading })
       },
       fail: (err) => {
         console.log('uni.chooseImage err->', err)
@@ -77,4 +47,24 @@ export default function useUpload<T>(formData: Record<string, any> = {}) {
   }
 
   return { loading, error, data, run }
+}
+
+function uploadFile<T>({ tempFilePath, formData, data, error, loading }) {
+  uni.uploadFile({
+    url: VITE_UPLOAD_BASEURL,
+    filePath: tempFilePath,
+    name: 'file',
+    formData,
+    success: (uploadFileRes) => {
+      console.log(uploadFileRes, typeof uploadFileRes.data)
+      data.value = JSON.parse(uploadFileRes.data) as T
+    },
+    fail: (err) => {
+      console.log('uni.uploadFile err->', err)
+      error.value = true
+    },
+    complete: () => {
+      loading.value = false
+    },
+  })
 }
