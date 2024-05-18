@@ -23,10 +23,10 @@
     <!-- #endif -->
 
     <!-- http://localhost:9000/#/pages/index/request -->
-    <button @click="run" class="my-6">发送请求</button>
+    <wd-button @click="run" class="my-6">发送请求</wd-button>
     <view class="text-xl">请求数据如下</view>
     <view class="text-green h-6">{{ JSON.stringify(data) }}</view>
-    <button type="warn" @click="reset" class="my-6">清除数据</button>
+    <wd-button type="error" @click="reset" class="my-6">清除数据</wd-button>
   </view>
 </template>
 
