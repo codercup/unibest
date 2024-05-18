@@ -54,7 +54,7 @@
       }
     },
     {
-      "path": "pages/index/i18n",
+      "path": "pages/about/i18n",
       "type": "page",
       "style": {
         "navigationBarTitleText": "%app.name%"

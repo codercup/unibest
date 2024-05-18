@@ -15,6 +15,9 @@
       鸽友们好，我是
       <text class="text-red-500">菲鸽</text>
     </view>
+    <view class="text-center mt-8 text-#fff">
+      <wd-button type="success" @click="gotoPage('i18n')">进入多语言页面</wd-button>
+    </view>
     <RequestComp />
     <UploadComp />
   </view>
@@ -26,6 +29,12 @@ import UploadComp from './components/upload.vue'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
+
+const gotoPage = (path) => {
+  uni.navigateTo({
+    url: `/pages/about/${path}`,
+  })
+}
 </script>
 
 <style lang="scss" scoped>
