@@ -41,6 +41,7 @@ export default ({ command, mode }) => {
     VITE_DELETE_CONSOLE,
     VITE_SHOW_SOURCEMAP,
     VITE_APP_PROXY,
+    VITE_APP_PROXY_PREFIX,
   } = env
   console.log('环境变量 env -> ', env)
 
@@ -119,10 +120,10 @@ export default ({ command, mode }) => {
       // 仅 H5 端生效，其他端不生效（其他端走build，不走devServer)
       proxy: JSON.parse(VITE_APP_PROXY)
         ? {
-            '/api': {
+            [VITE_APP_PROXY_PREFIX]: {
               target: VITE_SERVER_BASEURL,
               changeOrigin: true,
-              rewrite: (path) => path.replace(/^\/api/, ''),
+              rewrite: (path) => path.replace(new RegExp(`^${VITE_APP_PROXY_PREFIX}`), ''),
             },
           }
         : undefined,
