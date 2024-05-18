@@ -35,7 +35,13 @@ export default ({ command, mode }) => {
   console.log('UNI_PLATFORM -> ', UNI_PLATFORM) // 得到 mp-weixin, h5, app 等
 
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
-  const { VITE_APP_PORT, VITE_SERVER_BASEURL, VITE_DELETE_CONSOLE, VITE_SHOW_SOURCEMAP } = env
+  const {
+    VITE_APP_PORT,
+    VITE_SERVER_BASEURL,
+    VITE_DELETE_CONSOLE,
+    VITE_SHOW_SOURCEMAP,
+    VITE_APP_PROXY,
+  } = env
   console.log('环境变量 env -> ', env)
 
   return defineConfig({
@@ -87,6 +93,7 @@ export default ({ command, mode }) => {
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
+      __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY),
     },
     css: {
       postcss: {
@@ -110,13 +117,15 @@ export default ({ command, mode }) => {
       hmr: true,
       port: Number.parseInt(VITE_APP_PORT, 10),
       // 仅 H5 端生效，其他端不生效（其他端走build，不走devServer)
-      // proxy: {
-      //   '/api': {
-      //     target: VITE_SERVER_BASEURL,
-      //     changeOrigin: true,
-      //     rewrite: (path) => path.replace(/^\/api/, ''),
-      //   },
-      // },
+      proxy: JSON.parse(VITE_APP_PROXY)
+        ? {
+            '/api': {
+              target: VITE_SERVER_BASEURL,
+              changeOrigin: true,
+              rewrite: (path) => path.replace(/^\/api/, ''),
+            },
+          }
+        : undefined,
     },
     build: {
       // 方便非h5端调试
