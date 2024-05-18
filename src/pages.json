@@ -55,42 +55,17 @@
       }
     },
     {
-      "path": "pages/index/about",
+      "path": "pages/about/about",
       "type": "page",
       "style": {
         "navigationBarTitleText": "关于"
       }
     },
     {
-      "path": "pages/index/request",
+      "path": "pages/index/about",
       "type": "page",
-      "layout": "demo",
       "style": {
-        "navigationBarTitleText": "请求"
-      }
-    },
-    {
-      "path": "pages/index/request2",
-      "type": "page",
-      "layout": "demo",
-      "style": {
-        "navigationBarTitleText": "请求-状态一体化"
-      }
-    },
-    {
-      "path": "pages/index/upload",
-      "type": "page",
-      "layout": "default",
-      "style": {
-        "navigationBarTitleText": "上传"
-      }
-    },
-    {
-      "path": "pages/index/upload2",
-      "type": "page",
-      "layout": "default",
-      "style": {
-        "navigationBarTitleText": "上传-状态一体化"
+        "navigationBarTitleText": "关于"
       }
     },
     {

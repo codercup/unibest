@@ -29,12 +29,12 @@ export default defineManifestConfig({
   },
   /* 5+App特有相关 */
   'app-plus': {
-    compatible: {
-      ignoreVersion: true,
-    },
     usingComponents: true,
     nvueStyleCompiler: 'uni-app',
     compilerVersion: 3,
+    compatible: {
+      ignoreVersion: true,
+    },
     splashscreen: {
       alwaysShowBeforeRender: true,
       waiting: true,
