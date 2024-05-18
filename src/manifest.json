@@ -76,6 +76,9 @@
           }
         }
       }
+    },
+    "compatible": {
+      "ignoreVersion": true
     }
   },
   "quickapp": {},
