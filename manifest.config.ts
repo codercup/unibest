@@ -32,6 +32,9 @@ export default defineManifestConfig({
     usingComponents: true,
     nvueStyleCompiler: 'uni-app',
     compilerVersion: 3,
+    compatible: {
+      ignoreVersion: true,
+    },
     splashscreen: {
       alwaysShowBeforeRender: true,
       waiting: true,
