@@ -5,17 +5,13 @@
 
 interface NavigateToOptions {
   url: "/pages/index/index" |
-       "/pages/index/about" |
-       "/pages/index/i18n" |
-       "/pages/index/request" |
-       "/pages/index/request2" |
-       "/pages/index/upload" |
-       "/pages/index/upload2";
+       "/pages/about/about" |
+       "/pages/index/i18n";
 }
 interface RedirectToOptions extends NavigateToOptions {}
 
 interface SwitchTabOptions {
-  url: "/pages/index/index" | "/pages/index/about"
+  url: "/pages/index/index" | "/pages/about/about"
 }
 
 type ReLaunchOptions = NavigateToOptions | SwitchTabOptions;

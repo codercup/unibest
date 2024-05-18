@@ -32,7 +32,7 @@
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/index/about",
+        "pagePath": "pages/about/about",
         "text": "%tabbar.about%"
       }
     ]
@@ -47,7 +47,7 @@
       }
     },
     {
-      "path": "pages/index/about",
+      "path": "pages/about/about",
       "type": "page",
       "style": {
         "navigationBarTitleText": "关于"
@@ -58,38 +58,6 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "%app.name%"
-      }
-    },
-    {
-      "path": "pages/index/request",
-      "type": "page",
-      "layout": "demo",
-      "style": {
-        "navigationBarTitleText": "请求"
-      }
-    },
-    {
-      "path": "pages/index/request2",
-      "type": "page",
-      "layout": "demo",
-      "style": {
-        "navigationBarTitleText": "请求-状态一体化"
-      }
-    },
-    {
-      "path": "pages/index/upload",
-      "type": "page",
-      "layout": "default",
-      "style": {
-        "navigationBarTitleText": "上传"
-      }
-    },
-    {
-      "path": "pages/index/upload2",
-      "type": "page",
-      "layout": "default",
-      "style": {
-        "navigationBarTitleText": "上传-状态一体化"
       }
     }
   ],
