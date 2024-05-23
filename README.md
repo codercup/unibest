@@ -28,9 +28,9 @@
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <p align="center">
-  <a href="https://codercup.github.io/unibest/" target="_blank">📱 DEMO 地址</a>
-  <span style="margin:0 10px;">|</span>
   <a href="https://codercup.github.io/unibest-docs/" target="_blank">📖 文档地址</a>
+  <span style="margin:0 10px;">|</span>
+  <a href="https://codercup.github.io/hello-unibest/" target="_blank">📱 DEMO 地址</a>
 </p>
 
 ## ⚙️ 环境
