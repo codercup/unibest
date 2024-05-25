@@ -1,3 +1,5 @@
+import { UnwrapRef } from 'vue'
+
 type IUseRequestOptions<T> = {
   /** 是否立即执行，如果是则在onLoad执行 */
   immediate?: boolean
@@ -19,12 +21,12 @@ export default function useRequest<T>(
 ) {
   const loading = ref(false)
   const error = ref(false)
-  const data = ref<T>()
+  const data = ref<T>(options.initialData)
   const run = async () => {
     loading.value = true
     func()
       .then((res) => {
-        data.value = res.data
+        data.value = res.data as UnwrapRef<T>
         error.value = false
       })
       .catch((err) => {
