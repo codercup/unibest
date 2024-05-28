@@ -28,6 +28,7 @@ export default defineUniPages({
     iconWidth: '24px',
     spacing: '3px',
     list: [
+      // 注意tabbar路由需要使用 layout:tabbar 布局
       {
         pagePath: 'pages/index/index',
         text: '首页',
