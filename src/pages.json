@@ -31,7 +31,7 @@
         "iconType": "wot"
       },
       {
-        "pagePath": "pages/index/about",
+        "pagePath": "pages/about/about",
         "text": "关于",
         "icon": "i-carbon-code",
         "iconType": "unocss"
@@ -57,13 +57,7 @@
     {
       "path": "pages/about/about",
       "type": "page",
-      "style": {
-        "navigationBarTitleText": "关于"
-      }
-    },
-    {
-      "path": "pages/index/about",
-      "type": "page",
+      "layout": "tabbar",
       "style": {
         "navigationBarTitleText": "关于"
       }

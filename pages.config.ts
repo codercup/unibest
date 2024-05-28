@@ -35,7 +35,7 @@ export default defineUniPages({
         iconType: 'wot',
       },
       {
-        pagePath: 'pages/index/about',
+        pagePath: 'pages/about/about',
         text: '关于',
         icon: 'i-carbon-code',
         iconType: 'unocss',
