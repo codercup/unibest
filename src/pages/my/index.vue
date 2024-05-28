@@ -8,7 +8,7 @@
 </route>
 
 <template>
-  <view class="">my</view>
+  <view class="pt-40 text-xl text-center text-green-500">我的页面</view>
 </template>
 
 <script lang="ts" setup>
