@@ -25,7 +25,7 @@
 
 `unibest` 内置了 `约定式路由`、`layout布局`、`请求封装`、`请求拦截`、`登录拦截`、`UnoCSS`、`i18n多语言` 等基础功能，提供了 `代码提示`、`自动格式化`、`统一配置`、`代码片段` 等辅助功能，让你编写 `uniapp` 拥有 `best` 体验 （ `unibest 的由来`）。
 
-![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+![](https://raw.githubusercontent.com/andreasbm/readme/master/screenshots/lines/rainbow.png)
 
 <p align="center">
   <a href="https://codercup.github.io/unibest-docs/" target="_blank">📖 文档地址</a>
@@ -63,3 +63,10 @@
 [MIT](https://opensource.org/license/mit/)
 
 Copyright (c) 2024 菲鸽
+
+## 捐赠
+
+<p align='center'>
+<img alt="special sponsor appwrite" src="./screenshots/pay-1.png" height="330" style="display:inline-block; height:330px;">
+<img alt="special sponsor appwrite" src="./screenshots/pay-2.png" height="330" style="display:inline-block; height:330px; margin-left:10px;">
+</p>
