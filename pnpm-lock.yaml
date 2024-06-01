@@ -66,7 +66,7 @@ dependencies:
     specifier: 3.4.26
     version: 3.4.26(typescript@4.9.5)
   wot-design-uni:
-    specifier: ^1.2.13
+    specifier: ^1.2.20
     version: 1.2.20(vue@3.4.26)
   z-paging:
     specifier: ^2.7.10
