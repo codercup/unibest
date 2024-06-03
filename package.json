@@ -1,7 +1,7 @@
 {
   "name": "unibest",
   "type": "commonjs",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "unibest - 最好的 uniapp 开发模板",
   "author": {
     "name": "codercup",
@@ -119,7 +119,7 @@
     "@typescript-eslint/parser": "^6.15.0",
     "@uni-helper/vite-plugin-uni-layouts": "^0.1.7",
     "@uni-helper/vite-plugin-uni-manifest": "^0.2.3",
-    "@uni-helper/vite-plugin-uni-pages": "^0.2.15",
+    "@uni-helper/vite-plugin-uni-pages": "0.2.20",
     "@uni-helper/vite-plugin-uni-platform": "^0.0.4",
     "@unocss/preset-legacy-compat": "^0.59.1",
     "@vue/runtime-core": "^3.4.21",
