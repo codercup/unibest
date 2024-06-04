@@ -132,7 +132,8 @@ export default ({ command, mode }) => {
       // 方便非h5端调试
       sourcemap: VITE_SHOW_SOURCEMAP === 'true', // 默认是false
       target: 'es6',
-      minify: 'terser',
+      // 开发环境不用压缩
+      minify: mode === 'development' ? false : 'terser',
       terserOptions: {
         compress: {
           drop_console: VITE_DELETE_CONSOLE === 'true',
