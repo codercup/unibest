@@ -24,13 +24,15 @@ export default function useRequest<T>(
   const data = ref<T>(options.initialData)
   const run = async () => {
     loading.value = true
-    func()
+    return func()
       .then((res) => {
         data.value = res.data as UnwrapRef<T>
         error.value = false
+        return data.value
       })
       .catch((err) => {
         error.value = err
+        throw err
       })
       .finally(() => {
         loading.value = false
