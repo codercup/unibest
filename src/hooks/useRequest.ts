@@ -12,7 +12,7 @@ type IUseRequestOptions<T> = {
 /**
  * useRequest是一个定制化的请求钩子，用于处理异步请求和响应。
  * @param func 一个执行异步请求的函数，返回一个包含响应数据的Promise。
- * @param options 包含请求选项的对象 {immediate, initialData}。
+ * @param options 包含请求选项的对象 {immediate, ensureImmediate， initialData}。
  * @param options.immediate 是否立即执行，如果是则在onLoad执行，默认为true。
  * @param options.ensureImmediate 是否保证立即执行，如果是则在钩子调用时立即执行，默认为false。
  * @param options.initialData 初始化数据，默认为undefined。
@@ -35,7 +35,7 @@ type IUseRequestOptions<T> = {
  *
  * 注意事项：
  * - `immediate` 参数控制请求是否在组件挂载后立即执行。适用于需要在组件挂载后立即执行请求的场景。
- * - `ensureImmediate` 参数强制请求在组件挂载后立即执行，不管 `immediate` 的值。这在需要无条件立即执行请求的场景中非常有用。
+ * - `ensureImmediate` 参数确保请求在钩子调用时立即执行，不管 `immediate` 的值。适合无条件立即执行请求的场景。
  * - 当同时设置 `immediate: false` 和 `ensureImmediate: true` 时，请求仍会立即执行。
  */
 export default function useRequest<T>(
