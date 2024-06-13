@@ -24,7 +24,7 @@ export default function useRequest<T>(
   const data = ref<T>(options.initialData)
   const run = async () => {
     loading.value = true
-    func()
+    await func()
       .then((res) => {
         data.value = res.data as UnwrapRef<T>
         error.value = false
