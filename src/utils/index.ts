@@ -53,11 +53,12 @@ export const getUrlObj = (url: string) => {
   console.log(path, queryStr)
 
   const query: Record<string, string> = {}
-  queryStr.split('&').forEach((item) => {
-    const [key, value] = item.split('=')
-    console.log(key, value)
-    query[key] = ensureDecodeURIComponent(value) // 这里需要统一 decodeURIComponent 一下，可以兼容h5和微信y
-  })
+  queryStr &&
+    queryStr.split('&').forEach((item) => {
+      const [key, value] = item.split('=')
+      console.log(key, value)
+      query[key] = ensureDecodeURIComponent(value) // 这里需要统一 decodeURIComponent 一下，可以兼容h5和微信y
+    })
   return { path, query }
 }
 /**
