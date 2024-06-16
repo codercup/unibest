@@ -37,6 +37,7 @@ export const translate = (localeKey: string) => {
 
 /**
  * formatString('已阅读并同意{0}和{1}','用户协议','隐私政策') -> 已阅读并同意用户协议和隐私政策
+ * @deprecated 推荐使用下面的 formatI18n，使用key而不是索引，语义化更好
  * @param template
  * @param values
  * @returns
