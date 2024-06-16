@@ -22,7 +22,7 @@
     <view class="text-green-500">多语言测试</view>
     <view class="m-4">{{ $t('app.name') }}</view>
     <view class="m-4">{{ $t('weight', { heavy: 100 }) }}</view>
-    <view class="m-4">{{ formatString(translate('weight2'), 100) }}</view>
+    <view class="m-4">{{ formatString(translate('detail'), 175, 60) }}</view>
     <view class="m-4">
       {{ formatI18n(translate('introduction'), user) }}
     </view>
