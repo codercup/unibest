@@ -30,7 +30,7 @@ export const currRoute = () => {
   // console.log('lastPage.options:', (lastPage as any).options)
   // 经过多端测试，只有 fullPath 靠谱，其他都不靠谱
   const { fullPath } = currRoute as { fullPath: string }
-  console.log(fullPath)
+  // console.log(fullPath)
   // eg: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
   // eg: /pages/login/index?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
   return getUrlObj(fullPath)
@@ -96,7 +96,7 @@ export const getAllPages = (key = 'needLogin') => {
       })
   })
   const result = [...mainPages, ...subPages]
-  console.log(`getAllPages by ${key} result: `, result)
+  // console.log(`getAllPages by ${key} result: `, result)
   return result
 }
 
