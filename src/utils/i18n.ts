@@ -1,4 +1,4 @@
-import { translate as t } from '@/locale/index'
+import { t } from '@/locale/index'
 
 /** 非vue 文件使用 i18n */
 export const testI18n = () => {
