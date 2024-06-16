@@ -23,7 +23,7 @@ export default function useUpload<T = string>(formData: Record<string, any> = {}
         uploadFile<T>({ tempFilePath, formData, data, error, loading })
       },
       fail: (err) => {
-        console.log('uni.chooseMedia err->', err)
+        console.error('uni.chooseMedia err->', err)
         error.value = true
       },
     })
@@ -37,7 +37,7 @@ export default function useUpload<T = string>(formData: Record<string, any> = {}
         uploadFile<T>({ tempFilePath, formData, data, error, loading })
       },
       fail: (err) => {
-        console.log('uni.chooseImage err->', err)
+        console.error('uni.chooseImage err->', err)
         error.value = true
       },
     })
@@ -57,7 +57,7 @@ function uploadFile<T>({ tempFilePath, formData, data, error, loading }) {
       data.value = uploadFileRes.data as T
     },
     fail: (err) => {
-      console.log('uni.uploadFile err->', err)
+      console.error('uni.uploadFile err->', err)
       error.value = true
     },
     complete: () => {
