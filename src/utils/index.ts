@@ -49,12 +49,18 @@ const ensureDecodeURIComponent = (url: string) => {
  */
 export const getUrlObj = (url: string) => {
   const [path, queryStr] = url.split('?')
-  console.log(path, queryStr)
+  // console.log(path, queryStr)
 
+  if (!queryStr) {
+    return {
+      path,
+      query: {},
+    }
+  }
   const query: Record<string, string> = {}
   queryStr.split('&').forEach((item) => {
     const [key, value] = item.split('=')
-    console.log(key, value)
+    // console.log(key, value)
     query[key] = ensureDecodeURIComponent(value) // 这里需要统一 decodeURIComponent 一下，可以兼容h5和微信y
   })
   return { path, query }
