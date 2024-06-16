@@ -62,7 +62,8 @@
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "prepare": "git init && husky install ",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "cz": "czg"
   },
   "lint-staged": {
     "**/*.{html,vue,ts,cjs,json,md}": [
@@ -93,6 +94,7 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-4010420240430001",
     "@dcloudio/uni-mp-xhs": "3.0.0-4010420240430001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-4010420240430001",
+    "czg": "^1.9.2",
     "dayjs": "1.11.10",
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
