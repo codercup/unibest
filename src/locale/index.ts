@@ -59,13 +59,13 @@ function formatI18n(template: string, data?: any) {
 
 /**
  * t('introduction',{name:'张三',detail:{height:178,weight:'75kg'}})
- * t('introduction',{name:'张三',detail:{height:178,weight:'75kg'}})
- * 暂不支持数组
+ * => formatI18n('我是{name},身高{detail.height},体重{detail.weight}',{name:'张三',detail:{height:178,weight:'75kg'}})
+ * 没有key的，可以不传 data；暂不支持数组
  * @param template 多语言模板字符串，eg: `我是{name}`
- * @param {Object|undefined} obj 需要传递的数据对象，里面的key与多语言字符串对应，eg: `{name:'菲鸽'}`
+ * @param {Object|undefined} data 需要传递的数据对象，里面的key与多语言字符串对应，eg: `{name:'菲鸽'}`
  * @returns
  */
-export function t(key, obj?) {
-  return formatI18n(getTemplateByKey(key), obj)
+export function t(key, data?) {
+  return formatI18n(getTemplateByKey(key), data)
 }
 export default i18n
