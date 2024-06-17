@@ -22,7 +22,8 @@
     "pnpm": ">=7.30"
   },
   "scripts": {
-    "uvm": "npx @dcloudio/uvm@latest && node ./scripts/postupgrade.js",
+    "uvm": "npx @dcloudio/uvm@latest",
+    "uvm-rm": "node ./scripts/postupgrade.js",
     "postuvm": "echo upgrade uni-app success!",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
@@ -92,7 +93,6 @@
     "pinia-plugin-persistedstate": "3.2.1",
     "qs": "6.5.3",
     "vue": "3.4.21",
-    "vue-i18n": "^9.13.1",
     "wot-design-uni": "^1.2.26",
     "z-paging": "^2.7.10"
   },

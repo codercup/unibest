@@ -18,7 +18,8 @@ const dependencies = [
   '@dcloudio/uni-mp-toutiao',
   '@dcloudio/uni-mp-xhs',
   '@dcloudio/uni-quickapp-webview',
-  // 'vue-i18n',
+  // i18n模板要注释掉下面的
+  'vue-i18n',
 ]
 
 // 使用exec执行命令
