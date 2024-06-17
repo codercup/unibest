@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { execSync } from 'node:child_process'
 import dayjs from 'dayjs'
 import { defineConfig, loadEnv } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
@@ -87,11 +88,15 @@ export default ({ command, mode }) => {
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],
       }),
-      // h5环境增加编译时间
+      // h5环境增加 BUILD_TIME 和 BUILD_BRANCH
       UNI_PLATFORM === 'h5' && {
         name: 'html-transform',
         transformIndexHtml(html) {
-          return html.replace('%BUILD_DATE%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+          const branch = execSync('git rev-parse --abbrev-ref HEAD').toString().trim()
+          console.log('branch -> ', branch)
+          return html
+            .replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+            .replace('%BUILD_BRANCH%', branch)
         },
       },
       // 打包分析插件，h5 + 生产环境才弹出
