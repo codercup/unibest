@@ -22,8 +22,8 @@
     "pnpm": ">=7.30"
   },
   "scripts": {
-    "upgrade": "npx @dcloudio/uvm@latest",
-    "postupgrade": "node ./scripts/postupgrade.js",
+    "uvm": "npx @dcloudio/uvm@latest && node ./scripts/postupgrade.js",
+    "postuvm": "echo upgrade uni-app success!",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
