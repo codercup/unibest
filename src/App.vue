@@ -1,8 +1,25 @@
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
+import { useI18n } from 'vue-i18n'
+import { tabBar } from '@/pages.json'
 
 onLaunch(() => {
   console.log('App Launch')
+  // #ifdef MP-WEIXIN
+  const setTabbarText = () => {
+    const { t } = useI18n()
+    const tabbarTexts = tabBar.list.map((item) => item.text.replace(/(^%|%$)/g, ''))
+    tabbarTexts.forEach((transKey: string, index: number) => {
+      uni.setTabBarItem({
+        index,
+        text: t(transKey),
+      })
+    })
+  }
+  // fix 微信小程序需要手动调用 api 设置一次国际化tabbar text。
+  setTabbarText()
+  uni.onLocaleChange(setTabbarText)
+  // #endif
 })
 onShow(() => {
   console.log('App Show')
