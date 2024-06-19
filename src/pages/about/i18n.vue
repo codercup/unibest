@@ -44,16 +44,6 @@
 <script lang="ts" setup>
 import i18n, { t } from '@/locale/index'
 import { testI18n } from '@/utils/i18n'
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
-
-onLoad(() => {
-  // #ifdef MP-WEIXIN
-  // fix 微信小程序需要手动调用 api 设置一次国际化标题。
-  uni.setNavigationBarTitle({ title: t('app.name') })
-  // #endif
-})
 
 const current = ref(uni.getLocale())
 const user = { name: '张三', detail: { height: 178, weight: '75kg' } }
