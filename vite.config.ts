@@ -92,11 +92,7 @@ export default ({ command, mode }) => {
       UNI_PLATFORM === 'h5' && {
         name: 'html-transform',
         transformIndexHtml(html) {
-          const branch = execSync('git rev-parse --abbrev-ref HEAD').toString().trim()
-          console.log('branch -> ', branch)
-          return html
-            .replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
-            .replace('%BUILD_BRANCH%', branch)
+          return html.replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
         },
       },
       // 打包分析插件，h5 + 生产环境才弹出
