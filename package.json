@@ -22,6 +22,7 @@
     "pnpm": ">=7.30"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "uvm": "npx @dcloudio/uvm@latest",
     "uvm-rm": "node ./scripts/postupgrade.js",
     "postuvm": "echo upgrade uni-app success!",
