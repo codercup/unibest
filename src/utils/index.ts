@@ -22,7 +22,7 @@ export const getIsTabbar = () => {
 }
 
 /**
- * 获取当前页面路由的 path 路劲和 redirectPath 路径
+ * 获取当前页面路由的 path 路径和 redirectPath 路径
  * path 如 ‘/pages/login/index’
  * redirectPath 如 ‘/pages/demo/base/route-interceptor’
  */
