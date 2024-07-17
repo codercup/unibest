@@ -12,6 +12,7 @@
     "uni-helper.uni-highlight-vscode",
     "uni-helper.uni-ui-snippets-vscode",
     "uni-helper.uni-app-snippets-vscode",
-    "mrmlnc.vscode-json5"
+    "mrmlnc.vscode-json5",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
