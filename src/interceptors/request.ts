@@ -1,13 +1,14 @@
 /* eslint-disable no-param-reassign */
 import qs from 'qs'
 import { useUserStore } from '@/store'
+import { getEvnBaseUrl } from '@/utils'
 
 export type CustomRequestOptions = UniApp.RequestOptions & {
   query?: Record<string, any>
 } & IUniUploadFileOptions // 添加uni.uploadFile参数类型
 
 // 请求基地址
-const baseURL = import.meta.env.VITE_SERVER_BASEURL
+const baseURL = getEvnBaseUrl()
 
 // 拦截器配置
 const httpInterceptor = {

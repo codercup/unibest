@@ -1,4 +1,5 @@
 import pagesJson from '@/pages.json'
+import { isMp } from './platform'
 
 console.log(pagesJson)
 
@@ -110,4 +111,33 @@ export const getArrElementByIdx = (arr: any[], index: number) => {
   if (index < 0) return arr[arr.length + index]
   if (index >= arr.length) return undefined
   return arr[index]
+}
+
+/**
+ * 根据微信小程序当前环境，判断应该获取的BaseUrl
+ */
+export const getEvnBaseUrl = () => {
+  // 请求基准地址
+  let baseUrl = import.meta.env.VITE_SERVER_BASEURL
+
+  // 小程序端环境区分
+  if (isMp) {
+    const {
+      miniProgram: { envVersion },
+    } = uni.getAccountInfoSync()
+
+    switch (envVersion) {
+      case 'develop':
+        baseUrl = 'https://dev.yyb.happydo.net'
+        break
+      case 'trial':
+        baseUrl = 'https://dev.yyb.happydo.net'
+        break
+      case 'release':
+        baseUrl = 'https://yyb.happydo.net'
+        break
+    }
+  }
+
+  return baseUrl
 }
