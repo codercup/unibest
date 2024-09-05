@@ -22,6 +22,7 @@ dist
 .hbuilderx
 
 .stylelintcache
+.eslintcache
 
 # lock 文件还是不要了，我主要的版本写死就好了
 # pnpm-lock.yaml
