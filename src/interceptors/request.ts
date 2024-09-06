@@ -2,6 +2,7 @@
 import qs from 'qs'
 import { useUserStore } from '@/store'
 import { platform } from '@/utils/platform'
+import { getEvnBaseUrl } from '@/utils'
 
 export type CustomRequestOptions = UniApp.RequestOptions & {
   query?: Record<string, any>
@@ -10,7 +11,7 @@ export type CustomRequestOptions = UniApp.RequestOptions & {
 } & IUniUploadFileOptions // 添加uni.uploadFile参数类型
 
 // 请求基准地址
-const baseUrl = import.meta.env.VITE_SERVER_BASEURL
+const baseUrl = getEvnBaseUrl()
 
 // 拦截器配置
 const httpInterceptor = {
