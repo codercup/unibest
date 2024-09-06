@@ -1,4 +1,6 @@
 import { pages, subPackages, tabBar } from '@/pages.json'
+import { isMp } from './platform'
+
 const getLastPage = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   // const lastPage = getCurrentPages().at(-1)
@@ -116,3 +118,32 @@ export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((p
  * 只得到 path 数组
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
+
+/**
+ * 根据微信小程序当前环境，判断应该获取的BaseUrl
+ */
+export const getEvnBaseUrl = () => {
+  // 请求基准地址
+  let baseUrl = import.meta.env.VITE_SERVER_BASEURL
+
+  // 小程序端环境区分
+  if (isMp) {
+    const {
+      miniProgram: { envVersion },
+    } = uni.getAccountInfoSync()
+
+    switch (envVersion) {
+      case 'develop':
+        baseUrl = 'https://dev.test.net'
+        break
+      case 'trial':
+        baseUrl = 'https://trial.test.net'
+        break
+      case 'release':
+        baseUrl = 'https://prod.test.net'
+        break
+    }
+  }
+
+  return baseUrl
+}
