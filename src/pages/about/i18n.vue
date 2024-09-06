@@ -17,6 +17,7 @@
       <view>
         <text class="line-through">2. 多语言传递的参数不生效，如下 heavy</text>
         <text class="ml-2 text-green-500">已解决</text>
+        <view class="ml-2 text-green-500">把 $t 改为自定义的 t 即可</view>
       </view>
     </view>
     <view class="text-green-500">多语言测试</view>
