@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://github.com/codercup2/unibest">
+  <a href="https://github.com/codercup/unibest">
     <img width="160" src="./src/static/logo.svg">
   </a>
 </p>
 
 <h1 align="center">
-  <a href="https://github.com/codercup2/unibest" target="_blank">unibest - 最好的 uniapp 开发框架</a>
+  <a href="https://github.com/codercup/unibest" target="_blank">unibest - 最好的 uniapp 开发框架</a>
 </h1>
 
 <div align="center">
@@ -28,19 +28,17 @@
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/screenshots/lines/rainbow.png)
 
 <p align="center">
-  <a href="https://codercup2.github.io/unibest-docs/" target="_blank">📖 文档地址</a>
+  <a href="https://codercup.github.io/unibest-docs/" target="_blank">📖 文档地址</a>
   <span style="margin:0 10px;">|</span>
-  <a href="https://codercup2.github.io/hello-unibest/" target="_blank">📱 DEMO 地址</a>
+  <a href="https://codercup.github.io/hello-unibest/" target="_blank">📱 DEMO 地址</a>
 </p>
-
----
-
-注意旧的地址 [codercup](https://github.com/codercup/unibest) 我进不去了，使用新的 [codercup2](https://github.com/codercup2/unibest)。PR和 issue 也请使用新地址，否则无法合并。
 
 ## ⚙️ 环境
 
 - node>=18
 - pnpm>=7.30
+- Vue Official<=2.1.6
+- TypeScript<=5.5.4
 
 ## &#x1F4C2; 快速开始
 
