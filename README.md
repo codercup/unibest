@@ -37,6 +37,8 @@
 
 - node>=18
 - pnpm>=7.30
+- Vue Official<=2.1.6
+- TypeScript<=5.5.4
 
 ## &#x1F4C2; 快速开始
 

@@ -15,11 +15,16 @@
     },
     "outDir": "dist",
     "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types", "@types/wechat-miniprogram", "wot-design-uni/global.d.ts"]
+    "types": [
+      "@dcloudio/types",
+      "@uni-helper/uni-types",
+      "@types/wechat-miniprogram",
+      "wot-design-uni/global.d.ts"
+    ]
   },
   "vueCompilerOptions": {
     "target": 3,
-    "nativeTags": ["block", "template", "component", "slot"]
+    "plugins": ["@uni-helper/uni-types/volar-plugin"]
   },
   "exclude": ["node_modules"],
   "include": [
