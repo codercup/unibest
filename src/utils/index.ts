@@ -1,4 +1,6 @@
 import { pages, subPackages, tabBar } from '@/pages.json'
+import { isMp } from './platform'
+
 const getLastPage = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   // const lastPage = getCurrentPages().at(-1)
@@ -116,3 +118,61 @@ export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((p
  * 只得到 path 数组
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
+
+/**
+ * 根据微信小程序当前环境，判断应该获取的BaseUrl
+ */
+export const getEvnBaseUrl = () => {
+  // 请求基准地址
+  let baseUrl = import.meta.env.VITE_SERVER_BASEURL
+
+  // 小程序端环境区分
+  if (isMp) {
+    const {
+      miniProgram: { envVersion },
+    } = uni.getAccountInfoSync()
+
+    switch (envVersion) {
+      case 'develop':
+        baseUrl = 'https://ukw0y1.laf.run'
+        break
+      case 'trial':
+        baseUrl = 'https://ukw0y1.laf.run'
+        break
+      case 'release':
+        baseUrl = 'https://ukw0y1.laf.run'
+        break
+    }
+  }
+
+  return baseUrl
+}
+
+/**
+ * 根据微信小程序当前环境，判断应该获取的UPLOAD_BASEURL
+ */
+export const getEvnBaseUploadUrl = () => {
+  // 请求基准地址
+  let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
+
+  // 小程序端环境区分
+  if (isMp) {
+    const {
+      miniProgram: { envVersion },
+    } = uni.getAccountInfoSync()
+
+    switch (envVersion) {
+      case 'develop':
+        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        break
+      case 'trial':
+        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        break
+      case 'release':
+        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        break
+    }
+  }
+
+  return baseUploadUrl
+}
