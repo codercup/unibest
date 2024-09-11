@@ -134,16 +134,45 @@ export const getEvnBaseUrl = () => {
 
     switch (envVersion) {
       case 'develop':
-        baseUrl = 'https://dev.test.net'
+        baseUrl = 'https://ukw0y1.laf.run'
         break
       case 'trial':
-        baseUrl = 'https://trial.test.net'
+        baseUrl = 'https://ukw0y1.laf.run'
         break
       case 'release':
-        baseUrl = 'https://prod.test.net'
+        baseUrl = 'https://ukw0y1.laf.run'
         break
     }
   }
 
   return baseUrl
+}
+
+/**
+ * 根据微信小程序当前环境，判断应该获取的UPLOAD_BASEURL
+ */
+export const getEvnBaseUploadUrl = () => {
+  // 请求基准地址
+  let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
+
+  // 小程序端环境区分
+  if (isMp) {
+    const {
+      miniProgram: { envVersion },
+    } = uni.getAccountInfoSync()
+
+    switch (envVersion) {
+      case 'develop':
+        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        break
+      case 'trial':
+        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        break
+      case 'release':
+        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        break
+    }
+  }
+
+  return baseUploadUrl
 }
