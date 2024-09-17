@@ -1,6 +1,7 @@
 <template>
   <wd-config-provider :themeVars="themeVars">
     <slot />
+    "this is demo"
     <wd-toast />
     <wd-message-box />
   </wd-config-provider>

@@ -39,10 +39,18 @@
   },
   "pages": [
     {
-      "path": "pages/index/index",
+      "path": "pages/tarbar-view/tarbar",
       "type": "home",
+      "layout": "tabbar",
       "style": {
-        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/home/home",
+      "type": "home",
+      "layout": "tabbar",
+      "style": {
         "navigationBarTitleText": "首页"
       }
     },
@@ -51,6 +59,38 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "关于"
+      }
+    },
+    {
+      "path": "pages/index/index",
+      "type": "page",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "type": "page",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/settlement/settlement",
+      "type": "page",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "结算"
+      }
+    },
+    {
+      "path": "pages/task/task",
+      "type": "page",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "任务"
       }
     }
   ],
