@@ -23,6 +23,11 @@ type IUserInfo = {
   token?: string
 }
 
+type TabbarInfo = {
+  name?: string
+  activeIndex: number
+}
+
 enum TestEnum {
   A = 'a',
   B = 'b',
