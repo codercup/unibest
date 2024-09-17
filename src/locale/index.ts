@@ -34,8 +34,16 @@ export const getTemplateByKey = (key: string) => {
   if (Object.keys(message).includes(key)) {
     return message[key]
   }
-  console.error(`[i18n] Function getTemplateByKey(), key param ${key} is not existed.`)
-  return ''
+
+  try {
+    const keyList = key.split('.')
+    return keyList.reduce((pre, cur) => {
+      return pre[cur]
+    }, message)
+  } catch (error) {
+    console.error(`[i18n] Function getTemplateByKey(), key param ${key} is not existed.`)
+    return ''
+  }
 }
 
 /**
