@@ -36,7 +36,9 @@
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/screenshots/lines/rainbow.png)
 
 <p align="center">
-  <a href="https://feige996.github.io/unibest-docs/" target="_blank">📖 文档地址</a>
+  <a href="https://unibest.tech/" target="_blank">📖 文档地址(new)</a>
+  <span style="margin:0 10px;">|</span>
+  <a href="https://feige996.github.io/unibest-docs/" target="_blank">📖 文档地址(old)</a>
   <span style="margin:0 10px;">|</span>
   <a href="https://feige996.github.io/hello-unibest/" target="_blank">📱 DEMO 地址</a>
 </p>
