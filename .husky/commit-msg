@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Use the correct Node.js version
-nvm use v20.15.1
+# nvm use v20.15.1
 
 # Run the commit-msg hook
 npx --no-install commitlint --edit
