@@ -9,6 +9,14 @@
 </h1>
 
 <div align="center">
+旧仓库 codercup 进不去了，star 也拿不回来，这里也展示一下那个地址的 star.
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
+[![GitHub forks](https://img.shields.io/github/forks/codercup/unibest?style=flat&logo=github)](https://github.com/codercup/unibest)
+
+</div>
+
+<div align="center">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/feige996/unibest?style=flat&logo=github)](https://github.com/feige996/unibest)
 [![GitHub forks](https://img.shields.io/github/forks/feige996/unibest?style=flat&logo=github)](https://github.com/feige996/unibest)
