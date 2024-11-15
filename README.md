@@ -38,14 +38,14 @@
 <p align="center">
   <a href="https://unibest.tech/" target="_blank">📖 文档地址(new)</a>
   <span style="margin:0 10px;">|</span>
-  <a href="https://feige996.github.io/unibest-docs/" target="_blank">📖 文档地址(old)</a>
+  <a href="https://codercup.github.io/unibest-docs/" target="_blank">📖 文档地址(old)</a>
   <span style="margin:0 10px;">|</span>
   <a href="https://feige996.github.io/hello-unibest/" target="_blank">📱 DEMO 地址</a>
 </p>
 
 ---
 
-注意旧的地址 [feige996](https://github.com/feige996/unibest) 我进不去了，使用新的 [feige996](https://github.com/feige996/unibest)。PR和 issue 也请使用新地址，否则无法合并。
+注意旧的地址 [codercup](https://github.com/codercup/unibest) 我进不去了，使用新的 [feige996](https://github.com/feige996/unibest)。PR和 issue 也请使用新地址，否则无法合并。
 
 ## ⚙️ 环境
 
