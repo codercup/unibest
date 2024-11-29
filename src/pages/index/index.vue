@@ -27,6 +27,11 @@
       模板分支是：
       <text class="text-green-500">base</text>
     </view>
+    <view class="flex flex-col gap-4">
+      <view class="label">测试bug组件</view>
+      <wd-input-number v-model="num" :step="1" :precision="2"></wd-input-number>
+      <view>输入小数点光标前移</view>
+    </view>
   </view>
 </template>
 
@@ -36,6 +41,7 @@ import PLATFORM from '@/utils/platform'
 defineOptions({
   name: 'Home',
 })
+const num = ref(0)
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
