@@ -24,6 +24,9 @@ export default ({ command, mode }) => {
 
   // mode: 区分生产环境还是开发环境
   console.log('command, mode -> ', command, mode)
+  // 此处赋值用于manifest.config.ts 有用
+  process.env.mode = mode
+
   // pnpm dev:h5 时得到 => serve development
   // pnpm build:h5 时得到 => build production
   // pnpm dev:mp-weixin 时得到 => build development (注意区别，command为build)
