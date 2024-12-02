@@ -13,6 +13,7 @@
   "license": "MIT",
   "repository": "https://github.com/feige996/unibest",
   "repository-gitee": "https://gitee.com/feige996/unibest",
+  "repository-deprecated": "https://github.com/codercup/unibest",
   "bugs": {
     "url": "https://github.com/feige996/unibest/issues"
   },
