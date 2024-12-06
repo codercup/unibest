@@ -80,8 +80,7 @@ pnpm create unibest my-project -t hbx-demo # hbx的demo模板，包含所有的d
 
 ### hbx 模板
 
-- https://github.com/feige996/unibest-hbx
-- https://gitee.com/feige996/unibest-hbx
+- https://github.com/uni-run/unibest-hbx
 
 > `hbx` 目前由 `青谷` 大佬维护，微信号：`qingguxixi`，[青谷 github 地址](https://github.com/Xiphin) 。
 
