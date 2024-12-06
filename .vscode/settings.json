@@ -46,6 +46,7 @@
     "tabbar",
     "unibest",
     "uvui",
+    "vitepress",
     "WechatMiniprogram"
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib",
