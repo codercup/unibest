@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import { defineConfig } from 'vitepress'
 import packageJson from '../../package.json'
 
-const buildTime = dayjs().format('yyyy-MM-dd HH:mm:ss')
+const buildTime = dayjs().format('YYYY-MM-DD HH:mm:ss')
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
