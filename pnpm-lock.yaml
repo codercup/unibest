@@ -154,8 +154,8 @@ importers:
         specifier: ^18.6.1
         version: 18.6.1(@types/node@20.17.9)(typescript@5.7.2)
       czg:
-        specifier: ^1.11.0
-        version: 1.11.0
+        specifier: ^1.9.4
+        version: 1.9.4
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -2606,8 +2606,8 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
-  czg@1.11.0:
-    resolution: {integrity: sha512-go39avnHPvDn1HF4LS1qxj5XPGCQexZ9+y8f+0VlE9plZgRyWUOl4rUCwE4vD1azouIhz/KaauB45A7jPfMxpw==}
+  czg@1.9.4:
+    resolution: {integrity: sha512-x9V/FXA3XUmK6PMvP2WC3WPTA4xAUCcjFcL6HxJSLUAn4gKshMHWLkIfWSCsEqmenn5IIX0/L7NuBJ7/luDqCA==}
     engines: {node: '>=v12.20.0'}
     hasBin: true
 
@@ -8990,7 +8990,7 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  czg@1.11.0: {}
+  czg@1.9.4: {}
 
   dargs@7.0.0: {}
 
