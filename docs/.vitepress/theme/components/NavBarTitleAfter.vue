@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// TODO: 从远程地址获取版本号
-const version = '2.5.0'
+import { version } from '../../../../package.json'
 </script>
 
 <template>

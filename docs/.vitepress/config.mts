@@ -7,8 +7,7 @@ const buildTime = dayjs().format('yyyy-MM-dd HH:mm:ss')
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-CN',
-  base: '/unibest-docs/',
-  // base: '/',
+  base: '/',
   title: 'unibest',
   description: '最好用的 uniapp 开发模板',
   lastUpdated: true,
