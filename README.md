@@ -38,8 +38,6 @@
 <p align="center">
   <a href="https://unibest.tech/" target="_blank">📖 文档地址(new)</a>
   <span style="margin:0 10px;">|</span>
-  <a href="https://codercup.github.io/unibest-docs/" target="_blank">📖 文档地址(old)</a>
-  <span style="margin:0 10px;">|</span>
   <a href="https://feige996.github.io/hello-unibest/" target="_blank">📱 DEMO 地址</a>
 </p>
 
@@ -51,8 +49,8 @@
 
 - node>=18
 - pnpm>=7.30
-- Vue Official<=2.1.6
-- TypeScript<=5.5.4
+- Vue Official>=2.1.10
+- TypeScript>=5.0
 
 ## &#x1F4C2; 快速开始
 
