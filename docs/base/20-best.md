@@ -4,16 +4,22 @@
 
 同时参考 `demo` 模板，可以直接 `clone` `demo` 项目，用来参考用。
 
-> 推荐先全部体验一下 `demo` 的示例
+![unibest templates](https://oss.laf.run/ukw0y1-site/xmind/unibest模板.png)
+
+## 创建项目
+
+推荐使用 `pnpm` :
 
 ```sh
 # 新项目创建
-pnpm create unibest my-project -b base
-# 参考项目
-git clone https://github.com/feige996/hello-unibest unibest-demo
-# 参考项目-gitee (与 github 同步，无梯子用户优先使用 gitee)
-git clone https://gitee.com/feige996/hello-unibest unibest-demo
+pnpm create unibest my-project -t base
 ```
+
+## DEMO 模板
+
+`demo` 模版-在线地址：<https://feige996.github.io/hello-unibest/>
+
+推荐先全部体验一下 `demo` 的示例
 
 ## 必看章节
 

@@ -14,11 +14,8 @@ hero:
       text: 介绍
       link: /base/1-introduction
     - theme: alt
-      text: 项目地址
-      link: https://github.com/feige996/unibest/
-    - theme: alt
-      text: 查看演示
-      link: https://feige996.github.io/hello-unibest/#/
+      text: 快速开始
+      link: /base/2-start
     - theme: brand
       text: 🥤 打赏
       link: /advanced/rewards/rewards
