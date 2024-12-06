@@ -27,7 +27,7 @@ export default defineConfig({
         content: '菲鸽, 菲哥, 鸽鸽, feige996, feige996, 1020103647@qq.com',
       },
     ],
-    ['link', { rel: 'icon', href: './favicon.ico' }], // 这里要加上 base 前缀，否则资源访问不到
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
     [
       'meta',
       {
