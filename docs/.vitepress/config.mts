@@ -200,7 +200,7 @@ export default defineConfig({
             translations: {
               button: {
                 buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
+                buttonAriaLabel: '搜索文档',
               },
               modal: {
                 displayDetails: '显示详情',
@@ -214,11 +214,11 @@ export default defineConfig({
                   navigateUpKeyAriaLabel: '切换',
                   navigateDownKeyAriaLabel: '切换',
                   closeText: '关闭',
-                  closeKeyAriaLabel: '关闭'
+                  closeKeyAriaLabel: '关闭',
                 },
-              }
-            }
-          }
+              },
+            },
+          },
         },
       },
     },
