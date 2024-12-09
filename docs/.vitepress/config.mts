@@ -196,22 +196,29 @@ export default defineConfig({
       provider: 'local',
       options: {
         locales: {
-          zh: {
+          root: {
             translations: {
               button: {
                 buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档',
+                buttonAriaLabel: '搜索文档'
               },
               modal: {
-                noResultsText: '无法找到相关结果',
+                displayDetails: '显示详情',
                 resetButtonTitle: '清除查询条件',
+                backButtonTitle: '返回',
+                noResultsText: '无法找到相关结果',
                 footer: {
                   selectText: '选择',
+                  selectKeyAriaLabel: '选择',
                   navigateText: '切换',
+                  navigateUpKeyAriaLabel: '切换',
+                  navigateDownKeyAriaLabel: '切换',
+                  closeText: '关闭',
+                  closeKeyAriaLabel: '关闭'
                 },
-              },
-            },
-          },
+              }
+            }
+          }
         },
       },
     },
