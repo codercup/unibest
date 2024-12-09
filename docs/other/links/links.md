@@ -2,7 +2,8 @@
 
 ## UI 组件库
 
-- [wot-ui](https://wot-design-uni.netlify.app) -- `五星推荐⭐⭐⭐⭐⭐`
+- [wot-ui](https://wot-design-uni.cn) -- `五星推荐⭐⭐⭐⭐⭐`
+  [备用地址](https://wot-design-uni.netlify.app)
 - [uni-ui](https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html)
 - [uv-ui](https://www.uvui.cn/)
 
