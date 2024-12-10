@@ -6,7 +6,7 @@
   - **pnpm** - `>=7.30`（推荐使用 `8.12+`）
   - **`VSCode`** - 可选 `WebStrom`
   - **`HBuilderX`** - `APP` 的运行和发布还是离不开它
-  - **Vue-Office** - `1.8x`，别升到 `2.x` ！
+  - **Vue-Office** - `v2.1.10`
 
 ## 创建项目
 
