@@ -55,11 +55,15 @@ git commit -m "feat: xxx" --no-verify
 
 第三方库还有另外一种处理方式，放到特定的文件夹，然后在 `.eslintignore` 和 `.styleintignore` 里面加上该文件夹。
 
-## 6. `uni-app` 无法使用 `process.env` 变量，怎么办？
+## 6. 不想要严格的 `git` 提交检测，怎么办？
+
+直接把 `.husky` 这个文件删掉即可。(或者不删除，只把里面的文件内容注释掉。)
+
+## 7. `uni-app` 无法使用 `process.env` 变量，怎么办？
 
 使用 `import.meta.env` 替代！
 
-## 7. 如何跟随 `uni-app` 官方升级？
+## 8. 如何跟随 `uni-app` 官方升级？
 
 项目下，执行 `npx @dcloudio/uvm@latest` 即可更新。
 
@@ -67,7 +71,7 @@ git commit -m "feat: xxx" --no-verify
 
 > 注意，上面的命令会自动安装 `vue-i18n`，可以手动删除（`pnpm un vue-i18n`)，也可以不理它（没多大影响）。
 
-## 8. 如何把已经加入 `git` 管理的文件移出 `git` 管理?
+## 9. 如何把已经加入 `git` 管理的文件移出 `git` 管理?
 
 - 第一步，先把文件移出`git` 管理，操作如下：
 
@@ -81,7 +85,7 @@ git commit -m "feat: xxx" --no-verify
 
 > 总结：`git rm -r --cached .` + `git commit` 即可。
 
-## 9. 支付宝小程序运行报错。
+## 10. 支付宝小程序运行报错。
 
 - 默认运行是会报错的，如下图
   ![alt text](./assets/14-2.png)
@@ -91,13 +95,13 @@ git commit -m "feat: xxx" --no-verify
 
 > 总结：勾上 `本地开发跳过 ES5 转译` 即可。
 
-## 10. 支持 `uni-app x` 吗？
+## 11. 支持 `uni-app x` 吗？
 
 不支持。但我们一直保持关注。[uni-app x 传送门](https://doc.dcloud.net.cn/uni-app-x/)
 
 目前 `unibest` 已经有 `hbx` 模板，后续接入 `uni-app x` 会很容易，坐等官方发布。
 
-## 11. 为啥 `vue` 已经 `3.4+` 了，还不支持 `defineModel` ?
+## 12. 为啥 `vue` 已经 `3.4+` 了，还不支持 `defineModel` ?
 
 `uni-app` 官方虽然已经把 `vue` 升级到 `3.4+` 了，但是目前只有 `H5端` 支持 `defineModel`，其他端目前运行报错，详情请看 `uni-app` 官网的发布日志：
 
