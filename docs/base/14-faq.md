@@ -107,7 +107,7 @@ git commit -m "feat: xxx" --no-verify
 
 [HBuilder X - Release Notes](https://3085868976.hiecheimaetu.com:22443/qn-GO8xCsKgpKDZWIBAkVCUkI1EnGmQUMT4.update.dcloud.net.cn/hbuilderx/changelog/4.14.2024043013.html)
 
-关键截图如下：
+关键截图如下：（仅支持 `H5端`）
 
 ![alt text](./assets/14-4.png)
 
