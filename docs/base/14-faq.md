@@ -111,7 +111,7 @@ git commit -m "feat: xxx" --no-verify
 
 ![alt text](./assets/14-4.png)
 
-真实运行报错截图如下：（分别是 `小程序` 和 `APP` ）
+真实运行报错截图如下：（分别是 `小程序` 和 `APP`， 都会报错 ）
 
 ![alt text](./assets/14-5.png)
 
