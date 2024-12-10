@@ -27,12 +27,11 @@ Github Star History 实时地址：[https://star-history.com/#codercup/unibest&D
 
 与同类型模板对比，如下图，红色的为 `unibest`，后来居上，遥遥领先。
 
-:::details
+粉色的新的仓库（`feige996`），就是目前维护的，旧的 `codercup` 进不去了，`deprecated` 状态，不再维护。
 
-[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest,Ares-Chang/uni-vitesse,uni-helper/vitesse-uni-app&type=Date)](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest,Ares-Chang/uni-vitesse,uni-helper/vitesse-uni-app,feige996/unibest&type=Date)](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&feige996/unibest&Date)
 
-同类模板对比实时地址：[https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&Date](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&Date)
-:::
+同类模板对比实时地址：[https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&feige996/unibest&Date](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&feige996/unibest&Date)
 
 ## 🗂 生成过程
 
