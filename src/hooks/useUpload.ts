@@ -1,7 +1,7 @@
 // TODO: 别忘加更改环境变量的 VITE_UPLOAD_BASEURL 地址。
-import { getEvnBaseUploadUrl } from '@/utils'
+import { getEnvBaseUploadUrl } from '@/utils'
 
-const VITE_UPLOAD_BASEURL = `${getEvnBaseUploadUrl()}`
+const VITE_UPLOAD_BASEURL = `${getEnvBaseUploadUrl()}`
 
 /**
  * useUpload 是一个定制化的请求钩子，用于处理上传图片。
