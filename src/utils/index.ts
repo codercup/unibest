@@ -122,7 +122,7 @@ export const needLoginPages: string[] = getAllPages('needLogin').map((page) => p
 /**
  * 根据微信小程序当前环境，判断应该获取的BaseUrl
  */
-export const getEvnBaseUrl = () => {
+export const getEnvBaseUrl = () => {
   // 请求基准地址
   let baseUrl = import.meta.env.VITE_SERVER_BASEURL
 
@@ -151,7 +151,7 @@ export const getEvnBaseUrl = () => {
 /**
  * 根据微信小程序当前环境，判断应该获取的UPLOAD_BASEURL
  */
-export const getEvnBaseUploadUrl = () => {
+export const getEnvBaseUploadUrl = () => {
   // 请求基准地址
   let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
 
