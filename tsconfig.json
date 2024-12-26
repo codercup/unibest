@@ -19,7 +19,8 @@
       "@dcloudio/types",
       "@uni-helper/uni-types",
       "@types/wechat-miniprogram",
-      "wot-design-uni/global.d.ts"
+      "wot-design-uni/global.d.ts",
+      "z-paging/types"
     ]
   },
   "vueCompilerOptions": {
