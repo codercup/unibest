@@ -64,6 +64,10 @@ pnpm create unibest my-project -t hbx-base # hbx的base模板
 pnpm create unibest my-project -t hbx-demo # hbx的demo模板，包含所有的demo
 ```
 
+> 2024-12-29<周日> 发表了一篇文章：[【unibest】可以去掉hbx模版了，base模板一统天下](https://mp.weixin.qq.com/s/ybunFNkjKfV5yVLOMvqscg?token=1696234630&lang=zh_CN)
+>
+> 就是说 hbx 模板可以退出历史舞台了。
+
 ## 项目仓库地址
 
 `github` 和 `gitee` 实时同步，代码一致。
