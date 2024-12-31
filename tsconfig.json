@@ -24,7 +24,6 @@
     ]
   },
   "vueCompilerOptions": {
-    "target": 3,
     "plugins": ["@uni-helper/uni-types/volar-plugin"]
   },
   "exclude": ["node_modules"],

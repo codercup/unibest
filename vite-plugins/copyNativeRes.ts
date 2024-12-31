@@ -7,7 +7,7 @@ export function copyNativeRes() {
     __dirname,
     '../dist',
     process.env.NODE_ENV === 'production' ? 'build' : 'dev',
-    process.env.UNI_PLATFORM,
+    process.env.UNI_PLATFORM!,
     'nativeResources',
   )
 
