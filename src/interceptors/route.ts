@@ -5,7 +5,7 @@
  * 我这里应为大部分都可以随便进入，所以使用黑名单
  */
 import { useUserStore } from '@/store'
-import { getNeedLoginPages, needLoginPages as _needLoginPages } from '@/utils'
+import { needLoginPages as _needLoginPages, getNeedLoginPages } from '@/utils'
 
 // TODO Check
 const loginRoute = '/pages/login/index'
@@ -49,5 +49,7 @@ export const routeInterceptor = {
     uni.addInterceptor('navigateTo', navigateToInterceptor)
     uni.addInterceptor('reLaunch', navigateToInterceptor)
     uni.addInterceptor('redirectTo', navigateToInterceptor)
+    uni.addInterceptor('navigateBack', navigateToInterceptor)
+    uni.addInterceptor('switchTab', navigateToInterceptor)
   },
 }
