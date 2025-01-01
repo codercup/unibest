@@ -49,7 +49,6 @@ export const routeInterceptor = {
     uni.addInterceptor('navigateTo', navigateToInterceptor)
     uni.addInterceptor('reLaunch', navigateToInterceptor)
     uni.addInterceptor('redirectTo', navigateToInterceptor)
-    uni.addInterceptor('navigateBack', navigateToInterceptor)
     uni.addInterceptor('switchTab', navigateToInterceptor)
   },
 }
