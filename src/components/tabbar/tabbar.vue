@@ -1,25 +1,35 @@
 <template>
   <view class="tabbar-box">
-    <view
-      class="items"
-      @click="toPage('/pages/about/about')"
-      v-for="(item, index) in 4"
-      :key="index"
-    >
-      <wd-icon name="spool" size="22px"></wd-icon>
-      <text>首页</text>
+    <view class="items" v-for="(item, index) in tabItems" :key="index" @click="toPage(item.url)">
+      <wd-icon :name="item.icon" size="22px"></wd-icon>
+      <text>{{ item.title }}</text>
     </view>
   </view>
 </template>
 
 <script lang="ts" setup>
+defineProps({
+  tabItems: {
+    type: Array,
+    required: true,
+    validator(value) {
+      return value.every(
+        (item) =>
+          Object.prototype.hasOwnProperty.call(item, 'url') &&
+          Object.prototype.hasOwnProperty.call(item, 'icon') &&
+          Object.prototype.hasOwnProperty.call(item, 'title'),
+      )
+    },
+  },
+})
+
+const toPage = (url: string) => {
+  uni.switchTab({ url }) // 确保传入的是tabBar页面的URL
+}
+
 onLoad(() => {
   uni.hideTabBar()
 })
-
-const toPage = (pages) => {
-  uni.switchTab({ url: pages })
-}
 </script>
 
 <style lang="scss" scoped>
