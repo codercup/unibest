@@ -268,8 +268,19 @@ pnpm add @uni-helper/vite-plugin-uni-pages@0.2.20
 >
 > 在 `2.4.0` 开始已经加入，不会再出现这个问题。
 
-## 不会 TypeScript 怎么办
+## 5.不会 TypeScript 怎么办
 
 不管个人还是团队、产品或者项目，从长远考虑我们都建议你学习 TypeScript，因为它是未来的趋势，而且大部分框架、库、插件都是用 TypeScript 开发的，足以证明它是构建一款成熟稳健产品的基石。
 
 但考虑到实际情况，会各种客观原因存在，如果必须要用传统 JavaScript 进行开发，你可以在 `tsconfig.json` 里将 `allowJs` 设置为 `true` 即可，框架原有的 TypeScript 代码不会受到影响，并且你也可以在项目中使用 JavaScript 编写代码。
+
+## 6.微信小程序 `INVALID_LOGIN`
+
+微信小程序开发进入登录页时，可能导致如下问题：
+
+```text
+{errMsg: "navigateTo:fail Error: INVALID_LOGIN,
+access_token expired [20250103 17:08:03][touristappid]"}
+```
+
+> 解答：游客模式会出现该错误，微信扫码登录一下就可以了。
