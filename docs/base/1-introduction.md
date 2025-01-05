@@ -19,6 +19,19 @@
 
 > `unibest` 目前支持 `H5`、`小程序` 和 `App`。
 
+::: tip ⭐⭐⭐⭐⭐
+如果 `unibest` 对您有帮助，希望你可以去 **Github** 或者 **Gitee(码云)** 帮我点个 ⭐ ，这将是对我极大的鼓励。
+
+<!-- - github - feige996/unibest -->
+
+[![star](https://img.shields.io/github/stars/feige996/unibest?style=flat&logo=github)](https://github.com/feige996/unibest)
+
+<!-- - gitee - feige996/unibest -->
+
+[![star](https://gitee.com/feige996/unibest/badge/star.svg?theme=dark)](https://gitee.com/feige996/unibest)
+
+:::
+
 ## ⭐ Star History
 
 Github Star History 实时地址：[https://star-history.com/#codercup/unibest&Date](https://star-history.com/#codercup/unibest&Date) 。
