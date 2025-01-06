@@ -20,7 +20,8 @@
       "@uni-helper/uni-types",
       "@types/wechat-miniprogram",
       "wot-design-uni/global.d.ts",
-      "z-paging/types"
+      "z-paging/types",
+      "./src/typings.d.ts"
     ]
   },
   "vueCompilerOptions": {
