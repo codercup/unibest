@@ -6,13 +6,13 @@ import { version } from '../../../../package.json'
   <span
     style="
       display: inline-block;
-      padding: 0 4px;
+      padding: 0px 8px;
       margin-left: 4px;
       font-size: 10px;
       font-weight: 700;
-      color: green;
-      background-color: azure;
-      border-radius: 4px;
+      color: var(--vp-button-brand-text);
+      background-color: var(--vp-button-brand-bg);
+      border-radius: 16px;
     "
   >
     {{ version }}
