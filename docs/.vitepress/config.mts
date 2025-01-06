@@ -8,7 +8,7 @@ const buildTime = dayjs().format('YYYY-MM-DD HH:mm:ss')
 export default defineConfig({
   lang: 'zh-CN',
   base: '/',
-  title: 'unibest',
+  title: 'unibest 官方文档',
   description: '最好用的 uniapp 开发模板',
   lastUpdated: true,
   cleanUrls: true,
@@ -99,7 +99,7 @@ export default defineConfig({
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: './logo.svg',
+    logo: '/logo.svg',
     siteTitle: 'unibest',
     nav: [
       {
