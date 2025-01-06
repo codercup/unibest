@@ -1,5 +1,5 @@
 import { pages, subPackages, tabBar } from '@/pages.json'
-import { isMp } from './platform'
+import { isMpWeixin } from './platform'
 
 const getLastPage = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
@@ -126,21 +126,21 @@ export const getEnvBaseUrl = () => {
   // 请求基准地址
   let baseUrl = import.meta.env.VITE_SERVER_BASEURL
 
-  // 小程序端环境区分
-  if (isMp) {
+  // 微信小程序端环境区分
+  if (isMpWeixin) {
     const {
       miniProgram: { envVersion },
     } = uni.getAccountInfoSync()
 
     switch (envVersion) {
       case 'develop':
-        baseUrl = 'https://ukw0y1.laf.run'
+        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_DEVELOP || baseUrl
         break
       case 'trial':
-        baseUrl = 'https://ukw0y1.laf.run'
+        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_TRIAL || baseUrl
         break
       case 'release':
-        baseUrl = 'https://ukw0y1.laf.run'
+        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_RELEASE || baseUrl
         break
     }
   }
@@ -155,21 +155,21 @@ export const getEnvBaseUploadUrl = () => {
   // 请求基准地址
   let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
 
-  // 小程序端环境区分
-  if (isMp) {
+  // 微信小程序端环境区分
+  if (isMpWeixin) {
     const {
       miniProgram: { envVersion },
     } = uni.getAccountInfoSync()
 
     switch (envVersion) {
       case 'develop':
-        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP || baseUploadUrl
         break
       case 'trial':
-        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_TRIAL || baseUploadUrl
         break
       case 'release':
-        baseUploadUrl = 'https://ukw0y1.laf.run/upload'
+        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_RELEASE || baseUploadUrl
         break
     }
   }
