@@ -36,6 +36,7 @@
     "manifest.json": "jsonc" // manifest.json 可以写注释
   },
   "cSpell.words": [
+    "Aplipay",
     "climblee",
     "commitlint",
     "dcloudio",
@@ -44,9 +45,12 @@
     "refresherrefresh",
     "scrolltolower",
     "tabbar",
+    "Toutiao",
     "unibest",
     "uvui",
-    "WechatMiniprogram"
+    "Wechat",
+    "WechatMiniprogram",
+    "Weixin"
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib",
   // 控制相关文件嵌套展示
