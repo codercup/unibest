@@ -109,6 +109,7 @@
     "pinia-plugin-persistedstate": "3.2.1",
     "qs": "6.5.3",
     "vue": "3.4.21",
+    "vue-i18n": "9.1.9",
     "wot-design-uni": "^1.4.0",
     "z-paging": "^2.8.4"
   },
