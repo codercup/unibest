@@ -1,4 +1,7 @@
 变更日志
+
+### [2.5.6](https://github.com/feige996/unibest/compare/v2.5.5...v2.5.6) (2025-01-08)
+
 ### [2.5.5](https://github.com/feige996/unibest/compare/v2.5.0...v2.5.5) (2025-01-08)
 
 
