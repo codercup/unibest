@@ -1,5 +1,5 @@
 module.exports = {
-  header: '变更日志\n', // 可自定义添加生成的changelog头部内容
+  header: '## 变更日志\n', // 可自定义添加生成的changelog头部内容
   types: [
     { type: 'feat', section: '✨ Features | 新功能' },
     { type: 'fix', section: '🐛 Bug Fixes | Bug 修复' },
