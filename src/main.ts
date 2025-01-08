@@ -1,9 +1,10 @@
+import '@/style/index.scss'
+import 'virtual:uno.css'
 import { createSSRApp } from 'vue'
 import App from './App.vue'
+import { prototypeInterceptor, requestInterceptor, routeInterceptor } from './interceptors'
 import store from './store'
-import { routeInterceptor, requestInterceptor, prototypeInterceptor } from './interceptors'
-import 'virtual:uno.css'
-import '@/style/index.scss'
+// 测试 standard-version: feature
 
 export function createApp() {
   const app = createSSRApp(App)
