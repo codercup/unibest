@@ -72,6 +72,7 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "prepare": "git init && husky install ",
     "type-check": "vue-tsc --noEmit",
+    "release": "standard-version",
     "cz": "czg"
   },
   "lint-staged": {
@@ -154,6 +155,7 @@
     "postcss-scss": "^4.0.9",
     "rollup-plugin-visualizer": "^5.12.0",
     "sass": "1.77.8",
+    "standard-version": "^9.5.0",
     "stylelint": "^16.11.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recess-order": "^4.6.0",
