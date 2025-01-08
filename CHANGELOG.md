@@ -1,5 +1,17 @@
 ## 变更日志
 
+## [2.6.0](https://github.com/feige996/unibest/compare/v2.5.7...v2.6.0) (2025-01-08)
+
+
+### ✨ Features | 新功能
+
+* 测试 standard-version: feature ([ba4310d](https://github.com/feige996/unibest/commit/ba4310dba36b68e70c3952f8c0a08dd2b40717cb))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 测试 standard-version: fix ([32820c5](https://github.com/feige996/unibest/commit/32820c554376eff71453effc7810571e7772a54a))
+
 ### [2.5.7](https://github.com/feige996/unibest/compare/v2.5.6...v2.5.7) (2025-01-08)
 
 ### [2.5.6](https://github.com/feige996/unibest/compare/v2.5.5...v2.5.6) (2025-01-08)
