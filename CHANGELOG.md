@@ -1,5 +1,9 @@
 ## 变更日志
 
+### [2.6.1](https://github.com/feige996/unibest/compare/v2.6.0...v2.6.1) (2025-01-08)
+
+## 变更日志
+
 ### 🐛 Bug Fixes | Bug 修复
 
 - 枚举失效问题 & 分离全局声明和模块化内容 ([f2ae977](https://github.com/feige996/unibest/commit/f2ae977e9a52a573176ec4490621cdf75877ecd5))
