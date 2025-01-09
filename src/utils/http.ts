@@ -78,3 +78,31 @@ export const httpPost = <T>(
 
 http.get = httpGet
 http.post = httpPost
+
+/*
+ * openapi-ts-request 工具的 request 跨客户端适配方法
+ */
+export const request = <T = unknown>(
+  url: string,
+  options: Omit<CustomRequestOptions, 'url'> & {
+    params?: Record<string, unknown>
+    headers?: Record<string, unknown>
+  },
+) => {
+  const requestOptions = {
+    url,
+    ...options,
+  }
+
+  if (options.params) {
+    requestOptions.query = requestOptions.params
+    delete requestOptions.params
+  }
+
+  if (options.headers) {
+    requestOptions.header = options.headers
+    delete requestOptions.headers
+  }
+
+  return http<T>(requestOptions)
+}
