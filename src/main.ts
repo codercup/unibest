@@ -1,6 +1,8 @@
 import '@/style/index.scss'
 import 'virtual:uno.css'
 import { createSSRApp } from 'vue'
+import { VueQueryPlugin } from '@tanstack/vue-query'
+
 import App from './App.vue'
 import { prototypeInterceptor, requestInterceptor, routeInterceptor } from './interceptors'
 import store from './store'
@@ -12,6 +14,8 @@ export function createApp() {
   app.use(routeInterceptor)
   app.use(requestInterceptor)
   app.use(prototypeInterceptor)
+  app.use(VueQueryPlugin)
+
   return {
     app,
   }
