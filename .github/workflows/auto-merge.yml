@@ -1,0 +1,41 @@
+name: Auto Merge Base to Other Branches
+
+on:
+  push:
+    branches:
+      - base
+  workflow_dispatch: # 手动触发
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
+
+      - name: Merge base into main
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout main
+          git merge base --no-ff -m "Auto merge base into main"
+          git push origin main
+
+      - name: Merge base into i18n
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout i18n
+          git merge base --no-ff -m "Auto merge base into i18n"
+          git push origin i18n
+
+      - name: Merge base into tabbar
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout tabbar
+          git merge base --no-ff -m "Auto merge base into tabbar"
+          git push origin tabbar
