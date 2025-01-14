@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - base
+  workflow_dispatch: # 手动触发
 
 jobs:
   auto-merge:
