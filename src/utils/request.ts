@@ -1,8 +1,13 @@
 import { CustomRequestOptions } from '@/interceptors/request'
 
-export const http = <T>(options: CustomRequestOptions) => {
+/**
+ * 请求方法: 主要是对 uni.request 的封装，去适配 openapi-ts-request 的 request 方法
+ * @param options 请求参数
+ * @returns 返回 Promise 对象
+ */
+const http = <T>(options: CustomRequestOptions) => {
   // 1. 返回 Promise 对象
-  return new Promise<IResData<T>>((resolve, reject) => {
+  return new Promise<T>((resolve, reject) => {
     uni.request({
       ...options,
       dataType: 'json',
@@ -14,7 +19,7 @@ export const http = <T>(options: CustomRequestOptions) => {
         // 状态码 2xx，参考 axios 的设计
         if (res.statusCode >= 200 && res.statusCode < 300) {
           // 2.1 提取核心数据 res.data
-          resolve(res.data as IResData<T>)
+          resolve(res.data as T)
         } else if (res.statusCode === 401) {
           // 401错误  -> 清理用户信息，跳转到登录页
           // userStore.clearUserInfo()
@@ -25,7 +30,7 @@ export const http = <T>(options: CustomRequestOptions) => {
           !options.hideErrorToast &&
             uni.showToast({
               icon: 'none',
-              title: (res.data as IResData<T>).msg || '请求错误',
+              title: (res.data as T & { msg?: string })?.msg || '请求错误',
             })
           reject(res)
         }
@@ -42,39 +47,30 @@ export const http = <T>(options: CustomRequestOptions) => {
   })
 }
 
-/**
- * GET 请求
- * @param url 后台地址
- * @param query 请求query参数
- * @returns
+/*
+ * openapi-ts-request 工具的 request 跨客户端适配方法
  */
-export const httpGet = <T>(url: string, query?: Record<string, any>) => {
-  return http<T>({
-    url,
-    query,
-    method: 'GET',
-  })
-}
-
-/**
- * POST 请求
- * @param url 后台地址
- * @param data 请求body参数
- * @param query 请求query参数，post请求也支持query，很多微信接口都需要
- * @returns
- */
-export const httpPost = <T>(
+export default function request<T = unknown>(
   url: string,
-  data?: Record<string, any>,
-  query?: Record<string, any>,
-) => {
-  return http<T>({
+  options: Omit<CustomRequestOptions, 'url'> & {
+    params?: Record<string, unknown>
+    headers?: Record<string, unknown>
+  },
+) {
+  const requestOptions = {
     url,
-    query,
-    data,
-    method: 'POST',
-  })
-}
+    ...options,
+  }
 
-http.get = httpGet
-http.post = httpPost
+  if (options.params) {
+    requestOptions.query = requestOptions.params
+    delete requestOptions.params
+  }
+
+  if (options.headers) {
+    requestOptions.header = options.headers
+    delete requestOptions.headers
+  }
+
+  return http<T>(requestOptions)
+}
