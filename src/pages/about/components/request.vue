@@ -24,7 +24,7 @@
 
     <!-- http://localhost:9000/#/pages/index/request -->
     <wd-button @click="run" class="my-6">发送请求</wd-button>
-    <view class="h-12">
+    <view class="h-16">
       <view v-if="loading">loading...</view>
       <block v-else>
         <view class="text-xl">请求数据如下</view>
@@ -37,7 +37,7 @@
 
 <script lang="ts" setup>
 import { getFooAPI, postFooAPI, IFooItem } from '@/service/index/foo'
-import { findPetsByStatus } from '@/service/app'
+import { findPetsByStatusQueryOptions } from '@/service/app'
 import { useQuery } from '@tanstack/vue-query'
 
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
@@ -59,12 +59,7 @@ const {
   error: error2,
   isLoading: isLoading2,
   refetch,
-} = useQuery({
-  queryKey: ['findPetsByStatus'],
-  queryFn: () => {
-    return findPetsByStatus({ params: { status: ['available'] } })
-  },
-})
+} = useQuery(findPetsByStatusQueryOptions({ params: { status: ['available'] } }))
 
 const reset = () => {
   data.value = initialData
