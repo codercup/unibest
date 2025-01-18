@@ -142,6 +142,7 @@ export default defineConfig({
           { text: '常见问题', link: '14-faq' },
           { text: '常见问题2', link: '15-faq' },
           { text: '小程序标识', link: '16-terminology' },
+          { text: '自动生成代码', link: '17-generate' },
           { text: '最佳实践', link: '20-best' },
         ],
       },
