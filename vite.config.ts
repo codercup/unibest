@@ -19,7 +19,7 @@ import ViteRestart from 'vite-plugin-restart'
 import { copyNativeRes } from './vite-plugins/copyNativeRes'
 
 // https://vitejs.dev/config/
-export default ({ command, mode }) => {
+export default defineConfig(({ command, mode }) => {
   // console.log(mode === process.env.NODE_ENV) // true
 
   // mode: 区分生产环境还是开发环境
@@ -46,7 +46,7 @@ export default ({ command, mode }) => {
   } = env
   console.log('环境变量 env -> ', env)
 
-  return defineConfig({
+  return {
     envDir: './env', // 自定义env目录
 
     plugins: [
@@ -156,5 +156,5 @@ export default ({ command, mode }) => {
         },
       },
     },
-  })
-}
+  }
+})
