@@ -4,18 +4,18 @@ import { isMpWeixin } from './platform'
 const getLastPage = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   // const lastPage = getCurrentPages().at(-1)
-  // 上面那个在低版本安卓中打包回报错，所以改用下面这个【虽然我加了src/interceptions/prototype.ts，但依然报错】
+  // 上面那个在低版本安卓中打包会报错，所以改用下面这个【虽然我加了 src/interceptions/prototype.ts，但依然报错】
   const pages = getCurrentPages()
   return pages[pages.length - 1]
 }
 
-/** 判断当前页面是否是tabbar页  */
+/** 判断当前页面是否是 tabbar 页  */
 export const getIsTabbar = () => {
   if (!tabBar) {
     return false
   }
   if (!tabBar.list.length) {
-    // 通常有tabBar的话，list不能有空，且至少有2个元素，这里其实不用处理
+    // 通常有 tabBar 的话，list 不能有空，且至少有2个元素，这里其实不用处理
     return false
   }
   const lastPage = getLastPage()
@@ -25,8 +25,8 @@ export const getIsTabbar = () => {
 
 /**
  * 获取当前页面路由的 path 路径和 redirectPath 路径
- * path 如 ‘/pages/login/index’
- * redirectPath 如 ‘/pages/demo/base/route-interceptor’
+ * path 如 '/pages/login/index'
+ * redirectPath 如 '/pages/demo/base/route-interceptor'
  */
 export const currRoute = () => {
   const lastPage = getLastPage()
@@ -73,9 +73,9 @@ export const getUrlObj = (url: string) => {
   return { path, query }
 }
 /**
- * 得到所有的需要登录的pages，包括主包和分包的
- * 这里设计得通用一点，可以传递key作为判断依据，默认是 needLogin, 与 route-block 配对使用
- * 如果没有传 key，则表示所有的pages，如果传递了 key, 则表示通过 key 过滤
+ * 得到所有的需要登录的 pages，包括主包和分包的
+ * 这里设计得通用一点，可以传递 key 作为判断依据，默认是 needLogin, 与 route-block 配对使用
+ * 如果没有传 key，则表示所有的 pages，如果传递了 key, 则表示通过 key 过滤
  */
 export const getAllPages = (key = 'needLogin') => {
   // 这里处理主包
@@ -108,19 +108,19 @@ export const getAllPages = (key = 'needLogin') => {
 }
 
 /**
- * 得到所有的需要登录的pages，包括主包和分包的
+ * 得到所有的需要登录的 pages，包括主包和分包的
  * 只得到 path 数组
  */
 export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((page) => page.path)
 
 /**
- * 得到所有的需要登录的pages，包括主包和分包的
+ * 得到所有的需要登录的 pages，包括主包和分包的
  * 只得到 path 数组
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
 
 /**
- * 根据微信小程序当前环境，判断应该获取的BaseUrl
+ * 根据微信小程序当前环境，判断应该获取的 baseUrl
  */
 export const getEnvBaseUrl = () => {
   // 请求基准地址
@@ -149,7 +149,7 @@ export const getEnvBaseUrl = () => {
 }
 
 /**
- * 根据微信小程序当前环境，判断应该获取的UPLOAD_BASEURL
+ * 根据微信小程序当前环境，判断应该获取的 UPLOAD_BASEURL
  */
 export const getEnvBaseUploadUrl = () => {
   // 请求基准地址
