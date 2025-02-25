@@ -101,7 +101,7 @@ git commit -m "feat: xxx" --no-verify
 
 目前 `unibest` 已经有 `hbx` 模板，后续接入 `uni-app x` 会很容易，坐等官方发布。
 
-## 12. 为啥 `vue` 已经 `3.4+` 了，还不支持 `defineModel` ?
+## 12. 为啥 `package.json` 中 `vue` 已经 `3.4+` 了，还不支持 `defineModel` ?
 
 `uni-app` 官方虽然已经把 `vue` 升级到 `3.4+` 了，但是目前只有 `H5端` 支持 `defineModel`，其他端目前运行报错，详情请看 `uni-app` 官网的发布日志：
 
@@ -116,5 +116,11 @@ git commit -m "feat: xxx" --no-verify
 ![alt text](./assets/14-5.png)
 
 ![alt text](./assets/14-6.png)
+
+## 13. `base` 模板如何接 `uniCloud` ?
+
+- 1. 操作方案：直接在原始项目目录上右键，重新识别项目类型，就可以关联 uniCloud 了，然后用原始项目直接运行就可以了，不需要再 pnpm dev:app 后导入 dist/dev/app 再运行了。
+
+- 2. 其他模板也可以，操作同上面。
 
 全文完~
