@@ -123,4 +123,6 @@ git commit -m "feat: xxx" --no-verify
 
 - 2. 其他模板也可以，操作同上面。
 
+- 3. 我写的文章链接：[【unibest】可以去掉 hbx 模版了，base 模板一统天下](https://mp.weixin.qq.com/s?__biz=MzUxMzAwNzMwNw==&mid=2247484792&idx=1&sn=b6116198f265384e5a51bd2bd95bea90&chksm=f95a8edcce2d07caba60782e17e48d766612c0ad85c019379fd5ac37890e31b6ca7049e670f7&scene=178&cur_album_id=3438500614009782275#rd)
+
 全文完~
