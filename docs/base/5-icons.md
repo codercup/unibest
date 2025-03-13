@@ -142,8 +142,9 @@ onLoad(() => {
 
 有的时候类名是动态的，比如是 a+b 拼凑的，比如是后端返回的，比如是跨文件的，这时候页面是无法显示出该图标的。因为 `UnoCSS` 还不知道具体的类名是啥，无法得到对应的图标。解决方案有2种：
 
-- 1. 在代码里写出完整的图标类名，并注释掉。
-- 2. 在 `unocss.config.ts` 的 `safeList` 配置该完整类名。
+- 1. 在代码里写出完整的图标类名，并注释掉。(SFC 的任何位置都可以)
+
+- 2. 在 `unocss.config.ts` 的 `safelist` 配置该完整类名。[unocss safelist](https://unocss.dev/config/#safelist)
 
 ## iconfont 图标库
 
