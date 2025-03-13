@@ -14,5 +14,5 @@
 
 > 如果上面的微信群满了，请使用下面的 QQ 群，QQ 群不会过期，长期有效。
 
-① 群已满，下面是 ② 群。
+①② 群已满，下面是 ③ 群。
 ![alt text](https://oss.laf.run/ukw0y1-site/unibest-discussion-group/qq.jpeg)
