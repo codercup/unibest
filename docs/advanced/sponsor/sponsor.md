@@ -12,6 +12,7 @@
 
 - 麦可
 - 程序员云创 [https://www.codecommitter.com/](https://www.codecommitter.com/)
+- 海鲜™ 深圳金济福科技有限公司[https://www.jinjifu.com/](https://www.jinjifu.com/)
 
 ## 50 元
 
