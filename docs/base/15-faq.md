@@ -235,7 +235,7 @@ function addLink(e) {
 
 :::
 
-## 3. Vue-Office 使用哪个版本？
+## 3. Vue - Official 使用哪个版本？
 
 ~~使用 `1.8x`，而不是 `2.x`~~，否则出现下面这样的问题：
 
