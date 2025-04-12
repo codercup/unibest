@@ -6,10 +6,10 @@ export interface IFooItem {
 
 /** GET 请求 */
 export const getFooAPI = (name: string) => {
-  return http.get<IFooItem>('/foo', { name })
+  return http.get<IFooItem>('/foo', { name }, { 'Content-Type-100': '100' })
 }
 
 /** POST 请求 */
 export const postFooAPI = (name: string) => {
-  return http.post<IFooItem>('/foo', { name }, { name })
+  return http.post<IFooItem>('/foo', { name }, { name }, { 'Content-Type-100': '100' })
 }
