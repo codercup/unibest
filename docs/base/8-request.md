@@ -146,6 +146,69 @@ export const getFooAPI = (name: string) => {
 }
 ```
 
+## 支持header传递
+
+目前（v2.6.2）已经支持 `header` 了，具体使用方法如下：(最后一个参数就是 `header`，不需要不用传，需要才传。)
+
+```ts
+/** GET 请求 */
+export const getFooAPI = (name: string) => {
+  return http.get<IFooItem>('/foo', { name }, { 'Content-Type': 'multipart/form-data' })
+}
+
+/** POST 请求 */
+export const postFooAPI = (name: string) => {
+  return http.post<IFooItem>('/foo', { name }, { name }, { 'Content-Type': 'multipart/form-data' })
+}
+```
+
+低于v2.6.2版本，需要手动设置header，具体使用方法如下：(`utils/http.ts`)
+
+```diff
+/**
+ * GET 请求
+ * @param url 后台地址
+ * @param query 请求query参数
++ * @param header 请求头，默认为json格式
+ * @returns
+ */
+export const httpGet = <T>(
+  url: string,
+  query?: Record<string, any>,
++  header?: Record<string, any>,
+) => {
+  return http<T>({
+    url,
+    query,
+    method: 'GET',
++    header,
+  })
+}
+
+/**
+ * POST 请求
+ * @param url 后台地址
+ * @param data 请求body参数
+ * @param query 请求query参数，post请求也支持query，很多微信接口都需要
++ * @param header 请求头，默认为json格式
+ * @returns
+ */
+export const httpPost = <T>(
+  url: string,
+  data?: Record<string, any>,
+  query?: Record<string, any>,
++  header?: Record<string, any>,
+) => {
+  return http<T>({
+    url,
+    query,
+    data,
+    method: 'POST',
++    header,
+  })
+}
+```
+
 ## 环境变量配置
 
 - `普通请求` 需要在 `.env` 里面配置 `VITE_SERVER_BASEURL`，用在 `src/interceptors/request.ts` 文件拼接请求地址；而 `多后台地址` 时则用不上，可以删除。
