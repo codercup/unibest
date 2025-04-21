@@ -13,6 +13,9 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   head: [
+    // 增加构建信息
+    ['meta', { name: 'build-time', content: buildTime }],
+    ['meta', { name: 'version', content: packageJson.version }],
     [
       'meta',
       {
@@ -83,9 +86,6 @@ export default defineConfig({
         content: '最好用的 uniapp 开发模板',
       },
     ],
-    // 增加构建信息
-    ['meta', { name: 'build-time', content: buildTime }],
-    ['meta', { name: 'version', content: packageJson.version }],
     // 下面是百度统计代码
     ['script', { async: '', src: 'https://hm.baidu.com/hm.js?081c2ec121383d9e7d5a35c5833ab6ff' }],
     // 下面是不蒜子统计代码
