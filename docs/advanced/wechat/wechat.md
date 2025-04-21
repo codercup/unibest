@@ -10,7 +10,7 @@
 
 > 有网友测量过，说要看 `四个小时`，哈哈。
 
-![alt text](https://oss.laf.run/ukw0y1-site/unibest-discussion-group/wechat.png)
+![alt text](https://oss.laf.run/ukw0y1-site/unibest-discussion-group/wechat.jpg)
 
 > 如果上面的微信群满了，请使用下面的 QQ 群，QQ 群不会过期，长期有效。
 
