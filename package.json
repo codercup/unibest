@@ -1,7 +1,7 @@
 {
   "name": "unibest",
   "type": "commonjs",
-  "version": "2.5.4",
+  "version": "2.6.3",
   "description": "unibest - 最好的 uniapp 开发模板",
   "author": {
     "name": "feige996",
@@ -67,9 +67,10 @@
     "build:quickapp-webview": "uni build -p quickapp-webview",
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-    "prepare": "git init && husky install ",
+    "prepare": "git init && husky install",
     "type-check": "vue-tsc --noEmit",
-    "cz": "czg"
+    "cz": "czg",
+    "openapi-ts-request": "openapi-ts"
   },
   "lint-staged": {
     "**/*.{html,vue,ts,cjs,json,md}": [
@@ -101,6 +102,8 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-4020920240930001",
     "@dcloudio/uni-mp-xhs": "3.0.0-4020920240930001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-4020920240930001",
+    "@tanstack/vue-query": "^5.62.16",
+    "abortcontroller-polyfill": "^1.7.8",
     "dayjs": "1.11.10",
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
@@ -145,11 +148,12 @@
     "eslint-plugin-vue": "^9.32.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.10",
+    "openapi-ts-request": "^1.1.2",
     "postcss": "^8.4.49",
     "postcss-html": "^1.7.0",
     "postcss-scss": "^4.0.9",
     "rollup-plugin-visualizer": "^5.12.0",
-    "sass": "^1.77.8",
+    "sass": "1.77.8",
     "stylelint": "^16.11.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recess-order": "^4.6.0",

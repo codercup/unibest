@@ -31,6 +31,7 @@
 </template>
 
 <script lang="ts" setup>
+import { TestEnum } from '@/typings'
 import PLATFORM from '@/utils/platform'
 
 defineOptions({
@@ -46,6 +47,7 @@ const description = ref(
 // 测试 uni API 自动引入
 onLoad(() => {
   console.log(author)
+  console.log(TestEnum.A)
 })
 </script>
 

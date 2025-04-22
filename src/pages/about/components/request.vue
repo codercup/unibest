@@ -24,7 +24,7 @@
 
     <!-- http://localhost:9000/#/pages/index/request -->
     <wd-button @click="run" class="my-6">发送请求</wd-button>
-    <view class="h-12">
+    <view class="h-16">
       <view v-if="loading">loading...</view>
       <block v-else>
         <view class="text-xl">请求数据如下</view>
@@ -37,6 +37,8 @@
 
 <script lang="ts" setup>
 import { getFooAPI, postFooAPI, IFooItem } from '@/service/index/foo'
+import { findPetsByStatusQueryOptions } from '@/service/app'
+import { useQuery } from '@tanstack/vue-query'
 
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
 
@@ -50,6 +52,15 @@ const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲�
   immediate: true,
   initialData,
 })
+
+// 使用 vue-query 的 useQuery 来请求数据，只做参考，是否使用请根据实际情况而定
+const {
+  data: data2,
+  error: error2,
+  isLoading: isLoading2,
+  refetch,
+} = useQuery(findPetsByStatusQueryOptions({ params: { status: ['available'] } }))
+
 const reset = () => {
   data.value = initialData
 }
