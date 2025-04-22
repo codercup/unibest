@@ -39,3 +39,11 @@ jobs:
           git checkout tabbar
           git merge base --no-ff -m "Auto merge base into tabbar"
           git push origin tabbar
+
+      - name: Merge base into spa
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout spa
+          git merge base --no-ff -m "Auto merge base into spa"
+          git push origin spa
