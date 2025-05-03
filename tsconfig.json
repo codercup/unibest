@@ -18,10 +18,10 @@
     "types": [
       "@dcloudio/types",
       "@uni-helper/uni-types",
-      "@types/wechat-miniprogram",
       "wot-design-uni/global.d.ts",
       "z-paging/types",
-      "./src/typings.d.ts"
+      "./src/typings.d.ts",
+      "miniprogram-api-typings"
     ]
   },
   "vueCompilerOptions": {
