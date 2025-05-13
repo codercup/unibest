@@ -32,6 +32,10 @@
 
 :::
 
+::: tip 🌟🌟🌟🌟🌟
+旧的文档地址 [codercup/unibest](https://codercup.github.io/unibest-docs/)不再维护，尽量使用新地址[unibest.tech](https://unibest.tech)。
+:::
+
 ## ⭐ Star History
 
 Github Star History 实时地址：[https://star-history.com/#codercup/unibest&Date](https://star-history.com/#codercup/unibest&Date) 。
