@@ -165,7 +165,7 @@
     "stylelint-prettier": "^5.0.2",
     "terser": "^5.36.0",
     "typescript": "^5.7.2",
-    "unocss": "^0.58.9",
+    "unocss": "0.58.9",
     "unocss-applet": "^0.7.8",
     "unplugin-auto-import": "^0.17.8",
     "vite": "5.2.8",

@@ -241,7 +241,7 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
       unocss:
-        specifier: ^0.58.9
+        specifier: 0.58.9
         version: 0.58.9(postcss@8.4.49)(rollup@4.28.0)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))
       unocss-applet:
         specifier: ^0.7.8
@@ -5701,9 +5701,6 @@ packages:
   tinycolor2@1.6.0:
     resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==}
 
-  tinyexec@0.3.1:
-    resolution: {integrity: sha512-WiCJLEECkO18gwqIp6+hJg0//p23HXp4S+gGtAKu3mI2F2/sXC4FvHvXvB0zJVVaTPhx1/tOwdbRsa1sOBIKqQ==}
-
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
 
@@ -6239,7 +6236,7 @@ snapshots:
   '@antfu/install-pkg@0.4.1':
     dependencies:
       package-manager-detector: 0.2.6
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
 
   '@antfu/utils@0.7.10': {}
 
@@ -6996,7 +6993,7 @@ snapshots:
   '@babel/preset-typescript@7.26.0(@babel/core@7.26.0)':
     dependencies:
       '@babel/core': 7.26.0
-      '@babel/helper-plugin-utils': 7.25.9
+      '@babel/helper-plugin-utils': 7.27.1
       '@babel/helper-validator-option': 7.25.9
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-modules-commonjs': 7.25.9(@babel/core@7.26.0)
@@ -7943,7 +7940,7 @@ snapshots:
       debug: 4.4.1
       kolorist: 1.8.0
       local-pkg: 0.5.1
-      mlly: 1.7.3
+      mlly: 1.7.4
     transitivePeerDependencies:
       - supports-color
 
@@ -8884,9 +8881,9 @@ snapshots:
       cac: 6.7.14
       chokidar: 3.6.0
       colorette: 2.0.20
-      consola: 3.2.3
-      fast-glob: 3.3.2
-      magic-string: 0.30.14
+      consola: 3.4.2
+      fast-glob: 3.3.3
+      magic-string: 0.30.17
       pathe: 1.1.2
       perfect-debounce: 1.0.0
     transitivePeerDependencies:
@@ -8924,8 +8921,8 @@ snapshots:
       '@unocss/core': 0.58.9
       '@unocss/rule-utils': 0.58.9
       css-tree: 2.3.1
-      fast-glob: 3.3.2
-      magic-string: 0.30.14
+      fast-glob: 3.3.3
+      magic-string: 0.30.17
       postcss: 8.4.49
 
   '@unocss/preset-attributify@0.58.9':
@@ -9005,7 +9002,7 @@ snapshots:
   '@unocss/rule-utils@0.58.9':
     dependencies:
       '@unocss/core': 0.58.9
-      magic-string: 0.30.14
+      magic-string: 0.30.17
 
   '@unocss/scope@0.58.9': {}
 
@@ -9046,8 +9043,8 @@ snapshots:
       '@unocss/scope': 0.58.9
       '@unocss/transformer-directives': 0.58.9
       chokidar: 3.6.0
-      fast-glob: 3.3.2
-      magic-string: 0.30.14
+      fast-glob: 3.3.3
+      magic-string: 0.30.17
       vite: 5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0)
     transitivePeerDependencies:
       - rollup
@@ -12140,8 +12137,8 @@ snapshots:
   ofetch@1.4.1:
     dependencies:
       destr: 2.0.3
-      node-fetch-native: 1.6.4
-      ufo: 1.5.4
+      node-fetch-native: 1.6.6
+      ufo: 1.6.1
 
   ohash@1.1.4: {}
 
@@ -13208,8 +13205,6 @@ snapshots:
   tiny-pinyin@1.3.2: {}
 
   tinycolor2@1.6.0: {}
-
-  tinyexec@0.3.1: {}
 
   tinyexec@0.3.2: {}
 
