@@ -71,6 +71,7 @@ export default defineConfig({
     ['meta', { property: 'og:image:height', content: '600' }],
     ['meta', { property: 'og:site_name', content: 'GitHub' }],
     ['meta', { property: 'og:type', content: 'object' }],
+    ['meta', { property: 'baidu_union_verify', content: '8ab9e6068e7febf94e684886f81f406f' }],
     [
       'meta',
       {
