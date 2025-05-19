@@ -41,6 +41,8 @@ export default defineConfig({
     // 添加 ICP 备案信息
     ['meta', { name: 'icp', content: '粤ICP备2024160998号' }],
     ['link', { rel: 'license', href: 'https://beian.miit.gov.cn/' }],
+    // 百度联盟meta
+    ['meta', { property: 'baidu_union_verify', content: '8ab9e6068e7febf94e684886f81f406f' }],
     // 其他杂七杂八的 meta 标签
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:site', content: 'feige996' }],
@@ -71,7 +73,6 @@ export default defineConfig({
     ['meta', { property: 'og:image:height', content: '600' }],
     ['meta', { property: 'og:site_name', content: 'GitHub' }],
     ['meta', { property: 'og:type', content: 'object' }],
-    ['meta', { property: 'baidu_union_verify', content: '8ab9e6068e7febf94e684886f81f406f' }],
     [
       'meta',
       {
