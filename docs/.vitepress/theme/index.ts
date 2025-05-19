@@ -6,6 +6,7 @@ import './custom.css'
 
 import HomeStar from './components/HomeStar.vue'
 import NavBarTitleAfter from './components/NavBarTitleAfter.vue'
+import FreshImage from './components/FreshImage.vue'
 
 export default {
   extends: DefaultTheme,
@@ -18,5 +19,6 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     // ...
+    app.component('FreshImage', FreshImage)
   },
 } satisfies Theme

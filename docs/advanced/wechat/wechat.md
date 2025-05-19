@@ -10,7 +10,9 @@
 
 > 有网友测量过，说要看 `四个小时`，哈哈。
 
-![alt text](https://oss.laf.run/ukw0y1-site/unibest-discussion-group/wechat.jpg)
+<!-- ![alt text](https://oss.laf.run/ukw0y1-site/unibest-discussion-group/wechat.jpg) -->
+<!-- 上面的固定地址的方式会导致刷新后还是旧的图片，所以使用下面这种动态地址的方式。 -->
+<FreshImage src="https://oss.laf.run/ukw0y1-site/unibest-discussion-group/wechat.jpg" alt="微信群二维码" />
 
 > 如果上面的微信群满了，请使用下面的 QQ 群，QQ 群不会过期，长期有效。
 
