@@ -129,6 +129,7 @@ export default defineConfig({
           },
           { text: 'uni 插件', link: '3-plugin' },
           { text: '样式篇', link: '4-style' },
+          { text: '样式篇2', link: '4-style2' },
           { text: '图标篇', link: '5-icons' },
           { text: 'SVG篇', link: '6-svg' },
           { text: 'UI库选型篇', link: 'ui/ui' },
