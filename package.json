@@ -132,7 +132,7 @@
     "@typescript-eslint/parser": "^6.21.0",
     "@uni-helper/uni-types": "1.0.0-alpha.3",
     "@uni-helper/vite-plugin-uni-layouts": "^0.1.10",
-    "@uni-helper/vite-plugin-uni-manifest": "^0.2.7",
+    "@uni-helper/vite-plugin-uni-manifest": "^0.2.8",
     "@uni-helper/vite-plugin-uni-pages": "0.2.20",
     "@uni-helper/vite-plugin-uni-platform": "^0.0.4",
     "@unocss/preset-legacy-compat": "^0.59.4",
