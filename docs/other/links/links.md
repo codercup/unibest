@@ -8,10 +8,15 @@
 
 ## UI 组件库
 
-- [wot-ui](https://wot-design-uni.cn) -- `五星推荐⭐⭐⭐⭐⭐`
-  [备用地址](https://wot-design-uni.netlify.app)
+- [wot-ui](https://wot-design-uni.cn) -- `五星推荐⭐⭐⭐⭐⭐，unibest默认内置`
+  > [wot-ui 备用地址](https://wot-design-uni.netlify.app)
 - [uni-ui](https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html)
 - [uv-ui](https://www.uvui.cn/)
+- [uview-plus](https://uiadmin.net/uview-plus/)
+- [TuniaoUI](https://vue3.tuniaokj.com/zh-CN/)
+- [Sard uniapp](https://sard.wzt.zone/sard-uniapp-docs/)
+- [FirstUI](https://doc.firstui.cn/)(部分组件收费)
+- [ThorUI](https://thorui.cn/doc/)(部分组件收费)
 
 ## 原子类 CSS
 

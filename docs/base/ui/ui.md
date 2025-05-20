@@ -20,13 +20,14 @@
 - uview-plus (uveiw 系) - [文档地址](https://uiadmin.net/uview-plus/)
 - Wot Design Uni (wot 系) - [文档地址](https://wot-design-uni.netlify.app/)
 - TuniaoUI （图鸟系） - [文档地址](https://vue3.tuniaokj.com/zh-CN/)
+- Sard uniapp （Sard系） - [文档地址](https://sard.wzt.zone/sard-uniapp-docs/)
 
-还有 2 个 UI 框架也很优秀，但是只有部分组件开源免费，大半组件收费，咱暂不考虑。
+还有 2 个 UI 框架也很优秀，大部分组件开源免费，还有一部分组件是收费的，有需要的可以看看。
 
 - FirstUI [文档链接](https://doc.firstui.cn/)
 - ThorUI [文档链接](https://thorui.cn/doc/)
 
-> 温馨提示：收费没有对错，只要做得好，提供优质的组件，别人愿意付费，也是极好的。
+> 温馨提示：收费没有对错，只要做得好，提供优质的组件，自然有用户买单。
 
 ---
 
