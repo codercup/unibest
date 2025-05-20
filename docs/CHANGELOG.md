@@ -16,24 +16,26 @@
 
 - 支持 `无 TabBar` 模式，用户只需删除 `pages.config.ts` 中的 `tabBar` 配置即可。
 
-  > 对于 `v2.7.0` 以下版本，需按以下步骤操作：
+::: details 对于 `v2.7.0` 以下版本，需按以下步骤操作：
 
-  - 执行 `pnpm uvm` 升级 `@dcloudio/uni-app`。
-  - 修改 `src/utils/index.ts` 部分代码：
+- 执行 `pnpm uvm` 升级 `@dcloudio/uni-app`。
+- 修改 `src/utils/index.ts` 部分代码：
 
-    ```ts
-    import pagesConfig from '@/pages.json'
-    const { pages, subPackages, tabBar = { list: [] } } = { ...pagesConfig }
+```ts
+import pagesConfig from '@/pages.json'
+const { pages, subPackages, tabBar = { list: [] } } = { ...pagesConfig }
 
-    /** 判断当前页面是否是 tabbar 页  */
-    export const getIsTabbar = () => {
-      try {
-        const lastPage = getLastPage()
-        const currPath = lastPage?.route
+/** 判断当前页面是否是 tabbar 页  */
+export const getIsTabbar = () => {
+  try {
+    const lastPage = getLastPage()
+    const currPath = lastPage?.route
 
-        return Boolean(tabBar?.list?.some((item) => item.pagePath === currPath))
-      } catch {
-        return false
-      }
-    }
-    ```
+    return Boolean(tabBar?.list?.some((item) => item.pagePath === currPath))
+  } catch {
+    return false
+  }
+}
+```
+
+:::

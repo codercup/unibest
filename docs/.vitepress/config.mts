@@ -114,6 +114,10 @@ export default defineConfig({
         link: '/advanced/rewards/rewards',
       },
       {
+        text: '更新日志',
+        link: '/CHANGELOG',
+      },
+      {
         text: '相关链接',
         link: '/other/links/links',
         activeMatch: '/other',
@@ -149,6 +153,10 @@ export default defineConfig({
           { text: 'App 专题', link: '18-app' },
           { text: '最佳实践', link: '20-best' },
         ],
+      },
+      {
+        text: '更新日志',
+        link: '/CHANGELOG',
       },
       {
         text: '社交',
