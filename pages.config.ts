@@ -16,6 +16,7 @@ export default defineUniPages({
         'z-paging/components/z-paging$1/z-paging$1.vue',
     },
   },
+  // 如果不需要tabBar，可以注释掉这个配置，或者直接删除
   tabBar: {
     color: '#999999',
     selectedColor: '#018d71',
