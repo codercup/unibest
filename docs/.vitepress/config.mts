@@ -115,7 +115,7 @@ export default defineConfig({
       },
       {
         text: '更新日志',
-        link: '/CHANGELOG',
+        link: '/changelog/CHANGELOG',
       },
       {
         text: '相关链接',
@@ -156,7 +156,7 @@ export default defineConfig({
       },
       {
         text: '更新日志',
-        link: '/CHANGELOG',
+        link: '/changelog/CHANGELOG',
       },
       {
         text: '社交',

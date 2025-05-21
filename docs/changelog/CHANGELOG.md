@@ -5,6 +5,20 @@
 ### 架构优化
 
 - 移除 `stylelint` 和 `eslint` 配置，统一采用 `oxlint` 进行代码检查，提升代码质量和一致性。
+- 移除 `husky` 和 `commitlint` 配置
+
+  ::: details 对于 `v2.8.0` 以下版本，需按以下步骤操作：
+
+  - 把 `husky, stylelint, eslint` 相关依赖包删除
+  - 安装 `oxlint`，设置 `lint-staged` 配置为 `oxlint`
+  - 删除 `husky, stylelint, eslint` 相关文件
+
+  ![alt text](image.png)
+  ![alt text](image-1.png)
+  ![alt text](image-2.png)
+  ![alt text](image-3.png)
+
+  :::
 
 ## v2.7.0(2025-05-19)
 
