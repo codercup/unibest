@@ -1,5 +1,7 @@
-import { pages, subPackages, tabBar } from '@/pages.json'
+import pagesConfig from '@/pages.json'
 import { isMpWeixin } from './platform'
+
+const { pages, subPackages, tabBar = { list: [] } } = { ...pagesConfig }
 
 export const getLastPage = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
@@ -11,16 +13,14 @@ export const getLastPage = () => {
 
 /** 判断当前页面是否是 tabbar 页  */
 export const getIsTabbar = () => {
-  if (!tabBar) {
+  try {
+    const lastPage = getLastPage()
+    const currPath = lastPage?.route
+
+    return Boolean(tabBar?.list?.some((item) => item.pagePath === currPath))
+  } catch {
     return false
   }
-  if (!tabBar.list.length) {
-    // 通常有 tabBar 的话，list 不能有空，且至少有2个元素，这里其实不用处理
-    return false
-  }
-  const lastPage = getLastPage()
-  const currPath = lastPage.route
-  return !!tabBar.list.find((e) => e.pagePath === currPath)
 }
 
 /**
