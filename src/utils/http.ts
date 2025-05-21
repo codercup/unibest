@@ -84,6 +84,41 @@ export const httpPost = <T>(
     header,
   })
 }
+/**
+ * PUT 请求
+ */
+export const httpPut = <T>(
+  url: string,
+  data?: Record<string, any>,
+  query?: Record<string, any>,
+  header?: Record<string, any>,
+) => {
+  return http<T>({
+    url,
+    data,
+    query,
+    method: 'PUT',
+    header,
+  })
+}
+
+/**
+ * DELETE 请求（无请求体，仅 query）
+ */
+export const httpDelete = <T>(
+  url: string,
+  query?: Record<string, any>,
+  header?: Record<string, any>,
+) => {
+  return http<T>({
+    url,
+    query,
+    method: 'DELETE',
+    header,
+  })
+}
 
 http.get = httpGet
 http.post = httpPost
+http.put = httpPut
+http.delete = httpDelete
