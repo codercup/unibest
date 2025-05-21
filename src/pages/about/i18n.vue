@@ -22,7 +22,10 @@
     </view>
     <view class="text-green-500">多语言测试</view>
     <view class="m-4">{{ $t('app.name') }}</view>
+    <view class="italic text-gray-500">使用$t: {{ $t('weight', { heavy: 100 }) }}</view>
     <view class="m-4">{{ $t('weight', { heavy: 100 }) }}</view>
+    <view class="italic text-gray-500">使用t: {{ t('weight', { heavy: 100 }) }}</view>
+    <view class="m-4">{{ t('weight', { heavy: 100 }) }}</view>
     <view class="m-4">{{ t('introduction', user) }}</view>
 
     <view class="text-green-500 mt-12">切换语言</view>

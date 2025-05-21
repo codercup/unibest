@@ -2,6 +2,7 @@ import pagesConfig from '@/pages.json'
 import { isMpWeixin } from './platform'
 
 const { pages, subPackages, tabBar = { list: [] } } = { ...pagesConfig }
+export const tabBarList = tabBar.list
 
 export const getLastPage = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
