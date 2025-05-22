@@ -4,15 +4,18 @@ import packageJson from '../../package.json'
 
 const buildTime = dayjs().format('YYYY-MM-DD HH:mm:ss')
 
+const base = '/unibest/' // default is /
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-CN',
-  base: '/unibest/',
+  base: base,
   title: 'unibest 官方文档',
   description: '最好用的 uniapp 开发模板',
   lastUpdated: true,
   cleanUrls: true,
   head: [
+    ['link', { rel: 'icon', href: `${base}/favicon.ico` }],
     // 增加构建信息
     ['meta', { name: 'build-time', content: buildTime }],
     ['meta', { name: 'version', content: packageJson.version }],
@@ -30,7 +33,6 @@ export default defineConfig({
         content: '菲鸽, 菲哥, 鸽鸽, feige996, feige996, 1020103647@qq.com',
       },
     ],
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
     [
       'meta',
       {
