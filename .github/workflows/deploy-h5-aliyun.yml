@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - aliyun
   workflow_dispatch:
 
 jobs:
