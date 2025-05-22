@@ -3,7 +3,7 @@ name: Auto Merge Base to Other Branches
 on:
   push:
     branches:
-      - base
+      - main
   workflow_dispatch: # 手动触发
 
 jobs:
