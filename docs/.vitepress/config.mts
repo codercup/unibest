@@ -118,9 +118,11 @@ export default defineConfig({
         link: '/changelog/CHANGELOG',
       },
       {
-        text: '相关链接',
-        link: '/other/links/links',
-        activeMatch: '/other',
+        text: '备用地址',
+        items: [
+          { text: 'unibest.tech', link: 'https://unibest.tech' },
+          { text: 'github.io', link: 'https://feige996.github.io/unibest/' },
+        ],
       },
     ],
     sidebar: [

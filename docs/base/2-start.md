@@ -6,7 +6,6 @@
   - **pnpm** - `>=7.30`（推荐使用 `8.12+`）
   - **`VSCode`** - 可选 `WebStrom`
   - **`HBuilderX`** - `APP` 的运行和发布还是离不开它
-  - **Vue-Official (又叫 Vue.volar)** - `v2.1.10`
 
 ## 创建项目
 
