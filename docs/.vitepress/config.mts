@@ -120,8 +120,8 @@ export default defineConfig({
       {
         text: '备用地址',
         items: [
-          { text: 'unibest.tech', link: 'https://unibest.tech' },
-          { text: 'github.io', link: 'https://feige996.github.io/unibest/' },
+          { text: 'unibest.tech(首选)', link: 'https://unibest.tech' },
+          { text: 'github page(备选)', link: 'https://feige996.github.io/unibest/' },
         ],
       },
     ],
