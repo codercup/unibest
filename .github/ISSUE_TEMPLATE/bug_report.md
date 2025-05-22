@@ -11,7 +11,7 @@ about: Create a report to help us improve
 
 # Bug report（问题描述）
 
-写清楚 unibest 版本号，平台是什么（小程序、APP还是h5），以及具体问题描述。
+写清楚 unibest 版本号，平台是什么（小程序、APP还是h5），以及具体问题描述。期望是什么，实际是什么。
 
 ## Steps to reproduce（问题复现步骤）
 
