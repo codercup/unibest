@@ -16,34 +16,10 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
 
-      - name: Merge base into main
+      - name: Merge main into aliyun
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git checkout main
-          git merge base --no-ff -m "Auto merge base into main"
-          git push origin main
-
-      - name: Merge base into i18n
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout i18n
-          git merge base --no-ff -m "Auto merge base into i18n"
-          git push origin i18n
-
-      - name: Merge base into tabbar
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout tabbar
-          git merge base --no-ff -m "Auto merge base into tabbar"
-          git push origin tabbar
-
-      - name: Merge base into spa
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout spa
-          git merge base --no-ff -m "Auto merge base into spa"
-          git push origin spa
+          git checkout aliyun
+          git merge main --no-ff -m "Auto merge main into aliyun"
+          git push origin aliyun
