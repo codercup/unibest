@@ -30,6 +30,7 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 </script>
 
 <style lang="scss" scoped>
+@import '@/uni.scss';
 .test-css {
   // 16rpx=>0.5rem
   padding-bottom: 16rpx;
