@@ -26,13 +26,11 @@ jobs:
       - name: Build VitePress
         run: pnpm docs:build
 
-      - name: Deploy to Aliyun
-        uses: some-aliyun-deploy-action@v1
+      - name: Configure Aliyun OSS
+        uses: alibaba/oss-util-action@v1
         with:
           access-key-id: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
-          #  region: 华南2（河源）
-          # 建议修改为对应的英文代码
           region: cn-heyuan
-          destination: /usr/share/nginx/html/
-          source: docs/.vitepress/dist
+          bucket: your-bucket-name
+          folder: docs/.vitepress/dist
