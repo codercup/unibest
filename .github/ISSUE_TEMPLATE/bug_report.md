@@ -11,22 +11,14 @@ about: Create a report to help us improve
 
 # Bug report（问题描述）
 
-please write your issue description here
+写清楚 unibest 版本号，平台是什么（小程序、APP还是h5），以及具体问题描述。
 
 ## Steps to reproduce（问题复现步骤）
+
+这里写问题复现步骤
 
 <!--
 1. [xxx]
 2. [xxx]
 3. [xxxx]
 -->
-
-## Screenshot or Gif（截图或动态图）
-
-## minimal reproduction（最小可还原代码）
-
-## System Info
-
-`npx envinfo --system --npmPackages vue --binaries --browsers`
-
-执行上面命令，将结果贴下面
