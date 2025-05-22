@@ -31,6 +31,8 @@ jobs:
         with:
           access-key-id: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
-          region: 华南2（河源）
+          #  region: 华南2（河源）
+          # 建议修改为对应的英文代码
+          region: cn-heyuan
           destination: /usr/share/nginx/html/
           source: docs/.vitepress/dist
