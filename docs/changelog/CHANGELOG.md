@@ -4,8 +4,8 @@
 
 ### 架构优化
 
-- 移除 `stylelint` 和 `eslint` 配置，统一采用 `oxlint` 进行代码检查，提升代码质量和一致性。
-- 移除 `husky` 和 `commitlint` 配置
+- 移除 `stylelint` 和 `eslint` 配置，统一采用 `oxlint` 进行代码检查，提升代码校验的速度（比 `eslint` 快 `50-100` 倍）。
+- 移除 `husky` 和 `commitlint` 配置(使用编辑器的AI生成commit信息)。
 
   ::: details 对于 `v2.8.0` 以下版本，需按以下步骤操作：
 
