@@ -11,8 +11,13 @@ import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
 // @see https://github.com/uni-helper/vite-plugin-uni-manifest
 import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
-// @see https://unocss.dev/
+/**
+ * 分包优化、模块异步跨包调用、组件异步跨包引用
+ * @see https://github.com/uni-ku/bundle-optimizer
+ */
+import Optimization from '@uni-ku/bundle-optimizer'
 import { visualizer } from 'rollup-plugin-visualizer'
+// @see https://unocss.dev/
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import ViteRestart from 'vite-plugin-restart'
@@ -81,6 +86,18 @@ export default ({ command, mode }) => {
         dts: 'src/types/auto-import.d.ts',
         dirs: ['src/hooks'], // 自动导入 hooks
         vueTemplate: true, // default false
+      }),
+      // Optimization 插件需要 page.json 文件，故应在 UniPages 插件之后执行
+      Optimization({
+        enable: {
+          optimization: true,
+          'async-import': true,
+          'async-component': true,
+        },
+        dts: {
+          base: 'src/types',
+        },
+        logger: false,
       }),
 
       ViteRestart({
