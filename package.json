@@ -122,6 +122,7 @@
     "@types/wechat-miniprogram": "^3.4.8",
     "@uni-helper/uni-types": "1.0.0-alpha.3",
     "@uni-helper/unocss-preset-uni": "^0.2.11",
+    "@uni-helper/vite-plugin-uni-components": "^0.2.0",
     "@uni-helper/vite-plugin-uni-layouts": "^0.1.10",
     "@uni-helper/vite-plugin-uni-manifest": "^0.2.8",
     "@uni-helper/vite-plugin-uni-pages": "0.2.20",
