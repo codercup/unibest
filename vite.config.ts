@@ -17,14 +17,14 @@ import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
  */
 import Optimization from '@uni-ku/bundle-optimizer'
 import { visualizer } from 'rollup-plugin-visualizer'
-// @see https://unocss.dev/
-import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import ViteRestart from 'vite-plugin-restart'
 import { copyNativeRes } from './vite-plugins/copyNativeRes'
 
 // https://vitejs.dev/config/
-export default ({ command, mode }) => {
+export default async ({ command, mode }) => {
+  // @see https://unocss.dev/
+  const UnoCSS = (await import('unocss/vite')).default
   // console.log(mode === process.env.NODE_ENV) // true
 
   // mode: 区分生产环境还是开发环境
