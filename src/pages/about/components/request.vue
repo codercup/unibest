@@ -37,8 +37,8 @@
 
 <script lang="ts" setup>
 import { getFooAPI, postFooAPI, IFooItem } from '@/service/index/foo'
-import { findPetsByStatusQueryOptions } from '@/service/app'
-import { useQuery } from '@tanstack/vue-query'
+// import { findPetsByStatusQueryOptions } from '@/service/app'
+// import { useQuery } from '@tanstack/vue-query'
 
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
 
@@ -54,12 +54,12 @@ const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲�
 })
 
 // 使用 vue-query 的 useQuery 来请求数据，只做参考，是否使用请根据实际情况而定
-const {
-  data: data2,
-  error: error2,
-  isLoading: isLoading2,
-  refetch,
-} = useQuery(findPetsByStatusQueryOptions({ params: { status: ['available'] } }))
+// const {
+//   data: data2,
+//   error: error2,
+//   isLoading: isLoading2,
+//   refetch,
+// } = useQuery(findPetsByStatusQueryOptions({ params: { status: ['available'] } }))
 
 const reset = () => {
   data.value = initialData
