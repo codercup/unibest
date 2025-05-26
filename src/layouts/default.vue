@@ -3,6 +3,7 @@
     <slot />
     <wd-toast />
     <wd-message-box />
+    <privacy-popup />
   </wd-config-provider>
 </template>
 
