@@ -1,0 +1,47 @@
+@import 'wot-design-uni/components/wd-button/index.scss';
+:deep(.wd-privacy-popup) {
+  width: 600rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  border-radius: 32rpx;
+  overflow: hidden;
+}
+
+.wd-privacy-popup {
+  &__header {
+    width: 100%;
+    height: 128rpx;
+    line-height: 128rpx;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 30rpx;
+    padding: 0 12rpx;
+    box-sizing: border-box;
+  }
+
+  &__container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 12rpx;
+    margin-bottom: 32rpx;
+
+    font-size: 28rpx;
+    line-height: 1.8;
+    color: #3e3e3e;
+    text-align: left;
+    font-weight: 550;
+    &-protocol {
+      color: #4d80f0;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 36rpx;
+
+    button {
+      border: none;
+      outline: none;
+    }
+  }
+}
