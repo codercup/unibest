@@ -8,5 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     FgNavbar: typeof import('./../components/fg-navbar/fg-navbar.vue')['default']
+    Tabbar: typeof import('./../components/tabbar/tabbar.vue')['default']
   }
 }

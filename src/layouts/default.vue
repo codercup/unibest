@@ -7,14 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getIsTabbar } from '@/utils'
 import type { ConfigProviderThemeVars } from 'wot-design-uni'
-
-onMounted(() => {
-  if (getIsTabbar()) {
-    uni.hideTabBar()
-  }
-})
 
 const themeVars: ConfigProviderThemeVars = {
   // colorTheme: 'red',
