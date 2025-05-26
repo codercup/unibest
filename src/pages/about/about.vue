@@ -1,5 +1,6 @@
 <route lang="json5">
 {
+  layout: 'tabbar',
   style: {
     navigationBarTitleText: '关于',
     navigationStyle: 'custom', // 开启自定义导航栏

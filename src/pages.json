@@ -18,6 +18,7 @@
     {
       "path": "pages/index/index",
       "type": "home",
+      "layout": "tabbar",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "首页"
@@ -26,6 +27,7 @@
     {
       "path": "pages/about/about",
       "type": "page",
+      "layout": "tabbar",
       "style": {
         "navigationBarTitleText": "关于",
         "navigationStyle": "custom"

@@ -4,13 +4,30 @@ export interface TabbarItem {
   name: string
   value: number | null
   active: boolean
+  route: string
+  title: string
+  icon: string
 }
 
 export const useTabbarStore = defineStore('tabbar', {
   state: (): { tabbarItems: TabbarItem[] } => ({
     tabbarItems: [
-      { name: 'index', value: null, active: true },
-      { name: 'about', value: null, active: false },
+      {
+        name: 'index',
+        value: null,
+        active: true,
+        route: '/pages/index/index',
+        title: '首页',
+        icon: 'home',
+      },
+      {
+        name: 'about',
+        value: null,
+        active: false,
+        route: '/pages/about/about',
+        title: '关于',
+        icon: 'user',
+      },
     ],
   }),
   getters: {
@@ -25,6 +42,12 @@ export const useTabbarStore = defineStore('tabbar', {
       return (name: string) => {
         const item = state.tabbarItems.find((item) => item.name === name)
         return item && item.value ? item.value : null
+      }
+    },
+    getTabbarItemRoute: (state) => {
+      return (name: string) => {
+        const item = state.tabbarItems.find((item) => item.name === name)
+        return (item && item.route) ?? null
       }
     },
   },
