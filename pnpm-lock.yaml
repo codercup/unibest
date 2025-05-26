@@ -129,6 +129,9 @@ importers:
       '@uni-helper/uni-types':
         specifier: 1.0.0-alpha.3
         version: 1.0.0-alpha.3(@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.4.21(typescript@5.7.2)))(@uni-helper/uni-cloud-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.4.21(typescript@5.7.2)))(@uni-helper/uni-ui-types@1.0.0-alpha.3(@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.4.21(typescript@5.7.2)))(typescript@5.7.2)(vue@3.4.21(typescript@5.7.2)))(typescript@5.7.2)(vue@3.4.21(typescript@5.7.2))
+      '@uni-helper/vite-plugin-uni-components':
+        specifier: ^0.2.0
+        version: 0.2.0(rollup@4.28.0)
       '@uni-helper/vite-plugin-uni-layouts':
         specifier: ^0.1.10
         version: 0.1.10(rollup@4.28.0)
@@ -1998,6 +2001,9 @@ packages:
       typescript: ^5.5.4
       vue: ^3.4.21
 
+  '@uni-helper/vite-plugin-uni-components@0.2.0':
+    resolution: {integrity: sha512-h/rV8Z3N+wus/ZviYzkdRePNSUlkndn5H+wVC17ZXmG+2mqmUfLJdGskzrCbgE7Y1TT7u8E9yMz8Ah/RwMf0GQ==}
+
   '@uni-helper/vite-plugin-uni-layouts@0.1.10':
     resolution: {integrity: sha512-RJdGmJjZtpKNVfShiKYZrualMxdi+i8uh7zpPG+X3lzf6wyKSJgWwVAj3GUdqeE/QUEncNPmj2sqwuyeLXPxbA==}
 
@@ -3854,6 +3860,10 @@ packages:
     resolution: {integrity: sha512-FMJTLMXfCLMLfJxcX9PFqX5qD88Z5MRGaZCVzfuqeZSPsyiBzs+pahDQjbIWz2QIzPZz0NX9Zy4FX3lmK6YHIg==}
     engines: {node: '>= 12.13.0'}
 
+  local-pkg@0.4.3:
+    resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
+    engines: {node: '>=14'}
+
   local-pkg@0.5.1:
     resolution: {integrity: sha512-9rrA30MRRP3gBD3HTGnC6cDFpaE1kVDWxWgqWJUN0RvDNAo+Nz/9GxB+nHOH0ifbVFy0hSA1V6vFDvnx54lTEQ==}
     engines: {node: '>=14'}
@@ -4031,6 +4041,10 @@ packages:
 
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
+
+  minimatch@8.0.4:
+    resolution: {integrity: sha512-W0Wvr9HyFXZRGIDgCicunpQ299OKXs9RgZfaukz4qAW/pJhcpUfupc9c+OObPOFueNy8VSrZgEmDtk6Kh4WzDA==}
+    engines: {node: '>=16 || 14 >=14.17'}
 
   minimatch@9.0.5:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
@@ -6488,7 +6502,7 @@ snapshots:
       es-module-lexer: 1.5.4
       estree-walker: 2.0.2
       fs-extra: 10.1.0
-      magic-string: 0.30.14
+      magic-string: 0.30.17
       picocolors: 1.1.1
       source-map-js: 1.2.1
       unimport: 4.1.1
@@ -6638,7 +6652,7 @@ snapshots:
       '@dcloudio/uni-i18n': 3.0.0-4060520250512001
       '@dcloudio/uni-shared': 3.0.0-4060520250512001
       '@vue/shared': 3.4.21
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
     transitivePeerDependencies:
       - '@nuxt/kit'
       - '@vueuse/core'
@@ -8069,6 +8083,21 @@ snapshots:
       '@uni-helper/uni-app-types': 1.0.0-alpha.3(typescript@5.7.2)(vue@3.4.21(typescript@5.7.2))
       typescript: 5.7.2
       vue: 3.4.21(typescript@5.7.2)
+
+  '@uni-helper/vite-plugin-uni-components@0.2.0(rollup@4.28.0)':
+    dependencies:
+      '@antfu/utils': 0.7.10
+      '@rollup/pluginutils': 5.1.3(rollup@4.28.0)
+      chokidar: 3.6.0
+      debug: 4.4.1
+      fast-glob: 3.3.3
+      local-pkg: 0.4.3
+      magic-string: 0.30.17
+      minimatch: 8.0.4
+      resolve: 1.22.10
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
 
   '@uni-helper/vite-plugin-uni-layouts@0.1.10(rollup@4.28.0)':
     dependencies:
@@ -10449,6 +10478,8 @@ snapshots:
 
   loader-utils@3.3.1: {}
 
+  local-pkg@0.4.3: {}
+
   local-pkg@0.5.1:
     dependencies:
       mlly: 1.7.3
@@ -10614,6 +10645,10 @@ snapshots:
   minimatch@3.1.2:
     dependencies:
       brace-expansion: 1.1.11
+
+  minimatch@8.0.4:
+    dependencies:
+      brace-expansion: 2.0.1
 
   minimatch@9.0.5:
     dependencies:
@@ -11687,7 +11722,7 @@ snapshots:
       escape-string-regexp: 5.0.0
       estree-walker: 3.0.3
       local-pkg: 0.5.1
-      magic-string: 0.30.14
+      magic-string: 0.30.17
       mlly: 1.7.3
       pathe: 1.1.2
       picomatch: 4.0.2
