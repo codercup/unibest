@@ -17,6 +17,7 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import ViteRestart from 'vite-plugin-restart'
 import { copyNativeRes } from './vite-plugins/copyNativeRes'
+import Components from '@uni-helper/vite-plugin-uni-components'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -62,7 +63,6 @@ export default defineConfig(({ command, mode }) => {
       UniPlatform(),
       UniManifest(),
       // UniXXX 需要在 Uni 之前引入
-      Uni(),
       {
         // 临时解决 dcloudio 官方的 @dcloudio/uni-mp-compiler 出现的编译 BUG
         // 参考 github issue: https://github.com/dcloudio/uni-app/issues/4952
@@ -105,6 +105,13 @@ export default defineConfig(({ command, mode }) => {
         }),
       // 只有在 app 平台时才启用 copyNativeRes 插件
       UNI_PLATFORM === 'app' && copyNativeRes(),
+      Components({
+        extensions: ['vue'],
+        deep: true, // 是否递归扫描子目录，
+        directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
+        dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
+      }),
+      Uni(),
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
