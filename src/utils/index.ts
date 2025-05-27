@@ -25,6 +25,26 @@ export const getIsTabbar = () => {
 }
 
 /**
+ * 判断指定页面是否是 tabbar 页
+ * @param path 页面路径
+ * @returns true: 是 tabbar 页 false: 不是 tabbar 页
+ */
+export const isTableBar = (path: string) => {
+  if (!tabBar) {
+    return false
+  }
+  if (!tabBar.list.length) {
+    // 通常有 tabBar 的话，list 不能有空，且至少有2个元素，这里其实不用处理
+    return false
+  }
+  // 这里需要处理一下 path，因为 tabBar 中的 pagePath 是不带 /pages 前缀的
+  if (path.startsWith('/')) {
+    path = path.substring(1)
+  }
+  return !!tabBar.list.find((e) => e.pagePath === path)
+}
+
+/**
  * 获取当前页面路由的 path 路径和 redirectPath 路径
  * path 如 '/pages/login/index'
  * redirectPath 如 '/pages/demo/base/route-interceptor'
