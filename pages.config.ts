@@ -49,16 +49,10 @@ export default defineUniPages({
       //   iconType: 'local',
       // },
       {
-        pagePath: 'pages/my/index',
+        pagePath: 'pages/mine/index',
         text: '我的',
         icon: 'iconfont icon-my',
         iconType: 'iconfont',
-      },
-      {
-        iconPath: 'static/tabbar/personal.png',
-        selectedIconPath: 'static/tabbar/personalHL.png',
-        pagePath: 'pages/mine/index',
-        text: '我的',
       },
     ],
   },
