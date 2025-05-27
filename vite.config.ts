@@ -180,4 +180,4 @@ export default async ({ command, mode }) => {
       },
     },
   }
-})
+}
