@@ -32,6 +32,42 @@
         "navigationBarTitleText": "关于",
         "navigationStyle": "custom"
       }
+    },
+    {
+      "path": "pages/login/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/mine/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/mine/about/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "关于我们"
+      }
+    },
+    {
+      "path": "pages/mine/info/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "个人资料"
+      }
+    },
+    {
+      "path": "pages/mine/password/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "修改密码"
+      }
     }
   ],
   "subPackages": []
