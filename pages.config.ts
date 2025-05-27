@@ -54,6 +54,12 @@ export default defineUniPages({
         icon: 'iconfont icon-my',
         iconType: 'iconfont',
       },
+      {
+        iconPath: 'static/tabbar/personal.png',
+        selectedIconPath: 'static/tabbar/personalHL.png',
+        pagePath: 'pages/mine/index',
+        text: '我的',
+      },
     ],
   },
 })

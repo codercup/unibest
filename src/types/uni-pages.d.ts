@@ -6,12 +6,17 @@
 interface NavigateToOptions {
   url: "/pages/index/index" |
        "/pages/about/about" |
-       "/pages/my/index";
+       "/pages/my/index"|
+       "/pages/login/index" |
+       "/pages/mine/index" |
+       "/pages/mine/about/index" |
+       "/pages/mine/info/index" |
+       "/pages/mine/password/index";
 }
 interface RedirectToOptions extends NavigateToOptions {}
 
 interface SwitchTabOptions {
-  url: "/pages/index/index" | "/pages/about/about" | "/pages/my/index"
+  url: "/pages/index/index" | "/pages/about/about" | "/pages/my/index"|"/pages/mine/index"
 }
 
 type ReLaunchOptions = NavigateToOptions | SwitchTabOptions;
