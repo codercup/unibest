@@ -30,8 +30,8 @@ export const login = (loginForm: ILoginForm) => {
 /**
  * 获取用户信息
  */
-export const getUserInfo = (token: string) => {
-  return http.get<IUserInfoVo>('/user/info', { token })
+export const getUserInfo = () => {
+  return http.get<IUserInfoVo>('/user/info')
 }
 
 /**
@@ -72,15 +72,12 @@ export const getWxCode = () => {
 /**
  * 微信登录参数
  */
-export interface IWxLoginParams {
-  code: string
-}
 
 /**
  * 微信登录
  * @param params 微信登录参数，包含code
  * @returns Promise 包含登录结果
  */
-export const wxLogin = (params: IWxLoginParams) => {
-  return http.post<IUserLogin>('/app/wx/login', {}, params)
+export const wxLogin = (data: { code: string }) => {
+  return http.post<IUserLogin>('/user/wxLogin', data)
 }

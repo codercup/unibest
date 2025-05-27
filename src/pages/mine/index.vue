@@ -77,7 +77,8 @@
       </view>
 
       <view class="logout-button-wrapper">
-        <wd-button type="error" block @click="handleLogout">退出登录</wd-button>
+        <wd-button type="error" v-if="hasLogin" block @click="handleLogout">退出登录</wd-button>
+        <wd-button type="primary" v-else block @click="handleLogin">登录</wd-button>
       </view>
     </view>
   </view>
@@ -90,10 +91,16 @@ import { uploadFileUrl, useUpload } from '@/utils/uploadFile'
 import { storeToRefs } from 'pinia'
 import { IUploadSuccessInfo } from '@/api/login.typings'
 
+const userStore = useUserStore()
+
 const toast = useToast()
+const hasLogin = ref(false)
+
 onShow((options) => {
+  hasLogin.value = !!uni.getStorageSync('token')
   console.log('个人中心onShow', options)
-  useUserStore().getUserInfo()
+
+  hasLogin.value && useUserStore().getUserInfo()
 })
 // #ifndef MP-WEIXIN
 // 上传头像
@@ -106,7 +113,21 @@ const { run } = useUpload<IUploadSuccessInfo>(
 )
 // #endif
 
+// 微信小程序下登录
+const handleLogin = async () => {
+  // #ifdef MP-WEIXIN
+
+  // 微信登录
+  await userStore.wxLogin()
+  hasLogin.value = true
+  // #endif
+  // #ifndef MP-WEIXIN
+  uni.navigateTo({ url: '/pages/login/index' })
+  // #endif
+}
+
 // #ifdef MP-WEIXIN
+
 // 微信小程序下选择头像事件
 const onChooseAvatar = (e: any) => {
   console.log('选择头像', e.detail)
@@ -215,15 +236,16 @@ const handleLogout = () => {
       if (res.confirm) {
         // 清空用户信息
         useUserStore().logout()
+        hasLogin.value = false
         // 执行退出登录逻辑
         toast.success('退出登录成功')
         // #ifdef MP-WEIXIN
         // 微信小程序，去首页
-        uni.reLaunch({ url: '/pages/index/index' })
+        // uni.reLaunch({ url: '/pages/index/index' })
         // #endif
         // #ifndef MP-WEIXIN
         // 非微信小程序，去登录页
-        uni.reLaunch({ url: '/pages/login/index' })
+        // uni.reLaunch({ url: '/pages/login/index' })
         // #endif
       }
     },

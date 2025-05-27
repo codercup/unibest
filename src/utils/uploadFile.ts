@@ -1,4 +1,3 @@
-import { getToken, getTokenKey } from './auth'
 import { toast } from './toast'
 
 /**
@@ -286,7 +285,6 @@ function uploadFile<T>({
         // #ifndef H5
         'Content-Type': 'multipart/form-data',
         // #endif
-        [getTokenKey()]: getToken(), // 添加认证token
       },
       // 确保文件名称合法
       success: (uploadFileRes) => {

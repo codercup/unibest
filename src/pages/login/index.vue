@@ -127,7 +127,7 @@
 import { ref } from 'vue'
 import { useUserStore } from '@/store/user'
 import { isMpWeixin } from '@/utils/platform'
-import { getCode, getWxCode, ILoginForm } from '@/api/login'
+import { getCode, ILoginForm } from '@/api/login'
 import { toast } from '@/utils/toast'
 import { isTableBar } from '@/utils/index'
 import { ICaptcha } from '@/api/login.typings'
@@ -210,10 +210,8 @@ const handleWechatLogin = async () => {
     toast.error('请先阅读并同意用户协议和隐私政策')
     return
   }
-  // 获取微信小程序登录的code
-  const { code } = await getWxCode()
   // 微信登录
-  await userStore.wxLogin({ code })
+  await userStore.wxLogin()
   // 获取用户信息
   await userStore.getUserInfo()
   // 跳转到首页或重定向页面

@@ -3,8 +3,8 @@ import {
   getUserInfo as _getUserInfo,
   wxLogin as _wxLogin,
   logout as _logout,
+  getWxCode,
 } from '@/api/login'
-import { getToken, getTokenKey, removeToken, setToken } from '@/utils/auth'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { toast } from '@/utils/toast'
@@ -18,7 +18,7 @@ const userInfoState: IUserInfoVo = {
   sex: '',
   email: '',
   phone: '',
-  avatar: '/static/images/avatar.jpg',
+  avatar: '/static/images/default-avatar.png',
   createTime: '',
   roles: [],
   permissions: [],
@@ -43,7 +43,8 @@ export const useUserStore = defineStore(
     // 删除用户信息
     const removeUserInfo = () => {
       userInfo.value = { ...userInfoState }
-      removeToken()
+      uni.removeStorageSync('userInfo')
+      uni.removeStorageSync('token')
     }
     /**
      * 用户登录
@@ -59,14 +60,16 @@ export const useUserStore = defineStore(
       const res = await _login(credentials)
       console.log('登录信息', res)
       toast.success('登录成功')
-      setToken(res.data.token)
+      const userInfo = res.data
+      uni.setStorageSync('userInfo', userInfo)
+      uni.setStorageSync('token', userInfo.token)
       return res
     }
     /**
      * 获取用户信息
      */
     const getUserInfo = async () => {
-      const res = await _getUserInfo(getToken())
+      const res = await _getUserInfo()
       setUserInfo(res.data)
       // TODO 这里可以增加获取用户路由的方法 根据用户的角色动态生成路由
       return res
@@ -80,11 +83,16 @@ export const useUserStore = defineStore(
     }
     /**
      * 微信登录
-     * @param credentials 微信登录Code
      */
-    const wxLogin = async (credentials: { code: string }) => {
-      const res = await _wxLogin(credentials)
-      setToken(res.data.token)
+    const wxLogin = async () => {
+      // 获取微信小程序登录的code
+      const data = await getWxCode()
+      console.log('微信登录code', data)
+
+      const res = await _wxLogin(data)
+      const userInfo = res.data
+      uni.setStorageSync('userInfo', userInfo)
+      uni.setStorageSync('token', userInfo.token)
       return res
     }
 
