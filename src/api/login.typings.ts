@@ -4,14 +4,8 @@
 export type IUserInfoVo = {
   id: number
   username: string
-  name: string
-  sex: string
-  email: string
-  phone: string
   avatar: string
-  createTime: string
-  roles: string[]
-  permissions: string[]
+  token: string
 }
 
 /**

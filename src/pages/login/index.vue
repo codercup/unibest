@@ -187,8 +187,6 @@ const handleAccountLogin = async () => {
   }
   // 执行登录
   await userStore.login(loginForm.value)
-  // 获取用户信息
-  await userStore.getUserInfo()
   // 跳转到首页或重定向页面
   const targetUrl = redirectRoute.value || '/pages/index/index'
   if (isTableBar(targetUrl)) {
@@ -212,8 +210,6 @@ const handleWechatLogin = async () => {
   }
   // 微信登录
   await userStore.wxLogin()
-  // 获取用户信息
-  await userStore.getUserInfo()
   // 跳转到首页或重定向页面
   const targetUrl = redirectRoute.value || '/pages/index/index'
   if (isTableBar(targetUrl)) {

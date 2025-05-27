@@ -8,20 +8,14 @@ import {
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { toast } from '@/utils/toast'
-import { IUserInfoVo, IUserLogin } from '@/api/login.typings'
+import { IUserInfoVo } from '@/api/login.typings'
 
 // 初始化状态
 const userInfoState: IUserInfoVo = {
   id: 0,
   username: '',
-  name: '',
-  sex: '',
-  email: '',
-  phone: '',
   avatar: '/static/images/default-avatar.png',
-  createTime: '',
-  roles: [],
-  permissions: [],
+  token: '',
 }
 
 export const useUserStore = defineStore(
@@ -60,9 +54,7 @@ export const useUserStore = defineStore(
       const res = await _login(credentials)
       console.log('登录信息', res)
       toast.success('登录成功')
-      const userInfo = res.data
-      uni.setStorageSync('userInfo', userInfo)
-      uni.setStorageSync('token', userInfo.token)
+      getUserInfo()
       return res
     }
     /**
@@ -70,7 +62,10 @@ export const useUserStore = defineStore(
      */
     const getUserInfo = async () => {
       const res = await _getUserInfo()
-      setUserInfo(res.data)
+      const userInfo = res.data
+      setUserInfo(userInfo)
+      uni.setStorageSync('userInfo', userInfo)
+      uni.setStorageSync('token', userInfo.token)
       // TODO 这里可以增加获取用户路由的方法 根据用户的角色动态生成路由
       return res
     }
@@ -90,9 +85,7 @@ export const useUserStore = defineStore(
       console.log('微信登录code', data)
 
       const res = await _wxLogin(data)
-      const userInfo = res.data
-      uni.setStorageSync('userInfo', userInfo)
-      uni.setStorageSync('token', userInfo.token)
+      getUserInfo()
       return res
     }
 
