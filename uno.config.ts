@@ -1,5 +1,11 @@
 import { presetUni } from '@uni-helper/unocss-preset-uni'
-import { defineConfig, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss'
+import {
+  defineConfig,
+  presetIcons,
+  presetAttributify,
+  transformerDirectives,
+  transformerVariantGroup,
+} from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -12,6 +18,8 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
     }),
+    // 支持css class属性化
+    presetAttributify(),
   ],
   transformers: [
     // 启用指令功能：主要用于支持 @apply、@screen 和 theme() 等 CSS 指令
