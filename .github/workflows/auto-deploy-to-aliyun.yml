@@ -35,7 +35,7 @@ jobs:
           script: |
             # 创建或确保目标目录存在
             mkdir -p /usr/share/nginx/html
-            # 将本地构建的 dist 目录内容复制到服务器的 nginx html 目录
-            scp -r ${{ github.workspace }}/docs/.vitepress/dist/* ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }}:/usr/share/nginx/html/
-            # 重启 nginx 服务
-            sudo systemctl restart nginx
+            # 将本地构建的 dist 目录内容复制到服务器的 nginx html 目录，添加 -o StrictHostKeyChecking=no 参数
+            scp -r -o StrictHostKeyChecking=no ${{ github.workspace }}/docs/.vitepress/dist/* ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }}:/usr/share/nginx/html/
+            # 重启 nginx 服务，添加 -o StrictHostKeyChecking=no 参数
+            ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "sudo systemctl restart nginx"
