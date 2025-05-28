@@ -106,11 +106,11 @@ importers:
         specifier: 3.0.0-4060620250520001
         version: 3.0.0-4060620250520001(@vueuse/core@12.8.2(typescript@5.7.2))(postcss@8.4.49)(rollup@4.41.1)(vite@6.3.5(@types/node@20.17.9)(jiti@2.4.2)(sass@1.77.8)(terser@5.36.0)(yaml@2.6.1))(vue@3.5.15(typescript@5.7.2))
       '@esbuild/darwin-arm64':
-        specifier: 0.20.2
-        version: 0.20.2
+        specifier: 0.25.5
+        version: 0.25.5
       '@esbuild/darwin-x64':
-        specifier: 0.20.2
-        version: 0.20.2
+        specifier: 0.25.5
+        version: 0.25.5
       '@iconify-json/carbon':
         specifier: ^1.2.4
         version: 1.2.4
@@ -3545,8 +3545,8 @@ packages:
     resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}
     engines: {node: '>=8'}
 
-  focus-trap@7.6.4:
-    resolution: {integrity: sha512-xx560wGBk7seZ6y933idtjJQc1l+ck+pI3sKvhKozdBV1dRZoKhkW5xoCaFv9tQiX5RH1xfSxjuNu6g+lmN/gw==}
+  focus-trap@7.6.5:
+    resolution: {integrity: sha512-7Ke1jyybbbPZyZXFxEftUtxFGLMpE2n6A+z//m4CRDlj0hW+o3iYSmh8nFlYMurOiJVDmJRilUQtJr08KfIxlg==}
 
   follow-redirects@1.15.9:
     resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==}
@@ -7576,21 +7576,21 @@ snapshots:
   '@esbuild/android-x64@0.25.5':
     optional: true
 
-  '@esbuild/darwin-arm64@0.20.2': {}
+  '@esbuild/darwin-arm64@0.20.2':
+    optional: true
 
   '@esbuild/darwin-arm64@0.21.5':
     optional: true
 
-  '@esbuild/darwin-arm64@0.25.5':
-    optional: true
+  '@esbuild/darwin-arm64@0.25.5': {}
 
-  '@esbuild/darwin-x64@0.20.2': {}
+  '@esbuild/darwin-x64@0.20.2':
+    optional: true
 
   '@esbuild/darwin-x64@0.21.5':
     optional: true
 
-  '@esbuild/darwin-x64@0.25.5':
-    optional: true
+  '@esbuild/darwin-x64@0.25.5': {}
 
   '@esbuild/freebsd-arm64@0.20.2':
     optional: true
@@ -9271,14 +9271,14 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@vueuse/integrations@12.8.2(axios@1.7.9)(focus-trap@7.6.4)(typescript@5.7.2)':
+  '@vueuse/integrations@12.8.2(axios@1.7.9)(focus-trap@7.6.5)(typescript@5.7.2)':
     dependencies:
       '@vueuse/core': 12.8.2(typescript@5.7.2)
       '@vueuse/shared': 12.8.2(typescript@5.7.2)
       vue: 3.5.15(typescript@5.7.2)
     optionalDependencies:
       axios: 1.7.9
-      focus-trap: 7.6.4
+      focus-trap: 7.6.5
     transitivePeerDependencies:
       - typescript
 
@@ -10265,7 +10265,7 @@ snapshots:
       locate-path: 5.0.0
       path-exists: 4.0.0
 
-  focus-trap@7.6.4:
+  focus-trap@7.6.5:
     dependencies:
       tabbable: 6.2.0
 
@@ -12647,8 +12647,8 @@ snapshots:
       '@vue/devtools-api': 7.7.6
       '@vue/shared': 3.5.15
       '@vueuse/core': 12.8.2(typescript@5.7.2)
-      '@vueuse/integrations': 12.8.2(axios@1.7.9)(focus-trap@7.6.4)(typescript@5.7.2)
-      focus-trap: 7.6.4
+      '@vueuse/integrations': 12.8.2(axios@1.7.9)(focus-trap@7.6.5)(typescript@5.7.2)
+      focus-trap: 7.6.5
       mark.js: 8.11.1
       minisearch: 7.1.2
       shiki: 2.5.0
