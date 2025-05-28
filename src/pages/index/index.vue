@@ -26,7 +26,7 @@
     </view>
     <view class="text-center mt-4">
       模板分支是：
-      <text class="text-green-500">base</text>
+      <text class="text-green-500">spa</text>
     </view>
   </view>
 </template>
