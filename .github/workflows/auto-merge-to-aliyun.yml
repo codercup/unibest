@@ -1,0 +1,25 @@
+name: Auto Merge aliyun
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # 手动触发
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
+
+      - name: Merge main into aliyun
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout aliyun
+          git merge main --no-ff -m "Auto merge main into aliyun"
+          git push origin aliyun

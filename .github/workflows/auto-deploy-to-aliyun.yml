@@ -1,0 +1,41 @@
+name: Deploy to Aliyun ECS after Merge
+on:
+  workflow_run:
+    workflows: ['Auto Merge aliyun'] # 监听名为 "Auto Merge aliyun" 的工作流的运行结果
+    types:
+      - completed
+jobs:
+  deploy:
+    # 只有当合并工作流成功完成时才运行部署工作流
+    if: github.event.workflow_run.conclusion =='success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm i
+      - name: Build with VitePress
+        run: pnpm run docs:build
+      - name: Deploy to ECS
+        uses: appleboy/ssh-action@v0.1.0 # 使用 ssh-action 将文件传输并部署到服务器
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }} # 从 Secrets 中获取 SSH 密码
+          script: |
+            # 创建或确保目标目录存在
+            mkdir -p /usr/share/nginx/html
+            # 将本地构建的 dist 目录内容复制到服务器的 nginx html 目录
+            scp -r ${{ github.workspace }}/docs/.vitepress/dist/* ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }}:/usr/share/nginx/html/
+            # 重启 nginx 服务
+            sudo systemctl restart nginx
