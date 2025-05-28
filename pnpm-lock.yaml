@@ -109,11 +109,11 @@ importers:
         specifier: 3.0.0-4060620250520001
         version: 3.0.0-4060620250520001(@vueuse/core@12.8.2(typescript@5.7.2))(postcss@8.4.49)(rollup@4.41.1)(vite@6.3.5(@types/node@20.17.9)(jiti@2.4.2)(sass@1.77.8)(terser@5.36.0)(yaml@2.6.1))(vue@3.5.15(typescript@5.7.2))
       '@esbuild/darwin-arm64':
-        specifier: 0.20.2
-        version: 0.20.2
+        specifier: 0.25.5
+        version: 0.25.5
       '@esbuild/darwin-x64':
-        specifier: 0.20.2
-        version: 0.20.2
+        specifier: 0.25.5
+        version: 0.25.5
       '@iconify-json/carbon':
         specifier: ^1.2.4
         version: 1.2.4
@@ -6906,15 +6906,15 @@ snapshots:
   '@esbuild/android-x64@0.25.5':
     optional: true
 
-  '@esbuild/darwin-arm64@0.20.2': {}
-
-  '@esbuild/darwin-arm64@0.25.5':
+  '@esbuild/darwin-arm64@0.20.2':
     optional: true
 
-  '@esbuild/darwin-x64@0.20.2': {}
+  '@esbuild/darwin-arm64@0.25.5': {}
 
-  '@esbuild/darwin-x64@0.25.5':
+  '@esbuild/darwin-x64@0.20.2':
     optional: true
+
+  '@esbuild/darwin-x64@0.25.5': {}
 
   '@esbuild/freebsd-arm64@0.20.2':
     optional: true
