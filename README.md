@@ -56,7 +56,7 @@
 ## ⚙️ 环境
 
 - node>=18
-- pnpm>=7.30
+- pnpm>=8
 - Vue Official>=2.1.10
 - TypeScript>=5.0
 
