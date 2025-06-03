@@ -13,6 +13,8 @@
     "uni-helper.uni-ui-snippets-vscode",
     "uni-helper.uni-app-snippets-vscode",
     "mrmlnc.vscode-json5",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "foxundermoon.shell-format",
+    "christian-kohler.path-intellisense"
   ]
 }
