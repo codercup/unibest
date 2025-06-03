@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import { defineConfig } from 'vitepress'
+import llmsPlugin from 'vitepress-plugin-llms'
 import packageJson from '../../package.json'
 
 const buildTime = dayjs().format('YYYY-MM-DD HH:mm:ss')
@@ -240,5 +241,9 @@ export default defineConfig({
         },
       },
     },
+  },
+  vite: {
+    // 其他配置...
+    plugins: [llmsPlugin() as any],
   },
 })
