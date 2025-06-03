@@ -112,6 +112,8 @@
     "z-paging": "^2.8.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@dcloudio/types": "^3.4.8",
     "@dcloudio/uni-automator": "3.0.0-4060620250520001",
     "@dcloudio/uni-cli-shared": "3.0.0-4060620250520001",
