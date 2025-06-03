@@ -167,8 +167,9 @@ export default async ({ command, mode }) => {
         : undefined,
     },
     build: {
+      sourcemap: false,
       // 方便非h5端调试
-      sourcemap: VITE_SHOW_SOURCEMAP === 'true', // 默认是false
+      // sourcemap: VITE_SHOW_SOURCEMAP === 'true', // 默认是false
       target: 'es6',
       // 开发环境不用压缩
       minify: mode === 'development' ? false : 'terser',
