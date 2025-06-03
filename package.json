@@ -73,7 +73,7 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
-    "prepare": "husky"
+    "prepare": "git init && husky"
   },
   "lint-staged": {
     "**/*.{html,cjs,json,md,scss,css,txt}": [
