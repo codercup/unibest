@@ -121,7 +121,7 @@ export default async ({ command, mode }) => {
           brotliSize: true,
         }),
       // 只有在 app 平台时才启用 copyNativeRes 插件
-      UNI_PLATFORM === 'app' && copyNativeRes(),
+      // UNI_PLATFORM === 'app' && copyNativeRes(),
       Components({
         extensions: ['vue'],
         deep: true, // 是否递归扫描子目录，
@@ -167,8 +167,9 @@ export default async ({ command, mode }) => {
         : undefined,
     },
     build: {
+      sourcemap: false,
       // 方便非h5端调试
-      sourcemap: VITE_SHOW_SOURCEMAP === 'true', // 默认是false
+      // sourcemap: VITE_SHOW_SOURCEMAP === 'true', // 默认是false
       target: 'es6',
       // 开发环境不用压缩
       minify: mode === 'development' ? false : 'terser',
