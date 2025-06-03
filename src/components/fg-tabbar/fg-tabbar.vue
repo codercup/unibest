@@ -37,11 +37,11 @@
 <script setup lang="ts">
 // unocss icon 默认不生效，需要在这里写一遍才能生效！注释掉也是生效的，但是必须要有！
 // i-carbon-code
-import { tabBar } from '@/pages.json'
+import { tabBarList as _tabBarList } from '@/utils/index'
 import { tabbarStore } from './tabbar'
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
-const tabbarList = tabBar.list.map((item) => ({ ...item, path: `/${item.pagePath}` }))
+const tabbarList = _tabBarList.map((item) => ({ ...item, path: `/${item.pagePath}` }))
 
 function selectTabBar({ value: index }: { value: number }) {
   const url = tabbarList[index].path
