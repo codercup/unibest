@@ -73,12 +73,14 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*.{html,vue,ts,cjs,json,md}": [
-      "prettier --write"
+    "**/*.{html,cjs,json,md,scss,css,txt}": [
+      "prettier --write --cache"
     ],
-    "**/*.{vue,js,ts,jsx,tsx,vue,css,scss,html}": [
-      "oxlint --fix"
-    ]
+    "**/*.{vue,js,ts}": [
+      "oxlint --fix",
+      "prettier --write --cache"
+    ],
+    "!**/{node_modules,dist}/**": []
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china"
