@@ -11,6 +11,8 @@ export const getLastPage = () => {
   return pages[pages.length - 1]
 }
 
+export const tabBarList = tabBar?.list || []
+
 /** 判断当前页面是否是 tabbar 页  */
 export const getIsTabbar = () => {
   try {
