@@ -121,7 +121,7 @@ export default async ({ command, mode }) => {
           brotliSize: true,
         }),
       // 只有在 app 平台时才启用 copyNativeRes 插件
-      UNI_PLATFORM === 'app' && copyNativeRes(),
+      // UNI_PLATFORM === 'app' && copyNativeRes(),
       Components({
         extensions: ['vue'],
         deep: true, // 是否递归扫描子目录，
