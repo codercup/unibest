@@ -145,7 +145,7 @@
     "sass": "1.77.8",
     "terser": "^5.36.0",
     "typescript": "^5.7.2",
-    "unocss": "^66.0.0",
+    "unocss": "65.4.2",
     "unplugin-auto-import": "^0.17.8",
     "vite": "6.3.5",
     "vite-plugin-restart": "^0.4.2",
