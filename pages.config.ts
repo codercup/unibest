@@ -17,7 +17,7 @@ export default defineUniPages({
         'z-paging/components/z-paging$1/z-paging$1.vue',
     },
   },
-  // 如果不需要tabBar，可以注释掉这个配置，或者直接删除
+  // 如果不需要tabBar，请使用 spa 模板。（pnpm create xxx -t spa）
   tabBar: {
     custom: true,
     color: '#999999',
