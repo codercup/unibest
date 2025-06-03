@@ -1,5 +1,15 @@
 # CHANGELOG 更新日志
 
+## v2.11.0(2025-06-03)
+
+### 架构优化
+
+- 把 `v2.8.0(2025-05-20)` 版本删除的 `husky + commitlint` 配置加回来了。
+
+### 依赖降级
+
+- 将 `unocss` 从 `66.0.0` 降级到 `65.4.2`。(以为有部分网友会出现问题，所以降级了。)
+
 ## v2.10.1(2025-05-28)
 
 ### 新功能
@@ -24,17 +34,14 @@
 ### 架构优化
 
 - 移除 `stylelint` 和 `eslint` 配置，统一采用 `oxlint` 进行代码检查，提升代码校验的速度（比 `eslint` 快 `50-100` 倍）。
-- 移除 `husky` 和 `commitlint` 配置(使用编辑器的AI生成commit信息)。
+- ~~移除 `husky` 和 `commitlint` 配置(使用编辑器的AI生成commit信息)。~~(应网友要求，在v2.11.0加回来了)
 
   ::: details 对于 `v2.8.0` 以下版本，需按以下步骤操作：
 
-  - 把 `husky, stylelint, eslint` 相关依赖包删除
+  - 把 `stylelint, eslint` 相关依赖包删除
   - 安装 `oxlint`，设置 `lint-staged` 配置为 `oxlint`
-  - 删除 `husky, stylelint, eslint` 相关文件
+  - 删除 `stylelint, eslint` 相关文件
 
-  ![alt text](image.png)
-  ![alt text](image-1.png)
-  ![alt text](image-2.png)
   ![alt text](image-3.png)
 
   :::
