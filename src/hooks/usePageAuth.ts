@@ -4,7 +4,10 @@ import { useUserStore } from '@/store'
 
 const loginRoute = import.meta.env.VITE_LOGIN_URL
 const isDev = import.meta.env.DEV
-
+const isLogined = () => {
+  const userStore = useUserStore()
+  return !!userStore.userInfo.username
+}
 // 检查当前页面是否需要登录
 export function usePageAuth() {
   onLoad((options) => {
@@ -27,11 +30,9 @@ export function usePageAuth() {
       return
     }
 
-    // 检查是否已登录
-    const userStore = useUserStore()
-    const hasLogin = userStore.isLogined
+    const hasLogin = isLogined()
     if (hasLogin) {
-      return
+      return true
     }
 
     // 构建重定向URL
