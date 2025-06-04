@@ -73,10 +73,10 @@
     "prepare": "git init && husky"
   },
   "lint-staged": {
-    "**/*.{html,cjs,json,md,scss,css,txt}": [
+    "**/*.{vue,html,cjs,json,md,scss,css,txt}": [
       "prettier --write --cache"
     ],
-    "**/*.{vue,js,ts}": [
+    "**/*.{js,ts}": [
       "oxlint --fix",
       "prettier --write --cache"
     ],
