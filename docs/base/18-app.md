@@ -30,3 +30,7 @@ function foo() {
 ![alt text](image-18-2.png)
 
 只需要把对应的内容拷贝到 `manifest.config.ts` 中的 `distribute.plugins` 里面即可。
+
+## 3.unibest 的 `原生插件` 模块配置
+
+> [参考文献: 掘金教程 - Unibest 原生插件模块配置](https://juejin.cn/post/7496807547447427081)
