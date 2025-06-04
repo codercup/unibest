@@ -118,6 +118,7 @@ export default defineManifestConfig({
       minified: true,
     },
     usingComponents: true,
+    // lazyCodeLoading: 'requiredComponents', // 微信小程序懒加载配置
     // __usePrivacyCheck__: true,
   },
   'mp-alipay': {

@@ -48,4 +48,20 @@ export default defineUniPages({
       },
     ],
   },
+  // 微信小程序特定配置
+  // 'mp-weixin': {
+  //   lazyCodeLoading: 'requiredComponents', // 微信小程序懒加载配置
+  // },
+  // 使用条件编译添加微信小程序特定配置
+  // #ifdef MP-WEIXIN
+  // lazyCodeLoading: 'requiredComponents',
+  // #endif
+  // 使用 custom 字段注入原生微信小程序配置
+  // custom: {
+  //   mpWeixin: {
+  //     appJson: {
+  //       lazyCodeLoading: 'requiredComponents',
+  //     },
+  //   },
+  // },
 })

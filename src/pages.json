@@ -44,6 +44,9 @@
       }
     ]
   },
+  "mp-weixin": {
+    "lazyCodeLoading": "requiredComponents"
+  },
   "pages": [
     {
       "path": "pages/index/index",
