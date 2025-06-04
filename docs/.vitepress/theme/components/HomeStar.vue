@@ -17,13 +17,13 @@
       <img src="https://gitee.com/codercup/unibest/badge/star.svg?theme=gray" alt="star" />
     </a>
 
-    <!-- <a href="https://gitee.com/feige996/unibest/stargazers">
-      <img src="https://gitee.com/feige996/unibest/badge/star.svg?theme=gray" alt="star" />
-    </a> -->
-
-    <a href="https://github.com/feige996/unibest">
-      <img alt="GitHub" src="https://img.shields.io/github/license/feige996/unibest?logo=github" />
+    <a href="https://gitcode.com/feige996/unibest/stargazers">
+      <img src="https://gitcode.com/feige996/unibest/star/badge.svg?theme=gray" alt="star" />
     </a>
+
+    <!-- <a href="https://github.com/feige996/unibest">
+      <img alt="GitHub" src="https://img.shields.io/github/license/feige996/unibest?logo=github" />
+    </a> -->
 
     <a href="https://www.npmjs.com/package/create-unibest">
       <img
