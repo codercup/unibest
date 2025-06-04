@@ -8,7 +8,7 @@ import { useUserStore } from '@/store'
 import { needLoginPages as _needLoginPages, getNeedLoginPages, getLastPage } from '@/utils'
 
 // TODO Check
-const loginRoute = '/pages/login/index'
+const loginRoute = import.meta.env.VITE_LOGIN_URL
 
 const isLogined = () => {
   const userStore = useUserStore()
