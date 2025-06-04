@@ -14,6 +14,8 @@
 ```bash
 # 如果没有 pnpm，请先安装: npm i -g pnpm
 pnpm create unibest my-project
+# 时不时加一下 @latest 标识，这样可以使用最新版本的 create-unibest (2025-06-04 发布了  v1.18.5)
+pnpm create unibest@latest my-project
 ```
 
 npm 创建如下(不推荐)
