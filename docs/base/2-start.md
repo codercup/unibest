@@ -46,6 +46,8 @@ npm create unibest@latest my-project
 
 `base` 模板是最基本的模板，更新最及时，推荐使用 `base` 模板创建新项目。其他几个模板也是基于 `base` 模板得到的。 `demo` 模板则作为参考用。
 
+`base` 模板的改动会自动同步到其他几个分支，通过 `github actions` 实现。
+
 ::: details `tabbar 模板` 和 `spa 模板` 的区别
 
 - `tabbar` 模板里面的tabbar 路由是属于 `tabbar` 级别的，需要使用 `switchTabbar` 切换，`tabbar` 页面会有缓存，渲染性能较好。
