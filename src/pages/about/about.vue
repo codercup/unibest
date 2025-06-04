@@ -19,6 +19,7 @@
         鸽友们好，我是
         <text class="text-red-500">菲鸽</text>
       </view>
+      <!-- <button @click="toSubPage()">去分包</button> -->
       <view class="test-css">测试 scss 样式</view>
       <RequestComp />
       <UploadComp />
@@ -32,6 +33,11 @@ import UploadComp from './components/upload.vue'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
+const toSubPage = () => {
+  uni.navigateTo({
+    url: '/pages-sub/demo/index',
+  })
+}
 </script>
 
 <style lang="scss" scoped>

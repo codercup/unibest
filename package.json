@@ -1,7 +1,7 @@
 {
   "name": "unibest",
   "type": "commonjs",
-  "version": "2.10.3",
+  "version": "2.11.0",
   "description": "unibest - 最好的 uniapp 开发模板",
   "update-time": "2025-05-28",
   "author": {
@@ -69,15 +69,18 @@
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "type-check": "vue-tsc --noEmit",
-    "openapi-ts-request": "openapi-ts"
+    "openapi-ts-request": "openapi-ts",
+    "prepare": "git init && husky"
   },
   "lint-staged": {
-    "**/*.{html,vue,ts,cjs,json,md}": [
-      "prettier --write"
+    "**/*.{vue,html,cjs,json,md,scss,css,txt}": [
+      "prettier --write --cache"
     ],
-    "**/*.{vue,js,ts,jsx,tsx,vue,css,scss,html}": [
-      "oxlint --fix"
-    ]
+    "**/*.{js,ts}": [
+      "oxlint --fix",
+      "prettier --write --cache"
+    ],
+    "!**/{node_modules,dist}/**": []
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china"
@@ -111,6 +114,8 @@
     "z-paging": "^2.8.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@dcloudio/types": "^3.4.8",
     "@dcloudio/uni-automator": "3.0.0-4060620250520001",
     "@dcloudio/uni-cli-shared": "3.0.0-4060620250520001",
@@ -134,6 +139,7 @@
     "@vue/runtime-core": "^3.4.21",
     "@vue/tsconfig": "^0.1.3",
     "autoprefixer": "^10.4.20",
+    "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "openapi-ts-request": "^1.1.2",
     "oxlint": "^0.1.0",
