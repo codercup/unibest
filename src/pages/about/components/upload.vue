@@ -15,7 +15,7 @@
       <view class="m-2">上传后返回的接口数据：</view>
       <view class="m-2">{{ data }}</view>
       <view class="h-80 w-full">
-        <image v-if="data" :src="data || data" mode="scaleToFill" />
+        <image v-if="data" :src="data.url" mode="scaleToFill" />
       </view>
     </template>
   </view>
