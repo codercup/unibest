@@ -110,9 +110,9 @@ const { run } = useUpload<IUploadSuccessInfo>(
   import.meta.env.VITE_UPLOAD_BASEURL,
   {},
   {
-    onSuccess: (res: string) => {
-      console.log('头像上传成功', res)
-      useUserStore().setUserAvatar(res)
+    onSuccess: (res) => {
+      console.log('h5头像上传成功', res)
+      useUserStore().setUserAvatar(res.url)
     },
   },
 )
@@ -142,8 +142,8 @@ const onChooseAvatar = (e: any) => {
     {},
     {
       onSuccess: (res) => {
-        console.log('头像上传成功', res)
-        useUserStore().setUserAvatar(res)
+        console.log('wx头像上传成功', res)
+        useUserStore().setUserAvatar(res.url)
       },
     },
     avatarUrl,
