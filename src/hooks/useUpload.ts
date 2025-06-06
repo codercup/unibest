@@ -93,6 +93,8 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
       formData,
       onSuccess: (res) => {
         data.value = res
+        // https://oss.laf.run/ukw0y1-unibest/unibest.f5308ecd-06c3-463b-b3e0-5df08154c7f3.svg
+        // console.log('上传成功', res)
         success?.(res)
       },
       onError: (err) => {
@@ -128,7 +130,7 @@ async function uploadFile({
     formData,
     success: (uploadFileRes) => {
       try {
-        const data = JSON.parse(uploadFileRes.data)
+        const data = uploadFileRes.data
         onSuccess(data)
       } catch (err) {
         onError(err)
