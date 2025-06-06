@@ -36,6 +36,8 @@ export const useUserStore = defineStore(
     }
     const setUserAvatar = (avatar: string) => {
       userInfo.value.avatar = avatar
+      console.log('设置用户头像', avatar)
+      console.log('userInfo', userInfo.value)
     }
     // 删除用户信息
     const removeUserInfo = () => {
