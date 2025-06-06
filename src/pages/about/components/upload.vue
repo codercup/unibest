@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-const { loading, data, run } = useUpload({ user: '菲鸽' })
+const { loading, data, run } = useUpload()
 </script>
 
 <style lang="scss" scoped>

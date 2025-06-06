@@ -31,7 +31,6 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
   const data = ref<any>(null)
 
   const run = () => {
-    // #ifdef MP-WEIXIN
     // 微信小程序从基础库 2.21.0 开始， wx.chooseImage 停止维护，请使用 uni.chooseMedia 代替。
     // 微信小程序在2023年10月17日之后，使用本API需要配置隐私协议
     const chooseFileOptions = {
