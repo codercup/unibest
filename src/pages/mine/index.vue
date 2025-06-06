@@ -134,10 +134,13 @@ const onChooseAvatar = (e: any) => {
   console.log('选择头像', e.detail)
   const { avatarUrl } = e.detail
   const { run } = useUpload<IUploadSuccessInfo>(
-    uploadFileUrl.USER_AVATAR,
+    import.meta.env.VITE_UPLOAD_BASEURL,
     {},
     {
-      onSuccess: (res) => useUserStore().getUserInfo(),
+      onSuccess: (res) => {
+        console.log('头像上传成功', res)
+        // 更新用户信息
+      },
     },
     avatarUrl,
   )
