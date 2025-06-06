@@ -36,7 +36,21 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
     const chooseFileOptions = {
       count: 1,
       success: (res: any) => {
-        handleFileChoose({ tempFilePath: res.tempFilePaths[0], tempFiles: res.tempFiles[0] })
+        console.log('File selected successfully:', res)
+        // h5中res:{errMsg: "chooseImage:ok", tempFilePaths: "blob:http://localhost:9000/f74ab6b8-a14d-4cb6-a10d-fcf4511a0de5", tempFiles: [File]}
+        // h5的File有一下字段：{name: "girl.jpeg", size: 48976, type: "image/jpeg"}
+        // 小程序中res:{errMsg: "chooseImage:ok", tempFiles: [{fileType: "image", size: 48976, tempFilePath: "http://tmp/5iG1WpIxTaJf3ece38692a337dc06df7eb69ecb49c6b.jpeg"}]}
+        let tempFilePath = ''
+        let size = 0
+        // #ifdef H5
+        tempFilePath = res.tempFilePaths[0]
+        size = res.tempFiles[0].size
+        // #endif
+        // #ifdef MP-WEIXIN
+        tempFilePath = res.tempFiles[0].tempFilePath
+        size = res.tempFiles[0].size
+        // #endif
+        handleFileChoose({ tempFilePath, size })
       },
       fail: (err: any) => {
         console.error('File selection failed:', err)
@@ -64,11 +78,8 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
     }
   }
 
-  const handleFileChoose = (file: {
-    tempFilePath: string
-    tempFiles?: { size?: number; name?: string }
-  }) => {
-    if (file?.tempFiles?.size && file.tempFiles.size > maxSize) {
+  const handleFileChoose = ({ tempFilePath, size }: { tempFilePath: string; size: number }) => {
+    if (size > maxSize) {
       uni.showToast({
         title: `文件大小不能超过 ${maxSize / 1024 / 1024}MB`,
         icon: 'none',
@@ -76,20 +87,20 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
       return
     }
 
-    const fileExtension = file?.tempFiles?.name?.split('.').pop()?.toLowerCase()
-    const isTypeValid = accept.some((type) => type === '*' || type.toLowerCase() === fileExtension)
+    // const fileExtension = file?.tempFiles?.name?.split('.').pop()?.toLowerCase()
+    // const isTypeValid = accept.some((type) => type === '*' || type.toLowerCase() === fileExtension)
 
-    if (!isTypeValid) {
-      uni.showToast({
-        title: `仅支持 ${accept.join(', ')} 格式的文件`,
-        icon: 'none',
-      })
-      return
-    }
+    // if (!isTypeValid) {
+    //   uni.showToast({
+    //     title: `仅支持 ${accept.join(', ')} 格式的文件`,
+    //     icon: 'none',
+    //   })
+    //   return
+    // }
 
     loading.value = true
     uploadFile({
-      tempFilePath: file.tempFilePath,
+      tempFilePath: tempFilePath,
       formData,
       onSuccess: (res) => {
         data.value = res
