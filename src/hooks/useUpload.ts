@@ -103,10 +103,10 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
       tempFilePath: tempFilePath,
       formData,
       onSuccess: (res) => {
-        data.value = res
-        // https://oss.laf.run/ukw0y1-unibest/unibest.f5308ecd-06c3-463b-b3e0-5df08154c7f3.svg
+        const { data: _data } = JSON.parse(res)
+        data.value = _data
         // console.log('上传成功', res)
-        success?.(res)
+        success?.(_data)
       },
       onError: (err) => {
         error.value = err
