@@ -61,7 +61,7 @@ export interface UploadOptions {
   /** 上传进度回调函数 */
   onProgress?: (progress: number) => void
   /** 上传成功回调函数 */
-  onSuccess?: (res: string) => void
+  onSuccess?: (res: Record<string, any>) => void
   /** 上传失败回调函数 */
   onError?: (err: Error | UniApp.GeneralCallbackResult) => void
   /** 上传完成回调函数（无论成功失败） */
@@ -248,7 +248,7 @@ interface UploadFileOptions<T> {
   /** 上传进度回调 */
   onProgress?: (progress: number) => void
   /** 上传成功回调 */
-  onSuccess?: (res: string) => void
+  onSuccess?: (res: Record<string, any>) => void
   /** 上传失败回调 */
   onError?: (err: Error | UniApp.GeneralCallbackResult) => void
   /** 上传完成回调 */
@@ -291,10 +291,10 @@ function uploadFile<T>({
         console.log('上传文件成功:', uploadFileRes)
         try {
           // 解析响应数据
-          const result = uploadFileRes.data
+          const { data: _data } = JSON.parse(uploadFileRes.data)
           // 上传成功
-          data.value = result as T
-          onSuccess?.(result)
+          data.value = _data as T
+          onSuccess?.(_data)
         } catch (err) {
           // 响应解析错误
           console.error('解析上传响应失败:', err)
