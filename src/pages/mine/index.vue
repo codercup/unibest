@@ -88,7 +88,7 @@
 <script lang="ts" setup>
 import { useUserStore } from '@/store'
 import { useToast } from 'wot-design-uni'
-import { uploadFileUrl, useUpload } from '@/utils/uploadFile'
+import { useUpload } from '@/utils/uploadFile'
 import { storeToRefs } from 'pinia'
 import { IUploadSuccessInfo } from '@/api/login.typings'
 
@@ -106,10 +106,13 @@ onShow((options) => {
 // #ifndef MP-WEIXIN
 // 上传头像
 const { run } = useUpload<IUploadSuccessInfo>(
-  uploadFileUrl.USER_AVATAR,
+  import.meta.env.VITE_UPLOAD_BASEURL,
   {},
   {
-    onSuccess: (res) => useUserStore().getUserInfo(),
+    onSuccess: (res: string) => {
+      console.log('头像上传成功', res)
+      useUserStore().setUserAvatar(res)
+    },
   },
 )
 // #endif
