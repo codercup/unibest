@@ -57,8 +57,7 @@
       "path": "pages/about/about",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "关于",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "关于"
       }
     },
     {
@@ -72,7 +71,7 @@
       "path": "pages/login/index",
       "type": "page",
       "style": {
-        "navigationBarTitleText":  "登录",
+        "navigationBarTitleText": "登录",
         "navigationStyle": "custom"
       }
     },
