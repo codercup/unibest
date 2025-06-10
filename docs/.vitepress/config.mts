@@ -16,7 +16,7 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   head: [
-    ['link', { rel: 'icon', href: `${base}/favicon.ico` }],
+    ['link', { rel: 'icon', href: `${base}favicon.ico` }],
     // 增加构建信息
     ['meta', { name: 'build-time', content: buildTime }],
     ['meta', { name: 'version', content: packageJson.version }],
