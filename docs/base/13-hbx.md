@@ -4,8 +4,13 @@
 
 `hbx 模板` 适用于 `2 类用户`
 
-- 使用 `uniCloud` 云开发的用户，必须使用 `hbx 版本`，因为 `uniCloud` 跟 `HBuilderX` 是绑定的。
+- ~~使用 `uniCloud` 云开发的用户，必须使用 `hbx 版本`，因为 `uniCloud` 跟 `HBuilderX` 是绑定的。~~
 - 开发 `App` 的用户，可选使用 `hbx 版本`。
+
+> 现在 `base` 模板已经完全可以替代 `hbx` 模板了，所以 `hbx` 模板不再维护。
+>
+> 1. `base` 模板一样可以使用 `uniCloud` 云开发。
+> 2. `base` 模板支持 `App` 开发，并且也可以热更新，详情请见 [APP 专区](./18-app)。
 
 ## 仓库地址
 
