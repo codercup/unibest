@@ -9,8 +9,8 @@
 
 ## 仓库地址
 
-- gitee: [https://gitee.com/feige996/unibest-hbx.git](https://gitee.com/feige996/unibest-hbx.git)
-- github: [https://github.com/feige996/unibest-hbx.git](https://github.com/feige996/unibest-hbx.git)
+- gitee: [unibest-hbx](https://github.com/uni-run/unibest-hbx)
+- github: [unibest-hbx](https://github.com/uni-run/unibest-hbx)
 
 没有梯子的用户优先推荐使用 `gitee` 仓库，速度更快。（两个仓库会实时同步，无差别。）
 
