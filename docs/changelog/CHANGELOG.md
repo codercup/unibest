@@ -1,5 +1,15 @@
 # CHANGELOG 更新日志
 
+## v2.11.1(2025-06-11)
+
+### hello-unibest
+
+- 新增 `echarts` 和 `ucharts` demo。
+
+### docs 文档
+
+- 更新 `App 专题` 热更新内容。
+
 ## v2.11.0(2025-06-03)
 
 ### 架构优化
