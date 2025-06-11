@@ -48,3 +48,21 @@ function foo() {
 
 - 与 `ios` 不同，安卓端需要把整个 `unibest 项目中的 src 文件夹` 加入到 `hbx编辑器` 里面，然后运行。这样在编码的时候也是可以热更新的。
 - 真机调试的时候，也是这样。
+
+## 5. 打包原生插件
+
+> 思路：你把整个 `unibest项目的src` 放到 `hbx编辑器`，然后在 `src/mainifest.json` 里面配置好 `原生插件`。然后 `copy` 到`manifest.config.ts`，接着自定义打包基座。注意，全程不需要用到 `pnp build dev:app` 这个命令.
+
+步骤：
+
+- 1. 先配置好 `原生插件`，再 `copy` 到 `manifest.config.ts`。
+
+     ![alt text](18-app-1.png)
+
+- 2. 先打包自定义基座
+
+     ![alt text](18-app-2.png)
+
+- 3. 使用自定义基座
+
+     ![alt text](18-app-3.png)
