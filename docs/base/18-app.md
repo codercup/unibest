@@ -35,23 +35,25 @@ function foo() {
 
 > [参考文献: 掘金教程 - Unibest 原生插件模块配置](https://juejin.cn/post/7496807547447427081)
 
-## 4. app 热更新
+## 4. `app` 热更新
 
-### 4.1 mac 电脑的 ios 模拟器热更新
+### 4.1 `ios` 模拟器热更新
 
 - `pnpm dev:app`
 - 把 `dist/dev/app` 文件夹加入到 `hbx编辑器` 里面，然后运行。这样在编码的时候是可以热更新的。
 
 > 但是上面的方法，在android 模拟器里面不生效。
 
-### 4.2 安卓手机热更新
+### 4.2 `android` 热更新
 
-- 与 `ios` 不同，安卓端需要把整个 `unibest 项目中的 src 文件夹` 加入到 `hbx编辑器` 里面，然后运行。这样在编码的时候也是可以热更新的。
-- 真机调试的时候，也是这样。
+- 在 `android` 里面，把`dist/dev/app` 文件夹加入到 `hbx编辑器` 里面运行，无法热更新！！
+- 需要把整个 `unibest 项目中的 src 文件夹` 加入到 `hbx编辑器` 里面，然后运行，这样就可以热更新。
+- 不管是模拟器还是真机调试，都是这样。
 
 ## 5. 打包原生插件
 
-> 思路：你把整个 `unibest项目的src` 放到 `hbx编辑器`，然后在 `src/mainifest.json` 里面配置好 `原生插件`。然后 `copy` 到`manifest.config.ts`，接着自定义打包基座。注意，全程不需要用到 `pnp build dev:app` 这个命令.
+> 思路：你把整个 `unibest项目的src` 放到 `hbx编辑器`，然后在 `src/mainifest.json` 里面配置好 `原生插件`。然后 `copy` 到`manifest.config.ts`，接着自定义打包基座。
+> 注意，全程不需要用到 `pnp build dev:app` 这个命令.
 
 步骤：
 
