@@ -46,9 +46,9 @@ Github Star History 实时地址：[https://star-history.com/#codercup/unibest&D
 
 粉色的新的仓库（`feige996`），就是目前维护的，旧的 `codercup` 进不去了，`deprecated` 状态，不再维护。
 
-[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest,Ares-Chang/uni-vitesse,uni-helper/vitesse-uni-app,feige996/unibest&type=Date)](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&feige996/unibest&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Ares-Chang/uni-vitesse,uni-helper/vitesse-uni-app,codercup/unibest,feige996/unibest,DaMaiCoding/uni-plus&type=Date)](https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date)
 
-同类模板对比实时地址：[https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&feige996/unibest&Date](https://star-history.com/#codercup/unibest&Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&feige996/unibest&Date)
+同类模板对比实时地址：[https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date](https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date)
 
 ## 🗂 生成过程
 
