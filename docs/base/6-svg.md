@@ -2,7 +2,7 @@
 
 上一章《五、图标篇》主要介绍了 `线上图标` 的使用，今天带给大家本地 `SVG` 图标的使用。
 
-本地 `SVG` 图标使用方式主要有：
+> 注意：`小程序` 和 `APP` 都不支持 `SVG` 标签，只能通过 `image` 的方式使用。即下面的 `image + src` 方式。
 
 - `image + src` 方式
 
@@ -10,11 +10,11 @@
   - `相对目录` 图标
   - `线上地址` 图标
 
-> **`图片`** 也是使用上面几种方式。
+> PS：`小程序` 和 `APP` 对 `图片` 也是这面几种方式，下面统一称为 “图片”。
 
 ## `image + src` 方式
 
-根据图片地址不同，分为 2 种：`static目录`图标 ， `相对目录`图标。
+如果图片在项目里面，根据放的位置不同，分为 2 种：`static目录`图标 ， `相对目录`图标。
 
 ### 1. `static目录` 图标
 
@@ -29,13 +29,13 @@
 这种方式需要先引入，再使用，代码编写如下：
 
 ```html
-<template>
-  <image :src="iconUrl" mode="scaleToFill" class="h-20 w-20" />
-</template>
-
 <script lang="ts" setup>
   import iconUrl from './demo.svg'
 </script>
+
+<template>
+  <image :src="iconUrl" mode="scaleToFill" class="h-20 w-20" />
+</template>
 ```
 
 ### 3. `线上地址` 图标
@@ -48,9 +48,10 @@
 </template>
 ```
 
-## 其他
+## H5 额外支持的其他方式
 
-> `SvgComponent` 方式 和 `SvgIcon` 方式，仅 `H5端` 适用，感兴趣的可以阅读下
+> `SvgComponent` 方式 和 `SvgIcon` 方式，仅 `H5端` 适用，感兴趣的可以阅读下。
+> 因为只有 `H5端` 支持，所以 unibest 没有引入这些，但是其他 `web` 项目可以参考。
 
 :::details
 
@@ -170,12 +171,6 @@ createSvgIconsPlugin({
 
 ## 总结
 
-本地 `svg` 的使用方式，如果要全端适配，那就只能使用 `image + src` 的方式。
-
-> `SvgComponent` 依赖 `vite-svg-loader` 插件
->
-> `SvgIcon` 依赖 `vite-plugin-svg-icons` 插件
-
-其他 2 种方式 —— `SvgComponent` + `SvgIcon` 仅 `h5` 端生效，其他端都不能用，既然不能使用，那就删了，对应的 2 个插件也一起删了，目前 `base` 分支已经删了。
+适用于跨端的 `svg 和 图片` 的使用方式，只有 `image + src` 的方式。其他方式只能用于 `web` 端，仅供参考。
 
 全文完~
