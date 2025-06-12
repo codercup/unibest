@@ -27,7 +27,7 @@ hero:
       link: https://feige996.github.io/hello-unibest/
 
 features:
-  - icon: 🎯
+  - icon: 🔥
     title: 多平台覆盖
     details: 支持 微信小程序、H5、APP 和 支付宝小程序、钉钉小程序、抖音小程序等平台。
     # linkText: 进入 Vue 官网
