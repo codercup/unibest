@@ -38,17 +38,13 @@
 
 ## ⭐ Star History
 
-Github Star History 实时地址：[https://star-history.com/#codercup/unibest&Date](https://star-history.com/#codercup/unibest&Date) 。
+同类模板对比实时地址：[https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date](https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date)
 
-[![Star History Chart](https://api.star-history.com/svg?repos=codercup/unibest&type=Date)](https://star-history.com/#codercup/unibest&Date)
+如图所示，两个高高的都是 `unibest`，分别是新旧仓库。
 
-与同类型模板对比，如下图，红色的为 `unibest`，后来居上，遥遥领先。
-
-粉色的新的仓库（`feige996`），就是目前维护的，旧的 `codercup` 进不去了，`deprecated` 状态，不再维护。
+黄色的是旧的 `codercup`，秘钥丢失，进不去了。粉色的新的仓库（`feige996`），目前正在积极维护。
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Ares-Chang/uni-vitesse,uni-helper/vitesse-uni-app,codercup/unibest,feige996/unibest,DaMaiCoding/uni-plus&type=Date)](https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date)
-
-同类模板对比实时地址：[https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date](https://www.star-history.com/#Ares-Chang/uni-vitesse&uni-helper/vitesse-uni-app&codercup/unibest&feige996/unibest&DaMaiCoding/uni-plus&Date)
 
 ## 🗂 生成过程
 

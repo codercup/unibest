@@ -22,6 +22,9 @@ hero:
     - theme: alt
       text: 常见问题
       link: /base/14-faq
+    - theme: brand
+      text: 演示DEMO
+      link: https://feige996.github.io/hello-unibest/
 
 features:
   - icon: 🎯

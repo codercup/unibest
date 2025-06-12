@@ -14,6 +14,8 @@
 
 ## 仓库地址
 
+> `hbx` 目前由 `青谷` 大佬维护，微信号：`qingguxixi`，[青谷 github 地址](https://github.com/Xiphin) 。
+
 - gitee: [unibest-hbx](https://github.com/uni-run/unibest-hbx)
 - github: [unibest-hbx](https://github.com/uni-run/unibest-hbx)
 
