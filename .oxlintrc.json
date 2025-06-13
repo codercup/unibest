@@ -1,11 +1,24 @@
 {
-  "extends": ["@oxlint/recommended"],
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "extends": ["config:recommended"],
+  "plugins": ["import", "typescript", "unicorn"],
   "rules": {
     "no-console": "off",
     "no-unused-vars": "off"
   },
-  "files": ["src/**/*.{js,ts,vue}"],
-  "vue": {
-    "enabled": true
-  }
+  "env": {
+    "es6": true
+  },
+  "globals": {
+    "foo": "readonly"
+  },
+  "settings": {},
+  "overrides": [
+    {
+      "files": ["*.test.ts", "*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
 }
