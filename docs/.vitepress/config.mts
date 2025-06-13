@@ -127,6 +127,10 @@ export default defineConfig({
           { text: 'github page(备选)', link: 'https://feige996.github.io/unibest/' },
         ],
       },
+      {
+        text: '相关链接',
+        link: '/other/links/links',
+      },
     ],
     sidebar: [
       {
