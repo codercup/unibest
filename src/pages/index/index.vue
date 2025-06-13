@@ -15,7 +15,7 @@
     <view class="mt-12">
       <image src="/static/logo.svg" alt="" class="w-28 h-28 block mx-auto" />
     </view>
-    <view class="text-center text-4xl main-title-color mt-4">unibest</view>
+    <view class="text-center text-4xl text-[#d14328] mt-4">unibest</view>
     <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
 
     <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</view>
@@ -40,9 +40,11 @@ defineOptions({
 
 // 获取屏幕边界到安全区域距离
 let safeAreaInsets
+let systemInfo
+
 // #ifdef MP-WEIXIN
 // 微信小程序使用新的API
-const systemInfo = wx.getWindowInfo()
+systemInfo = uni.getWindowInfo()
 safeAreaInsets = systemInfo.safeArea
   ? {
       top: systemInfo.safeArea.top,
@@ -55,7 +57,7 @@ safeAreaInsets = systemInfo.safeArea
 
 // #ifndef MP-WEIXIN
 // 其他平台继续使用uni API
-const systemInfo = uni.getSystemInfoSync()
+systemInfo = uni.getSystemInfoSync()
 safeAreaInsets = systemInfo.safeAreaInsets
 // #endif
 const author = ref('菲鸽')
@@ -67,9 +69,3 @@ onLoad(() => {
   console.log('项目作者:', author.value)
 })
 </script>
-
-<style>
-.main-title-color {
-  color: #d14328;
-}
-</style>
