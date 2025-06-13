@@ -10,7 +10,7 @@ module.exports = {
   htmlWhitespaceSensitivity: 'ignore',
   overrides: [
     {
-      files: '*.json',
+      files: '*.{json,jsonc}',
       options: {
         trailingComma: 'none',
       },

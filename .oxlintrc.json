@@ -1,0 +1,11 @@
+{
+  "extends": ["@oxlint/recommended"],
+  "rules": {
+    "no-console": "off",
+    "no-unused-vars": "off"
+  },
+  "files": ["src/**/*.{js,ts,vue}"],
+  "vue": {
+    "enabled": true
+  }
+}
