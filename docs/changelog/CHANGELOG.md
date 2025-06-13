@@ -1,8 +1,23 @@
 # CHANGELOG 更新日志
 
+## v2.12.1(2025-06-13)
+
+### `oxlint` 优化
+
+- `oxlint` 从 `0.11.0` 升级到 `1.0.0`。
+
+> 注意：最新的 v1.1.0还有问题，运行报错。
+
+**提交代码的时候会自动触发。** 如果想主动检测，可以：
+
+```sh
+pnpm lint
+pnpm lint:fix
+```
+
 ## v2.11.1(2025-06-11)
 
-### hello-unibest
+### `hello-unibest`
 
 - 新增 `echarts` 和 `ucharts` demo。
 
@@ -93,3 +108,9 @@ export const getIsTabbar = () => {
 ```
 
 :::
+
+## ...
+
+## v0.0.0(2023-12.21)
+
+创建项目，首次提交。
