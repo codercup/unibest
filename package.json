@@ -145,7 +145,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "openapi-ts-request": "^1.1.2",
-    "oxlint": "^0.1.0",
+    "oxlint": "^1.1.0",
     "postcss": "^8.4.49",
     "postcss-html": "^1.7.0",
     "postcss-scss": "^4.0.9",
