@@ -12,6 +12,7 @@
   "globals": {
     "foo": "readonly"
   },
+  "ignorePatterns": ["src/static/**", "src/uni_modules/**"],
   "settings": {},
   "overrides": [
     {
