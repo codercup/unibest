@@ -1,7 +1,7 @@
 {
   "name": "unibest",
   "type": "commonjs",
-  "version": "2.11.1",
+  "version": "2.12.0",
   "description": "unibest - 最好的 uniapp 开发模板",
   "update-time": "2025-05-28",
   "author": {
@@ -73,13 +73,14 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
-    "prepare": "git init && husky"
+    "prepare": "git init && husky",
+    "lint:oxlint": "oxlint src/**/*.{ts,js,vue}"
   },
   "lint-staged": {
-    "**/*.{vue,html,cjs,json,md,scss,css,txt}": [
+    "**/*.{html,cjs,json,md,scss,css,txt}": [
       "prettier --write --cache"
     ],
-    "**/*.{js,ts}": [
+    "**/*.{js,ts,vue}": [
       "oxlint --fix",
       "prettier --write --cache"
     ],
@@ -145,7 +146,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "openapi-ts-request": "^1.1.2",
-    "oxlint": "^0.1.0",
+    "oxlint": "1.0.0",
     "postcss": "^8.4.49",
     "postcss-html": "^1.7.0",
     "postcss-scss": "^4.0.9",
