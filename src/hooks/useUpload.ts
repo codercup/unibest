@@ -20,7 +20,7 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
   const {
     formData = {},
     maxSize = 5 * 1024 * 1024,
-    // accept = ['*'],
+    accept = ['*'],
     fileType = 'image',
     success,
     error: onError,

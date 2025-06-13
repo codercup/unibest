@@ -38,6 +38,12 @@ const toSubPage = () => {
     url: '/pages-sub/demo/index',
   })
 }
+
+// 奇怪：同样的代码放在 vue 里面不会校验到错误，放在 .ts 文件里面会校验到错误
+// const testOxlint = (name: string) => {
+//   console.log('oxlint')
+// }
+// testOxlint('oxlint')
 </script>
 
 <style lang="scss" scoped>
