@@ -71,8 +71,8 @@
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
     "prepare": "git init && husky",
-    "lint:oxlint": "oxlint src/**/*.{ts,js,vue}",
-    "lint:oxlint-fix": "oxlint --fix src/**/*.{ts,js,vue}"
+    "lint": "oxlint",
+    "lint-fix": "oxlint --fix"
   },
   "lint-staged": {
     "**/*.{html,cjs,json,md,scss,css,txt}": [
