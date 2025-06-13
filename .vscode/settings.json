@@ -62,6 +62,6 @@
     "README.md": "index.html,favicon.ico,robots.txt,CHANGELOG.md",
     "pages.config.ts": "manifest.config.ts,openapi-ts-request.config.ts",
     "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,.npmrc,.browserslistrc",
-    "tsconfig.json": ".commitlintrc.*,.prettier*,.editorconfig,.commitlint.cjs"
+    ".oxlintrc.json": "tsconfig.json,.commitlintrc.*,.prettier*,.editorconfig,.commitlint.cjs,.eslint*"
   }
 }
