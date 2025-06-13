@@ -100,14 +100,13 @@ export const getUrlObj = (url: string) => {
  */
 export const getAllPages = (key = 'needLogin') => {
   // 这里处理主包
-  const mainPages = [
-    ...pages
-      .filter((page) => !key || page[key])
-      .map((page) => ({
-        ...page,
-        path: `/${page.path}`,
-      })),
-  ]
+  const mainPages = pages
+    .filter((page) => !key || page[key])
+    .map((page) => ({
+      ...page,
+      path: `/${page.path}`,
+    }))
+
   // 这里处理分包
   const subPages: any[] = []
   subPackages.forEach((subPageObj) => {
