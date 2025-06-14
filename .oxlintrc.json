@@ -12,7 +12,16 @@
   "globals": {
     "foo": "readonly"
   },
-  "ignorePatterns": ["node_modules", "dist", "src/static/**", "src/uni_modules/**"],
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "src/static/**",
+    "src/uni_modules/**",
+    "vite.config.ts",
+    "uno.config.ts",
+    "pages.config.ts",
+    "manifest.config.ts"
+  ],
   "settings": {},
   "overrides": [
     {
