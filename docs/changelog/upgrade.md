@@ -1,6 +1,6 @@
 # 升级指南
 
-分为 `6` 部分的内容：
+分为 `6` 部分的内容：(2025-06-14 周六)
 
 - `uniapp sdk 升级`
 - `uni-helper 插件升级`
@@ -38,7 +38,7 @@ npx @dcloudio/uvm@latest
 ## oxlint 升级
 
 ```sh
-pnpm add -D oxlint@v1.0.0  # 主要不要贪最新，最新的 v1.1.0 有问题，会报错。
+pnpm add -D oxlint@v1.0.0  # 注意不要贪最新，最新的 v1.1.0 有问题，会报错。
 ```
 
 `package.json` 里面的 `"lint-staged"` 内容改为：
@@ -113,7 +113,90 @@ scripts: {
 
 ## unocss 升级(可选)
 
-有空再写，忙。
+1、升级 `unocss`
+
+```sh
+pnpm add -D unocss@65.4.2 # 注意不要贪最新，最新的 v1.1.0 有问题，会报错。
+```
+
+2、 更新 `vite.config.ts` 配置文件
+
+```ts
+// https://www.npmjs.com/package/@uni-helper/unocss-preset-uni
+import { presetUni } from '@uni-helper/unocss-preset-uni'
+import {
+  defineConfig,
+  presetIcons,
+  presetAttributify,
+  transformerDirectives,
+  transformerVariantGroup,
+} from 'unocss'
+
+export default defineConfig({
+  presets: [
+    presetUni({
+      attributify: {
+        // prefix: 'fg-', // 如果加前缀，则需要在代码里面使用 `fg-` 前缀，如：<div fg-border="1px solid #000"></div>
+        prefixedOnly: true,
+      },
+    }),
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+      extraProperties: {
+        display: 'inline-block',
+        'vertical-align': 'middle',
+      },
+    }),
+    // 支持css class属性化
+    presetAttributify(),
+  ],
+  transformers: [
+    // 启用指令功能：主要用于支持 @apply、@screen 和 theme() 等 CSS 指令
+    transformerDirectives(),
+    // 启用 () 分组功能
+    // 支持css class组合，eg: `<div class="hover:(bg-gray-400 font-medium) font-(light mono)">测试 unocss</div>`
+    transformerVariantGroup(),
+  ],
+  shortcuts: [
+    {
+      center: 'flex justify-center items-center',
+    },
+  ],
+  rules: [
+    [
+      'p-safe',
+      {
+        padding:
+          'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
+      },
+    ],
+    ['pt-safe', { 'padding-top': 'env(safe-area-inset-top)' }],
+    ['pb-safe', { 'padding-bottom': 'env(safe-area-inset-bottom)' }],
+  ],
+  theme: {
+    colors: {
+      /** 主题色，用法如: text-primary */
+      primary: 'var(--wot-color-theme,#0957DE)',
+    },
+    fontSize: {
+      /** 提供更小号的字体，用法如：text-2xs */
+      '2xs': ['20rpx', '28rpx'],
+      '3xs': ['18rpx', '26rpx'],
+    },
+  },
+})
+```
+
+3、 更新 `vite.config.ts` 中 `unocss` 的引入方式：
+
+```ts
+export default async ({ command, mode }) => {
+  // @see https://unocss.dev/
+  const UnoCSS = (await import('unocss/vite')).default
+  // ... 其他代码
+})
+```
 
 ## vscode 配置文件升级
 
