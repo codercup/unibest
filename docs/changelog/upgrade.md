@@ -1,12 +1,12 @@
 # 升级指南
 
-分为4部分的内容：
+分为 `5` 部分的内容：
 
-- uniapp sdk 升级
-- uni-helper 插件升级
-- oxlint 升级
-- 移除 eslint, stylelint
-- unocss 升级(可选)
+- `uniapp sdk 升级`
+- `uni-helper 插件升级`
+- `oxlint 升级`
+- `移除 eslint, stylelint`
+- `unocss 升级(可选)`
 
 ## uniapp sdk 升级
 
@@ -82,7 +82,16 @@ scripts: {
   "globals": {
     "foo": "readonly"
   },
-  "ignorePatterns": ["node_modules", "dist", "src/static/**", "src/uni_modules/**"],
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "src/static/**",
+    "src/uni_modules/**",
+    "vite.config.ts",
+    "uno.config.ts",
+    "pages.config.ts",
+    "manifest.config.ts"
+  ],
   "settings": {},
   "overrides": [
     {
@@ -94,6 +103,12 @@ scripts: {
   ]
 }
 ```
+
+## 移除 eslint, stylelint
+
+上面配置了 `oxlint` 后，`eslint` 不需要了，可以把 `依赖包` 和 `配置文件` 都都删除。
+
+`stylelint` 可以保留也可以删除，因为几乎都是用 `unocss` 来写样式的，所以 `stylelint` 不要也可以。
 
 ## unocss 升级(可选)
 
