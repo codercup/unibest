@@ -1,12 +1,13 @@
 # 升级指南
 
-分为 `5` 部分的内容：
+分为 `6` 部分的内容：
 
 - `uniapp sdk 升级`
 - `uni-helper 插件升级`
 - `oxlint 升级`
 - `移除 eslint, stylelint`
-- `unocss 升级(可选)`
+- `unocss 升级` (可选)
+- `vscode  配置文件升级` (可选)
 
 ## uniapp sdk 升级
 
@@ -113,3 +114,16 @@ scripts: {
 ## unocss 升级(可选)
 
 有空再写，忙。
+
+## vscode 配置文件升级
+
+`.vscode/settings.json` 里面 `explorer.fileNesting.patterns` 配置如下：
+
+```json
+"explorer.fileNesting.patterns": {
+  "README.md": "index.html,favicon.ico,robots.txt,CHANGELOG.md",
+  "pages.config.ts": "manifest.config.ts,openapi-ts-request.config.ts",
+  "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,.npmrc,.browserslistrc",
+  ".oxlintrc.json": "tsconfig.json,.commitlintrc.*,.prettier*,.editorconfig,.commitlint.cjs,.eslint*"
+}
+```
