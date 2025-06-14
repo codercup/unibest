@@ -6,7 +6,15 @@
 - `wx 小程序`：`pnpm dev:mp-weixin`，然后打开微信开发者工具，导入本地文件夹，选择本项目的 `dist/dev/mp-weixin` 文件。
 - ![alt text](./assets/11-1.png)
 
-- `APP 平台`：`pnpm dev:app`，然后打开 `HBuilderX`，导入刚刚生成的 `dist/dev/app` 文件夹，选择运行到 `模拟器`( `开发时优先使用` )，或者 `运行到安卓/ios 基座` (真机调试时使用) 。
+- `APP 平台`：`pnpm dev:app`，然后打开 `HBuilderX`，导入刚刚生成的 `dist/dev/app` 文件夹，选择运行到 `模拟器`( `开发时优先使用` )，或者 `运行到 ios 基座` (真机调试时使用) 。
+
+> **如果不是 `iOS` 端 ，请查看 [App 专题章节 - 3.app 热更新](/base/18-app#_3-app-热更新)**
+>
+> **如果不是 `iOS` 端 ，请查看 [App 专题章节 - 3.app 热更新](/base/18-app#_3-app-热更新)**
+>
+> **如果不是 `iOS` 端 ，请查看 [App 专题章节 - 3.app 热更新](/base/18-app#_3-app-热更新)**
+>
+> 重要的事情说三遍！
 
 ![alt text](./assets/11-2.png)
 

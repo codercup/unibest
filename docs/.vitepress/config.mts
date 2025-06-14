@@ -121,15 +121,15 @@ export default defineConfig({
         link: '/changelog/CHANGELOG',
       },
       {
-        text: '备用地址',
-        items: [
-          { text: 'unibest.tech(首选)', link: 'https://unibest.tech' },
-          { text: 'github page(备选)', link: 'https://feige996.github.io/unibest/' },
-        ],
-      },
-      {
         text: '相关链接',
         link: '/other/links/links',
+      },
+      {
+        text: 'unibest备用地址',
+        items: [
+          { text: 'unibest.tech(本站)', link: 'https://unibest.tech' },
+          { text: 'github page(备用)', link: 'https://feige996.github.io/unibest/' },
+        ],
       },
     ],
     sidebar: [
@@ -166,6 +166,10 @@ export default defineConfig({
       {
         text: '更新日志',
         link: '/changelog/CHANGELOG',
+      },
+      {
+        text: '升级指南',
+        link: '/changelog/upgrade',
       },
       {
         text: '社交',
