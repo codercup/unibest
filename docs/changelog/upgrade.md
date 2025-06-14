@@ -116,7 +116,7 @@ scripts: {
 1、升级 `unocss`
 
 ```sh
-pnpm add -D unocss@65.4.2 # 注意不要贪最新，最新的 v1.1.0 有问题，会报错。
+pnpm add -D unocss@65.4.2 # 注意不要贪最新，最新的 v66+ 有问题，会报错。
 ```
 
 2、 更新 `vite.config.ts` 配置文件
