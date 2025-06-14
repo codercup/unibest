@@ -168,6 +168,10 @@ export default defineConfig({
         link: '/changelog/CHANGELOG',
       },
       {
+        text: '升级指南',
+        link: '/changelog/upgrade',
+      },
+      {
         text: '社交',
         base: '/advanced/',
         items: [
