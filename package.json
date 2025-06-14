@@ -111,7 +111,7 @@
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
     "qs": "6.5.3",
-    "vue": "^3.5.15",
+    "vue": "^3.4.21",
     "wot-design-uni": "^1.9.1",
     "z-paging": "^2.8.4"
   },
@@ -152,9 +152,9 @@
     "sass": "1.77.8",
     "terser": "^5.36.0",
     "typescript": "^5.7.2",
-    "unocss": "65.4.2",
+    "unocss": "66.2.0",
     "unplugin-auto-import": "^0.17.8",
-    "vite": "6.3.5",
+    "vite": "5.2.8",
     "vite-plugin-restart": "^0.4.2",
     "vue-tsc": "^2.2.10"
   }
