@@ -90,8 +90,8 @@ importers:
         specifier: ^1.9.1
         version: 1.9.1(vue@3.5.15(typescript@5.7.2))
       z-paging:
-        specifier: ^2.8.4
-        version: 2.8.4
+        specifier: 2.8.7
+        version: 2.8.7
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.8.1
@@ -5585,8 +5585,8 @@ packages:
     resolution: {integrity: sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg==}
     engines: {node: '>=12.20'}
 
-  z-paging@2.8.4:
-    resolution: {integrity: sha512-967aWGPZsC9siwIoWtXH6L+9gCoKe29jZtW+AMD9NSfsfymPZjBBYu7owT/siUQyCaaNJ7uUbpAet+YgpMn0xA==}
+  z-paging@2.8.7:
+    resolution: {integrity: sha512-RcDeKFoCQB51dmrrTb1PMIazjTqGuAbFmjPS0/N5hdUNTCRvxGOOBTBFolvIxUcsWhrocI9C0mYDgUwXT6Dwcg==}
     engines: {HBuilderX: ^3.0.7}
 
 snapshots:
@@ -12288,4 +12288,4 @@ snapshots:
 
   yocto-queue@1.2.1: {}
 
-  z-paging@2.8.4: {}
+  z-paging@2.8.7: {}
