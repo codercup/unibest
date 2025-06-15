@@ -113,7 +113,7 @@
     "qs": "6.5.3",
     "vue": "^3.4.21",
     "wot-design-uni": "^1.9.1",
-    "z-paging": "^2.8.4"
+    "z-paging": "2.8.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
