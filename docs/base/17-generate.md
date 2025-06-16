@@ -1,9 +1,12 @@
 # 自动生成代码
 
+![alt text](17-good.png)
+
 集成 [openapi-ts-request](https://github.com/openapi-ui/openapi-ts-request) 插件，可以根据接口文档自动生成 js,ts,uni.request,vue-query 代码。
 
-支持 apifox/swagger/opeanpi/yapi 等接口文档，更多配置详情请查看 [openapi-ts-request](https://github.com/openapi-ui/openapi-ts-request) 插件。
+> 好用的话记得点赞，`star` 支持下。
 
+支持 apifox/swagger/opeanpi/yapi 等接口文档，更多配置详情请查看 [openapi-ts-request](https://github.com/openapi-ui/openapi-ts-request) 插件。
 
 ## 如何使用
 
@@ -26,9 +29,7 @@ export default [
     isGenJavaScript: false,
   },
 ] as GenerateServiceProps[]
-
 ```
-
 
 ## 生成 ts 代码
 
@@ -43,7 +44,6 @@ const category: Category = {
 }
 ```
 
-
 ## 生成 uni.request 代码
 
 ts 的 uni.request 客户端会默认生成在 `src/service/app` 目录下，以模块名进行分类，你可以通过引入它们进行使用。
@@ -52,11 +52,10 @@ ts 的 uni.request 客户端会默认生成在 `src/service/app` 目录下，以
 import { getPetById } from '@/service/app'
 
 onShow(() => {
-  const res = await getPetById({ id: 1 });
+  const res = await getPetById({ id: 1 })
   console.log('res: ', res)
 })
 ```
-
 
 ## 生成 vue-query 代码
 
