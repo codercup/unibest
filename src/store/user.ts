@@ -59,7 +59,7 @@ export const useUserStore = defineStore(
       const res = await _login(credentials)
       console.log('登录信息', res)
       toast.success('登录成功')
-      getUserInfo()
+      await getUserInfo()
       return res
     }
     /**
@@ -90,7 +90,7 @@ export const useUserStore = defineStore(
       console.log('微信登录code', data)
 
       const res = await _wxLogin(data)
-      getUserInfo()
+      await getUserInfo()
       return res
     }
 
