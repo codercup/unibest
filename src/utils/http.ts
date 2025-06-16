@@ -53,12 +53,14 @@ export const httpGet = <T>(
   url: string,
   query?: Record<string, any>,
   header?: Record<string, any>,
+  options?: Partial<CustomRequestOptions>,
 ) => {
   return http<T>({
     url,
     query,
     method: 'GET',
     header,
+    ...options,
   })
 }
 
@@ -75,6 +77,7 @@ export const httpPost = <T>(
   data?: Record<string, any>,
   query?: Record<string, any>,
   header?: Record<string, any>,
+  options?: Partial<CustomRequestOptions>,
 ) => {
   return http<T>({
     url,
@@ -82,6 +85,7 @@ export const httpPost = <T>(
     data,
     method: 'POST',
     header,
+    ...options,
   })
 }
 /**
@@ -92,6 +96,7 @@ export const httpPut = <T>(
   data?: Record<string, any>,
   query?: Record<string, any>,
   header?: Record<string, any>,
+  options?: Partial<CustomRequestOptions>,
 ) => {
   return http<T>({
     url,
@@ -99,6 +104,7 @@ export const httpPut = <T>(
     query,
     method: 'PUT',
     header,
+    ...options,
   })
 }
 
@@ -109,12 +115,14 @@ export const httpDelete = <T>(
   url: string,
   query?: Record<string, any>,
   header?: Record<string, any>,
+  options?: Partial<CustomRequestOptions>,
 ) => {
   return http<T>({
     url,
     query,
     method: 'DELETE',
     header,
+    ...options,
   })
 }
 
