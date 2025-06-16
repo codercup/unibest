@@ -110,6 +110,7 @@
     "@tanstack/vue-query": "^5.62.16",
     "abortcontroller-polyfill": "^1.7.8",
     "dayjs": "1.11.10",
+    "element-plus": "^2.10.2",
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
     "qs": "6.5.3",

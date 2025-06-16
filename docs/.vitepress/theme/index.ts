@@ -8,6 +8,9 @@ import HomeStar from './components/HomeStar.vue'
 import NavBarTitleAfter from './components/NavBarTitleAfter.vue'
 import FreshImage from './components/FreshImage.vue'
 
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 export default {
   extends: DefaultTheme,
   Layout: () => {
@@ -20,5 +23,6 @@ export default {
   enhanceApp({ app, router, siteData }) {
     // ...
     app.component('FreshImage', FreshImage)
+    app.use(ElementPlus)
   },
 } satisfies Theme

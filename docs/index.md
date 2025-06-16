@@ -11,18 +11,18 @@ hero:
     alt: unibest
   actions:
     - theme: brand
-      text: 介绍
-      link: /base/1-introduction
-    - theme: alt
       text: 快速开始
       link: /base/2-start
-    - theme: brand
-      text: 🥤 打赏
-      link: /advanced/rewards/rewards
     - theme: alt
       text: 常见问题
       link: /base/14-faq
     - theme: brand
+      text: 🥤 打赏
+      link: /advanced/rewards/rewards
+    - theme: alt
+      text: ⭐ 优秀案例
+      link: /advanced/showcase/showcase
+    - theme: alt
       text: 演示DEMO
       link: https://feige996.github.io/hello-unibest/
 
