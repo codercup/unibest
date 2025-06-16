@@ -164,6 +164,10 @@ export default defineConfig({
         ],
       },
       {
+        text: '⭐ 优秀案例',
+        link: '/advanced/showcase/showcase',
+      },
+      {
         text: '更新日志',
         link: '/changelog/CHANGELOG',
       },
