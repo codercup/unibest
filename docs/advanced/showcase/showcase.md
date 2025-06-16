@@ -8,6 +8,8 @@
    import bairun from './佰润.png'
    import jinhuopingtai from './进货平台.png'
    import chengzhanggui from './橙掌柜.png'
+   import jiansuotong from './监所通.png'
+   import jiansuoyou from './监所邮.png'
 const  cases = [
     {
         name: '佰润', 
@@ -24,6 +26,16 @@ const  cases = [
         desc: '月销200w+',  
         image: chengzhanggui,
     },
+    {
+        name: '监所通', 
+        desc: '出入所管理',  
+        image:jiansuotong,
+    },
+    {
+        name: '监所邮', 
+        desc: '寄信管理',  
+        image: jiansuoyou,
+    },
 ]
 </script>
 
@@ -34,6 +46,8 @@ const  cases = [
       <span class="case-desc">{{ item.desc }}</span>
     </template>
     <el-image :src="item.image" />
+    ![alt text](image.png)
+    ![alt text](image-1.png)
   </el-card>
 </div>
 
