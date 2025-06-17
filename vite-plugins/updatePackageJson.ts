@@ -7,6 +7,9 @@ const updatePackageJson = (): Plugin => {
   return {
     name: 'update-package-json',
     async buildStart() {
+      // 只在生产环境构建时执行
+      if (process.env.NODE_ENV !== 'production') return
+
       const packageJsonPath = path.resolve(process.cwd(), 'package.json')
 
       try {
