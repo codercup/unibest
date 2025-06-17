@@ -11,15 +11,15 @@
     "github": "https://github.com/feige996",
     "gitee": "https://gitee.com/feige996"
   },
+  "homepage": "https://unibest.tech",
   "license": "MIT",
   "repository": "https://github.com/feige996/unibest",
   "repository-gitee": "https://gitee.com/feige996/unibest",
   "repository-old": "https://github.com/codercup/unibest",
   "bugs": {
     "url": "https://github.com/feige996/unibest/issues",
-    "old-url": "https://github.com/codercup/unibest/issues"
+    "url-old": "https://github.com/codercup/unibest/issues"
   },
-  "homepage": "https://feige996.github.io/unibest/",
   "engines": {
     "node": ">=18",
     "pnpm": ">=7.30"
