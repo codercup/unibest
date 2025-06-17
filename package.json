@@ -1,7 +1,7 @@
 {
   "name": "unibest",
   "type": "commonjs",
-  "version": "2.12.2",
+  "version": "2.13.0",
   "description": "unibest - 最好的 uniapp 开发模板",
   "update-time": "2025-06-17",
   "author": {
@@ -11,14 +11,15 @@
     "github": "https://github.com/feige996",
     "gitee": "https://gitee.com/feige996"
   },
+  "homepage": "https://unibest.tech",
   "license": "MIT",
   "repository": "https://github.com/feige996/unibest",
   "repository-gitee": "https://gitee.com/feige996/unibest",
-  "repository-deprecated": "https://github.com/codercup/unibest",
+  "repository-old": "https://github.com/codercup/unibest",
   "bugs": {
-    "url": "https://github.com/feige996/unibest/issues"
+    "url": "https://github.com/feige996/unibest/issues",
+    "url-old": "https://github.com/codercup/unibest/issues"
   },
-  "homepage": "https://feige996.github.io/unibest/",
   "engines": {
     "node": ">=18",
     "pnpm": ">=7.30"
