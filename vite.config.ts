@@ -20,8 +20,8 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import ViteRestart from 'vite-plugin-restart'
 import { copyNativeRes } from './vite-plugins/copyNativeRes'
+import updatePackageJson from './vite-plugins/updatePackageJson'
 import Components from '@uni-helper/vite-plugin-uni-components'
-import updatePackageJson from './scripts/updatePackageJson'
 
 // https://vitejs.dev/config/
 export default async ({ command, mode }) => {
