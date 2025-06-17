@@ -48,12 +48,12 @@ export default defineUniPages({
       //   icon: '/static/logo.svg',
       //   iconType: 'local',
       // },
-      {
-        pagePath: 'pages/mine/index',
-        text: '我的',
-        icon: 'iconfont icon-my',
-        iconType: 'iconfont',
-      },
+      // {
+      //   pagePath: 'pages/mine/index',
+      //   text: '我的',
+      //   icon: 'iconfont icon-my',
+      //   iconType: 'iconfont',
+      // },
     ],
   },
 })
