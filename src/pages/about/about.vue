@@ -44,6 +44,7 @@ const toSubPage = () => {
 //   console.log('oxlint')
 // }
 // testOxlint('oxlint')
+console.log('about')
 </script>
 
 <style lang="scss" scoped>

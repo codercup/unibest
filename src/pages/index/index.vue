@@ -68,4 +68,6 @@ const description = ref(
 onLoad(() => {
   console.log('项目作者:', author.value)
 })
+
+console.log('index')
 </script>
