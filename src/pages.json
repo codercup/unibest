@@ -15,7 +15,6 @@
     }
   },
   "tabBar": {
-    "custom": true,
     "color": "#999999",
     "selectedColor": "#018d71",
     "backgroundColor": "#F8F8F8",
@@ -37,7 +36,11 @@
         "icon": "i-carbon-code",
         "iconType": "unocss"
       }
-    ]
+    ],
+    "midButton": {
+      "iconPath": "/static/logo.svg",
+      "text": "发布"
+    }
   },
   "pages": [
     {

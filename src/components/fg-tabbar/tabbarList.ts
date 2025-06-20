@@ -1,4 +1,4 @@
-export default [
+export const tabbarList = [
   // 注意tabbar路由需要使用 layout:tabbar 布局
   {
     pagePath: 'pages/index/index',
@@ -25,3 +25,9 @@ export default [
   //   iconType: 'iconfont',
   // },
 ]
+
+// midButton 仅App和H5支持
+export const midButton = {
+  iconPath: '/static/logo.svg',
+  text: '发布',
+}

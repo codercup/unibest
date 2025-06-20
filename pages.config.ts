@@ -1,5 +1,5 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
-import tabbarList from './src/components/fg-tabbar/tabbarList'
+import { tabbarList, midButton } from './src/components/fg-tabbar/tabbarList'
 
 export default defineUniPages({
   globalStyle: {
@@ -20,7 +20,7 @@ export default defineUniPages({
   },
   // 如果不需要tabBar，推荐使用 spa 模板。（pnpm create xxx -t spa）
   tabBar: {
-    custom: true,
+    // custom: true,
     color: '#999999',
     selectedColor: '#018d71',
     backgroundColor: '#F8F8F8',
@@ -30,5 +30,7 @@ export default defineUniPages({
     iconWidth: '24px',
     spacing: '3px',
     list: tabbarList as any,
+    // midButton 仅App和H5支持
+    midButton: midButton,
   },
 })
