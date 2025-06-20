@@ -1,4 +1,5 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
+import tabbarList from './src/components/fg-tabbar/tabbarList'
 
 export default defineUniPages({
   globalStyle: {
@@ -28,32 +29,6 @@ export default defineUniPages({
     fontSize: '10px',
     iconWidth: '24px',
     spacing: '3px',
-    list: [
-      // 注意tabbar路由需要使用 layout:tabbar 布局
-      {
-        pagePath: 'pages/index/index',
-        text: '首页',
-        icon: 'home',
-        iconType: 'wot',
-      },
-      {
-        pagePath: 'pages/about/about',
-        text: '关于',
-        icon: 'i-carbon-code',
-        iconType: 'unocss',
-      },
-      // {
-      //   pagePath: 'pages/my/index',
-      //   text: '我的',
-      //   icon: '/static/logo.svg',
-      //   iconType: 'local',
-      // },
-      // {
-      //   pagePath: 'pages/mine/index',
-      //   text: '我的',
-      //   icon: 'iconfont icon-my',
-      //   iconType: 'iconfont',
-      // },
-    ],
+    list: tabbarList as any,
   },
 })
