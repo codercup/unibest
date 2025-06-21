@@ -28,7 +28,7 @@
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "%tabbar.home%",
         "icon": "home",
         "iconType": "wot"
       },
@@ -36,7 +36,7 @@
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
         "pagePath": "pages/about/about",
-        "text": "关于",
+        "text": "%tabbar.about%",
         "icon": "i-carbon-code",
         "iconType": "unocss"
       }
