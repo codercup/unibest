@@ -1,5 +1,5 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
-import { tabBar } from './src/components/fg-tabbar/tabbarList'
+import { tabBar } from './src/layouts/fg-tabbar/tabbarList'
 
 export default defineUniPages({
   globalStyle: {

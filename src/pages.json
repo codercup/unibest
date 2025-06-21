@@ -40,11 +40,7 @@
         "icon": "i-carbon-code",
         "iconType": "unocss"
       }
-    ],
-    "midButton": {
-      "iconPath": "/static/logo.svg",
-      "text": "发布"
-    }
+    ]
   },
   "pages": [
     {

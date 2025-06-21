@@ -8,6 +8,7 @@
 </template>
 
 <script lang="ts" setup>
+import FgTabbar from './fg-tabbar.vue'
 import type { ConfigProviderThemeVars } from 'wot-design-uni'
 
 const themeVars: ConfigProviderThemeVars = {
