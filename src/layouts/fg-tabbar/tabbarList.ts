@@ -1,8 +1,17 @@
 // 是否使用自定义的tabbar?
-export const CUSTOM_TABBAR_ENABLE = false
+export const TABBAR_STRATEGY = {
+  0: 'NATIVE_TABBAR',
+  1: 'HALF_CUSTOM_TABBAR',
+  2: 'FULL_CUSTOM_TABBAR',
+  3: 'NO_TABBAR',
+}
 
-// CUSTOM_TABBAR_ENABLE 为 true 时，可以不填 iconPath 和 selectedIconPath
-// CUSTOM_TABBAR_ENABLE 为 false 时，可以不填 icon 和 iconType
+// TODO：通过这里切换使用tabbar的策略
+export const selectedTabbarStrategy = 0
+export const cacheTabbarEnable = selectedTabbarStrategy < 2
+
+// selectedTabbarStrategy==0 时，需要填 iconPath 和 selectedIconPath
+// selectedTabbarStrategy==1 or 2 时，需要填 icon 和 iconType
 export const tabbarList = [
   {
     iconPath: 'static/tabbar/home.png',
@@ -34,12 +43,6 @@ export const tabbarList = [
   // },
 ]
 
-// midButton 仅App和H5支持
-const midButton = {
-  iconPath: '/static/logo.svg',
-  text: '发布',
-}
-
 const _tabbar = {
   color: '#999999',
   selectedColor: '#018d71',
@@ -49,9 +52,8 @@ const _tabbar = {
   fontSize: '10px',
   iconWidth: '24px',
   spacing: '3px',
-  list: tabbarList as any,
-  // midButton 仅App和H5支持，（h5中测试也没生效）
-  // midButton: midButton,
+  list: tabbarList,
 }
 
-export const tabBar = CUSTOM_TABBAR_ENABLE ? undefined : _tabbar
+// 0和1 需要显示底部的tabbar的各种配置，以利用缓存
+export const tabBar = cacheTabbarEnable ? _tabbar : undefined
