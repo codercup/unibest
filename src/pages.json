@@ -57,8 +57,7 @@
       "type": "page",
       "layout": "tabbar",
       "style": {
-        "navigationBarTitleText": "关于",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "关于"
       }
     }
   ],

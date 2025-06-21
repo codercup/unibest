@@ -3,14 +3,12 @@
   layout: 'tabbar',
   style: {
     navigationBarTitleText: '关于',
-    navigationStyle: 'custom', // 开启自定义导航栏
   },
 }
 </route>
 
 <template>
   <view>
-    <fg-navbar>关于</fg-navbar>
     <view
       class="bg-white overflow-hidden pt-2 px-4"
       :style="{ marginTop: safeAreaInsets?.top + 'px' }"
