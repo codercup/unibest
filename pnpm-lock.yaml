@@ -7,6 +7,11 @@ settings:
 overrides:
   bin-wrapper: npm:bin-wrapper-china
 
+patchedDependencies:
+  '@dcloudio/uni-h5':
+    hash: 5763725268e9a493075be3c82d91b590b9ae30e997a04a418494dd7d6d327b9d
+    path: patches/@dcloudio__uni-h5.patch
+
 importers:
 
   .:
@@ -25,7 +30,7 @@ importers:
         version: 3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
       '@dcloudio/uni-h5':
         specifier: 3.0.0-4060620250520001
-        version: 3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
+        version: 3.0.0-4060620250520001(patch_hash=5763725268e9a493075be3c82d91b590b9ae30e997a04a418494dd7d6d327b9d)(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
       '@dcloudio/uni-mp-alipay':
         specifier: 3.0.0-4060620250520001
         version: 3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
@@ -6802,7 +6807,7 @@ snapshots:
   '@dcloudio/uni-components@3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))':
     dependencies:
       '@dcloudio/uni-cloud': 3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
-      '@dcloudio/uni-h5': 3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
+      '@dcloudio/uni-h5': 3.0.0-4060620250520001(patch_hash=5763725268e9a493075be3c82d91b590b9ae30e997a04a418494dd7d6d327b9d)(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
       '@dcloudio/uni-i18n': 3.0.0-4060620250520001
     transitivePeerDependencies:
       - '@nuxt/kit'
@@ -6855,7 +6860,7 @@ snapshots:
     transitivePeerDependencies:
       - vue
 
-  '@dcloudio/uni-h5@3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))':
+  '@dcloudio/uni-h5@3.0.0-4060620250520001(patch_hash=5763725268e9a493075be3c82d91b590b9ae30e997a04a418494dd7d6d327b9d)(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))':
     dependencies:
       '@dcloudio/uni-h5-vite': 3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
       '@dcloudio/uni-h5-vue': 3.0.0-4060620250520001(vue@3.5.15(typescript@5.7.2))
