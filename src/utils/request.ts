@@ -1,11 +1,11 @@
-import { CustomRequestOptions } from '@/interceptors/request'
+import type { CustomRequestOptions } from '@/interceptors/request'
 
 /**
  * 请求方法: 主要是对 uni.request 的封装，去适配 openapi-ts-request 的 request 方法
  * @param options 请求参数
  * @returns 返回 Promise 对象
  */
-const http = <T>(options: CustomRequestOptions) => {
+function http<T>(options: CustomRequestOptions) {
   // 1. 返回 Promise 对象
   return new Promise<T>((resolve, reject) => {
     uni.request({
@@ -20,18 +20,20 @@ const http = <T>(options: CustomRequestOptions) => {
         if (res.statusCode >= 200 && res.statusCode < 300) {
           // 2.1 提取核心数据 res.data
           resolve(res.data as T)
-        } else if (res.statusCode === 401) {
+        }
+        else if (res.statusCode === 401) {
           // 401错误  -> 清理用户信息，跳转到登录页
           // userStore.clearUserInfo()
           // uni.navigateTo({ url: '/pages/login/login' })
           reject(res)
-        } else {
+        }
+        else {
           // 其他错误 -> 根据后端错误信息轻提示
-          !options.hideErrorToast &&
-            uni.showToast({
-              icon: 'none',
-              title: (res.data as T & { msg?: string })?.msg || '请求错误',
-            })
+          !options.hideErrorToast
+          && uni.showToast({
+            icon: 'none',
+            title: (res.data as T & { msg?: string })?.msg || '请求错误',
+          })
           reject(res)
         }
       },

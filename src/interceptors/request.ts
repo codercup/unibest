@@ -1,8 +1,7 @@
-/* eslint-disable no-param-reassign */
 import qs from 'qs'
 import { useUserStore } from '@/store'
-import { platform } from '@/utils/platform'
 import { getEnvBaseUrl } from '@/utils'
+import { platform } from '@/utils/platform'
 
 export type CustomRequestOptions = UniApp.RequestOptions & {
   query?: Record<string, any>
@@ -22,7 +21,8 @@ const httpInterceptor = {
       const queryStr = qs.stringify(options.query)
       if (options.url.includes('?')) {
         options.url += `&${queryStr}`
-      } else {
+      }
+      else {
         options.url += `?${queryStr}`
       }
     }
@@ -33,7 +33,8 @@ const httpInterceptor = {
       if (JSON.parse(__VITE_APP_PROXY__)) {
         // 自动拼接代理前缀
         options.url = import.meta.env.VITE_APP_PROXY_PREFIX + options.url
-      } else {
+      }
+      else {
         options.url = baseUrl + options.url
       }
       // #endif
