@@ -35,7 +35,7 @@ export const tabbarList = [
 ]
 
 // midButton 仅App和H5支持
-export const midButton = {
+const midButton = {
   iconPath: '/static/logo.svg',
   text: '发布',
 }
@@ -50,8 +50,8 @@ const _tabbar = {
   iconWidth: '24px',
   spacing: '3px',
   list: tabbarList as any,
-  // midButton 仅App和H5支持
-  midButton: midButton,
+  // midButton 仅App和H5支持，（h5中测试也没生效）
+  // midButton: midButton,
 }
 
 export const tabBar = CUSTOM_TABBAR_ENABLE ? undefined : _tabbar
