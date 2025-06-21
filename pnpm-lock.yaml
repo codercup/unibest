@@ -137,6 +137,9 @@ importers:
       '@types/wechat-miniprogram':
         specifier: ^3.4.8
         version: 3.4.8
+      '@uni-helper/eslint-config':
+        specifier: ^0.4.0
+        version: 0.4.0(@antfu/eslint-config@4.15.0(@unocss/eslint-plugin@66.2.3(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2))(@vue/compiler-sfc@3.5.15)(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.29.0(jiti@2.4.2))
       '@uni-helper/uni-types':
         specifier: 1.0.0-alpha.3
         version: 1.0.0-alpha.3(@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(@uni-helper/uni-cloud-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(@uni-helper/uni-ui-types@1.0.0-alpha.3(@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2))
@@ -2329,6 +2332,12 @@ packages:
   '@typescript-eslint/visitor-keys@8.34.1':
     resolution: {integrity: sha512-xoh5rJ+tgsRKoXnkBPFRLZ7rjKM0AfVbC68UZ/ECXoDbfggb9RbEySN359acY1vS3qZ0jVTVWzbtfapwm5ztxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@uni-helper/eslint-config@0.4.0':
+    resolution: {integrity: sha512-8Cbe4Ortvxs9A708LWN5gyZoUx4TpjPQwusL7tPmRLeSgKvwMppeRq3pDckhXiFXXT2RTdn3LKE8SH5gMPD8fg==}
+    peerDependencies:
+      '@antfu/eslint-config': ^4.0.1
+      eslint: ^9.10.0
 
   '@uni-helper/uni-app-types@1.0.0-alpha.3':
     resolution: {integrity: sha512-lhSpVroEUxzre1vzKAckg85CFLUpn6vw9L2FDO1d8cd9JtMstlXkYmIn/Oz8tqzXxQ1sOgd3YcwoQmkXsw+Oxw==}
@@ -9424,6 +9433,16 @@ snapshots:
       '@typescript-eslint/types': 8.34.1
       eslint-visitor-keys: 4.2.1
 
+  '@uni-helper/eslint-config@0.4.0(@antfu/eslint-config@4.15.0(@unocss/eslint-plugin@66.2.3(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2))(@vue/compiler-sfc@3.5.15)(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.29.0(jiti@2.4.2))':
+    dependencies:
+      '@antfu/eslint-config': 4.15.0(@unocss/eslint-plugin@66.2.3(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2))(@vue/compiler-sfc@3.5.15)(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2)
+      '@eslint/eslintrc': 3.3.1
+      eslint: 9.29.0(jiti@2.4.2)
+      eslint-flat-config-utils: 2.1.0
+      local-pkg: 1.1.1
+    transitivePeerDependencies:
+      - supports-color
+
   '@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2))':
     dependencies:
       typescript: 5.7.2
@@ -9758,7 +9777,7 @@ snapshots:
 
   '@unocss/rule-utils@66.2.0':
     dependencies:
-      '@unocss/core': 66.2.0
+      '@unocss/core': 66.2.3
       magic-string: 0.30.17
 
   '@unocss/rule-utils@66.2.3':

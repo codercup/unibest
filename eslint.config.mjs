@@ -1,6 +1,6 @@
-import antfu from '@antfu/eslint-config'
+import uniHelper from '@uni-helper/eslint-config'
 
-export default antfu({
+export default uniHelper({
   unocss: true,
   vue: true,
   markdown: false,
