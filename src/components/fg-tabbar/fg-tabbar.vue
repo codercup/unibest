@@ -1,5 +1,6 @@
 <template>
   <wd-tabbar
+    v-if="CUSTOM_TABBAR_ENABLE"
     fixed
     v-model="tabbarStore.curIdx"
     bordered
@@ -32,12 +33,12 @@
       </wd-tabbar-item>
     </block>
   </wd-tabbar>
+  <view v-else></view>
 </template>
 
 <script setup lang="ts">
 import { tabbarList as _tabBarList, CUSTOM_TABBAR_ENABLE } from './tabbarList'
 import { tabbarStore } from './tabbar'
-import {} from './tabbarList'
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
 const tabbarList = _tabBarList.map((item) => ({ ...item, path: `/${item.pagePath}` }))
@@ -52,14 +53,14 @@ function selectTabBar({ value: index }: { value: number }) {
 }
 onLoad(() => {
   // 解决原生 tabBar 未隐藏导致有2个 tabBar 的问题
-  !CUSTOM_TABBAR_ENABLE &&
-    uni.hideTabBar({
-      fail(err) {
-        console.log('hideTabBar fail: ', err)
-      },
-      success(res) {
-        console.log('hideTabBar success: ', res)
-      },
-    })
+  // !CUSTOM_TABBAR_ENABLE &&
+  //   uni.hideTabBar({
+  //     fail(err) {
+  //       console.log('hideTabBar fail: ', err)
+  //     },
+  //     success(res) {
+  //       console.log('hideTabBar success: ', res)
+  //     },
+  //   })
 })
 </script>

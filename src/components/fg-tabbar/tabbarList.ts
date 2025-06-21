@@ -1,12 +1,20 @@
+// 是否使用自定义的tabbar?
+export const CUSTOM_TABBAR_ENABLE = false
+
+// CUSTOM_TABBAR_ENABLE 为 true 时，可以不填 iconPath 和 selectedIconPath
+// CUSTOM_TABBAR_ENABLE 为 false 时，可以不填 icon 和 iconType
 export const tabbarList = [
-  // 注意tabbar路由需要使用 layout:tabbar 布局
   {
+    iconPath: 'static/tabbar/home.png',
+    selectedIconPath: 'static/tabbar/homeHL.png',
     pagePath: 'pages/index/index',
     text: '首页',
     icon: 'home',
     iconType: 'wot',
   },
   {
+    iconPath: 'static/tabbar/example.png',
+    selectedIconPath: 'static/tabbar/exampleHL.png',
     pagePath: 'pages/about/about',
     text: '关于',
     icon: 'i-carbon-code',
@@ -46,5 +54,4 @@ const _tabbar = {
   midButton: midButton,
 }
 
-export const CUSTOM_TABBAR_ENABLE = false
 export const tabBar = CUSTOM_TABBAR_ENABLE ? undefined : _tabbar
