@@ -72,8 +72,8 @@
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
     "prepare": "git init && husky",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-4060620250520001",
