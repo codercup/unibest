@@ -31,3 +31,20 @@ export const midButton = {
   iconPath: '/static/logo.svg',
   text: '发布',
 }
+
+const _tabbar = {
+  color: '#999999',
+  selectedColor: '#018d71',
+  backgroundColor: '#F8F8F8',
+  borderStyle: 'black',
+  height: '50px',
+  fontSize: '10px',
+  iconWidth: '24px',
+  spacing: '3px',
+  list: tabbarList as any,
+  // midButton 仅App和H5支持
+  midButton: midButton,
+}
+
+export const CUSTOM_TABBAR_ENABLE = false
+export const tabBar = CUSTOM_TABBAR_ENABLE ? undefined : _tabbar

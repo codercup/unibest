@@ -1,5 +1,5 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
-import { tabbarList, midButton } from './src/components/fg-tabbar/tabbarList'
+import { tabBar } from './src/components/fg-tabbar/tabbarList'
 
 export default defineUniPages({
   globalStyle: {
@@ -18,19 +18,5 @@ export default defineUniPages({
         'z-paging/components/z-paging$1/z-paging$1.vue',
     },
   },
-  // 如果不需要tabBar，直接把下面的tabbar删除或者注释掉即可
-  tabBar: {
-    // custom: true,
-    color: '#999999',
-    selectedColor: '#018d71',
-    backgroundColor: '#F8F8F8',
-    borderStyle: 'black',
-    height: '50px',
-    fontSize: '10px',
-    iconWidth: '24px',
-    spacing: '3px',
-    list: tabbarList as any,
-    // midButton 仅App和H5支持
-    midButton: midButton,
-  },
+  tabBar: tabBar as any,
 })
