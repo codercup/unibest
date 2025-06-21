@@ -1,17 +1,16 @@
 <!-- 使用 type="home" 属性设置首页，其他页面不需要设置，默认为page；推荐使用json5，更强大，且允许注释 -->
 <route lang="json5" type="home">
 {
+  layout: 'tabbar',
   style: {
+    // 'custom' 表示开启自定义导航栏，默认 'default'
     navigationStyle: 'custom',
     navigationBarTitleText: '首页',
   },
 }
 </route>
 <template>
-  <view
-    class="bg-white overflow-hidden pt-2 px-4"
-    :style="{ marginTop: safeAreaInsets?.top + 'px' }"
-  >
+  <view class="bg-white pt-2 px-4" :style="{ marginTop: safeAreaInsets?.top + 'px' }">
     <view class="mt-12">
       <image src="/static/logo.svg" alt="" class="w-28 h-28 block mx-auto" />
     </view>
@@ -68,4 +67,6 @@ const description = ref(
 onLoad(() => {
   console.log('项目作者:', author.value)
 })
+
+console.log('index')
 </script>

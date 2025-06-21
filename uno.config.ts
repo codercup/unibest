@@ -39,6 +39,7 @@ export default defineConfig({
       center: 'flex justify-center items-center',
     },
   ],
+  safelist: [],
   rules: [
     [
       'p-safe',
