@@ -158,6 +158,9 @@
     "unplugin-auto-import": "^0.17.8",
     "vite": "5.2.8",
     "vite-plugin-restart": "^0.4.2",
-    "vue-tsc": "^2.2.10"
+    "vue-tsc": "^2.2.10",
+    "@antfu/eslint-config": "^4.15.0",
+    "eslint": "^9.29.0",
+    "@unocss/eslint-plugin": "^66.2.3"
   }
 }
