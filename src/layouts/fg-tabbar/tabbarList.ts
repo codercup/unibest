@@ -1,9 +1,9 @@
 /**
  * tabbar 选择的策略，更详细的介绍见 tabbar.md 文件
- * 0: 'NATIVE_TABBAR'
- * 2: 'FULL_CUSTOM_TABBAR'
- * 1: 'HALF_CUSTOM_TABBAR'
- * 3: 'NO_TABBAR'
+ * 0: 'NATIVE_TABBAR'  `完全原生 tabbar`
+ * 2: 'FULL_CUSTOM_TABBAR' `全自定义 tabbar`
+ * 1: 'HALF_CUSTOM_TABBAR' `半自定义 tabbar`
+ * 3: 'NO_TABBAR' `无 tabbar`
  *
  * 温馨提示：本文件的任何代码更改了之后，都需要重新运行，否则 pages.json 不会更新导致错误
  */
