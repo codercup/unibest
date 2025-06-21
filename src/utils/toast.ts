@@ -21,8 +21,8 @@ export function showToast(options: ToastOptions | string) {
     position: 'middle',
     message: '',
   }
-  const mergedOptions =
-    typeof options === 'string'
+  const mergedOptions
+    = typeof options === 'string'
       ? { ...defaultOptions, message: options }
       : { ...defaultOptions, ...options }
   // 映射position到uniapp支持的格式

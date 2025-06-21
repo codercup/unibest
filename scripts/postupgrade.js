@@ -3,7 +3,7 @@
 // # 只需要执行下面的命令即可
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { exec } = require('child_process')
+const { exec } = require('node:child_process')
 
 // 定义要执行的命令
 const dependencies = [

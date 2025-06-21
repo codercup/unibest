@@ -1,14 +1,14 @@
-import {
-  login as _login,
-  getUserInfo as _getUserInfo,
-  wxLogin as _wxLogin,
-  logout as _logout,
-  getWxCode,
-} from '@/api/login'
+import type { IUserInfoVo } from '@/api/login.typings'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import {
+  getUserInfo as _getUserInfo,
+  login as _login,
+  logout as _logout,
+  wxLogin as _wxLogin,
+  getWxCode,
+} from '@/api/login'
 import { toast } from '@/utils/toast'
-import { IUserInfoVo } from '@/api/login.typings'
 
 // 初始化状态
 const userInfoState: IUserInfoVo = {
@@ -29,7 +29,8 @@ export const useUserStore = defineStore(
       // 若头像为空 则使用默认头像
       if (!val.avatar) {
         val.avatar = userInfoState.avatar
-      } else {
+      }
+      else {
         val.avatar = 'https://oss.laf.run/ukw0y1-site/avatar.jpg?feige'
       }
       userInfo.value = val

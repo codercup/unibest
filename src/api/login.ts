@@ -1,4 +1,4 @@
-import { ICaptcha, IUpdateInfo, IUpdatePassword, IUserInfoVo, IUserLogin } from './login.typings'
+import type { ICaptcha, IUpdateInfo, IUpdatePassword, IUserInfoVo, IUserLogin } from './login.typings'
 import { http } from '@/utils/http'
 
 /**
@@ -15,7 +15,7 @@ export interface ILoginForm {
  * 获取验证码
  * @returns ICaptcha 验证码
  */
-export const getCode = () => {
+export function getCode() {
   return http.get<ICaptcha>('/user/getCode')
 }
 
@@ -23,35 +23,35 @@ export const getCode = () => {
  * 用户登录
  * @param loginForm 登录表单
  */
-export const login = (loginForm: ILoginForm) => {
+export function login(loginForm: ILoginForm) {
   return http.post<IUserLogin>('/user/login', loginForm)
 }
 
 /**
  * 获取用户信息
  */
-export const getUserInfo = () => {
+export function getUserInfo() {
   return http.get<IUserInfoVo>('/user/info')
 }
 
 /**
  * 退出登录
  */
-export const logout = () => {
+export function logout() {
   return http.get<void>('/user/logout')
 }
 
 /**
  * 修改用户信息
  */
-export const updateInfo = (data: IUpdateInfo) => {
+export function updateInfo(data: IUpdateInfo) {
   return http.post('/user/updateInfo', data)
 }
 
 /**
  * 修改用户密码
  */
-export const updateUserPassword = (data: IUpdatePassword) => {
+export function updateUserPassword(data: IUpdatePassword) {
   return http.post('/user/updatePassword', data)
 }
 
@@ -59,12 +59,12 @@ export const updateUserPassword = (data: IUpdatePassword) => {
  * 获取微信登录凭证
  * @returns Promise 包含微信登录凭证(code)
  */
-export const getWxCode = () => {
+export function getWxCode() {
   return new Promise<UniApp.LoginRes>((resolve, reject) => {
     uni.login({
       provider: 'weixin',
-      success: (res) => resolve(res),
-      fail: (err) => reject(new Error(err)),
+      success: res => resolve(res),
+      fail: err => reject(new Error(err)),
     })
   })
 }
@@ -78,6 +78,6 @@ export const getWxCode = () => {
  * @param params 微信登录参数，包含code
  * @returns Promise 包含登录结果
  */
-export const wxLogin = (data: { code: string }) => {
+export function wxLogin(data: { code: string }) {
   return http.post<IUserLogin>('/user/wxLogin', data)
 }

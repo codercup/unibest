@@ -1,7 +1,7 @@
 import { pages, subPackages } from '@/pages.json'
 import { isMpWeixin } from './platform'
 
-export const getLastPage = () => {
+export function getLastPage() {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   // const lastPage = getCurrentPages().at(-1)
   // 上面那个在低版本安卓中打包会报错，所以改用下面这个【虽然我加了 src/interceptions/prototype.ts，但依然报错】
@@ -14,7 +14,7 @@ export const getLastPage = () => {
  * path 如 '/pages/login/index'
  * redirectPath 如 '/pages/demo/base/route-interceptor'
  */
-export const currRoute = () => {
+export function currRoute() {
   const lastPage = getLastPage()
   const currRoute = (lastPage as any).$page
   // console.log('lastPage.$page:', currRoute)
@@ -29,7 +29,7 @@ export const currRoute = () => {
   return getUrlObj(fullPath)
 }
 
-const ensureDecodeURIComponent = (url: string) => {
+function ensureDecodeURIComponent(url: string) {
   if (url.startsWith('%')) {
     return ensureDecodeURIComponent(decodeURIComponent(url))
   }
@@ -40,7 +40,7 @@ const ensureDecodeURIComponent = (url: string) => {
  * 比如输入url: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
  * 输出: {path: /pages/login/index, query: {redirect: /pages/demo/base/route-interceptor}}
  */
-export const getUrlObj = (url: string) => {
+export function getUrlObj(url: string) {
   const [path, queryStr] = url.split('?')
   // console.log(path, queryStr)
 
@@ -63,11 +63,11 @@ export const getUrlObj = (url: string) => {
  * 这里设计得通用一点，可以传递 key 作为判断依据，默认是 needLogin, 与 route-block 配对使用
  * 如果没有传 key，则表示所有的 pages，如果传递了 key, 则表示通过 key 过滤
  */
-export const getAllPages = (key = 'needLogin') => {
+export function getAllPages(key = 'needLogin') {
   // 这里处理主包
   const mainPages = pages
-    .filter((page) => !key || page[key])
-    .map((page) => ({
+    .filter(page => !key || page[key])
+    .map(page => ({
       ...page,
       path: `/${page.path}`,
     }))
@@ -79,7 +79,7 @@ export const getAllPages = (key = 'needLogin') => {
     const { root } = subPageObj
 
     subPageObj.pages
-      .filter((page) => !key || page[key])
+      .filter(page => !key || page[key])
       .forEach((page: { path: string } & Record<string, any>) => {
         subPages.push({
           ...page,
@@ -96,18 +96,18 @@ export const getAllPages = (key = 'needLogin') => {
  * 得到所有的需要登录的 pages，包括主包和分包的
  * 只得到 path 数组
  */
-export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((page) => page.path)
+export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map(page => page.path)
 
 /**
  * 得到所有的需要登录的 pages，包括主包和分包的
  * 只得到 path 数组
  */
-export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
+export const needLoginPages: string[] = getAllPages('needLogin').map(page => page.path)
 
 /**
  * 根据微信小程序当前环境，判断应该获取的 baseUrl
  */
-export const getEnvBaseUrl = () => {
+export function getEnvBaseUrl() {
   // 请求基准地址
   let baseUrl = import.meta.env.VITE_SERVER_BASEURL
 
@@ -136,7 +136,7 @@ export const getEnvBaseUrl = () => {
 /**
  * 根据微信小程序当前环境，判断应该获取的 UPLOAD_BASEURL
  */
-export const getEnvBaseUploadUrl = () => {
+export function getEnvBaseUploadUrl() {
   // 请求基准地址
   let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
 

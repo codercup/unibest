@@ -7,7 +7,7 @@ type TfileType = 'image' | 'file'
 type TImage = 'png' | 'jpg' | 'jpeg' | 'webp' | '*'
 type TFile = 'doc' | 'docx' | 'ppt' | 'zip' | 'xls' | 'xlsx' | 'txt' | TImage
 
-type TOptions<T extends TfileType> = {
+interface TOptions<T extends TfileType> {
   formData?: Record<string, any>
   maxSize?: number
   accept?: T extends 'image' ? TImage[] : TFile[]
@@ -72,7 +72,8 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
       // #ifndef MP-WEIXIN
       uni.chooseImage(chooseFileOptions)
       // #endif
-    } else {
+    }
+    else {
       uni.chooseFile({
         ...chooseFileOptions,
         type: 'all',
@@ -80,7 +81,7 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
     }
   }
 
-  const handleFileChoose = ({ tempFilePath, size }: { tempFilePath: string; size: number }) => {
+  const handleFileChoose = ({ tempFilePath, size }: { tempFilePath: string, size: number }) => {
     if (size > maxSize) {
       uni.showToast({
         title: `文件大小不能超过 ${maxSize / 1024 / 1024}MB`,
@@ -102,7 +103,7 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
 
     loading.value = true
     uploadFile({
-      tempFilePath: tempFilePath,
+      tempFilePath,
       formData,
       onSuccess: (res) => {
         const { data: _data } = JSON.parse(res)
@@ -145,7 +146,8 @@ async function uploadFile({
       try {
         const data = uploadFileRes.data
         onSuccess(data)
-      } catch (err) {
+      }
+      catch (err) {
         onError(err)
       }
     },

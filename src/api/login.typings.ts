@@ -1,7 +1,7 @@
 /**
  * 用户信息
  */
-export type IUserInfoVo = {
+export interface IUserInfoVo {
   id: number
   username: string
   avatar: string
@@ -11,7 +11,7 @@ export type IUserInfoVo = {
 /**
  * 登录返回的信息
  */
-export type IUserLogin = {
+export interface IUserLogin {
   id: string
   username: string
   token: string
@@ -20,7 +20,7 @@ export type IUserLogin = {
 /**
  * 获取验证码
  */
-export type ICaptcha = {
+export interface ICaptcha {
   captchaEnabled: boolean
   uuid: string
   image: string
@@ -28,7 +28,7 @@ export type ICaptcha = {
 /**
  * 上传成功的信息
  */
-export type IUploadSuccessInfo = {
+export interface IUploadSuccessInfo {
   fileId: number
   originalName: string
   fileName: string
@@ -41,7 +41,7 @@ export type IUploadSuccessInfo = {
 /**
  * 更新用户信息
  */
-export type IUpdateInfo = {
+export interface IUpdateInfo {
   id: number
   name: string
   sex: string
@@ -49,7 +49,7 @@ export type IUpdateInfo = {
 /**
  * 更新用户信息
  */
-export type IUpdatePassword = {
+export interface IUpdatePassword {
   id: number
   oldPassword: string
   newPassword: string
