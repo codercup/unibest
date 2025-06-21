@@ -36,6 +36,7 @@
 </template>
 
 <script setup lang="ts">
+// 'i-carbon-code',
 import { tabbarList as _tabBarList, cacheTabbarEnable, selectedTabbarStrategy } from './tabbarList'
 import { tabbarStore } from './tabbar'
 
