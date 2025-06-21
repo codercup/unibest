@@ -52,8 +52,7 @@
       "path": "pages/about/about",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "关于",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "关于"
       }
     }
   ],

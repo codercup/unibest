@@ -2,16 +2,14 @@
 <route lang="json5" type="home">
 {
   style: {
+    // 'custom' 表示开启自定义导航栏，默认 'default'
     navigationStyle: 'custom',
     navigationBarTitleText: '首页',
   },
 }
 </route>
 <template>
-  <view
-    class="bg-white overflow-hidden pt-2 px-4"
-    :style="{ marginTop: safeAreaInsets?.top + 'px' }"
-  >
+  <view class="bg-white pt-2 px-4" :style="{ marginTop: safeAreaInsets?.top + 'px' }">
     <view class="mt-12">
       <image src="/static/logo.svg" alt="" class="w-28 h-28 block mx-auto" />
     </view>
