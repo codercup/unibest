@@ -37,17 +37,17 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
       count: 1,
       success: (res: any) => {
         console.log('File selected successfully:', res)
-        // h5中res:{errMsg: "chooseImage:ok", tempFilePaths: "blob:http://localhost:9000/f74ab6b8-a14d-4cb6-a10d-fcf4511a0de5", tempFiles: [File]}
+        // App or h5中res:{errMsg: "chooseImage:ok", tempFilePaths: "blob:http://localhost:9000/f74ab6b8-a14d-4cb6-a10d-fcf4511a0de5", tempFiles: [File]}
         // h5的File有一下字段：{name: "girl.jpeg", size: 48976, type: "image/jpeg"}
         // 小程序中res:{errMsg: "chooseImage:ok", tempFiles: [{fileType: "image", size: 48976, tempFilePath: "http://tmp/5iG1WpIxTaJf3ece38692a337dc06df7eb69ecb49c6b.jpeg"}]}
         let tempFilePath = ''
         let size = 0
-        // #ifdef H5
-        tempFilePath = res.tempFilePaths[0]
-        size = res.tempFiles[0].size
-        // #endif
         // #ifdef MP-WEIXIN
         tempFilePath = res.tempFiles[0].tempFilePath
+        size = res.tempFiles[0].size
+        // #endif
+        // #ifndef MP-WEIXIN
+        tempFilePath = res.tempFilePaths[0]
         size = res.tempFiles[0].size
         // #endif
         handleFileChoose({ tempFilePath, size })
