@@ -22,7 +22,7 @@ console.log(i18n.global.locale)
  * @param { string } key 多语言的key，eg: "app.name"
  * @returns {string} 返回原始的多语言模板，eg: "{heavy}KG"
  */
-export const getTemplateByKey = (key: string) => {
+export function getTemplateByKey(key: string) {
   if (!key) {
     console.error(`[i18n] Function getTemplateByKey(), key param is required`)
     return ''
@@ -40,7 +40,8 @@ export const getTemplateByKey = (key: string) => {
     return keyList.reduce((pre, cur) => {
       return pre[cur]
     }, message)
-  } catch (error) {
+  }
+  catch (error) {
     console.error(`[i18n] Function getTemplateByKey(), key param ${key} is not existed.`)
     return ''
   }
@@ -50,11 +51,11 @@ export const getTemplateByKey = (key: string) => {
  * formatI18n('我是{name},身高{detail.height},体重{detail.weight}',{name:'张三',detail:{height:178,weight:'75kg'}})
  * 暂不支持数组
  * @param template 多语言模板字符串，eg: `我是{name}`
- * @param {Object|undefined} data 需要传递的数据对象，里面的key与多语言字符串对应，eg: `{name:'菲鸽'}`
+ * @param {object | undefined} data 需要传递的数据对象，里面的key与多语言字符串对应，eg: `{name:'菲鸽'}`
  * @returns
  */
 function formatI18n(template: string, data?: any) {
-  return template.replace(/\{([^}]+)\}/g, function (match, key: string) {
+  return template.replace(/\{([^}]+)\}/g, (match, key: string) => {
     // console.log( match, key) // => { detail.height }  detail.height
     const arr = key.trim().split('.')
     let result = data
@@ -71,7 +72,7 @@ function formatI18n(template: string, data?: any) {
  * => formatI18n('我是{name},身高{detail.height},体重{detail.weight}',{name:'张三',detail:{height:178,weight:'75kg'}})
  * 没有key的，可以不传 data；暂不支持数组
  * @param template 多语言模板字符串，eg: `我是{name}`
- * @param {Object|undefined} data 需要传递的数据对象，里面的key与多语言字符串对应，eg: `{name:'菲鸽'}`
+ * @param {object | undefined} data 需要传递的数据对象，里面的key与多语言字符串对应，eg: `{name:'菲鸽'}`
  * @returns
  */
 export function t(key, data?) {

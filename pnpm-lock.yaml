@@ -166,7 +166,7 @@ importers:
         version: 0.0.4
       '@uni-ku/bundle-optimizer':
         specifier: ^1.3.3
-        version: 1.3.3(postcss@8.4.49)(rollup@4.41.1)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))(vue@3.5.15(typescript@5.7.2))
+        version: 1.3.3(@vueuse/core@12.8.2(typescript@5.7.2))(postcss@8.4.49)(rollup@4.41.1)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))(vue@3.5.15(typescript@5.7.2))
       '@unocss/eslint-plugin':
         specifier: ^66.2.3
         version: 66.2.3(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2)
@@ -2220,6 +2220,9 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
+
+  '@types/web-bluetooth@0.0.21':
+    resolution: {integrity: sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA==}
 
   '@types/wechat-miniprogram@3.4.8':
     resolution: {integrity: sha512-lOqddA707X3SZxVhlZNBZPzYzj7lG/ED2fF30k+aE2oT6R4wfw0Wiup2k2hGrmzYUFyJXfGs01sDCuJMhQMAdg==}
@@ -9274,6 +9277,9 @@ snapshots:
   '@types/stack-utils@2.0.3': {}
 
   '@types/unist@3.0.3': {}
+
+  '@types/web-bluetooth@0.0.21':
+    optional: true
 
   '@types/wechat-miniprogram@3.4.8': {}
 
