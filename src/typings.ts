@@ -6,7 +6,7 @@ export enum TestEnum {
 }
 
 // uni.uploadFile文件上传参数
-export type IUniUploadFileOptions = {
+export interface IUniUploadFileOptions {
   file?: File
   files?: UniApp.UploadFileOptionFiles[]
   filePath?: string

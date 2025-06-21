@@ -7,17 +7,6 @@
 }
 </route>
 
-<template>
-  <view>
-    <view class="text-center text-3xl mt-8">
-      鸽友们好，我是
-      <text class="text-red-500">菲鸽</text>
-    </view>
-    <RequestComp />
-    <UploadComp />
-  </view>
-</template>
-
 <script lang="ts" setup>
 import RequestComp from './components/request.vue'
 import UploadComp from './components/upload.vue'
@@ -32,6 +21,19 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 // testOxlint('oxlint')
 console.log('about')
 </script>
+
+<template>
+  <view>
+    <view class="mt-8 text-center text-3xl">
+      鸽友们好，我是
+      <text class="text-red-500">
+        菲鸽
+      </text>
+    </view>
+    <RequestComp />
+    <UploadComp />
+  </view>
+</template>
 
 <style lang="scss" scoped>
 .test-css {

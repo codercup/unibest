@@ -1,14 +1,7 @@
 {
   // 默认格式化工具选择prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // 保存的时候自动格式化
-  "editor.formatOnSave": true,
-  //开启自动修复
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
-  },
+
   // 配置stylelint检查的文件类型范围
   "stylelint.validate": ["css", "scss", "vue", "html"], // 与package.json的scripts对应
   "stylelint.enable": true,
@@ -61,5 +54,65 @@
     "pages.config.ts": "manifest.config.ts,openapi-ts-request.config.ts",
     "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,.npmrc,.browserslistrc",
     ".oxlintrc.json": "tsconfig.json,.commitlintrc.*,.prettier*,.editorconfig,.commitlint.cjs,.eslint*"
-  }
+  },
+
+  // 保存的时候自动格式化
+  "prettier.enable": true,
+  "editor.formatOnSave": true,
+  // 开启自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+
+  // Disable the default formatter, use eslint instead
+  // "prettier.enable": false,
+  // "editor.formatOnSave": false,
+
+  // Auto fix
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.eslint": "explicit",
+  //   "source.organizeImports": "never"
+  // },
+
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off", "fixable": true },
+    { "rule": "format/*", "severity": "off", "fixable": true },
+    { "rule": "*-indent", "severity": "off", "fixable": true },
+    { "rule": "*-spacing", "severity": "off", "fixable": true },
+    { "rule": "*-spaces", "severity": "off", "fixable": true },
+    { "rule": "*-order", "severity": "off", "fixable": true },
+    { "rule": "*-dangle", "severity": "off", "fixable": true },
+    { "rule": "*-newline", "severity": "off", "fixable": true },
+    { "rule": "*quotes", "severity": "off", "fixable": true },
+    { "rule": "*semi", "severity": "off", "fixable": true }
+  ],
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "json5",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ]
 }

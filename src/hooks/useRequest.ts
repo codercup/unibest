@@ -1,6 +1,6 @@
-import { UnwrapRef } from 'vue'
+import type { UnwrapRef } from 'vue'
 
-type IUseRequestOptions<T> = {
+interface IUseRequestOptions<T> {
   /** 是否立即执行 */
   immediate?: boolean
   /** 初始化数据 */

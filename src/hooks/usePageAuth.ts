@@ -1,10 +1,10 @@
 import { onLoad } from '@dcloudio/uni-app'
-import { needLoginPages as _needLoginPages, getNeedLoginPages } from '@/utils'
 import { useUserStore } from '@/store'
+import { needLoginPages as _needLoginPages, getNeedLoginPages } from '@/utils'
 
 const loginRoute = import.meta.env.VITE_LOGIN_URL
 const isDev = import.meta.env.DEV
-const isLogined = () => {
+function isLogined() {
   const userStore = useUserStore()
   return !!userStore.userInfo.username
 }
@@ -20,7 +20,8 @@ export function usePageAuth() {
     let needLoginPages: string[] = []
     if (isDev) {
       needLoginPages = getNeedLoginPages()
-    } else {
+    }
+    else {
       needLoginPages = _needLoginPages
     }
 
