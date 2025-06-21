@@ -30,6 +30,46 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
   const error = ref<Error | null>(null)
   const data = ref<any>(null)
 
+  const handleFileChoose = ({ tempFilePath, size }: { tempFilePath: string, size: number }) => {
+    if (size > maxSize) {
+      uni.showToast({
+        title: `文件大小不能超过 ${maxSize / 1024 / 1024}MB`,
+        icon: 'none',
+      })
+      return
+    }
+
+    // const fileExtension = file?.tempFiles?.name?.split('.').pop()?.toLowerCase()
+    // const isTypeValid = accept.some((type) => type === '*' || type.toLowerCase() === fileExtension)
+
+    // if (!isTypeValid) {
+    //   uni.showToast({
+    //     title: `仅支持 ${accept.join(', ')} 格式的文件`,
+    //     icon: 'none',
+    //   })
+    //   return
+    // }
+
+    loading.value = true
+    uploadFile({
+      tempFilePath,
+      formData,
+      onSuccess: (res) => {
+        const { data: _data } = JSON.parse(res)
+        data.value = _data
+        // console.log('上传成功', res)
+        success?.(_data)
+      },
+      onError: (err) => {
+        error.value = err
+        onError?.(err)
+      },
+      onComplete: () => {
+        loading.value = false
+      },
+    })
+  }
+
   const run = () => {
     // 微信小程序从基础库 2.21.0 开始， wx.chooseImage 停止维护，请使用 uni.chooseMedia 代替。
     // 微信小程序在2023年10月17日之后，使用本API需要配置隐私协议
@@ -79,46 +119,6 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
         type: 'all',
       })
     }
-  }
-
-  const handleFileChoose = ({ tempFilePath, size }: { tempFilePath: string, size: number }) => {
-    if (size > maxSize) {
-      uni.showToast({
-        title: `文件大小不能超过 ${maxSize / 1024 / 1024}MB`,
-        icon: 'none',
-      })
-      return
-    }
-
-    // const fileExtension = file?.tempFiles?.name?.split('.').pop()?.toLowerCase()
-    // const isTypeValid = accept.some((type) => type === '*' || type.toLowerCase() === fileExtension)
-
-    // if (!isTypeValid) {
-    //   uni.showToast({
-    //     title: `仅支持 ${accept.join(', ')} 格式的文件`,
-    //     icon: 'none',
-    //   })
-    //   return
-    // }
-
-    loading.value = true
-    uploadFile({
-      tempFilePath,
-      formData,
-      onSuccess: (res) => {
-        const { data: _data } = JSON.parse(res)
-        data.value = _data
-        // console.log('上传成功', res)
-        success?.(_data)
-      },
-      onError: (err) => {
-        error.value = err
-        onError?.(err)
-      },
-      onComplete: () => {
-        loading.value = false
-      },
-    })
   }
 
   return { loading, error, data, run }

@@ -2,7 +2,6 @@
 // # 在升级完后，会自动添加很多无用依赖，这需要删除以减小依赖包体积
 // # 只需要执行下面的命令即可
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { exec } = require('node:child_process')
 
 // 定义要执行的命令

@@ -17,5 +17,6 @@ export default antfu({
     'jsdoc/check-param-names': 'off',
     'jsdoc/require-returns-description': 'off',
     'ts/no-empty-object-type': 'off',
+    'no-extend-native': 'off',
   },
 })
