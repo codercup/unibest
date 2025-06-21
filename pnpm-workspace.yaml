@@ -1,0 +1,2 @@
+patchedDependencies:
+  '@dcloudio/uni-h5': patches/@dcloudio__uni-h5.patch
