@@ -11,8 +11,8 @@
     "github": "https://github.com/feige996",
     "gitee": "https://gitee.com/feige996"
   },
-  "homepage": "https://unibest.tech",
   "license": "MIT",
+  "homepage": "https://unibest.tech",
   "repository": "https://github.com/feige996/unibest",
   "repository-gitee": "https://gitee.com/feige996/unibest",
   "repository-old": "https://github.com/codercup/unibest",
@@ -72,21 +72,8 @@
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
     "prepare": "git init && husky",
-    "lint": "oxlint",
-    "lint-fix": "oxlint --fix"
-  },
-  "lint-staged": {
-    "**/*.{html,cjs,json,md,scss,css,txt}": [
-      "prettier --write --cache"
-    ],
-    "**/*.{js,jsx,ts,tsx,vue,mjs,cjs,mts,cts}": [
-      "oxlint --fix",
-      "prettier --write --cache"
-    ],
-    "!**/{node_modules,dist}/**": []
-  },
-  "resolutions": {
-    "bin-wrapper": "npm:bin-wrapper-china"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-4060620250520001",
@@ -117,6 +104,7 @@
     "z-paging": "2.8.7"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.15.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@dcloudio/types": "^3.4.8",
@@ -138,10 +126,12 @@
     "@uni-helper/vite-plugin-uni-pages": "0.2.28",
     "@uni-helper/vite-plugin-uni-platform": "0.0.4",
     "@uni-ku/bundle-optimizer": "^1.3.3",
+    "@unocss/eslint-plugin": "^66.2.3",
     "@unocss/preset-legacy-compat": "^0.59.4",
     "@vue/runtime-core": "^3.4.21",
     "@vue/tsconfig": "^0.1.3",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.29.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "openapi-ts-request": "^1.1.2",
@@ -158,9 +148,12 @@
     "unplugin-auto-import": "^0.17.8",
     "vite": "5.2.8",
     "vite-plugin-restart": "^0.4.2",
-    "vue-tsc": "^2.2.10",
-    "@antfu/eslint-config": "^4.15.0",
-    "eslint": "^9.29.0",
-    "@unocss/eslint-plugin": "^66.2.3"
+    "vue-tsc": "^2.2.10"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
