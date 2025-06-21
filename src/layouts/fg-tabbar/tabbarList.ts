@@ -7,7 +7,7 @@ export const TABBAR_STRATEGY = {
 }
 
 // TODO：通过这里切换使用tabbar的策略
-export const selectedTabbarStrategy = 1
+export const selectedTabbarStrategy = 0
 export const cacheTabbarEnable = selectedTabbarStrategy < 2
 
 // selectedTabbarStrategy==0 时，需要填 iconPath 和 selectedIconPath
