@@ -24,7 +24,7 @@ export const tabbarList = [
     pagePath: 'pages/index/index',
     text: '首页',
     icon: 'home',
-    iconType: 'wot',
+    iconType: 'uiLib',
   },
   {
     iconPath: 'static/tabbar/example.png',

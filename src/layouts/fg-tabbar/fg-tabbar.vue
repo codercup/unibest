@@ -44,7 +44,7 @@ onLoad(() => {
     @change="selectTabBar"
   >
     <block v-for="(item, idx) in tabbarList" :key="item.path">
-      <wd-tabbar-item v-if="item.iconType === 'wot'" :title="item.text" :icon="item.icon" />
+      <wd-tabbar-item v-if="item.iconType === 'uiLib'" :title="item.text" :icon="item.icon" />
       <wd-tabbar-item
         v-else-if="item.iconType === 'unocss' || item.iconType === 'iconfont'"
         :title="item.text"
