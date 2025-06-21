@@ -8,7 +8,7 @@
 </route>
 
 <template>
-  <view>
+  <view class="py-3">
     <view
       class="bg-white overflow-hidden pt-2 px-4"
       :style="{ marginTop: safeAreaInsets?.top + 'px' }"
@@ -22,8 +22,9 @@
       <RequestComp />
       <UploadComp />
     </view>
-    <RequestComp />
-    <UploadComp />
+    <view class="text-center">
+      <wd-button @click="gotoI18nPage()">去I18n页面</wd-button>
+    </view>
   </view>
 </template>
 
@@ -36,6 +37,12 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 const toSubPage = () => {
   uni.navigateTo({
     url: '/pages-sub/demo/index',
+  })
+}
+
+const gotoI18nPage = () => {
+  uni.navigateTo({
+    url: '/pages/about/i18n',
   })
 }
 
