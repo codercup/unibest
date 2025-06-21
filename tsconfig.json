@@ -20,10 +20,10 @@
     ],
     "allowJs": true,
     "noImplicitThis": true,
+    "outDir": "dist",
     "sourceMap": true,
-    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist"
+    "skipLibCheck": true
   },
   "vueCompilerOptions": {
     "plugins": ["@uni-helper/uni-types/volar-plugin"]

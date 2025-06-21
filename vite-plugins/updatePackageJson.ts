@@ -2,6 +2,7 @@
 import type { Plugin } from 'vite'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import process from 'node:process'
 
 function updatePackageJson(): Plugin {
   return {
