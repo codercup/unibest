@@ -53,8 +53,8 @@
   "explorer.fileNesting.patterns": {
     "README.md": "index.html,favicon.ico,robots.txt,CHANGELOG.md",
     "pages.config.ts": "manifest.config.ts,openapi-ts-request.config.ts",
-    "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,.npmrc,.browserslistrc",
-    "eslint.config.mjs": "tsconfig.json,.commitlintrc.*,.prettier*,.editorconfig,.commitlint.cjs,.eslint*"
+    "package.json": "tsconfig.json,pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,.npmrc,.browserslistrc",
+    "eslint.config.mjs": ".commitlintrc.*,.prettier*,.editorconfig,.commitlint.cjs,.eslint*"
   },
 
   // // 保存的时候自动格式化
