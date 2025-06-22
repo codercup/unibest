@@ -24,9 +24,9 @@ function reset() {
 
 <template>
   <view class="p-6 text-center">
-    <wd-button class="my-6" @click="send">
+    <button class="my-6 w-200px text-green" @click="send">
       发送请求
-    </wd-button>
+    </button>
     <view class="h-16">
       <view v-if="loading">
         loading...
@@ -40,9 +40,9 @@ function reset() {
         </view>
       </block>
     </view>
-    <wd-button type="error" class="my-6" :disabled="!data" @click="reset">
+    <button class="my-6 w-200px text-red" :disabled="!data" @click="reset">
       重置数据
-    </wd-button>
+    </button>
   </view>
 </template>
 
