@@ -76,6 +76,8 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
+    "@alova/adapter-uniapp": "^2.0.14",
+    "@alova/shared": "^1.3.1",
     "@dcloudio/uni-app": "3.0.0-4060620250520001",
     "@dcloudio/uni-app-harmony": "3.0.0-4060620250520001",
     "@dcloudio/uni-app-plus": "3.0.0-4060620250520001",
@@ -94,6 +96,7 @@
     "@dcloudio/uni-quickapp-webview": "3.0.0-4060620250520001",
     "@tanstack/vue-query": "^5.62.16",
     "abortcontroller-polyfill": "^1.7.8",
+    "alova": "^3.3.3",
     "dayjs": "1.11.10",
     "js-cookie": "^3.0.5",
     "pinia": "2.0.36",
