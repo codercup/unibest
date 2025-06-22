@@ -5,8 +5,6 @@ const baseURL = JSON.parse(__VITE_APP_PROXY__)
   ? import.meta.env.VITE_APP_PROXY_PREFIX
   : import.meta.env.VITE_SERVER_BASEURL
 
-// alovaJS 还在整理中，有比较熟悉的开发者可以PR一下，省得我去摸索
-// 主要是下面这个文件的TS整理，如何通过泛型传入想要的数据结构，得到对应的数据结构
 export const http = createAlova({
   baseURL,
   ...AdapterUniapp(),
