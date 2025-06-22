@@ -1,4 +1,4 @@
-import type { IUserInfoVo } from '@/api/login.typings'
+import type { IUserInfoVo } from '@/api/types/login'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import {
