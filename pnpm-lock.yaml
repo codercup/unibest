@@ -82,9 +82,6 @@ importers:
       pinia-plugin-persistedstate:
         specifier: 3.2.1
         version: 3.2.1(pinia@2.0.36(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))
-      qs:
-        specifier: 6.5.3
-        version: 6.5.3
       vue:
         specifier: ^3.4.21
         version: 3.5.15(typescript@5.7.2)
@@ -5438,10 +5435,6 @@ packages:
 
   qs@6.13.0:
     resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
-    engines: {node: '>=0.6'}
-
-  qs@6.5.3:
-    resolution: {integrity: sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==}
     engines: {node: '>=0.6'}
 
   quansync@0.2.10:
@@ -13256,8 +13249,6 @@ snapshots:
   qs@6.13.0:
     dependencies:
       side-channel: 1.0.6
-
-  qs@6.5.3: {}
 
   quansync@0.2.10: {}
 
