@@ -16,6 +16,12 @@ importers:
 
   .:
     dependencies:
+      '@alova/adapter-uniapp':
+        specifier: ^2.0.14
+        version: 2.0.14(alova@3.3.3)
+      '@alova/shared':
+        specifier: ^1.3.1
+        version: 1.3.1
       '@dcloudio/uni-app':
         specifier: 3.0.0-4060620250520001
         version: 3.0.0-4060620250520001(@dcloudio/types@3.4.14)(postcss@8.4.49)(rollup@4.41.1)(vue@3.5.15(typescript@5.7.2))
@@ -70,6 +76,9 @@ importers:
       abortcontroller-polyfill:
         specifier: ^1.7.8
         version: 1.7.8
+      alova:
+        specifier: ^3.3.3
+        version: 3.3.3
       dayjs:
         specifier: 1.11.10
         version: 1.11.10
@@ -232,6 +241,14 @@ importers:
         version: 2.2.10(typescript@5.7.2)
 
 packages:
+
+  '@alova/adapter-uniapp@2.0.14':
+    resolution: {integrity: sha512-AHrS/evdhONySkmtYHs6Sh1D+a0+zjBeOltcYY2/az/KEPN9p/l4H9Nvy+ghLhzMzfKfnITxeeMOi5ANyERimw==}
+    peerDependencies:
+      alova: ^3.0.20
+
+  '@alova/shared@1.3.1':
+    resolution: {integrity: sha512-ijSOaFLUFcVzMKSY3avoEE5C03/p9atjMDPBwvNkwnzaCrhv6/m4A121NdadF8YlHCRuifyYfz90IyEdMXTsJg==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -2740,6 +2757,10 @@ packages:
 
   alien-signals@1.0.13:
     resolution: {integrity: sha512-OGj9yyTnJEttvzhTUWuscOvtqxq5vrhF7vL9oS0xJ2mK0ItPYP1/y+vCFebfxoEyAz0++1AIwJ5CMr+Fk3nDmg==}
+
+  alova@3.3.3:
+    resolution: {integrity: sha512-DB1t2qpQUERVaymz+u9bS71kcN5PzZ+G5LawHm9grabv++tfHOeYsKaW+LCpgMIJ/V7lQqFyqwOvTHGDph43Jw==}
+    engines: {node: '>= 18.0.0'}
 
   ansi-escapes@4.3.2:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
@@ -5461,6 +5482,9 @@ packages:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
 
+  rate-limiter-flexible@5.0.5:
+    resolution: {integrity: sha512-+/dSQfo+3FYwYygUs/V2BBdwGa9nFtakDwKt4l0bnvNB53TNT++QSFewwHX9qXrZJuMe9j+TUaU21lm5ARgqdQ==}
+
   raw-body@2.5.2:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
     engines: {node: '>= 0.8'}
@@ -6432,6 +6456,13 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@alova/adapter-uniapp@2.0.14(alova@3.3.3)':
+    dependencies:
+      '@alova/shared': 1.3.1
+      alova: 3.3.3
+
+  '@alova/shared@1.3.1': {}
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -10030,6 +10061,11 @@ snapshots:
 
   alien-signals@1.0.13: {}
 
+  alova@3.3.3:
+    dependencies:
+      '@alova/shared': 1.3.1
+      rate-limiter-flexible: 5.0.5
+
   ansi-escapes@4.3.2:
     dependencies:
       type-fest: 0.21.3
@@ -13268,6 +13304,8 @@ snapshots:
   quick-lru@5.1.1: {}
 
   range-parser@1.2.1: {}
+
+  rate-limiter-flexible@5.0.5: {}
 
   raw-body@2.5.2:
     dependencies:
