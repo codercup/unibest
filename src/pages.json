@@ -28,21 +28,25 @@
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "icon": "home",
+        "iconType": "uiLib"
       },
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
         "pagePath": "pages/about/about",
-        "text": "关于"
+        "text": "关于",
+        "icon": "i-carbon-code",
+        "iconType": "unocss"
       }
     ]
   },
-  "__esModule": true,
   "pages": [
     {
       "path": "pages/index/index",
       "type": "home",
+      "layout": "tabbar",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "首页"
@@ -51,9 +55,9 @@
     {
       "path": "pages/about/about",
       "type": "page",
+      "layout": "tabbar",
       "style": {
-        "navigationBarTitleText": "关于",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "关于"
       }
     }
   ],

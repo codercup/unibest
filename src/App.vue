@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
+import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
 import { usePageAuth } from '@/hooks/usePageAuth'
+import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 usePageAuth()
 

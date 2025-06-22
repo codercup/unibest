@@ -1,4 +1,5 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
+import { tabBar } from './src/layouts/fg-tabbar/tabbarList'
 
 export default defineUniPages({
   globalStyle: {
@@ -17,29 +18,6 @@ export default defineUniPages({
         'z-paging/components/z-paging$1/z-paging$1.vue',
     },
   },
-  // 如果不需要tabBar，推荐使用 spa 模板。（pnpm create xxx -t spa）
-  tabBar: {
-    color: '#999999',
-    selectedColor: '#018d71',
-    backgroundColor: '#F8F8F8',
-    borderStyle: 'black',
-    height: '50px',
-    fontSize: '10px',
-    iconWidth: '24px',
-    spacing: '3px',
-    list: [
-      {
-        iconPath: 'static/tabbar/home.png',
-        selectedIconPath: 'static/tabbar/homeHL.png',
-        pagePath: 'pages/index/index',
-        text: '首页',
-      },
-      {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
-        pagePath: 'pages/about/about',
-        text: '关于',
-      },
-    ],
-  },
+  // tabbar 的配置统一在 “./src/layouts/fg-tabbar/tabbarList.ts” 文件中
+  tabBar: tabBar as any,
 })

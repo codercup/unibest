@@ -2,8 +2,8 @@
 import { presetUni } from '@uni-helper/unocss-preset-uni'
 import {
   defineConfig,
-  presetIcons,
   presetAttributify,
+  presetIcons,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
@@ -20,7 +20,7 @@ export default defineConfig({
       scale: 1.2,
       warn: true,
       extraProperties: {
-        display: 'inline-block',
+        'display': 'inline-block',
         'vertical-align': 'middle',
       },
     }),
@@ -39,6 +39,7 @@ export default defineConfig({
       center: 'flex justify-center items-center',
     },
   ],
+  safelist: [],
   rules: [
     [
       'p-safe',

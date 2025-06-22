@@ -1,5 +1,6 @@
+import path from 'node:path'
+import process from 'node:process'
 import fs from 'fs-extra'
-import path from 'path'
 
 export function copyNativeRes() {
   const waitPath = path.resolve(__dirname, '../src/nativeResources')
@@ -31,7 +32,8 @@ export function copyNativeRes() {
         console.log(
           `[copyNativeRes] 成功将 nativeResources 目录中的资源移动到构建目录：${buildPath}`,
         )
-      } catch (error) {
+      }
+      catch (error) {
         console.error(`[copyNativeRes] 复制资源失败：`, error)
       }
     },
