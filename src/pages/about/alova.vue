@@ -9,19 +9,10 @@
 
 <script lang="ts" setup>
 import { useRequest } from 'alova/client'
-import { http } from '@/utils/request/alova'
+import { foo } from '@/api/alova-foo'
 
 const initialData = undefined
-function list() {
-  return http.Get('/foo', {
-    params: {
-      name: '菲鸽',
-      page: 1,
-      pageSize: 10,
-    },
-  })
-}
-const { loading, data, send } = useRequest(list, {
+const { loading, data, send } = useRequest(foo, {
   initialData,
   immediate: true,
 })

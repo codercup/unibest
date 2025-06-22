@@ -38,7 +38,7 @@ function gotoAlova() {
     </view>
     <RequestComp />
     <UploadComp />
-    <button @click="gotoAlova">
+    <button class="w-200px text-green" @click="gotoAlova">
       前往 alova 页面
     </button>
   </view>
