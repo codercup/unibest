@@ -56,25 +56,25 @@
     "eslint.config.mjs": "tsconfig.json,.commitlintrc.*,.prettier*,.editorconfig,.commitlint.cjs,.eslint*"
   },
 
-  // 保存的时候自动格式化
-  "prettier.enable": true,
-  "editor.formatOnSave": true,
-  // 开启自动修复
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
-  },
+  // // 保存的时候自动格式化
+  // "prettier.enable": true,
+  // "editor.formatOnSave": true,
+  // // 开启自动修复
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll": "explicit",
+  //   "source.fixAll.eslint": "explicit",
+  //   "source.fixAll.stylelint": "explicit"
+  // },
 
   // Disable the default formatter, use eslint instead
-  // "prettier.enable": false,
-  // "editor.formatOnSave": false,
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
 
   // Auto fix
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": "explicit",
-  //   "source.organizeImports": "never"
-  // },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
 
   // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
