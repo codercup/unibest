@@ -20,6 +20,12 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 // }
 // testOxlint('oxlint')
 console.log('about')
+
+function gotoAlova() {
+  uni.navigateTo({
+    url: '/pages/about/alova',
+  })
+}
 </script>
 
 <template>
@@ -32,6 +38,9 @@ console.log('about')
     </view>
     <RequestComp />
     <UploadComp />
+    <button class="w-200px text-green" @click="gotoAlova">
+      前往 alova 页面
+    </button>
   </view>
 </template>
 

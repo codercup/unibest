@@ -59,6 +59,14 @@
       "style": {
         "navigationBarTitleText": "关于"
       }
+    },
+    {
+      "path": "pages/about/alova",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Alova 请求演示"
+      }
     }
   ],
   "subPackages": []
