@@ -1,4 +1,4 @@
-import type { ICaptcha, IUpdateInfo, IUpdatePassword, IUserInfoVo, IUserLogin } from './login.typings'
+import type { ICaptcha, IUpdateInfo, IUpdatePassword, IUserInfoVo, IUserLogin } from './types/login'
 import { http } from '@/utils/http'
 
 /**
