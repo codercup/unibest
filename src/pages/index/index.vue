@@ -53,7 +53,7 @@ console.log('index')
 
 <template>
   <view class="bg-white px-4 pt-2" :style="{ marginTop: `${safeAreaInsets?.top}px` }">
-    <view class="mt-12">
+    <view class="mt-10">
       <image src="/static/logo.svg" alt="" class="mx-auto block h-28 w-28" />
     </view>
     <view class="mt-4 text-center text-4xl text-[#d14328]">
@@ -66,6 +66,19 @@ console.log('index')
     <view class="m-auto mb-2 max-w-100 text-justify indent text-4">
       {{ description }}
     </view>
+    <view class="mt-4 text-center">
+      作者：
+      <text class="text-green-500">
+        菲鸽
+      </text>
+    </view>
+    <view class="mt-4 text-center">
+      官网地址：
+      <text class="text-green-500">
+        https://unibest.tech
+      </text>
+    </view>
+    <view class="mt-6 h-1px bg-#eee" />
     <view class="mt-8 text-center">
       当前平台是：
       <text class="text-green-500">
