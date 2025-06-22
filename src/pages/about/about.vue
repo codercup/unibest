@@ -26,6 +26,12 @@ function gotoI18nPage() {
 // }
 // testOxlint('oxlint')
 console.log('about')
+
+function gotoAlova() {
+  uni.navigateTo({
+    url: '/pages/about/alova',
+  })
+}
 </script>
 
 <template>
@@ -43,6 +49,9 @@ console.log('about')
         去I18n页面
       </wd-button>
     </view>
+    <button class="w-200px text-green" @click="gotoAlova">
+      前往 alova 页面
+    </button>
   </view>
 </template>
 
