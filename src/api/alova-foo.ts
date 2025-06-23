@@ -1,4 +1,3 @@
-// alovaJS 还在整理中，有比较熟悉的开发者可以PR一下，省得我去摸索
 import { API_DOMAINS, http } from '@/utils/request/alova'
 
 export interface IFoo {
