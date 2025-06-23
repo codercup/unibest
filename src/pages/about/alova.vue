@@ -12,6 +12,7 @@ import { useRequest } from 'alova/client'
 import { foo } from '@/api/alova-foo'
 
 const initialData = undefined
+
 const { loading, data, send } = useRequest(foo, {
   initialData,
   immediate: true,
@@ -39,6 +40,10 @@ function reset() {
           {{ JSON.stringify(data) }}
         </view>
       </block>
+
+      <view class="text-red">
+        {{ data?.id }}
+      </view>
     </view>
     <button class="my-6 w-200px text-red" :disabled="!data" @click="reset">
       重置数据

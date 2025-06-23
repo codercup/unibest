@@ -1,16 +1,17 @@
-import { http } from '@/utils/request/alova'
+import { API_DOMAINS, http } from '@/utils/request/alova'
 
-export interface IFooItem {
-  id: string
+export interface IFoo {
+  id: number
   name: string
 }
 
 export function foo() {
-  return http.Get<IFooItem>('/foo', {
+  return http.Get<IFoo>('/foo', {
     params: {
       name: '菲鸽',
       page: 1,
       pageSize: 10,
     },
+    meta: { domain: API_DOMAINS.SECONDARY }, // 用于切换请求地址
   })
 }
