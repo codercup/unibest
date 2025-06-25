@@ -3,7 +3,7 @@
  * 0: 'NO_TABBAR' `无 tabbar`
  * 1: 'NATIVE_TABBAR'  `完全原生 tabbar`
  * 2: 'CUSTOM_TABBAR_WITH_CACHE' `有缓存自定义 tabbar`
- * 3: 'CUSTOM_TABBAR_NO_CACHE' `无缓存自定义 tabbar`
+ * 3: 'CUSTOM_TABBAR_WITHOUT_CACHE' `无缓存自定义 tabbar`
  *
  * 温馨提示：本文件的任何代码更改了之后，都需要重新运行，否则 pages.json 不会更新导致错误
  */
@@ -11,7 +11,7 @@ export const TABBAR_MAP = {
   NO_TABBAR: 0,
   NATIVE_TABBAR: 1,
   CUSTOM_TABBAR_WITH_CACHE: 2,
-  CUSTOM_TABBAR_NO_CACHE: 3,
+  CUSTOM_TABBAR_WITHOUT_CACHE: 3,
 }
 // TODO：通过这里切换使用tabbar的策略
 export const selectedTabbarStrategy = TABBAR_MAP.NATIVE_TABBAR
