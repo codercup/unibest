@@ -26,6 +26,7 @@ export const tabbarList = [
     pagePath: 'pages/index/index',
     text: '%tabbar.home%',
     icon: 'home',
+    // 选用 UI  框架自带的 icon时，iconType 为 uiLib
     iconType: 'uiLib',
   },
   {
