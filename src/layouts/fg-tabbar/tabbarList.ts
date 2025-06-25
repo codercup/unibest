@@ -1,19 +1,19 @@
 /**
  * tabbar 选择的策略，更详细的介绍见 tabbar.md 文件
- * 0: 'NATIVE_TABBAR'  `完全原生 tabbar`
- * 2: 'FULL_CUSTOM_TABBAR' `全自定义 tabbar`
- * 1: 'HALF_CUSTOM_TABBAR' `半自定义 tabbar`
- * 3: 'NO_TABBAR' `无 tabbar`
+ * 0: 'NO_TABBAR' `无 tabbar`
+ * 1: 'NATIVE_TABBAR'  `完全原生 tabbar`
+ * 2: 'CUSTOM_TABBAR_WITH_CACHE' `有缓存自定义 tabbar`
+ * 3: 'CUSTOM_TABBAR_NO_CACHE' `无缓存自定义 tabbar`
  *
  * 温馨提示：本文件的任何代码更改了之后，都需要重新运行，否则 pages.json 不会更新导致错误
  */
 
 // TODO：通过这里切换使用tabbar的策略
-export const selectedTabbarStrategy = 0
+export const selectedTabbarStrategy = 1
 
-// selectedTabbarStrategy==0 时，需要填 iconPath 和 selectedIconPath
-// selectedTabbarStrategy==1 or 2 时，需要填 icon 和 iconType
-// selectedTabbarStrategy==3 时，tabbarList 不生效
+// selectedTabbarStrategy==1 时，需要填 iconPath 和 selectedIconPath
+// selectedTabbarStrategy==2 or 3 时，需要填 icon 和 iconType
+// selectedTabbarStrategy==0 时，tabbarList 不生效
 export const tabbarList = [
   {
     iconPath: 'static/tabbar/home.png',
@@ -46,8 +46,8 @@ export const tabbarList = [
   // },
 ]
 
-// 0 和 1 时，需要tabbar缓存
-export const cacheTabbarEnable = selectedTabbarStrategy < 2
+// 1 和 2 时，需要tabbar缓存
+export const cacheTabbarEnable = selectedTabbarStrategy === 1 || selectedTabbarStrategy === 2
 
 const _tabbar = {
   color: '#999999',
