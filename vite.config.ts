@@ -48,9 +48,9 @@ export default async ({ command, mode }) => {
     VITE_SERVER_BASEURL,
     VITE_DELETE_CONSOLE,
     VITE_SHOW_SOURCEMAP,
+    VITE_APP_PUBLIC_BASE,
     VITE_APP_PROXY,
     VITE_APP_PROXY_PREFIX,
-    VITE_APP_PUBLIC_BASE
   } = env
   console.log('环境变量 env -> ', env)
 
@@ -179,6 +179,7 @@ export default async ({ command, mode }) => {
       target: 'es6',
       // 开发环境不用压缩
       minify: mode === 'development' ? false : 'esbuild',
-    }
+
+    },
   })
 }
