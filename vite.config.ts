@@ -50,12 +50,13 @@ export default async ({ command, mode }) => {
     VITE_SHOW_SOURCEMAP,
     VITE_APP_PROXY,
     VITE_APP_PROXY_PREFIX,
+    VITE_APP_PUBLIC_BASE
   } = env
   console.log('环境变量 env -> ', env)
 
   return defineConfig({
     envDir: './env', // 自定义env目录
-
+    base: VITE_APP_PUBLIC_BASE,
     plugins: [
       UniPages({
         exclude: ['**/components/**/**.*'],
