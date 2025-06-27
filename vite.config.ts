@@ -56,7 +56,7 @@ export default async ({ command, mode }) => {
 
   return defineConfig({
     envDir: './env', // 自定义env目录
-    base: VITE_APP_PUBLIC_BASE, // TODO check
+    base: VITE_APP_PUBLIC_BASE,
     plugins: [
       UniPages({
         exclude: ['**/components/**/**.*'],
