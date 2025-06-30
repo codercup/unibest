@@ -100,7 +100,7 @@
     "dayjs": "1.11.10",
     "js-cookie": "^3.0.5",
     "pinia": "3.0.3",
-    "pinia-plugin-persistedstate": "3.2.3",
+    "pinia-plugin-persistedstate": "4.4.0",
     "vue": "^3.4.21",
     "wot-design-uni": "^1.9.1",
     "z-paging": "2.8.7"
