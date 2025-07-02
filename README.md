@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://github.com/feige996/unibest">
+  <a href="https://github.com/unibest-tech/unibest">
     <img width="160" src="./src/static/logo.svg">
   </a>
 </p>
 
 <h1 align="center">
-  <a href="https://github.com/feige996/unibest" target="_blank">unibest - 最好的 uniapp 开发框架</a>
+  <a href="https://github.com/unibest-tech/unibest" target="_blank">unibest - 最好的 uniapp 开发框架</a>
 </h1>
 
 <div align="center">
