@@ -39,7 +39,7 @@ onLoad(() => {
     v-if="customTabbarEnable"
     v-model="tabbarStore.curIdx"
     bordered
-    safeareainsetbottom
+    safe-area-inset-bottom
     placeholder
     fixed
     @change="selectTabBar"
