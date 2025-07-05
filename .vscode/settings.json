@@ -5,6 +5,11 @@
     "manifest.json": "jsonc" // manifest.json 可以写注释
   },
 
+  "stylelint.enable": false, // 禁用 stylelint
+  "css.validate": false, // 禁用 CSS 内置验证
+  "scss.validate": false, // 禁用 SCSS 内置验证
+  "less.validate": false, // 禁用 LESS 内置验证
+
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
