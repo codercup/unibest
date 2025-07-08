@@ -1,9 +1,9 @@
-<route lang="json5" type="page">
+<route lang="jsonc" type="page">
 {
-  layout: 'default',
-  style: {
-    navigationBarTitleText: 'Alova 请求演示',
-  },
+  "layout": "default",
+  "style": {
+    "navigationBarTitleText": "Alova 请求演示"
+  }
 }
 </route>
 
