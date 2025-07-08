@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { useRequest } from 'alova/client'
-import { foo } from '@/api/alova-foo'
+import { foo } from '@/api/foo-alova'
 
 const initialData = undefined
 

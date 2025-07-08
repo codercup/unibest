@@ -110,3 +110,9 @@ http.get = httpGet
 http.post = httpPost
 http.put = httpPut
 http.delete = httpDelete
+
+// 支持与 alovaJS 类似的API调用
+http.Get = httpGet
+http.Post = httpPost
+http.Put = httpPut
+http.Delete = httpDelete
