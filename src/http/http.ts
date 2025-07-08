@@ -1,4 +1,4 @@
-import type { CustomRequestOptions } from '@/interceptors/request'
+import type { CustomRequestOptions } from '@/http/interceptor'
 
 export function http<T>(options: CustomRequestOptions) {
   // 1. 返回 Promise 对象

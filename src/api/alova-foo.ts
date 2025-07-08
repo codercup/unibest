@@ -1,4 +1,4 @@
-import { API_DOMAINS, http } from '@/utils/request/alova'
+import { API_DOMAINS, http } from '@/http/request/alova'
 
 export interface IFoo {
   id: number
