@@ -17,10 +17,6 @@ onHide(() => {
 </script>
 
 <style lang="scss">
-button::after {
-  border: none;
-}
-
 swiper,
 scroll-view {
   flex: 1;

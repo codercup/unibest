@@ -1,12 +1,3 @@
-<route lang="json5">
-{
-  layout: 'demo',
-  style: {
-    navigationBarTitleText: '请求',
-  },
-}
-</route>
-
 <script lang="ts" setup>
 import type { IFooItem } from '@/service/index/foo'
 import { getFooAPI } from '@/service/index/foo'
