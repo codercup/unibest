@@ -85,12 +85,6 @@ console.log('index')
         {{ PLATFORM.platform }}
       </text>
     </view>
-    <view class="mt-4 text-center">
-      模板分支是：
-      <text class="text-green-500">
-        i18n
-      </text>
-    </view>
   </view>
   <tabbar />
 </template>

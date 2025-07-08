@@ -1,4 +1,4 @@
-import { http } from '@/utils/http'
+import { http } from '@/http/http'
 
 export interface IFooItem {
   id: string

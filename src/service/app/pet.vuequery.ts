@@ -3,7 +3,7 @@
 import { queryOptions, useMutation } from '@tanstack/vue-query';
 import type { DefaultError } from '@tanstack/vue-query';
 import request from '@/utils/request';
-import { CustomRequestOptions } from '@/interceptors/request';
+import { CustomRequestOptions } from '@/http/interceptor';
 
 import * as apis from './pet';
 import * as API from './types';
