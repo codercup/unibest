@@ -85,11 +85,5 @@ console.log('index')
         {{ PLATFORM.platform }}
       </text>
     </view>
-    <view class="mt-4 text-center">
-      模板分支是：
-      <text class="text-green-500">
-        base
-      </text>
-    </view>
   </view>
 </template>
