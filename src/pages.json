@@ -69,5 +69,19 @@
       }
     }
   ],
-  "subPackages": []
+  "subPackages": [
+    {
+      "root": "pages-sub",
+      "pages": [
+        {
+          "path": "demo/index",
+          "type": "page",
+          "layout": "default",
+          "style": {
+            "navigationBarTitleText": "分包页面"
+          }
+        }
+      ]
+    }
+  ]
 }

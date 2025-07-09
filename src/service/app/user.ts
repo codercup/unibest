@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-ignore
 import request from '@/utils/request';
-import { CustomRequestOptions } from '@/interceptors/request';
+import { CustomRequestOptions } from '@/http/interceptor';
 
 import * as API from './types';
 

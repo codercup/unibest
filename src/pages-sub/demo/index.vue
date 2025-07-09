@@ -1,9 +1,9 @@
-<route lang="json5" type="page">
+<route lang="jsonc" type="page">
 {
-  style: {
-    navigationStyle: 'default',
-    navigationBarTitleText: '分包页面 标题',
-  },
+  "layout": "default",
+  "style": {
+    "navigationBarTitleText": "分包页面"
+  }
 }
 </route>
 

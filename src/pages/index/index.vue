@@ -1,12 +1,12 @@
-<!-- 使用 type="home" 属性设置首页，其他页面不需要设置，默认为page；推荐使用json5，更强大，且允许注释 -->
-<route lang="json5" type="home">
+<!-- 使用 type="home" 属性设置首页，其他页面不需要设置，默认为page -->
+<route lang="jsonc" type="home">
 {
-  layout: 'tabbar',
-  style: {
+  "layout": "tabbar",
+  "style": {
     // 'custom' 表示开启自定义导航栏，默认 'default'
-    navigationStyle: 'custom',
-    navigationBarTitleText: '首页',
-  },
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "首页"
+  }
 }
 </route>
 
@@ -83,12 +83,6 @@ console.log('index')
       当前平台是：
       <text class="text-green-500">
         {{ PLATFORM.platform }}
-      </text>
-    </view>
-    <view class="mt-4 text-center">
-      模板分支是：
-      <text class="text-green-500">
-        base
       </text>
     </view>
   </view>

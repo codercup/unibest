@@ -1,9 +1,9 @@
-<route lang="json5" type="page">
+<route lang="jsonc" type="page">
 {
-  layout: 'default',
-  style: {
-    navigationBarTitleText: '上传-状态一体化',
-  },
+  "layout": "default",
+  "style": {
+    "navigationBarTitleText": "上传-状态一体化"
+  }
 }
 </route>
 

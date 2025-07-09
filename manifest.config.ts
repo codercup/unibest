@@ -124,6 +124,9 @@ export default defineManifestConfig({
       es6: true,
       minified: true,
     },
+    optimization: {
+      subPackages: true,
+    },
     usingComponents: true,
     // __usePrivacyCheck__: true,
   },

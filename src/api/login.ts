@@ -1,5 +1,5 @@
 import type { ICaptcha, IUpdateInfo, IUpdatePassword, IUserInfoVo, IUserLogin } from './types/login'
-import { http } from '@/utils/http'
+import { http } from '@/http/http'
 
 /**
  * 登录表单

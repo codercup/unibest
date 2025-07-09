@@ -1,15 +1,15 @@
-<route lang="json5" type="page">
+<route lang="jsonc" type="page">
 {
-  layout: 'default',
-  style: {
-    navigationBarTitleText: 'Alova 请求演示',
-  },
+  "layout": "default",
+  "style": {
+    "navigationBarTitleText": "Alova 请求演示"
+  }
 }
 </route>
 
 <script lang="ts" setup>
 import { useRequest } from 'alova/client'
-import { foo } from '@/api/alova-foo'
+import { foo } from '@/api/foo-alova'
 
 const initialData = undefined
 

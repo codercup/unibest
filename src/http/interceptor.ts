@@ -1,7 +1,7 @@
 import { useUserStore } from '@/store'
 import { getEnvBaseUrl } from '@/utils'
 import { platform } from '@/utils/platform'
-import { stringifyQuery } from '@/utils/queryString'
+import { stringifyQuery } from './queryString'
 
 export type CustomRequestOptions = UniApp.RequestOptions & {
   query?: Record<string, any>

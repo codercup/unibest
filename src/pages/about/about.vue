@@ -1,9 +1,9 @@
-<route lang="json5">
+<route lang="jsonc" type="page">
 {
-  layout: 'tabbar',
-  style: {
-    navigationBarTitleText: '关于',
-  },
+  "layout": "tabbar",
+  "style": {
+    "navigationBarTitleText": "关于"
+  }
 }
 </route>
 
