@@ -1,0 +1,31 @@
+categories:
+  - title: 🚀 新功能
+    labels: [feat, feature]
+  - title: 🛠️ 修复
+    labels: [fix, bugfix]
+  - title: 💅 样式
+    labels: [style]
+  - title: 📄 文档
+    labels: [docs]
+  - title: ⚡️ 性能
+    labels: [perf]
+  - title: 🧪 测试
+    labels: [test]
+  - title: ♻️ 重构
+    labels: [refactor]
+  - title: 📦 构建
+    labels: [build]
+  - title: 🚨 补丁
+    labels: [patch, hotfix]
+  - title: 🌐 发布
+    labels: [release, publish]
+  - title: 🔧 流程
+    labels: [ci, cd, workflow]
+  - title: ⚙️ 配置
+    labels: [config, chore]
+  - title: 📁 文件
+    labels: [file]
+  - title: 🎨 格式化
+    labels: [format]
+  - title: 🔀 其他
+    labels: [other, misc]
