@@ -1,3 +1,5 @@
+import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
+
 /**
  * tabbar 选择的策略，更详细的介绍见 tabbar.md 文件
  * 0: 'NO_TABBAR' `无 tabbar`
@@ -19,14 +21,14 @@ export const selectedTabbarStrategy = TABBAR_MAP.NATIVE_TABBAR
 // selectedTabbarStrategy==NATIVE_TABBAR(1) 时，需要填 iconPath 和 selectedIconPath
 // selectedTabbarStrategy==CUSTOM_TABBAR(2,3) 时，需要填 icon 和 iconType
 // selectedTabbarStrategy==NO_TABBAR(0) 时，tabbarList 不生效
-export const tabbarList = [
+export const tabbarList: TabBar['list'] = [
   {
     iconPath: 'static/tabbar/home.png',
     selectedIconPath: 'static/tabbar/homeHL.png',
     pagePath: 'pages/index/index',
     text: '首页',
     icon: 'home',
-    // 选用 UI  框架自带的 icon时，iconType 为 uiLib
+    // 选用 UI 框架自带的 icon 时，iconType 为 uiLib
     iconType: 'uiLib',
   },
   {
@@ -56,7 +58,7 @@ export const tabbarList = [
 export const cacheTabbarEnable = selectedTabbarStrategy === TABBAR_MAP.NATIVE_TABBAR
   || selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
 
-const _tabbar = {
+const _tabbar: TabBar = {
   color: '#999999',
   selectedColor: '#018d71',
   backgroundColor: '#F8F8F8',
