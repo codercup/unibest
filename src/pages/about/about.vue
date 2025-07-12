@@ -11,9 +11,6 @@
 import RequestComp from './components/request.vue'
 import UploadComp from './components/upload.vue'
 
-// 获取屏幕边界到安全区域距离
-const { safeAreaInsets } = uni.getSystemInfoSync()
-
 function gotoI18nPage() {
   uni.navigateTo({
     url: '/pages/about/i18n',

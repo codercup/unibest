@@ -21,7 +21,6 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig, loadEnv } from 'vite'
 import ViteRestart from 'vite-plugin-restart'
-import updatePackageJson from './vite-plugins/updatePackageJson'
 
 // https://vitejs.dev/config/
 export default async ({ command, mode }) => {
@@ -130,7 +129,6 @@ export default async ({ command, mode }) => {
         dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
       }),
       Uni(),
-      updatePackageJson(),
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
