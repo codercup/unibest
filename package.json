@@ -4,7 +4,9 @@
   "version": "3.3.0",
   "packageManager": "pnpm@10.10.0",
   "description": "unibest - 最好的 uniapp 开发模板",
+  "unibest-version": "3.3.0",
   "update-time": "2025-07-08",
+  "generate-time": "用户创建项目时生成",
   "author": {
     "name": "feige996",
     "zhName": "菲鸽",
@@ -15,8 +17,6 @@
   "license": "MIT",
   "homepage": "https://unibest.tech",
   "repository": "https://github.com/feige996/unibest",
-  "repository-gitee": "https://gitee.com/feige996/unibest",
-  "repository-old": "https://github.com/codercup/unibest",
   "bugs": {
     "url": "https://github.com/feige996/unibest/issues",
     "url-old": "https://github.com/codercup/unibest/issues"
