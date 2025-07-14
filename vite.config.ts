@@ -53,7 +53,7 @@ export default async ({ command, mode }) => {
   } = env
   console.log('环境变量 env -> ', env)
 
-  return {
+  return defineConfig({
     envDir: './env', // 自定义env目录
     base: VITE_APP_PUBLIC_BASE,
     plugins: [
@@ -178,5 +178,5 @@ export default async ({ command, mode }) => {
       minify: mode === 'development' ? false : 'esbuild',
 
     },
-  }
+  })
 }

@@ -1,8 +1,8 @@
 {
   "name": "unibest",
   "type": "commonjs",
-  "version": "3.3.1",
-  "unibest-version": "用户创建项目时生成，使用version版本号",
+  "version": "3.3.0",
+  "unibest-version": "3.3.0",
   "packageManager": "pnpm@10.10.0",
   "description": "unibest - 最好的 uniapp 开发模板",
   "generate-time": "用户创建项目时生成",
@@ -25,9 +25,6 @@
     "pnpm": ">=7.30"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
     "preinstall": "npx only-allow pnpm",
     "uvm": "npx @dcloudio/uvm@latest",
     "uvm-rm": "node ./scripts/postupgrade.js",
@@ -101,11 +98,10 @@
     "abortcontroller-polyfill": "^1.7.8",
     "alova": "^3.3.3",
     "dayjs": "1.11.10",
-    "element-plus": "^2.10.2",
+    "js-cookie": "^3.0.5",
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
     "vue": "^3.4.21",
-    "vue-i18n": "9.1.9",
     "wot-design-uni": "^1.9.1",
     "z-paging": "2.8.7"
   },
@@ -153,8 +149,6 @@
     "unplugin-auto-import": "^0.17.8",
     "vite": "5.2.8",
     "vite-plugin-restart": "^0.4.2",
-    "vitepress": "^1.5.0",
-    "vitepress-plugin-llms": "^1.3.4",
     "vue-tsc": "^2.2.10"
   },
   "resolutions": {
