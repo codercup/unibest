@@ -67,6 +67,14 @@
       "style": {
         "navigationBarTitleText": "Alova 请求演示"
       }
+    },
+    {
+      "path": "pages/about/vue-query",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Vue Query 请求演示"
+      }
     }
   ],
   "subPackages": [

@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import type { IFooItem } from '@/service/index/foo'
 import { getFooAPI } from '@/service/index/foo'
-// import { findPetsByStatusQueryOptions } from '@/service/app'
-// import { useQuery } from '@tanstack/vue-query'
 
 const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
 
@@ -11,19 +9,10 @@ const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
 //   id: '1234',
 // }
 const initialData = undefined
-// 适合少部分全局性的接口————多个页面都需要的请求接口，额外编写一个 Service 层
 const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
   immediate: true,
   initialData,
 })
-
-// 使用 vue-query 的 useQuery 来请求数据，只做参考，是否使用请根据实际情况而定
-// const {
-//   data: data2,
-//   error: error2,
-//   isLoading: isLoading2,
-//   refetch,
-// } = useQuery(findPetsByStatusQueryOptions({ params: { status: ['available'] } }))
 
 function reset() {
   data.value = initialData
