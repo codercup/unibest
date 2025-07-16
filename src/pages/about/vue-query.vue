@@ -19,10 +19,6 @@ const {
   isLoading: loading,
   refetch: send,
 } = useQuery(getFooQueryOptions('菲鸽-vue-query'))
-
-function reset() {
-  data.value = initialData
-}
 </script>
 
 <template>
@@ -43,9 +39,6 @@ function reset() {
         </view>
       </block>
     </view>
-    <button type="default" size="mini" class="my-6 w-160px" @click="reset">
-      重置数据
-    </button>
   </view>
 </template>
 
