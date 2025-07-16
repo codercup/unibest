@@ -9,7 +9,6 @@
 
 <script lang="ts" setup>
 import RequestComp from './components/request.vue'
-import UploadComp from './components/upload.vue'
 
 // 奇怪：同样的代码放在 vue 里面不会校验到错误，放在 .ts 文件里面会校验到错误
 // const testOxlint = (name: string) => {
@@ -34,10 +33,11 @@ function gotoAlova() {
       </text>
     </view>
     <RequestComp />
-    <UploadComp />
-    <button class="w-200px text-green" @click="gotoAlova">
-      前往 alova 页面
-    </button>
+    <view class="text-center">
+      <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
+        前往 alova 页面
+      </button>
+    </view>
   </view>
 </template>
 
