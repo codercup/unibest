@@ -9,10 +9,16 @@
 
 <script lang="ts" setup>
 import { useQuery } from '@tanstack/vue-query'
+import { foo } from '@/api/foo'
 import { getFooQueryOptions } from '@/service/index/vue-query'
 
-const initialData = undefined
+// 简单使用
+onShow(async () => {
+  const res = await foo()
+  console.log('res: ', res)
+})
 
+// vue-query 版
 const {
   data,
   error,
