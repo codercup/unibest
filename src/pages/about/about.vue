@@ -9,7 +9,6 @@
 
 <script lang="ts" setup>
 import RequestComp from './components/request.vue'
-import UploadComp from './components/upload.vue'
 
 function gotoI18nPage() {
   uni.navigateTo({
@@ -29,6 +28,11 @@ function gotoAlova() {
     url: '/pages/about/alova',
   })
 }
+function gotoVueQuery() {
+  uni.navigateTo({
+    url: '/pages/about/vue-query',
+  })
+}
 </script>
 
 <template>
@@ -42,13 +46,23 @@ function gotoAlova() {
     <RequestComp />
     <UploadComp />
     <view class="text-center">
-      <wd-button @click="gotoI18nPage()">
+      <button type="primary" size="mini" class="w-160px" @click="gotoI18nPage()">
         去I18n页面
-      </wd-button>
+      </button>
     </view>
     <button class="w-200px text-green" @click="gotoAlova">
       前往 alova 页面
     </button>
+    <view class="text-center">
+      <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
+        前往 alova 示例页面
+      </button>
+    </view>
+    <view class="text-center">
+      <button type="primary" size="mini" class="w-160px" @click="gotoVueQuery">
+        vue-query 示例页面
+      </button>
+    </view>
   </view>
 </template>
 

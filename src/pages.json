@@ -15,6 +15,7 @@
     }
   },
   "tabBar": {
+    "custom": true,
     "color": "#999999",
     "selectedColor": "#018d71",
     "backgroundColor": "#F8F8F8",
@@ -73,6 +74,14 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "%app.name%"
+      }
+    },
+    {
+      "path": "pages/about/vue-query",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "Vue Query 请求演示"
       }
     }
   ],

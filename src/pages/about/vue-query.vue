@@ -2,25 +2,29 @@
 {
   "layout": "default",
   "style": {
-    "navigationBarTitleText": "Alova 请求演示"
+    "navigationBarTitleText": "Vue Query 请求演示"
   }
 }
 </route>
 
 <script lang="ts" setup>
-import { useRequest } from 'alova/client'
-import { foo } from '@/api/foo-alova'
+import { useQuery } from '@tanstack/vue-query'
+import { foo } from '@/api/foo'
+import { getFooQueryOptions } from '@/service/index/vue-query'
 
-const initialData = undefined
-
-const { loading, data, send } = useRequest(foo, {
-  initialData,
-  immediate: true,
+// 简单使用
+onShow(async () => {
+  const res = await foo()
+  console.log('res: ', res)
 })
-console.log(data)
-function reset() {
-  data.value = initialData
-}
+
+// vue-query 版
+const {
+  data,
+  error,
+  isLoading: loading,
+  refetch: send,
+} = useQuery(getFooQueryOptions('菲鸽-vue-query'))
 </script>
 
 <template>
@@ -40,14 +44,7 @@ function reset() {
           {{ JSON.stringify(data) }}
         </view>
       </block>
-
-      <view class="text-red">
-        {{ data?.id }}
-      </view>
     </view>
-    <button type="default" size="mini" class="my-6 w-160px" @click="reset">
-      重置数据
-    </button>
   </view>
 </template>
 
