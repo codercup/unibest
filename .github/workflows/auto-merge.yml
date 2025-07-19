@@ -7,23 +7,23 @@ on:
   workflow_dispatch: # 手动触发
 
 jobs:
-  merge-to-release:
-    name: Merge main into release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
+  # merge-to-release:
+  #   name: Merge main into release
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #         token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
 
-      - name: Merge main into release
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout release
-          git merge main --no-ff -m "Auto merge main into release"
-          git push origin release
+  #     - name: Merge main into release
+  #       run: |
+  #         git config user.name "GitHub Actions"
+  #         git config user.email "actions@github.com"
+  #         git checkout release
+  #         git merge main --no-ff -m "Auto merge main into release"
+  #         git push origin release
 
   merge-to-i18n:
     name: Merge main into i18n
