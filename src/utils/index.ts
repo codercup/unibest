@@ -111,6 +111,11 @@ export function getEnvBaseUrl() {
   // 请求基准地址
   let baseUrl = import.meta.env.VITE_SERVER_BASEURL
 
+  // # 有些同学可能需要在微信小程序里面根据 develop、trial、release 分别设置上传地址，参考代码如下。
+  const VITE_SERVER_BASEURL__WEIXIN_DEVELOP = 'https://ukw0y1.laf.run'
+  const VITE_SERVER_BASEURL__WEIXIN_TRIAL = 'https://ukw0y1.laf.run'
+  const VITE_SERVER_BASEURL__WEIXIN_RELEASE = 'https://ukw0y1.laf.run'
+
   // 微信小程序端环境区分
   if (isMpWeixin) {
     const {
@@ -119,13 +124,13 @@ export function getEnvBaseUrl() {
 
     switch (envVersion) {
       case 'develop':
-        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_DEVELOP || baseUrl
+        baseUrl = VITE_SERVER_BASEURL__WEIXIN_DEVELOP || baseUrl
         break
       case 'trial':
-        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_TRIAL || baseUrl
+        baseUrl = VITE_SERVER_BASEURL__WEIXIN_TRIAL || baseUrl
         break
       case 'release':
-        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_RELEASE || baseUrl
+        baseUrl = VITE_SERVER_BASEURL__WEIXIN_RELEASE || baseUrl
         break
     }
   }
@@ -140,6 +145,10 @@ export function getEnvBaseUploadUrl() {
   // 请求基准地址
   let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
 
+  const VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP = 'https://ukw0y1.laf.run/upload'
+  const VITE_UPLOAD_BASEURL__WEIXIN_TRIAL = 'https://ukw0y1.laf.run/upload'
+  const VITE_UPLOAD_BASEURL__WEIXIN_RELEASE = 'https://ukw0y1.laf.run/upload'
+
   // 微信小程序端环境区分
   if (isMpWeixin) {
     const {
@@ -148,13 +157,13 @@ export function getEnvBaseUploadUrl() {
 
     switch (envVersion) {
       case 'develop':
-        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP || baseUploadUrl
+        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP || baseUploadUrl
         break
       case 'trial':
-        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_TRIAL || baseUploadUrl
+        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_TRIAL || baseUploadUrl
         break
       case 'release':
-        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_RELEASE || baseUploadUrl
+        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_RELEASE || baseUploadUrl
         break
     }
   }
