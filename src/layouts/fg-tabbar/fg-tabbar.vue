@@ -35,7 +35,6 @@ onLoad(() => {
 })
 // h5 中一直可以生效，小程序里面默认是无法动态切换的，这里借助vue模板自带响应式的方式
 // 直接替换 %xxx% 为 t('xxx')即可
-// 注意，原生tabbar依然需要额外处理，参考：https://unibest.tech/base/10-i18n
 function getI18nText(key: string) {
   // 获取 %xxx% 中的 xxx
   const match = key.match(/%(.+?)%/)
@@ -45,6 +44,7 @@ function getI18nText(key: string) {
   return t(key)
 }
 
+// 注意，上面处理的是自定义tabbar，下面处理的是原生tabbar，参考：https://unibest.tech/base/10-i18n
 onShow(() => {
   const index = tabbarStore.curIdx
   uni.setTabBarItem({
