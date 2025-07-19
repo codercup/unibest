@@ -88,5 +88,8 @@
     "Wechat",
     "WechatMiniprogram",
     "Weixin"
+  ],
+  "i18n-ally.localesPaths": [
+    "src/locale"
   ]
 }
