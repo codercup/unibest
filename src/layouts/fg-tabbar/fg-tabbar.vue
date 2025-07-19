@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '@/locale'
 import { tabbarStore } from './tabbar'
 // 'i-carbon-code',
 import { tabbarList as _tabBarList, cacheTabbarEnable, selectedTabbarStrategy, TABBAR_MAP } from './tabbarList'
@@ -32,6 +33,17 @@ onLoad(() => {
     },
   })
 })
+// h5 中一直可以生效，小程序里面默认是无法动态切换的，这里借助vue模板自带响应式的方式
+// 直接替换 %xxx% 为 t('xxx')即可
+// 注意，原生tabbar依然需要额外处理，参考：https://unibest.tech/base/10-i18n
+function getI18nText(key: string) {
+  // 获取 %xxx% 中的 xxx
+  const match = key.match(/%(.+?)%/)
+  if (match) {
+    key = match[1]
+  }
+  return t(key)
+}
 </script>
 
 <template>
@@ -45,10 +57,10 @@ onLoad(() => {
     @change="selectTabBar"
   >
     <block v-for="(item, idx) in tabbarList" :key="item.path">
-      <wd-tabbar-item v-if="item.iconType === 'uiLib'" :title="item.text" :icon="item.icon" />
+      <wd-tabbar-item v-if="item.iconType === 'uiLib'" :title="getI18nText(item.text)" :icon="item.icon" />
       <wd-tabbar-item
         v-else-if="item.iconType === 'unocss' || item.iconType === 'iconfont'"
-        :title="item.text"
+        :title="getI18nText(item.text)"
       >
         <template #icon>
           <view
@@ -58,7 +70,7 @@ onLoad(() => {
           />
         </template>
       </wd-tabbar-item>
-      <wd-tabbar-item v-else-if="item.iconType === 'local'" :title="item.text">
+      <wd-tabbar-item v-else-if="item.iconType === 'local'" :title="getI18nText(item.text)">
         <template #icon>
           <image :src="item.icon" h-40rpx w-40rpx />
         </template>
