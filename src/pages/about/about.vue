@@ -44,15 +44,11 @@ function gotoVueQuery() {
       </text>
     </view>
     <RequestComp />
-    <UploadComp />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoI18nPage()">
         去I18n页面
       </button>
     </view>
-    <button class="w-200px text-green" @click="gotoAlova">
-      前往 alova 页面
-    </button>
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
         前往 alova 示例页面
