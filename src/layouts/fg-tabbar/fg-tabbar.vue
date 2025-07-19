@@ -44,6 +44,14 @@ function getI18nText(key: string) {
   }
   return t(key)
 }
+
+onShow(() => {
+  const index = tabbarStore.curIdx
+  uni.setTabBarItem({
+    index,
+    text: getI18nText(tabbarList[index].text),
+  })
+})
 </script>
 
 <template>
