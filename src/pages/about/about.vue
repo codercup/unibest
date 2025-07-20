@@ -45,7 +45,7 @@ onShow(() => {
 <template>
   <view>
     <view class="mt-8 text-center text-xl text-gray-400">
-      测试组件使用和请求调用
+      组件使用、请求调用、unocss
     </view>
     <RequestComp />
     <view class="text-center">
