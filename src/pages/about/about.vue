@@ -2,7 +2,7 @@
 {
   "layout": "tabbar",
   "style": {
-    "navigationBarTitleText": "关于"
+    "navigationBarTitleText": "%tabbar.about%"
   }
 }
 </route>

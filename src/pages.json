@@ -50,7 +50,7 @@
       "layout": "tabbar",
       "style": {
         "navigationStyle": "custom",
-        "navigationBarTitleText": "首页"
+        "navigationBarTitleText": "%tabbar.home%"
       }
     },
     {
@@ -58,7 +58,7 @@
       "type": "page",
       "layout": "tabbar",
       "style": {
-        "navigationBarTitleText": "关于"
+        "navigationBarTitleText": "%tabbar.about%"
       }
     },
     {
