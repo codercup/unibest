@@ -31,11 +31,8 @@ function gotoVueQuery() {
 
 <template>
   <view>
-    <view class="mt-8 text-center text-3xl">
-      鸽友们好，我是
-      <text class="text-red-500">
-        菲鸽
-      </text>
+    <view class="mt-8 text-center text-xl text-gray-400">
+      测试组件使用和请求调用
     </view>
     <RequestComp />
     <view class="text-center">
