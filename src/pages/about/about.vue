@@ -48,6 +48,7 @@ onShow(() => {
       组件使用、请求调用、unocss
     </view>
     <RequestComp />
+    <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoI18nPage()">
         去I18n页面
@@ -62,6 +63,11 @@ onShow(() => {
       <button type="primary" size="mini" class="w-160px" @click="gotoVueQuery">
         vue-query 示例页面
       </button>
+    </view>
+    <view class="mt-6 text-center text-sm">
+      <view class="inline-block w-80% text-gray-400">
+        为了方便脚手架动态生成不同UI模板，本页的按钮统一使用UI库无关的原生button
+      </view>
     </view>
   </view>
 </template>
