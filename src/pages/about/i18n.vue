@@ -1,7 +1,7 @@
 <route lang="json">
 {
   "style": {
-    "navigationBarTitleText": "%app.name%"
+    "navigationBarTitleText": "%i18n.title%"
   }
 }
 </route>

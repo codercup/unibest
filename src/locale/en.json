@@ -1,7 +1,7 @@
 {
   "tabbar.home": "Home",
   "tabbar.about": "About",
-  "app.name": "En Title",
+  "i18n.title": "En Title",
   "weight": "{heavy}KG",
   "detail": "{0}cm, {1}KG",
   "introduction": "I am {name},height:{detail.height},weight:{detail.weight}"
