@@ -11,8 +11,6 @@
 </route>
 
 <script lang="ts" setup>
-import PLATFORM from '@/utils/platform'
-
 defineOptions({
   name: 'Home',
 })
@@ -78,11 +76,14 @@ console.log('index')
         https://unibest.tech
       </text>
     </view>
-    <view class="mt-6 h-1px bg-#eee" />
-    <view class="mt-8 text-center">
-      当前平台是：
-      <text class="text-green-500">
-        {{ PLATFORM.platform }}
+    <view class="mt-4 text-center">
+      <wd-button type="primary">
+        UI组件按钮
+      </wd-button>
+    </view>
+    <view class="mt-4 text-center">
+      UI组件官网：<text class="text-green-500">
+        https://wot-design-uni.cn
       </text>
     </view>
   </view>
