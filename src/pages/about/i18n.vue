@@ -30,7 +30,18 @@ function radioChange(evt) {
   // 下面2句缺一不可！！！
   uni.setLocale(evt.detail.value)
   i18n.global.locale = evt.detail.value
+
+  // 当前页面标题需要立马重新设置一下
+  uni.setNavigationBarTitle({
+    title: t('i18n.title'),
+  })
 }
+
+onShow(() => {
+  uni.setNavigationBarTitle({
+    title: t('i18n.title'),
+  })
+})
 </script>
 
 <template>
@@ -61,7 +72,7 @@ function radioChange(evt) {
       多语言测试
     </view>
     <view class="m-4">
-      {{ $t('app.name') }}
+      {{ $t('i18n.title') }}
     </view>
     <view class="text-gray-500 italic">
       使用$t: {{ $t('weight', { heavy: 100 }) }}

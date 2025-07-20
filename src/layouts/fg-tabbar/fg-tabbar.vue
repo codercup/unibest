@@ -46,11 +46,14 @@ function getI18nText(key: string) {
 
 // 注意，上面处理的是自定义tabbar，下面处理的是原生tabbar，参考：https://unibest.tech/base/10-i18n
 onShow(() => {
-  const index = tabbarStore.curIdx
-  uni.setTabBarItem({
-    index,
-    text: getI18nText(tabbarList[index].text),
-  })
+  // 只有原生才需要 setTabbarItem
+  if (selectedTabbarStrategy === TABBAR_MAP.NATIVE_TABBAR) {
+    const index = tabbarStore.curIdx
+    uni.setTabBarItem({
+      index,
+      text: getI18nText(tabbarList[index].text),
+    })
+  }
 })
 </script>
 

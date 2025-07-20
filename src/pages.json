@@ -66,14 +66,14 @@
       "type": "page",
       "layout": "default",
       "style": {
-        "navigationBarTitleText": "Alova 请求演示"
+        "navigationBarTitleText": "%alova.title%"
       }
     },
     {
       "path": "pages/about/i18n",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "%app.name%"
+        "navigationBarTitleText": "%i18n.title%"
       }
     },
     {

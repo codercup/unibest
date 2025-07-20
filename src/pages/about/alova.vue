@@ -2,7 +2,7 @@
 {
   "layout": "default",
   "style": {
-    "navigationBarTitleText": "Alova 请求演示"
+    "navigationBarTitleText": "%alova.title%"
   }
 }
 </route>
@@ -10,6 +10,7 @@
 <script lang="ts" setup>
 import { useRequest } from 'alova/client'
 import { foo } from '@/api/foo-alova'
+import { t } from '@/locale'
 
 const initialData = undefined
 
@@ -21,6 +22,12 @@ console.log(data)
 function reset() {
   data.value = initialData
 }
+
+onShow(() => {
+  uni.setNavigationBarTitle({
+    title: t('alova.title'),
+  })
+})
 </script>
 
 <template>

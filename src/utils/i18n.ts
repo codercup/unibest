@@ -5,6 +5,6 @@ export function testI18n() {
   // 下面同样生效
   uni.showModal({
     title: 'i18n 测试',
-    content: t('app.name'),
+    content: t('i18n.title'),
   })
 }
