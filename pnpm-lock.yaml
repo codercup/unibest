@@ -146,6 +146,9 @@ importers:
       '@uni-helper/eslint-config':
         specifier: ^0.4.0
         version: 0.4.0(@antfu/eslint-config@4.15.0(@unocss/eslint-plugin@66.2.3(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2))(@vue/compiler-sfc@3.5.15)(eslint-plugin-format@1.0.1(eslint@9.29.0(jiti@2.4.2)))(eslint@9.29.0(jiti@2.4.2))(typescript@5.7.2))(eslint@9.29.0(jiti@2.4.2))
+      '@uni-helper/plugin-uni':
+        specifier: 0.1.0
+        version: 0.1.0(@dcloudio/vite-plugin-uni@3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))(vue@3.5.15(typescript@5.7.2)))
       '@uni-helper/uni-types':
         specifier: 1.0.0-alpha.3
         version: 1.0.0-alpha.3(@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(@uni-helper/uni-cloud-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(@uni-helper/uni-ui-types@1.0.0-alpha.3(@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2)))(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2))
@@ -156,17 +159,17 @@ importers:
         specifier: 0.2.0
         version: 0.2.0(rollup@4.41.1)
       '@uni-helper/vite-plugin-uni-layouts':
-        specifier: 0.1.10
-        version: 0.1.10(rollup@4.41.1)
+        specifier: 0.1.11
+        version: 0.1.11(rollup@4.41.1)
       '@uni-helper/vite-plugin-uni-manifest':
         specifier: 0.2.8
         version: 0.2.8(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))
       '@uni-helper/vite-plugin-uni-pages':
-        specifier: 0.2.28
-        version: 0.2.28(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))
+        specifier: 0.2.29
+        version: 0.2.29(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))
       '@uni-helper/vite-plugin-uni-platform':
-        specifier: 0.0.4
-        version: 0.0.4
+        specifier: 0.0.5
+        version: 0.0.5
       '@uni-ku/bundle-optimizer':
         specifier: ^1.3.3
         version: 1.3.3(postcss@8.4.49)(rollup@4.41.1)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))(vue@3.5.15(typescript@5.7.2))
@@ -2313,6 +2316,11 @@ packages:
       '@antfu/eslint-config': ^4.0.1
       eslint: ^9.10.0
 
+  '@uni-helper/plugin-uni@0.1.0':
+    resolution: {integrity: sha512-hBPUjoQc/SgqKsyGUl0fJiL+dDwLPhf2es1PJdsXcxHyOujoBP2+D4z5ie+Q72wVwKtTsQSP3tSjww/63JRmbA==}
+    peerDependencies:
+      '@dcloudio/vite-plugin-uni': '*'
+
   '@uni-helper/uni-app-types@1.0.0-alpha.3':
     resolution: {integrity: sha512-lhSpVroEUxzre1vzKAckg85CFLUpn6vw9L2FDO1d8cd9JtMstlXkYmIn/Oz8tqzXxQ1sOgd3YcwoQmkXsw+Oxw==}
     engines: {node: '>=14.18'}
@@ -2326,9 +2334,6 @@ packages:
     peerDependencies:
       typescript: ^5.5.4
       vue: ^3.4.21
-
-  '@uni-helper/uni-env@0.0.3':
-    resolution: {integrity: sha512-K6MEnmN7Dg+NnEkfUUhjaKc/rPVY7tcGdsVUKOlC1/z2E6H6zjSSTdJg8z+sVJtZ03Ff1G/MHz2PYDyAS6gjQQ==}
 
   '@uni-helper/uni-env@0.1.7':
     resolution: {integrity: sha512-vxWnscbm1VgmK4ZzqN721mY0mIIVCeJutA32fH9P29itaYewVfL9VAWZWZi7nHJEssTkzhfdTTfydcnJKxUQzg==}
@@ -2369,21 +2374,21 @@ packages:
   '@uni-helper/vite-plugin-uni-components@0.2.0':
     resolution: {integrity: sha512-h/rV8Z3N+wus/ZviYzkdRePNSUlkndn5H+wVC17ZXmG+2mqmUfLJdGskzrCbgE7Y1TT7u8E9yMz8Ah/RwMf0GQ==}
 
-  '@uni-helper/vite-plugin-uni-layouts@0.1.10':
-    resolution: {integrity: sha512-RJdGmJjZtpKNVfShiKYZrualMxdi+i8uh7zpPG+X3lzf6wyKSJgWwVAj3GUdqeE/QUEncNPmj2sqwuyeLXPxbA==}
+  '@uni-helper/vite-plugin-uni-layouts@0.1.11':
+    resolution: {integrity: sha512-FXdFATBFsHAl7xY9q3KO0EexMRGua/7txIiQTm2rQi1/bXcft4CUXldtuHl9Upq0V6CT47aanmfzcOF5CpHK7Q==}
 
   '@uni-helper/vite-plugin-uni-manifest@0.2.8':
     resolution: {integrity: sha512-6QtUcCTkvpR5GAPUxyKlEtm+KYxOk1RSVfdrxlWYW2q7Iws0D7UeNirA4GMuc/SaayEjURlU7cUrS7NceoPCfQ==}
     peerDependencies:
       vite: ^4.0.0 || ^5.0.0 || ^6.0.0
 
-  '@uni-helper/vite-plugin-uni-pages@0.2.28':
-    resolution: {integrity: sha512-WSunH3tWjuw9tVAVOqo/RmkKPsaF97MY5I9FXuTuovs4j5oNgPiot9Ysb6T5RJN2KU2zlBlQi1dO/ZMj9b4BYA==}
+  '@uni-helper/vite-plugin-uni-pages@0.2.29':
+    resolution: {integrity: sha512-XrmSejBL74zDGfFEJBg7oQm6KaqaAyYY7CcFy9af0G3q9RopjxIGx9/4fGF6Aih0Ie/Tc/16AUJO2qaz37GfMg==}
     peerDependencies:
       vite: ^5.0.0
 
-  '@uni-helper/vite-plugin-uni-platform@0.0.4':
-    resolution: {integrity: sha512-aQnhpiLpxlxr6C2i6FsEbY6aFJH1igZUC5DsqoDscD/dBnpCPnovW9bFL/ig8qHsq87iAnqwhZtEpsLrzgrDaw==}
+  '@uni-helper/vite-plugin-uni-platform@0.0.5':
+    resolution: {integrity: sha512-T0lUwM3bGtGTcig3TBWP3VyRUQAY39/TMGL0064YMv8mt3F55S3KfpW7HIKEzV+EPF41TBX1ahhspuN8MJrpew==}
 
   '@uni-ku/bundle-optimizer@1.3.3':
     resolution: {integrity: sha512-/E7bxVH3Iu/ul8GOxNW18mvQ9ccuQ/HotfoXkHfNZhP346o6cHIn4lbrGTDw10sOfg47KR9zks6hjf5R6lywpw==}
@@ -6588,7 +6593,7 @@ snapshots:
   '@babel/generator@7.26.2':
     dependencies:
       '@babel/parser': 7.26.2
-      '@babel/types': 7.26.0
+      '@babel/types': 7.27.6
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 3.0.2
@@ -6616,7 +6621,7 @@ snapshots:
   '@babel/helper-builder-binary-assignment-operator-visitor@7.25.9':
     dependencies:
       '@babel/traverse': 7.27.1
-      '@babel/types': 7.27.1
+      '@babel/types': 7.27.6
     transitivePeerDependencies:
       - supports-color
 
@@ -6662,14 +6667,14 @@ snapshots:
   '@babel/helper-member-expression-to-functions@7.25.9':
     dependencies:
       '@babel/traverse': 7.27.1
-      '@babel/types': 7.27.1
+      '@babel/types': 7.27.6
     transitivePeerDependencies:
       - supports-color
 
   '@babel/helper-module-imports@7.25.9':
     dependencies:
       '@babel/traverse': 7.27.1
-      '@babel/types': 7.27.1
+      '@babel/types': 7.27.6
     transitivePeerDependencies:
       - supports-color
 
@@ -6684,7 +6689,7 @@ snapshots:
 
   '@babel/helper-optimise-call-expression@7.25.9':
     dependencies:
-      '@babel/types': 7.27.1
+      '@babel/types': 7.27.6
 
   '@babel/helper-plugin-utils@7.27.1': {}
 
@@ -6709,7 +6714,7 @@ snapshots:
   '@babel/helper-simple-access@7.25.9':
     dependencies:
       '@babel/traverse': 7.27.1
-      '@babel/types': 7.27.1
+      '@babel/types': 7.27.6
     transitivePeerDependencies:
       - supports-color
 
@@ -6734,7 +6739,7 @@ snapshots:
     dependencies:
       '@babel/template': 7.27.2
       '@babel/traverse': 7.27.1
-      '@babel/types': 7.27.1
+      '@babel/types': 7.27.6
     transitivePeerDependencies:
       - supports-color
 
@@ -6745,7 +6750,7 @@ snapshots:
 
   '@babel/parser@7.26.2':
     dependencies:
-      '@babel/types': 7.26.0
+      '@babel/types': 7.27.6
 
   '@babel/parser@7.27.2':
     dependencies:
@@ -7303,7 +7308,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.0
       '@babel/helper-plugin-utils': 7.27.1
-      '@babel/types': 7.27.1
+      '@babel/types': 7.27.6
       esutils: 2.0.3
 
   '@babel/runtime@7.26.0':
@@ -7314,7 +7319,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.26.2
       '@babel/parser': 7.26.2
-      '@babel/types': 7.26.0
+      '@babel/types': 7.27.6
 
   '@babel/template@7.27.2':
     dependencies:
@@ -7328,7 +7333,7 @@ snapshots:
       '@babel/generator': 7.26.2
       '@babel/parser': 7.26.2
       '@babel/template': 7.25.9
-      '@babel/types': 7.26.0
+      '@babel/types': 7.27.6
       debug: 4.4.1
       globals: 11.12.0
     transitivePeerDependencies:
@@ -9431,6 +9436,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@uni-helper/plugin-uni@0.1.0(@dcloudio/vite-plugin-uni@3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))(vue@3.5.15(typescript@5.7.2)))':
+    dependencies:
+      '@dcloudio/vite-plugin-uni': 3.0.0-4060620250520001(postcss@8.4.49)(rollup@4.41.1)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))(vue@3.5.15(typescript@5.7.2))
+
   '@uni-helper/uni-app-types@1.0.0-alpha.3(typescript@5.7.2)(vue@3.5.15(typescript@5.7.2))':
     dependencies:
       typescript: 5.7.2
@@ -9440,8 +9449,6 @@ snapshots:
     dependencies:
       typescript: 5.7.2
       vue: 3.5.15(typescript@5.7.2)
-
-  '@uni-helper/uni-env@0.0.3': {}
 
   '@uni-helper/uni-env@0.1.7':
     dependencies:
@@ -9487,12 +9494,12 @@ snapshots:
       - rollup
       - supports-color
 
-  '@uni-helper/vite-plugin-uni-layouts@0.1.10(rollup@4.41.1)':
+  '@uni-helper/vite-plugin-uni-layouts@0.1.11(rollup@4.41.1)':
     dependencies:
       '@babel/types': 7.27.6
       '@uni-helper/uni-env': 0.1.7
-      '@vue/compiler-core': 3.5.15
-      '@vue/compiler-sfc': 3.5.15
+      '@vue/compiler-core': 3.4.21
+      '@vue/compiler-sfc': 3.4.21
       ast-kit: 0.11.3(rollup@4.41.1)
       c12: 1.11.2
       chokidar: 3.6.0
@@ -9511,10 +9518,10 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@uni-helper/vite-plugin-uni-pages@0.2.28(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))':
+  '@uni-helper/vite-plugin-uni-pages@0.2.29(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))':
     dependencies:
       '@uni-helper/uni-env': 0.1.7
-      '@vue/compiler-sfc': 3.5.15
+      '@vue/compiler-sfc': 3.4.21
       chokidar: 3.6.0
       debug: 4.4.1
       detect-indent: 6.1.0
@@ -9525,13 +9532,13 @@ snapshots:
       magic-string: 0.30.17
       unconfig: 0.5.5
       vite: 5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0)
-      yaml: 2.6.1
+      yaml: 2.8.0
     transitivePeerDependencies:
       - supports-color
 
-  '@uni-helper/vite-plugin-uni-platform@0.0.4':
+  '@uni-helper/vite-plugin-uni-platform@0.0.5':
     dependencies:
-      '@uni-helper/uni-env': 0.0.3
+      '@uni-helper/uni-env': 0.1.7
 
   '@uni-ku/bundle-optimizer@1.3.3(postcss@8.4.49)(rollup@4.41.1)(vite@5.2.8(@types/node@20.17.9)(sass@1.77.8)(terser@5.36.0))(vue@3.5.15(typescript@5.7.2))':
     dependencies:
@@ -9932,14 +9939,14 @@ snapshots:
 
   '@vue/compiler-sfc@3.4.21':
     dependencies:
-      '@babel/parser': 7.26.2
+      '@babel/parser': 7.27.5
       '@vue/compiler-core': 3.4.21
       '@vue/compiler-dom': 3.4.21
       '@vue/compiler-ssr': 3.4.21
       '@vue/shared': 3.4.21
       estree-walker: 2.0.2
-      magic-string: 0.30.14
-      postcss: 8.4.49
+      magic-string: 0.30.17
+      postcss: 8.5.3
       source-map-js: 1.2.1
 
   '@vue/compiler-sfc@3.5.15':
