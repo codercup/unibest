@@ -12,7 +12,7 @@ type FgTabBarItem = TabBar['list'][0] & {
  * 2: 'CUSTOM_TABBAR_WITH_CACHE' `有缓存自定义 tabbar`
  * 3: 'CUSTOM_TABBAR_WITHOUT_CACHE' `无缓存自定义 tabbar`
  *
- * 温馨提示：本文件的任何代码更改了之后，都需要重新运行，否则 pages.json 不会更新导致错误
+ * 温馨提示：本文件的任何代码更改了之后，都需要重新运行，否则 pages.json 不会更新导致配置不生效
  */
 export const TABBAR_MAP = {
   NO_TABBAR: 0,
