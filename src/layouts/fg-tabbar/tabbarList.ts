@@ -42,7 +42,9 @@ export const tabbarList: FgTabBarItem[] = [
     pagePath: 'pages/about/about',
     text: '关于',
     icon: 'i-carbon-code',
-    // 注意 unocss 的图标需要在 页面上引入一下，或者配置到 unocss.config.ts 的 safelist 中
+    // 注意 unocss 图标需要如下处理：（二选一）
+    // 1）在fg-tabbar.vue页面上引入一下并注释掉（见代码第三行）
+    // 2）配置到 unocss.config.ts 的 safelist 中
     iconType: 'unocss',
   },
   // {
@@ -54,6 +56,7 @@ export const tabbarList: FgTabBarItem[] = [
   // {
   //   pagePath: 'pages/mine/index',
   //   text: '我的',
+  //   // 注意 iconfont 图标需要额外加上 'iconfont'，如下
   //   icon: 'iconfont icon-my',
   //   iconType: 'iconfont',
   // },
