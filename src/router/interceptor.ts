@@ -1,3 +1,4 @@
+import { tabbarStore } from '@/layouts/fg-tabbar/tabbar'
 /**
  * by 菲鸽 on 2024-03-06
  * 路由拦截，通常也是登录拦截
@@ -49,6 +50,7 @@ const navigateToInterceptor = {
     if (hasLogin) {
       return true
     }
+    tabbarStore.restorePrevIdx()
     const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(url)}`
     uni.navigateTo({ url: redirectRoute })
     return false
