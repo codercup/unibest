@@ -96,3 +96,21 @@ jobs:
           git checkout base-uview-plus
           git merge main --no-ff -m "Auto merge main into base-uview-plus"
           git push origin base-uview-plus
+
+  merge-to-base-skiyee-ui:
+    name: Merge main into base-skiyee-ui
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
+
+      - name: Merge main into base-skiyee-ui
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout base-skiyee-ui
+          git merge main --no-ff -m "Auto merge main into base-skiyee-ui"
+          git push origin base-skiyee-ui
