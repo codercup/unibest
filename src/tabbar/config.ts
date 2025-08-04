@@ -2,7 +2,7 @@ import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 
 type FgTabBarItem = TabBar['list'][0] & {
   icon: string
-  iconType: 'uiLib' | 'unocss' | 'iconfont' | 'local'
+  iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'local'
 }
 
 /**
@@ -34,11 +34,25 @@ export const tabbarList: FgTabBarItem[] = [
     selectedIconPath: 'static/tabbar/homeHL.png',
     pagePath: 'pages/index/index',
     text: '首页',
-    // 选用 UI 框架自带的 icon 时，iconType 为 uiLib
-    // 需要自行替换vue代码中的图标代码
-    iconType: 'uiLib',
+    // 本框架内置了 uniapp 官方UI库 （uni-ui)的图标库
+    // 使用方式如：<uni-icons type="home" size="30"/>
+    // 图标列表地址：https://uniapp.dcloud.net.cn/component/uniui/uni-icons.html
+    iconType: 'uniUi',
     icon: 'home',
   },
+  // {
+  //   iconPath: 'static/tabbar/home.png',
+  //   selectedIconPath: 'static/tabbar/homeHL.png',
+  //   pagePath: 'pages/index/index',
+  //   text: '首页',
+  //   // 选用 UI 框架自带的 icon 时，iconType 为 uiLib
+  //   // 需要自行替换vue代码中的图标代码，需要查看相关UI库的图标代码
+  //   // 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html)
+  //   // 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html)
+  //   // 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^)
+  //   iconType: 'uiLib',
+  //   icon: 'home',
+  // },
   {
     iconPath: 'static/tabbar/example.png',
     selectedIconPath: 'static/tabbar/exampleHL.png',
