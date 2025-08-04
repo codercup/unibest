@@ -15,3 +15,13 @@
 
 
 > 注意：花里胡哨的效果需要自己实现，本模版不提供。
+
+## 配置说明
+
+- 如果使用的是原生tabbar, 则每个 item 需要配置 `path`、`text`、`iconPath`、`selectedIconPath` 等属性。
+- 如果使用的是自定义tabbar, 则每个 item 需要配置 `path`、`text`、`icon` 、`iconType` 等属性。
+
+## 如果是自定义tabbar, 且通过接口拿到tabbar列表
+则，需要跟原生tabbar的path对应上即可。
+
+另外，如果用的是 Unocss 图标，还需要在 `uno.config.ts` 的 `safelist` 中添加图标名称。

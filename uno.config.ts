@@ -39,6 +39,7 @@ export default defineConfig({
       center: 'flex justify-center items-center',
     },
   ],
+  // 动态图标需要在这里配置，或者写在vue页面中注释掉
   safelist: [],
   rules: [
     [
