@@ -21,7 +21,7 @@ export const TABBAR_MAP = {
   CUSTOM_TABBAR_WITHOUT_CACHE: 3,
 }
 // TODO：通过这里切换使用tabbar的策略
-export const selectedTabbarStrategy = TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
+export const selectedTabbarStrategy = TABBAR_MAP.NATIVE_TABBAR
 
 // selectedTabbarStrategy==NATIVE_TABBAR(1) 时，需要填 iconPath 和 selectedIconPath
 // selectedTabbarStrategy==CUSTOM_TABBAR(2,3) 时，需要填 icon 和 iconType
