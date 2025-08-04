@@ -63,8 +63,15 @@ export const tabbarList: FgTabBarItem[] = [
 ]
 
 // NATIVE_TABBAR(1) 和 CUSTOM_TABBAR_WITH_CACHE(2) 时，需要tabbar缓存
-export const cacheTabbarEnable = selectedTabbarStrategy === TABBAR_MAP.NATIVE_TABBAR
+export const tabbarCacheEnable = selectedTabbarStrategy === TABBAR_MAP.NATIVE_TABBAR
   || selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
+
+// CUSTOM_TABBAR_WITH_CACHE(2) 和 CUSTOM_TABBAR_WITHOUT_CACHE(3) 时，启用自定义tabbar
+export const customTabbarEnable = selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
+  || selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITHOUT_CACHE
+
+// CUSTOM_TABBAR_WITH_CACHE(2)时，需要隐藏原生tabbar
+export const nativeTabbarNeedHide = selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
 
 const _tabbar: TabBar = {
   // 只有微信小程序支持 custom。App 和 H5 不生效
@@ -81,4 +88,4 @@ const _tabbar: TabBar = {
 }
 
 // 0和1 需要显示底部的tabbar的各种配置，以利用缓存
-export const tabBar = cacheTabbarEnable ? _tabbar : undefined
+export const tabBar = tabbarCacheEnable ? _tabbar : undefined
