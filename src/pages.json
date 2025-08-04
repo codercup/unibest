@@ -30,7 +30,7 @@
         "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconType": "uiLib",
+        "iconType": "uniUi",
         "icon": "home"
       },
       {
