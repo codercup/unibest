@@ -43,6 +43,10 @@ const inactiveColor = '#666'
 function getColorByIndex(index: number) {
   return tabbarStore.curIdx === index ? activeColor : inactiveColor
 }
+
+function getImageByIndex(index: number, item: { iconActive: string, icon: string }) {
+  return tabbarStore.curIdx === index ? item.iconActive : item.icon
+}
 </script>
 
 <template>
@@ -67,6 +71,9 @@ function getColorByIndex(index: number) {
           </template>
           <template v-if="item.iconType === 'unocss' || item.iconType === 'iconfont'">
             <view :class="item.icon" class="text-20px" />
+          </template>
+          <template v-if="item.iconType === 'local'">
+            <image :src="getImageByIndex(index, item)" mode="scaleToFill" class="h-20px w-20px" />
           </template>
           <view class="mt-2px text-12px">
             {{ item.text }}

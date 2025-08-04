@@ -21,10 +21,10 @@ export const TABBAR_MAP = {
   CUSTOM_TABBAR_WITHOUT_CACHE: 3,
 }
 
-// TODO：1. 通过这里切换使用tabbar的策略
+// TODO: 1/3. 通过这里切换使用tabbar的策略
 export const selectedTabbarStrategy = TABBAR_MAP.NATIVE_TABBAR
 
-// TODO：2. 更新下面的tabbar配置
+// TODO: 2/3. 更新下面的tabbar配置
 // selectedTabbarStrategy==NATIVE_TABBAR(1) 时，需要填 iconPath 和 selectedIconPath
 // selectedTabbarStrategy==CUSTOM_TABBAR(2,3) 时，需要填 iconType 和 icon
 // selectedTabbarStrategy==NO_TABBAR(0) 时，tabbarList 不生效
@@ -46,7 +46,7 @@ export const tabbarList: FgTabBarItem[] = [
   //   pagePath: 'pages/index/index',
   //   text: '首页',
   //   // 选用 UI 框架自带的 icon 时，iconType 为 uiLib
-  //   // 需要自行替换vue代码中的图标代码，需要查看相关UI库的图标代码
+  //   // TODO: 3/3. 需要自行替换vue代码中的图标代码，具体代码在 `tabbar/index.vue` 62行
   //   // 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html)
   //   // 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html)
   //   // 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^)
