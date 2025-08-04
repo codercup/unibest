@@ -46,8 +46,8 @@ function getColorByIndex(index: number) {
 </script>
 
 <template>
-  <view v-if="customTabbarEnable">
-    <view class="__content__ border-and-fixed bg-white" @touchmove.stop.prevent>
+  <view v-if="customTabbarEnable" class="h-50px pb-safe">
+    <view class="border-and-fixed bg-white" @touchmove.stop.prevent>
       <view class="h-50px flex items-center">
         <view
           v-for="(item, index) in tabbarList" :key="index"
@@ -73,9 +73,8 @@ function getColorByIndex(index: number) {
           </view>
         </view>
       </view>
-      <view class="h-1px pb-safe" />
+      <view class="pb-safe" />
     </view>
-    <view class="__placeholder__ h-50px" />
   </view>
 </template>
 
