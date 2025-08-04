@@ -46,32 +46,34 @@ function getColorByIndex(index: number) {
 </script>
 
 <template>
-  <view v-if="customTabbarEnable" class="flex items-center justify-between">
-    <view class="__content__ border-and-fixed h-50px flex" @touchmove.stop.prevent>
-      <view
-        v-for="(item, index) in tabbarList" :key="index"
-        class="flex flex-1 flex-col items-center justify-center"
-        :style="{ color: getColorByIndex(index) }"
-        @click="handleClick(index)"
-      >
-        <template v-if="item.iconType === 'uniUi'">
-          <uni-icons :type="item.icon" size="20" :color="getColorByIndex(index)" />
-        </template>
-        <template v-if="item.iconType === 'uiLib'">
-          <!-- TODO: 以下内容请根据选择的UI库自行替换 -->
-          <!-- 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html) -->
-          <!-- 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html) -->
-          <!-- 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^) -->
-          <wd-icon :name="item.icon" />
-        </template>
-        <template v-if="item.iconType === 'unocss' || item.iconType === 'iconfont'">
-          <view :class="item.icon" />
-        </template>
-        <view class="text-12px">
-          {{ item.text }}
+  <view v-if="customTabbarEnable">
+    <view class="__content__ border-and-fixed bg-white" @touchmove.stop.prevent>
+      <view class="h-50px flex items-center">
+        <view
+          v-for="(item, index) in tabbarList" :key="index"
+          class="flex flex-1 flex-col items-center justify-center"
+          :style="{ color: getColorByIndex(index) }"
+          @click="handleClick(index)"
+        >
+          <template v-if="item.iconType === 'uniUi'">
+            <uni-icons :type="item.icon" size="20" :color="getColorByIndex(index)" />
+          </template>
+          <template v-if="item.iconType === 'uiLib'">
+            <!-- TODO: 以下内容请根据选择的UI库自行替换 -->
+            <!-- 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html) -->
+            <!-- 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html) -->
+            <!-- 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^) -->
+            <wd-icon :name="item.icon" size="20" />
+          </template>
+          <template v-if="item.iconType === 'unocss' || item.iconType === 'iconfont'">
+            <view :class="item.icon" class="text-20px" />
+          </template>
+          <view class="mt-2px text-12px">
+            {{ item.text }}
+          </view>
         </view>
       </view>
-      <view class="pb-safe" />
+      <view class="h-1px pb-safe" />
     </view>
     <view class="__placeholder__ h-50px" />
   </view>
