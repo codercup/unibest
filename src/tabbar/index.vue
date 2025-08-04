@@ -55,7 +55,7 @@ onLoad(() => {
       </wd-tabbar-item>
       <wd-tabbar-item v-else-if="item.iconType === 'local'" :title="item.text">
         <template #icon>
-          <image :src="item.icon" h-40rpx w-40rpx />
+          <image :src="item.icon" class="h-40rpx w-40rpx" />
         </template>
       </wd-tabbar-item>
     </block>

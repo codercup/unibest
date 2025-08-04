@@ -30,8 +30,8 @@
         "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
         "text": "首页",
-        "icon": "home",
-        "iconType": "uiLib"
+        "icon": "/static/tabbar/home.png",
+        "iconType": "local"
       },
       {
         "iconPath": "static/tabbar/example.png",

@@ -2,7 +2,7 @@ import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 
 type FgTabBarItem = TabBar['list'][0] & {
   icon: string
-  iconType: 'uiLib' | 'unocss' | 'iconfont'
+  iconType: 'uiLib' | 'unocss' | 'iconfont' | 'local'
 }
 
 /**
@@ -26,7 +26,7 @@ export const selectedTabbarStrategy = TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
 
 // TODO：2. 更新下面的tabbar配置
 // selectedTabbarStrategy==NATIVE_TABBAR(1) 时，需要填 iconPath 和 selectedIconPath
-// selectedTabbarStrategy==CUSTOM_TABBAR(2,3) 时，需要填 icon 和 iconType
+// selectedTabbarStrategy==CUSTOM_TABBAR(2,3) 时，需要填 iconType 和 icon
 // selectedTabbarStrategy==NO_TABBAR(0) 时，tabbarList 不生效
 export const tabbarList: FgTabBarItem[] = [
   {
@@ -34,33 +34,39 @@ export const tabbarList: FgTabBarItem[] = [
     selectedIconPath: 'static/tabbar/homeHL.png',
     pagePath: 'pages/index/index',
     text: '首页',
-    icon: 'home',
     // 选用 UI 框架自带的 icon 时，iconType 为 uiLib
+    // 需要自行替换vue代码中的图标代码
     iconType: 'uiLib',
+    icon: 'home',
   },
   {
     iconPath: 'static/tabbar/example.png',
     selectedIconPath: 'static/tabbar/exampleHL.png',
     pagePath: 'pages/about/about',
     text: '关于',
-    icon: 'i-carbon-code',
     // 注意 unocss 图标需要如下处理：（二选一）
     // 1）在fg-tabbar.vue页面上引入一下并注释掉（见tabbar/index.vue代码第2行）
     // 2）配置到 unocss.config.ts 的 safelist 中
     iconType: 'unocss',
+    icon: 'i-carbon-code',
   },
-  // {
-  //   pagePath: 'pages/my/index',
-  //   text: '我的',
-  //   icon: '/static/logo.svg',
-  //   iconType: 'local',
-  // },
   // {
   //   pagePath: 'pages/mine/index',
   //   text: '我的',
   //   // 注意 iconfont 图标需要额外加上 'iconfont'，如下
-  //   icon: 'iconfont icon-my',
   //   iconType: 'iconfont',
+  //   icon: 'iconfont icon-my',
+  // },
+  // {
+  //   iconPath: 'static/tabbar/home.png',
+  //   selectedIconPath: 'static/tabbar/homeHL.png',
+  //   pagePath: 'pages/index/index',
+  //   text: '首页',
+  //   // 使用 ‘local’时，需要配置 icon + iconActive 2张图片（不推荐）
+  //   // 既然已经用了自定义tabbar了，就不建议用图片了，所以不推荐
+  //   iconType: 'local',
+  //   icon: '/static/tabbar/home.png',
+  //   iconActive: '/static/tabbar/homeHL.png',
   // },
 ]
 
