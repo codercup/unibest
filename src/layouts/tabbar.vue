@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { ConfigProviderThemeVars } from 'wot-design-uni'
-import FgTabbar from '@/tabbar/fg-tabbar.vue'
+import FgTabbar from '@/tabbar/index.vue'
 
 const themeVars: ConfigProviderThemeVars = {
   // colorTheme: 'red',
