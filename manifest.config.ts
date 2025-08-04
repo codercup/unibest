@@ -127,6 +127,7 @@ export default defineManifestConfig({
     optimization: {
       subPackages: true,
     },
+    // styleIsolation: 'shared',
     usingComponents: true,
     // __usePrivacyCheck__: true,
   },
