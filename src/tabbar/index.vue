@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { tabbarStore } from './tabbar'
 // 'i-carbon-code',
-import { tabbarList as _tabBarList, cacheTabbarEnable, selectedTabbarStrategy, TABBAR_MAP } from './tabbarList'
+import { tabbarList as _tabBarList, cacheTabbarEnable, selectedTabbarStrategy, TABBAR_MAP } from './config'
+import { tabbarStore } from './store'
 
 const customTabbarEnable
 = selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE

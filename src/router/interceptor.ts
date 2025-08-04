@@ -5,7 +5,7 @@
  * 我这里应为大部分都可以随便进入，所以使用黑名单
  */
 import { useUserStore } from '@/store'
-import { tabbarStore } from '@/tabbar/tabbar'
+import { tabbarStore } from '@/tabbar/store'
 import { needLoginPages as _needLoginPages, getLastPage, getNeedLoginPages } from '@/utils'
 
 // TODO Check
