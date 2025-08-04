@@ -1,7 +1,7 @@
 import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 
 type FgTabBarItem = TabBar['list'][0] & {
-  icon: string
+  icon: any // 其实是 string 类型，这里是为了避免 ts 报错
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'local'
 }
 
