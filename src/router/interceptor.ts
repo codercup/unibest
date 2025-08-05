@@ -1,4 +1,3 @@
-import { tabbarStore } from '@/layouts/fg-tabbar/tabbar'
 /**
  * by 菲鸽 on 2024-03-06
  * 路由拦截，通常也是登录拦截
@@ -6,6 +5,7 @@ import { tabbarStore } from '@/layouts/fg-tabbar/tabbar'
  * 我这里应为大部分都可以随便进入，所以使用黑名单
  */
 import { useUserStore } from '@/store'
+import { tabbarStore } from '@/tabbar/store'
 import { needLoginPages as _needLoginPages, getLastPage, getNeedLoginPages } from '@/utils'
 
 // TODO Check

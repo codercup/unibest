@@ -76,6 +76,38 @@ console.log('index')
         https://unibest.tech
       </text>
     </view>
+
+    <!-- #ifdef H5 -->
+    <view class="mt-4 text-center">
+      <a href="https://unibest.tech/base/3-plugin" target="_blank" class="text-green-500">
+        新手请看必看章节1：
+      </a>
+    </view>
+    <!-- #endif -->
+    <!-- #ifdef MP-WEIXIN -->
+    <view class="mt-4 text-center">
+      新手请看必看章节1：
+      <text class="text-green-500">
+        https://unibest.tech/base/3-plugin
+      </text>
+    </view>
+    <!-- #endif -->
+    <!-- #ifdef H5 -->
+    <view class="mt-4 text-center">
+      <a href="https://unibest.tech/base/14-faq" target="_blank" class="text-green-500">
+        新手请看必看章节2：
+      </a>
+    </view>
+    <!-- #endif -->
+    <!-- #ifdef MP-WEIXIN -->
+    <view class="mt-4 text-center">
+      新手请看必看章节2：
+      <text class="text-green-500">
+        https://unibest.tech/base/14-faq
+      </text>
+    </view>
+    <!-- #endif -->
+
     <view class="mt-4 text-center">
       <wd-button type="primary">
         UI组件按钮
