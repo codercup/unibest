@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { useQuery } from '@tanstack/vue-query'
 import { foo } from '@/api/foo'
-import { getFooQueryOptions } from '@/service/index/vue-query'
+import { getFooQueryOptions } from '@/api/foo-vue-query'
 
 // 简单使用
 onShow(async () => {
