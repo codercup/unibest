@@ -6,8 +6,7 @@ index 2adcf3437a54b6ac130a3d018bdd5c4eab35bdf6..365844a2c06dc7c80d227978c5a4defe
      const customPageMetaData = overrides || [];
      const result = customPageMetaData.length ? mergePageMetaDataArray(generatedPageMetaData.concat(customPageMetaData)) : generatedPageMetaData;
      const parseMeta = result.filter(
--      (page, index, self) => self.findLastIndex((item) => page.path === item.path) === index
-+      (page, index, self) => self.slice().reverse().findIndex((item) => page.path === item.path) === index
+      (page, index, self) => self.slice().reverse().findIndex((item) => page.path === item.path) === (self.length - 1 - index)
      );
      return type === "main" ? this.setHomePage(parseMeta) : parseMeta;
    }
