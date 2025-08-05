@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import RequestComp from './components/request.vue'
+import I18nComp from './i18n.vue'
 
 function gotoI18nPage() {
   uni.navigateTo({
@@ -37,7 +38,11 @@ function gotoVueQuery() {
 
 <template>
   <view>
-    <view class="mt-8 text-center text-xl text-gray-400">
+    <view class="mt-8 text-center text-green-500">
+      tabbar 页面也测试一下，也是成功的
+      <I18nComp />
+    </view>
+    <view class="mt-1 text-center text-xl text-gray-400">
       组件使用、请求调用、unocss
     </view>
     <RequestComp />
