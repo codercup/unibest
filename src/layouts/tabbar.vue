@@ -10,7 +10,7 @@ const themeVars: ConfigProviderThemeVars = {
   // buttonPrimaryColor: '#07c160',
 }
 onShow(() => {
-  console.log('tabbar - onSHow')
+  console.log('layout tabbar - onSHow')
   uni.setNavigationBarTitle({
     title: getI18nText(getCurrentPageI18nKey()),
   })

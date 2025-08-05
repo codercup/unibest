@@ -32,11 +32,6 @@ function radioChange(evt) {
   uni.setLocale(evt.detail.value)
   i18n.global.locale = evt.detail.value
 
-  // 当前页面标题需要立马重新设置一下
-  uni.setNavigationBarTitle({
-    title: t('i18n.title'),
-  })
-
   // 底部tabbar需要重新设置一下
   setTabbarItem()
 }
