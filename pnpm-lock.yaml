@@ -11,6 +11,9 @@ patchedDependencies:
   '@dcloudio/uni-h5':
     hash: 5763725268e9a493075be3c82d91b590b9ae30e997a04a418494dd7d6d327b9d
     path: patches/@dcloudio__uni-h5.patch
+  '@uni-helper/vite-plugin-uni-pages':
+    hash: 1069394792b57782811bd75a9511606adf6a37d4f1c37d55506a5c5b701938ac
+    path: patches/@uni-helper__vite-plugin-uni-pages.patch
 
 importers:
 
@@ -166,7 +169,7 @@ importers:
         version: 0.2.8(vite@5.2.8(@types/node@20.19.9)(sass@1.77.8)(terser@5.43.1))
       '@uni-helper/vite-plugin-uni-pages':
         specifier: 0.2.29
-        version: 0.2.29(vite@5.2.8(@types/node@20.19.9)(sass@1.77.8)(terser@5.43.1))
+        version: 0.2.29(patch_hash=1069394792b57782811bd75a9511606adf6a37d4f1c37d55506a5c5b701938ac)(vite@5.2.8(@types/node@20.19.9)(sass@1.77.8)(terser@5.43.1))
       '@uni-helper/vite-plugin-uni-platform':
         specifier: 0.0.5
         version: 0.0.5
@@ -9478,7 +9481,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@uni-helper/vite-plugin-uni-pages@0.2.29(vite@5.2.8(@types/node@20.19.9)(sass@1.77.8)(terser@5.43.1))':
+  '@uni-helper/vite-plugin-uni-pages@0.2.29(patch_hash=1069394792b57782811bd75a9511606adf6a37d4f1c37d55506a5c5b701938ac)(vite@5.2.8(@types/node@20.19.9)(sass@1.77.8)(terser@5.43.1))':
     dependencies:
       '@uni-helper/uni-env': 0.1.7
       '@vue/compiler-sfc': 3.4.21

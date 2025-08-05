@@ -1,6 +1,6 @@
 packages:
   - '**'
   - '!node_modules'
-
 patchedDependencies:
   '@dcloudio/uni-h5': patches/@dcloudio__uni-h5.patch
+  '@uni-helper/vite-plugin-uni-pages': patches/@uni-helper__vite-plugin-uni-pages.patch
