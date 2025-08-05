@@ -1,8 +1,9 @@
 import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 
 type FgTabBarItem = TabBar['list'][0] & {
-  icon: any // 其实是 string 类型，这里是为了避免 ts 报错
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'local'
+  icon: any // 其实是 string 类型，这里是为了避免 ts 报错
+  activeIcon?: string // 只有在 local 模式下才需要，传递的是高亮的图片（PS： 不建议用 local 模式）
 }
 
 /**
