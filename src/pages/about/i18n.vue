@@ -40,12 +40,6 @@ function radioChange(evt) {
   // 底部tabbar需要重新设置一下
   setTabbarItem()
 }
-
-onShow(() => {
-  uni.setNavigationBarTitle({
-    title: t('i18n.title'),
-  })
-})
 </script>
 
 <template>

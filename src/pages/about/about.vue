@@ -8,7 +8,6 @@
 </route>
 
 <script lang="ts" setup>
-import { t } from '@/locale'
 import RequestComp from './components/request.vue'
 
 function gotoI18nPage() {
@@ -34,12 +33,6 @@ function gotoVueQuery() {
     url: '/pages/about/vue-query',
   })
 }
-
-onShow(() => {
-  uni.setNavigationBarTitle({
-    title: t('tabbar.about'),
-  })
-})
 </script>
 
 <template>

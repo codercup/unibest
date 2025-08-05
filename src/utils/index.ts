@@ -10,13 +10,6 @@ export function getLastPage() {
   return pages[pages.length - 1]
 }
 
-export function isCurrentPageTabbar() {
-  const lastPage = getLastPage()
-  const currRoute = (lastPage as any).$page
-  const { fullPath } = currRoute as { fullPath: string }
-  return tabbarList.some(item => `/${item.path}` === fullPath)
-}
-
 /**
  * 获取当前页面路由的 path 路径和 redirectPath 路径
  * path 如 '/pages/login/index'
@@ -98,6 +91,23 @@ export function getAllPages(key = 'needLogin') {
   const result = [...mainPages, ...subPages]
   // console.log(`getAllPages by ${key} result: `, result)
   return result
+}
+
+export function isCurrentPageTabbar() {
+  const routeObj = currRoute()
+  return tabbarList.some(item => `/${item.pagePath}` === routeObj.path)
+}
+
+export function getCurrentPageI18nKey() {
+  const routeObj = currRoute()
+  const currPage = pages.find(page => `/${page.path}` === routeObj.path)
+  if (!currPage) {
+    console.warn('路由不正确')
+    return ''
+  }
+  console.log(currPage)
+  console.log(currPage.style.navigationBarTitleText)
+  return currPage.style.navigationBarTitleText
 }
 
 /**
