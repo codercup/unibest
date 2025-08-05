@@ -1,24 +1,24 @@
 /* eslint-disable */
 // @ts-ignore
-import request from '@/utils/request';
+import request from '@/http/vue-query';
 import { CustomRequestOptions } from '@/http/interceptor';
 
 import * as API from './types';
 
 /** Returns pet inventories by status Returns a map of status codes to quantities GET /store/inventory */
-export async function getInventory({
+export async function storeInventoryUsingGet({
   options,
 }: {
   options?: CustomRequestOptions;
 }) {
-  return request<Record<string, unknown>>('/store/inventory', {
+  return request<Record<string, number>>('/store/inventory', {
     method: 'GET',
     ...(options || {}),
   });
 }
 
 /** Place an order for a pet POST /store/order */
-export async function placeOrder({
+export async function storeOrderUsingPost({
   body,
   options,
 }: {
@@ -36,12 +36,12 @@ export async function placeOrder({
 }
 
 /** Find purchase order by ID For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions GET /store/order/${param0} */
-export async function getOrderById({
+export async function storeOrderOrderIdUsingGet({
   params,
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.getOrderByIdParams;
+  params: API.storeOrderOrderIdUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   const { orderId: param0, ...queryParams } = params;
@@ -54,12 +54,12 @@ export async function getOrderById({
 }
 
 /** Delete purchase order by ID For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors DELETE /store/order/${param0} */
-export async function deleteOrder({
+export async function storeOrderOrderIdUsingDelete({
   params,
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.deleteOrderParams;
+  params: API.storeOrderOrderIdUsingDeleteParams;
   options?: CustomRequestOptions;
 }) {
   const { orderId: param0, ...queryParams } = params;

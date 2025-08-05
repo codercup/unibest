@@ -30,16 +30,16 @@
         "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
         "text": "%tabbar.home%",
-        "icon": "home",
-        "iconType": "uiLib"
+        "iconType": "uniUi",
+        "icon": "home"
       },
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
         "pagePath": "pages/about/about",
         "text": "%tabbar.about%",
-        "icon": "i-carbon-code",
-        "iconType": "unocss"
+        "iconType": "unocss",
+        "icon": "i-carbon-code"
       }
     ]
   },

@@ -1,11 +1,11 @@
 import type { uniappRequestAdapter } from '@alova/adapter-uniapp'
-import type { IResponse } from './types'
+import type { IResponse } from './tools/types'
 import AdapterUniapp from '@alova/adapter-uniapp'
 import { createAlova } from 'alova'
 import { createServerTokenAuthentication } from 'alova/client'
 import VueHook from 'alova/vue'
 import { toast } from '@/utils/toast'
-import { ContentTypeEnum, ResultEnum, ShowMessage } from './enum'
+import { ContentTypeEnum, ResultEnum, ShowMessage } from './tools/enum'
 
 // 配置动态Tag
 export const API_DOMAINS = {

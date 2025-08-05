@@ -2,21 +2,21 @@
 // @ts-ignore
 import { queryOptions, useMutation } from '@tanstack/vue-query';
 import type { DefaultError } from '@tanstack/vue-query';
-import request from '@/utils/request';
+import request from '@/http/vue-query';
 import { CustomRequestOptions } from '@/http/interceptor';
 
 import * as apis from './user';
 import * as API from './types';
 
 /** Create user This can only be done by the logged in user. 返回值: successful operation POST /user */
-export function useCreateUserMutation(options?: {
+export function useUserUsingPostMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.createUser,
+    mutationFn: apis.userUsingPost,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -29,28 +29,28 @@ export function useCreateUserMutation(options?: {
 }
 
 /** Get user by user name GET /user/${param0} */
-export function getUserByNameQueryOptions(options: {
+export function userUsernameUsingGetQueryOptions(options: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.getUserByNameParams;
+  params: API.userUsernameUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   return queryOptions({
     queryFn: async ({ queryKey }) => {
-      return apis.getUserByName(queryKey[1] as typeof options);
+      return apis.userUsernameUsingGet(queryKey[1] as typeof options);
     },
-    queryKey: ['getUserByName', options],
+    queryKey: ['userUsernameUsingGet', options],
   });
 }
 
 /** Updated user This can only be done by the logged in user. PUT /user/${param0} */
-export function useUpdateUserMutation(options?: {
+export function useUserUsernameUsingPutMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.updateUser,
+    mutationFn: apis.userUsernameUsingPut,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -63,14 +63,14 @@ export function useUpdateUserMutation(options?: {
 }
 
 /** Delete user This can only be done by the logged in user. DELETE /user/${param0} */
-export function useDeleteUserMutation(options?: {
+export function useUserUsernameUsingDeleteMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.deleteUser,
+    mutationFn: apis.userUsernameUsingDelete,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -83,14 +83,14 @@ export function useDeleteUserMutation(options?: {
 }
 
 /** Creates list of users with given input array 返回值: successful operation POST /user/createWithArray */
-export function useCreateUsersWithArrayInputMutation(options?: {
+export function useUserCreateWithArrayUsingPostMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.createUsersWithArrayInput,
+    mutationFn: apis.userCreateWithArrayUsingPost,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -103,14 +103,14 @@ export function useCreateUsersWithArrayInputMutation(options?: {
 }
 
 /** Creates list of users with given input array 返回值: successful operation POST /user/createWithList */
-export function useCreateUsersWithListInputMutation(options?: {
+export function useUserCreateWithListUsingPostMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.createUsersWithListInput,
+    mutationFn: apis.userCreateWithListUsingPost,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -123,27 +123,27 @@ export function useCreateUsersWithListInputMutation(options?: {
 }
 
 /** Logs user into the system GET /user/login */
-export function loginUserQueryOptions(options: {
+export function userLoginUsingGetQueryOptions(options: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.loginUserParams;
+  params: API.userLoginUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   return queryOptions({
     queryFn: async ({ queryKey }) => {
-      return apis.loginUser(queryKey[1] as typeof options);
+      return apis.userLoginUsingGet(queryKey[1] as typeof options);
     },
-    queryKey: ['loginUser', options],
+    queryKey: ['userLoginUsingGet', options],
   });
 }
 
 /** Logs out current logged in user session 返回值: successful operation GET /user/logout */
-export function logoutUserQueryOptions(options: {
+export function userLogoutUsingGetQueryOptions(options: {
   options?: CustomRequestOptions;
 }) {
   return queryOptions({
     queryFn: async ({ queryKey }) => {
-      return apis.logoutUser(queryKey[1] as typeof options);
+      return apis.userLogoutUsingGet(queryKey[1] as typeof options);
     },
-    queryKey: ['logoutUser', options],
+    queryKey: ['userLogoutUsingGet', options],
   });
 }

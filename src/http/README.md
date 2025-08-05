@@ -2,8 +2,8 @@
 
 目前unibest支持3种请求库：
 - 菲鸽简单封装的 `简单版本http`，路径（src/http/http.ts），对应的示例在 src/api/foo.ts
-- `alova 的 http`，路径（src/http/request/alova.ts），对应的示例在 src/api/foo-alova.ts
-- `vue-query`, 路径（src/utils/request.ts）, 目前主要用在自动生成接口，详情看(https://unibest.tech/base/17-generate)，示例在 src/service/app 文件夹
+- `alova 的 http`，路径（src/http/alova.ts），对应的示例在 src/api/foo-alova.ts
+- `vue-query`, 路径（src/http/vue-query.ts）, 目前主要用在自动生成接口，详情看(https://unibest.tech/base/17-generate)，示例在 src/service/app 文件夹
 
 ## 如何选择
 如果您以前用过 alova 或者 vue-query，可以优先使用您熟悉的。

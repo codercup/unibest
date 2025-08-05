@@ -2,21 +2,21 @@
 // @ts-ignore
 import { queryOptions, useMutation } from '@tanstack/vue-query';
 import type { DefaultError } from '@tanstack/vue-query';
-import request from '@/utils/request';
+import request from '@/http/vue-query';
 import { CustomRequestOptions } from '@/http/interceptor';
 
 import * as apis from './pet';
 import * as API from './types';
 
 /** Update an existing pet PUT /pet */
-export function useUpdatePetMutation(options?: {
+export function usePetUsingPutMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.updatePet,
+    mutationFn: apis.petUsingPut,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -29,14 +29,14 @@ export function useUpdatePetMutation(options?: {
 }
 
 /** Add a new pet to the store POST /pet */
-export function useAddPetMutation(options?: {
+export function usePetUsingPostMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.addPet,
+    mutationFn: apis.petUsingPost,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -49,28 +49,28 @@ export function useAddPetMutation(options?: {
 }
 
 /** Find pet by ID Returns a single pet GET /pet/${param0} */
-export function getPetByIdQueryOptions(options: {
+export function petPetIdUsingGetQueryOptions(options: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.getPetByIdParams;
+  params: API.petPetIdUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   return queryOptions({
     queryFn: async ({ queryKey }) => {
-      return apis.getPetById(queryKey[1] as typeof options);
+      return apis.petPetIdUsingGet(queryKey[1] as typeof options);
     },
-    queryKey: ['getPetById', options],
+    queryKey: ['petPetIdUsingGet', options],
   });
 }
 
 /** Updates a pet in the store with form data POST /pet/${param0} */
-export function useUpdatePetWithFormMutation(options?: {
+export function usePetPetIdUsingPostMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.updatePetWithForm,
+    mutationFn: apis.petPetIdUsingPost,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -83,14 +83,14 @@ export function useUpdatePetWithFormMutation(options?: {
 }
 
 /** Deletes a pet DELETE /pet/${param0} */
-export function useDeletePetMutation(options?: {
+export function usePetPetIdUsingDeleteMutation(options?: {
   onSuccess?: (value?: unknown) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.deletePet,
+    mutationFn: apis.petPetIdUsingDelete,
     onSuccess(data: unknown) {
       onSuccess?.(data);
     },
@@ -103,14 +103,14 @@ export function useDeletePetMutation(options?: {
 }
 
 /** uploads an image POST /pet/${param0}/uploadImage */
-export function useUploadFileMutation(options?: {
+export function usePetPetIdUploadImageUsingPostMutation(options?: {
   onSuccess?: (value?: API.ApiResponse) => void;
   onError?: (error?: DefaultError) => void;
 }) {
   const { onSuccess, onError } = options || {};
 
   const response = useMutation({
-    mutationFn: apis.uploadFile,
+    mutationFn: apis.petPetIdUploadImageUsingPost,
     onSuccess(data: API.ApiResponse) {
       onSuccess?.(data);
     },
@@ -123,29 +123,29 @@ export function useUploadFileMutation(options?: {
 }
 
 /** Finds Pets by status Multiple status values can be provided with comma separated strings GET /pet/findByStatus */
-export function findPetsByStatusQueryOptions(options: {
+export function petFindByStatusUsingGetQueryOptions(options: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.findPetsByStatusParams;
+  params: API.petFindByStatusUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   return queryOptions({
     queryFn: async ({ queryKey }) => {
-      return apis.findPetsByStatus(queryKey[1] as typeof options);
+      return apis.petFindByStatusUsingGet(queryKey[1] as typeof options);
     },
-    queryKey: ['findPetsByStatus', options],
+    queryKey: ['petFindByStatusUsingGet', options],
   });
 }
 
 /** Finds Pets by tags Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing. GET /pet/findByTags */
-export function findPetsByTagsQueryOptions(options: {
+export function petFindByTagsUsingGetQueryOptions(options: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.findPetsByTagsParams;
+  params: API.petFindByTagsUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   return queryOptions({
     queryFn: async ({ queryKey }) => {
-      return apis.findPetsByTags(queryKey[1] as typeof options);
+      return apis.petFindByTagsUsingGet(queryKey[1] as typeof options);
     },
-    queryKey: ['findPetsByTags', options],
+    queryKey: ['petFindByTagsUsingGet', options],
   });
 }

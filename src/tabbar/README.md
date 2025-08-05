@@ -1,5 +1,7 @@
 # tabbar 说明
 
+## tabbar 4种策略
+
 `tabbar` 分为 `4 种` 情况：
 
 - 0 `无 tabbar`，只有一个页面入口，底部无 `tabbar` 显示；常用语临时活动页。
@@ -15,3 +17,16 @@
 
 
 > 注意：花里胡哨的效果需要自己实现，本模版不提供。
+
+## tabbar 配置说明
+
+- 如果使用的是原生tabbar, 则每个 `item` 需要配置 `path`、`text`、`iconPath`、`selectedIconPath` 等属性。
+- 如果使用的是自定义tabbar, 则每个 `item` 需要配置 `path`、`text`、`icon` 、`iconType` 等属性（如果是local还需要配置2种图片）。
+
+## 接口拿到tabbar列表怎么处理？
+
+首先，接口的配置需要跟原生tabbar的 `path` 对应上。
+
+然后，可以直接在 `index.vue` 文件请求接口拿到 `tabbarList`，然后赋值给 `tabbarList` 即可。
+
+最后，如果用的是 `unocss` 图标，还需要在 `uno.config.ts` 的 `safelist` 中添加图标名称。
