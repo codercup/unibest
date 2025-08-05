@@ -8,6 +8,7 @@
 
 <script lang="ts" setup>
 import i18n, { t } from '@/locale/index'
+import { setTabbarItem } from '@/tabbar/i18n'
 import { testI18n } from '@/utils/i18n'
 
 const current = ref(uni.getLocale())
@@ -35,6 +36,9 @@ function radioChange(evt) {
   uni.setNavigationBarTitle({
     title: t('i18n.title'),
   })
+
+  // 底部tabbar需要重新设置一下
+  setTabbarItem()
 }
 
 onShow(() => {

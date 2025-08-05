@@ -92,5 +92,6 @@
   ],
   "i18n-ally.localesPaths": [
     "src/locale"
-  ]
+  ],
+  "i18n-ally.keystyle": "nested"
 }
