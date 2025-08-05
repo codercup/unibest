@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // 'i-carbon-code',
-import { tabbarList as _tabBarList, customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
+import { t } from '@/locale'
+import { tabbarList as _tabBarList, customTabbarEnable, isNativeTabbar, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
 import { tabbarStore } from './store'
 
 // #ifdef MP-WEIXIN
@@ -47,6 +48,30 @@ function getColorByIndex(index: number) {
 function getImageByIndex(index: number, item: { iconActive: string, icon: string }) {
   return tabbarStore.curIdx === index ? item.iconActive : item.icon
 }
+
+// h5 中一直可以生效，小程序里面默认是无法动态切换的，这里借助vue模板自带响应式的方式
+// 直接替换 %xxx% 为 t('xxx')即可
+function getI18nText(key: string) {
+  // 获取 %xxx% 中的 xxx
+  const match = key.match(/%(.+?)%/)
+  if (match) {
+    key = match[1]
+  }
+  return t(key)
+}
+
+// 注意，上面处理的是自定义tabbar，下面处理的是原生tabbar，参考：https://unibest.tech/base/10-i18n
+onShow(() => {
+  // 只有使用原生Tabbar才需要 setTabbarItem
+  if (isNativeTabbar) {
+    tabbarList.forEach((item, index) => {
+      uni.setTabBarItem({
+        index,
+        text: getI18nText(item.text),
+      })
+    })
+  }
+})
 </script>
 
 <template>
@@ -76,7 +101,7 @@ function getImageByIndex(index: number, item: { iconActive: string, icon: string
             <image :src="getImageByIndex(index, item)" mode="scaleToFill" class="h-20px w-20px" />
           </template>
           <view class="mt-2px text-12px">
-            {{ item.text }}
+            {{ getI18nText(item.text) }}
           </view>
         </view>
       </view>
