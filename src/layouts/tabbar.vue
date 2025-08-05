@@ -7,6 +7,10 @@ const themeVars: ConfigProviderThemeVars = {
   // buttonPrimaryBgColor: '#07c160',
   // buttonPrimaryColor: '#07c160',
 }
+const uniLayout = ref()
+onShow(() => {
+  console.log('uniLayout', uniLayout.value)
+})
 </script>
 
 <template>

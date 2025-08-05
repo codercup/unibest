@@ -1,4 +1,5 @@
 import { pages, subPackages } from '@/pages.json'
+import { tabbarList } from '@/tabbar/config'
 import { isMpWeixin } from './platform'
 
 export function getLastPage() {
@@ -7,6 +8,13 @@ export function getLastPage() {
   // 上面那个在低版本安卓中打包会报错，所以改用下面这个【虽然我加了 src/interceptions/prototype.ts，但依然报错】
   const pages = getCurrentPages()
   return pages[pages.length - 1]
+}
+
+export function isCurrentPageTabbar() {
+  const lastPage = getLastPage()
+  const currRoute = (lastPage as any).$page
+  const { fullPath } = currRoute as { fullPath: string }
+  return tabbarList.some(item => `/${item.path}` === fullPath)
 }
 
 /**

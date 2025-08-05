@@ -1,4 +1,5 @@
 import { t } from '@/locale'
+import { isCurrentPageTabbar } from '@/utils'
 import { isNativeTabbar, tabbarList } from './config'
 
 // h5 中一直可以生效，小程序里面默认是无法动态切换的，这里借助vue模板自带响应式的方式
@@ -14,7 +15,8 @@ export function getI18nText(key: string) {
 
 export function setTabbarItem() {
 // 只有使用原生Tabbar才需要 setTabbarItem
-  if (isNativeTabbar) {
+// 而且只有当前页是tabbar页才能设置
+  if (isNativeTabbar && isCurrentPageTabbar()) {
     tabbarList.forEach((item, index) => {
       uni.setTabBarItem({
         index,
