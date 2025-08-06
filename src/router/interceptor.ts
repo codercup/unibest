@@ -63,5 +63,15 @@ export const routeInterceptor = {
     uni.addInterceptor('reLaunch', navigateToInterceptor)
     uni.addInterceptor('redirectTo', navigateToInterceptor)
     uni.addInterceptor('switchTab', navigateToInterceptor)
+
+    // #ifdef H5
+    // 一个粗糙的实现方式，不满意可以自行修改：https://github.com/unibest-tech/unibest/issues/192
+    // H5环境路由拦截，监听hashchange事件
+    window.addEventListener('hashchange', () => {
+      // 获取当前路径
+      const currentPath = `/${window.location.hash.split('#/')[1]?.split('?')[0]}`
+      navigateToInterceptor.invoke({ url: currentPath })
+    })
+    // #endif
   },
 }
