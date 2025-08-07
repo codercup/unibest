@@ -7,7 +7,12 @@ onLaunch((options) => {
   // #ifdef H5
   // 处理H5环境用户直接输入页面路由的情况：https://github.com/unibest-tech/unibest/issues/192
   console.log('App Launch', options?.path)
-  navigateToInterceptor.invoke({ url: options?.path ?? '/' })
+  if (options?.path) {
+    navigateToInterceptor.invoke({ url: `/${options.path}` })
+  }
+  else {
+    navigateToInterceptor.invoke({ url: '/' })
+  }
   // #endif
 })
 onShow(() => {
