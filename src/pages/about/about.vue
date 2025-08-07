@@ -34,6 +34,11 @@ function gotoVueQuery() {
     url: '/pages/about/vue-query',
   })
 }
+function gotoSubPage() {
+  uni.navigateTo({
+    url: '/pages-sub/demo/index',
+  })
+}
 </script>
 
 <template>
@@ -60,6 +65,11 @@ function gotoVueQuery() {
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoVueQuery">
         vue-query 示例页面
+      </button>
+    </view>
+    <view class="text-center">
+      <button type="primary" size="mini" class="w-160px" @click="gotoSubPage">
+        前往分包页面
       </button>
     </view>
     <view class="mt-6 text-center text-sm">

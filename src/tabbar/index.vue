@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 'i-carbon-code',
-import { tabbarList as _tabBarList, customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
+import { customTabbarList as _tabBarList, customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
 import { getI18nText, setTabbarItem } from './i18n'
 import { tabbarStore } from './store'
 
@@ -45,7 +45,11 @@ function getColorByIndex(index: number) {
   return tabbarStore.curIdx === index ? activeColor : inactiveColor
 }
 
-function getImageByIndex(index: number, item: { iconActive: string, icon: string }) {
+function getImageByIndex(index: number, item: { iconActive?: string, icon: string }) {
+  if (!item.iconActive) {
+    console.warn('image 模式下，需要配置 iconActive，否则无法切换图片')
+    return item.icon
+  }
   return tabbarStore.curIdx === index ? item.iconActive : item.icon
 }
 
@@ -78,7 +82,7 @@ onShow(() => {
           <template v-if="item.iconType === 'unocss' || item.iconType === 'iconfont'">
             <view :class="item.icon" class="text-20px" />
           </template>
-          <template v-if="item.iconType === 'local'">
+          <template v-if="item.iconType === 'image'">
             <image :src="getImageByIndex(index, item)" mode="scaleToFill" class="h-20px w-20px" />
           </template>
           <view class="mt-2px text-12px">

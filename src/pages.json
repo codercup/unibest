@@ -29,17 +29,13 @@
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/index/index",
-        "text": "%tabbar.home%",
-        "iconType": "uniUi",
-        "icon": "home"
+        "text": "%tabbar.home%"
       },
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
         "pagePath": "pages/about/about",
-        "text": "%tabbar.about%",
-        "iconType": "unocss",
-        "icon": "i-carbon-code"
+        "text": "%tabbar.about%"
       }
     ]
   },

@@ -2,12 +2,13 @@
 import type { IFooItem } from '@/api/foo'
 import { getFooAPI } from '@/api/foo'
 
+const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
+
 // const initialData = {
 //   name: 'initialData',
 //   id: '1234',
 // }
 const initialData = undefined
-
 const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
   immediate: true,
   initialData,
@@ -20,14 +21,7 @@ function reset() {
 
 <template>
   <view class="p-6 text-center">
-    <view class="my-2">
-      pages 里面的 vue 文件会扫描成页面，将自动添加到 pages.json 里面。
-    </view>
-    <view class="my-2 text-green-400">
-      但是 pages/components 里面的 vue 不会。
-    </view>
-
-    <view class="my-4 text-center">
+    <view class="my-2 text-center">
       <button type="primary" size="mini" class="w-160px" @click="run">
         发送请求
       </button>
@@ -45,7 +39,7 @@ function reset() {
         </view>
       </block>
     </view>
-    <view class="my-4 text-center">
+    <view class="my-6 text-center">
       <button type="warn" size="mini" class="w-160px" :disabled="!data" @click="reset">
         重置数据
       </button>
