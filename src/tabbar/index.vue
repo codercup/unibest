@@ -63,24 +63,37 @@ function getImageByIndex(index: number, item: { iconActive?: string, icon: strin
           :style="{ color: getColorByIndex(index) }"
           @click="handleClick(index)"
         >
-          <template v-if="item.iconType === 'uniUi'">
-            <uni-icons :type="item.icon" size="20" :color="getColorByIndex(index)" />
-          </template>
-          <template v-if="item.iconType === 'uiLib'">
-            <!-- TODO: 以下内容请根据选择的UI库自行替换 -->
-            <!-- 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html) -->
-            <!-- 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html) -->
-            <!-- 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^) -->
-            <wd-icon :name="item.icon" size="20" />
-          </template>
-          <template v-if="item.iconType === 'unocss' || item.iconType === 'iconfont'">
-            <view :class="item.icon" class="text-20px" />
-          </template>
-          <template v-if="item.iconType === 'image'">
-            <image :src="getImageByIndex(index, item)" mode="scaleToFill" class="h-20px w-20px" />
-          </template>
-          <view class="mt-2px text-12px">
-            {{ item.text }}
+          <view class="relative px-3">
+            <template v-if="item.iconType === 'uniUi'">
+              <uni-icons :type="item.icon" size="20" :color="getColorByIndex(index)" />
+            </template>
+            <template v-if="item.iconType === 'uiLib'">
+              <!-- TODO: 以下内容请根据选择的UI库自行替换 -->
+              <!-- 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html) -->
+              <!-- 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html) -->
+              <!-- 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^) -->
+              <wd-icon :name="item.icon" size="20" />
+            </template>
+            <template v-if="item.iconType === 'unocss' || item.iconType === 'iconfont'">
+              <view :class="item.icon" class="text-20px" />
+            </template>
+            <template v-if="item.iconType === 'image'">
+              <image :src="getImageByIndex(index, item)" mode="scaleToFill" class="h-20px w-20px" />
+            </template>
+            <view class="mt-2px text-12px">
+              {{ item.text }}
+            </view>
+            <!-- 角标显示 -->
+            <view v-if="item.badge">
+              <template v-if="item.badge === 'dot'">
+                <view class="absolute right-0 top-0 h-2 w-2 rounded-full bg-#f56c6c" />
+              </template>
+              <template v-else>
+                <view class="absolute right-0 top-0 h-4 w-4 center rounded-full bg-#f56c6c text-center text-xs text-white">
+                  {{ item.badge }}
+                </view>
+              </template>
+            </view>
           </view>
         </view>
       </view>

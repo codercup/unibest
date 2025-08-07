@@ -6,6 +6,7 @@ type CustomTabBarItem = Pick<NativeTabBarItem, 'text' | 'pagePath'> & {
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图
   icon: any // 其实是 string 类型，这里是为了避免 ts 报错 (tabbar/index.vue 里面 uni-icons 那行)
   activeIcon?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
+  badge?: number | 'dot' // badge 显示一个数字或 小红点（样式可以直接在 tabbar/index.vue 里面修改）
 }
 
 /**
@@ -60,6 +61,7 @@ export const customTabbarList: CustomTabBarItem[] = [
     // 图标列表地址：https://uniapp.dcloud.net.cn/component/uniui/uni-icons.html
     iconType: 'uniUi',
     icon: 'home',
+    // badge: 'dot',
   },
   {
     text: nativeTabbarList[1].text,
@@ -69,6 +71,7 @@ export const customTabbarList: CustomTabBarItem[] = [
     // 2）配置到 unocss.config.ts 的 safelist 中
     iconType: 'unocss',
     icon: 'i-carbon-code',
+    // badge: 10,
   },
   // {
   //   pagePath: 'pages/mine/index',
