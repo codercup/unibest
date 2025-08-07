@@ -1,9 +1,9 @@
 import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 
 type FgTabBarItem = TabBar['list'][0] & {
-  iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'local'
+  iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image'
   icon: any // 其实是 string 类型，这里是为了避免 ts 报错
-  activeIcon?: string // 只有在 local 模式下才需要，传递的是高亮的图片（PS： 不建议用 local 模式）
+  activeIcon?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
 }
 
 /**
@@ -79,7 +79,7 @@ export const tabbarList: FgTabBarItem[] = [
   //   text: '首页',
   //   // 使用 ‘local’时，需要配置 icon + iconActive 2张图片（不推荐）
   //   // 既然已经用了自定义tabbar了，就不建议用图片了，所以不推荐
-  //   iconType: 'local',
+  //   iconType: 'image',
   //   icon: '/static/tabbar/home.png',
   //   iconActive: '/static/tabbar/homeHL.png',
   // },
