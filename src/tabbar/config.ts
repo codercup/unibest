@@ -48,6 +48,8 @@ export const nativeTabbarList: NativeTabBarItem[] = [
 ]
 
 // pagePath 是 nativeTabbarList 和 customTabbarList 的关联点，如果没有对应上，会有问题！！
+// 如果希望通过接口调用 customTabbarList，可以在 tabbar/index.vue 文件里面调用接口
+// 本文件因为需要提前编译生成 pages.json, 接口拦截还不生效，无法正常调用接口
 export const customTabbarList: CustomTabBarItem[] = [
   {
     // text 和 pagePath 可以自己直接写，也可以通过索引从 nativeTabbarList 中获取
