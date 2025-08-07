@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
-import { usePageAuth } from '@/hooks/usePageAuth'
+import { navigateToInterceptor } from '@/router/interceptor'
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
-usePageAuth()
-
-onLaunch(() => {
-  console.log('App Launch')
+onLaunch((options) => {
+  // #ifdef H5
+  // 处理H5环境用户直接输入页面路由的情况：https://github.com/unibest-tech/unibest/issues/192
+  console.log('App Launch', options?.path)
+  navigateToInterceptor.invoke({ url: options?.path ?? '/' })
+  // #endif
 })
 onShow(() => {
   console.log('App Show')
