@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 'i-carbon-code',
-import { tabbarList as _tabBarList, customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
+import { customTabbarList as _tabBarList, customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
 import { tabbarStore } from './store'
 
 // #ifdef MP-WEIXIN

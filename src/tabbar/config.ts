@@ -1,6 +1,8 @@
 import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 
-type FgTabBarItem = TabBar['list'][0] & {
+type NativeTabBarItem = TabBar['list'][0]
+
+type CustomTabBarItem = Pick<NativeTabBarItem, 'text' | 'pagePath'> & {
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image'
   icon: any // 其实是 string 类型，这里是为了避免 ts 报错
   activeIcon?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
@@ -25,40 +27,41 @@ export const TABBAR_MAP = {
 // TODO: 1/3. 通过这里切换使用tabbar的策略
 export const selectedTabbarStrategy = TABBAR_MAP.NATIVE_TABBAR
 
-// TODO: 2/3. 更新下面的tabbar配置
-// selectedTabbarStrategy==NATIVE_TABBAR(1) 时，需要填 iconPath 和 selectedIconPath
-// selectedTabbarStrategy==CUSTOM_TABBAR(2,3) 时，需要填 iconType 和 icon
-// selectedTabbarStrategy==NO_TABBAR(0) 时，tabbarList 不生效
-export const tabbarList: FgTabBarItem[] = [
+// TODO: 2/3. 更新下面的 tabbar 配置
+// 如果是使用 NO_TABBAR(0)，nativeTabbarList 和 customTabbarList 都不生效(里面的配置不用管)
+// 如果是使用 NATIVE_TABBAR(1)，customTabbarList 不生效(里面的配置不用管)
+// 如果是使用 CUSTOM_TABBAR(2,3)，nativeTabbarList 不生效(里面的配置不用管)
+// pagePath 是 nativeTabbarList 和 customTabbarList 的关联点，如果没有对应上，会有问题！！
+export const nativeTabbarList: NativeTabBarItem[] = [
   {
     iconPath: 'static/tabbar/home.png',
     selectedIconPath: 'static/tabbar/homeHL.png',
     pagePath: 'pages/index/index',
     text: '首页',
+  },
+  {
+    iconPath: 'static/tabbar/example.png',
+    selectedIconPath: 'static/tabbar/exampleHL.png',
+    pagePath: 'pages/about/about',
+    text: '关于',
+  },
+]
+
+// pagePath 是 nativeTabbarList 和 customTabbarList 的关联点，如果没有对应上，会有问题！！
+export const customTabbarList: CustomTabBarItem[] = [
+  {
+    // text 和 pagePath 可以自己直接写，也可以通过索引从 nativeTabbarList 中获取
+    text: '首页',
+    pagePath: 'pages/index/index', // pagePath 是两者的关联点
     // 本框架内置了 uniapp 官方UI库 （uni-ui)的图标库
     // 使用方式如：<uni-icons type="home" size="30"/>
     // 图标列表地址：https://uniapp.dcloud.net.cn/component/uniui/uni-icons.html
     iconType: 'uniUi',
     icon: 'home',
   },
-  // {
-  //   iconPath: 'static/tabbar/home.png',
-  //   selectedIconPath: 'static/tabbar/homeHL.png',
-  //   pagePath: 'pages/index/index',
-  //   text: '首页',
-  //   // 选用 UI 框架自带的 icon 时，iconType 为 uiLib
-  //   // TODO: 3/3. 需要自行替换vue代码中的图标代码，具体代码在 `tabbar/index.vue` 62行
-  //   // 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html)
-  //   // 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html)
-  //   // 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^)
-  //   iconType: 'uiLib',
-  //   icon: 'home',
-  // },
   {
-    iconPath: 'static/tabbar/example.png',
-    selectedIconPath: 'static/tabbar/exampleHL.png',
-    pagePath: 'pages/about/about',
-    text: '关于',
+    text: nativeTabbarList[1].text,
+    pagePath: nativeTabbarList[1].pagePath, // pagePath 是两者的关联点
     // 注意 unocss 图标需要如下处理：（二选一）
     // 1）在fg-tabbar.vue页面上引入一下并注释掉（见tabbar/index.vue代码第2行）
     // 2）配置到 unocss.config.ts 的 safelist 中
@@ -73,11 +76,9 @@ export const tabbarList: FgTabBarItem[] = [
   //   icon: 'iconfont icon-my',
   // },
   // {
-  //   iconPath: 'static/tabbar/home.png',
-  //   selectedIconPath: 'static/tabbar/homeHL.png',
   //   pagePath: 'pages/index/index',
   //   text: '首页',
-  //   // 使用 ‘local’时，需要配置 icon + iconActive 2张图片（不推荐）
+  //   // 使用 ‘image’时，需要配置 icon + iconActive 2张图片（不推荐）
   //   // 既然已经用了自定义tabbar了，就不建议用图片了，所以不推荐
   //   iconType: 'image',
   //   icon: '/static/tabbar/home.png',
@@ -107,8 +108,10 @@ const _tabbar: TabBar = {
   fontSize: '10px',
   iconWidth: '24px',
   spacing: '3px',
-  list: tabbarList as unknown as TabBar['list'],
+  list: nativeTabbarList as unknown as TabBar['list'],
 }
+
+export const tabbarList = nativeTabbarList
 
 // 0和1 需要显示底部的tabbar的各种配置，以利用缓存
 export const tabBar = tabbarCacheEnable ? _tabbar : undefined
