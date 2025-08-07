@@ -2,13 +2,12 @@
 import type { IFooItem } from '@/api/foo'
 import { getFooAPI } from '@/api/foo'
 
-const recommendUrl = ref('http://laf.run/signup?code=ohaOgIX')
-
 // const initialData = {
 //   name: 'initialData',
 //   id: '1234',
 // }
 const initialData = undefined
+
 const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
   immediate: true,
   initialData,
