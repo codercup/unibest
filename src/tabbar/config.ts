@@ -4,7 +4,7 @@ type NativeTabBarItem = TabBar['list'][0]
 
 type CustomTabBarItem = Pick<NativeTabBarItem, 'text' | 'pagePath'> & {
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image'
-  icon: any // 其实是 string 类型，这里是为了避免 ts 报错
+  icon: any // 其实是 string 类型，这里是为了避免 ts 报错 (tabbar/index.vue 里面 uni-icons 那行)
   activeIcon?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
 }
 
