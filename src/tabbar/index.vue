@@ -64,7 +64,7 @@ function getColorByIndex(index: number) {
 
 function getImageByIndex(index: number, item: { iconActive?: string, icon: string }) {
   if (!item.iconActive) {
-    console.warn('image 模式下，需要配置 iconActive，否则无法切换图片')
+    console.warn('image 模式下，需要配置 iconActive (高亮时的图片），否则无法切换高亮图片')
     return item.icon
   }
   return tabbarStore.curIdx === index ? item.iconActive : item.icon
