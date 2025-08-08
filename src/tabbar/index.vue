@@ -89,7 +89,7 @@ function getImageByIndex(index: number, item: { iconActive?: string, icon: strin
               <image class="mt-6rpx h-200rpx w-200rpx" src="/static/tabbar/scan.png" />
             </view>
           </view>
-          <view v-else class="relative px-3">
+          <view v-else class="relative px-3 text-center">
             <template v-if="item.iconType === 'uniUi'">
               <uni-icons :type="item.icon" size="20" :color="getColorByIndex(index)" />
             </template>
