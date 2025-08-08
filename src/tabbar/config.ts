@@ -2,11 +2,13 @@ import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 
 type NativeTabBarItem = TabBar['list'][0]
 
-type CustomTabBarItem = Pick<NativeTabBarItem, 'text' | 'pagePath'> & {
-  iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image'
-  icon: any // 其实是 string 类型，这里是为了避免 ts 报错
+type CustomTabBarItem = (Pick<NativeTabBarItem, 'text' | 'pagePath'> & {
+  iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图
+  icon: any // 其实是 string 类型，这里是为了避免 ts 报错 (tabbar/index.vue 里面 uni-icons 那行)
   activeIcon?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
-}
+  badge?: number | 'dot' // badge 显示一个数字或 小红点（样式可以直接在 tabbar/index.vue 里面修改）
+  isBulge?: boolean // 是否是中间的鼓包tabbarItem
+})
 
 /**
  * tabbar 选择的策略，更详细的介绍见 tabbar.md 文件
@@ -25,7 +27,7 @@ export const TABBAR_MAP = {
 }
 
 // TODO: 1/3. 通过这里切换使用tabbar的策略
-export const selectedTabbarStrategy = TABBAR_MAP.NATIVE_TABBAR
+export const selectedTabbarStrategy = TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
 
 // TODO: 2/3. 更新下面的 tabbar 配置
 // 如果是使用 NO_TABBAR(0)，nativeTabbarList 和 customTabbarList 都不生效(里面的配置不用管)
@@ -60,6 +62,7 @@ export const customTabbarList: CustomTabBarItem[] = [
     // 图标列表地址：https://uniapp.dcloud.net.cn/component/uniui/uni-icons.html
     iconType: 'uniUi',
     icon: 'home',
+    // badge: 'dot',
   },
   {
     text: nativeTabbarList[1].text,
@@ -69,7 +72,9 @@ export const customTabbarList: CustomTabBarItem[] = [
     // 2）配置到 unocss.config.ts 的 safelist 中
     iconType: 'unocss',
     icon: 'i-carbon-code',
+    // badge: 10,
   },
+
   // {
   //   pagePath: 'pages/mine/index',
   //   text: '我的',

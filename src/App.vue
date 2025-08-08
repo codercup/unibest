@@ -4,8 +4,8 @@ import { navigateToInterceptor } from '@/router/interceptor'
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 onLaunch((options) => {
-  // #ifdef H5
-  // 处理H5环境用户直接输入页面路由的情况：https://github.com/unibest-tech/unibest/issues/192
+  // 处理直接进入页面路由的情况：如h5直接输入路由、微信小程序分享后进入等
+  // https://github.com/unibest-tech/unibest/issues/192
   console.log('App Launch', options?.path)
   if (options?.path) {
     navigateToInterceptor.invoke({ url: `/${options.path}` })
@@ -13,7 +13,6 @@ onLaunch((options) => {
   else {
     navigateToInterceptor.invoke({ url: '/' })
   }
-  // #endif
 })
 onShow(() => {
   console.log('App Show')
