@@ -10,11 +10,29 @@ defineOptions({
 })
 // #endif
 
+// TODO 1/2: 中间的鼓包tabbarItem的开关
+const BULGE_ENABLE = true
+function handleClickBulge() {
+  console.log('点击了中间的鼓包tabbarItem')
+}
+
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
 const tabbarList = _tabBarList.map(item => ({ ...item, path: `/${item.pagePath}` }))
+if (BULGE_ENABLE) {
+  if (tabbarList.length % 2 === 1) {
+    console.error('tabbar 数量必须是偶数，否则样式很奇怪！！')
+  }
+  tabbarList.splice(tabbarList.length / 2, 0, {
+    isBulge: true,
+  } as any)
+}
 function handleClick(index: number) {
   // 点击原来的不做操作
   if (index === tabbarStore.curIdx) {
+    return
+  }
+  if (tabbarList[index].isBulge) {
+    handleClickBulge()
     return
   }
   const url = tabbarList[index].path
@@ -34,7 +52,7 @@ onLoad(() => {
       console.log('hideTabBar fail: ', err)
     },
     success(res) {
-      console.log('hideTabBar success: ', res)
+      // console.log('hideTabBar success: ', res)
     },
   })
 })
@@ -63,7 +81,15 @@ function getImageByIndex(index: number, item: { iconActive?: string, icon: strin
           :style="{ color: getColorByIndex(index) }"
           @click="handleClick(index)"
         >
-          <view class="relative px-3">
+          <view v-if="item.isBulge" class="relative">
+            <!-- 中间一个鼓包tabbarItem的处理 -->
+            <view class="bulge">
+              <!-- TODO 2/2: 通常是一个图片，或者icon，点击触发业务逻辑 -->
+              <!-- 常见的是：扫描按钮、发布按钮、更多按钮等 -->
+              <image class="mt-6rpx h-200rpx w-200rpx" src="/static/tabbar/scan.png" />
+            </view>
+          </view>
+          <view v-else class="relative px-3">
             <template v-if="item.iconType === 'uniUi'">
               <uni-icons :type="item.icon" size="20" :color="getColorByIndex(index)" />
             </template>
@@ -97,6 +123,7 @@ function getImageByIndex(index: number, item: { iconActive?: string, icon: strin
           </view>
         </view>
       </view>
+
       <view class="pb-safe" />
     </view>
   </view>
@@ -111,5 +138,25 @@ function getImageByIndex(index: number, item: { iconActive?: string, icon: strin
 
   border-top: 1px solid #eee;
   box-sizing: border-box;
+}
+// 中间鼓包的样式
+.bulge {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform-origin: top center;
+  transform: translateX(-50%) scale(0.5) translateY(-33%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: inset 0 0 0 1px #fefefe;
+
+  &:active {
+    opacity: 0.8;
+  }
 }
 </style>
