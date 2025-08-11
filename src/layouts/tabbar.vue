@@ -15,6 +15,11 @@ onShow(() => {
     title: getI18nText(getCurrentPageI18nKey()),
   })
 })
+
+const testUniLayoutExposedData = ref('testUniLayoutExposedData')
+defineExpose({
+  testUniLayoutExposedData,
+})
 </script>
 
 <template>
