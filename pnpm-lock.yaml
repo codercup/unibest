@@ -140,9 +140,6 @@ importers:
       '@types/node':
         specifier: ^20.17.9
         version: 20.19.9
-      '@types/wechat-miniprogram':
-        specifier: ^3.4.8
-        version: 3.4.8
       '@uni-helper/eslint-config':
         specifier: ^0.4.0
         version: 0.4.0(@antfu/eslint-config@4.19.0(@unocss/eslint-plugin@66.4.0(eslint@9.32.0(jiti@2.5.1))(typescript@5.9.2))(@vue/compiler-sfc@3.5.18)(eslint-plugin-format@1.0.1(eslint@9.32.0(jiti@2.5.1)))(eslint@9.32.0(jiti@2.5.1))(typescript@5.9.2))(eslint@9.32.0(jiti@2.5.1))
@@ -2329,9 +2326,6 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
-
-  '@types/wechat-miniprogram@3.4.8':
-    resolution: {integrity: sha512-lOqddA707X3SZxVhlZNBZPzYzj7lG/ED2fF30k+aE2oT6R4wfw0Wiup2k2hGrmzYUFyJXfGs01sDCuJMhQMAdg==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -9275,8 +9269,6 @@ snapshots:
   '@types/stack-utils@2.0.3': {}
 
   '@types/unist@3.0.3': {}
-
-  '@types/wechat-miniprogram@3.4.8': {}
 
   '@types/yargs-parser@21.0.3': {}
 
