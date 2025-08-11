@@ -98,7 +98,7 @@ importers:
         specifier: 3.4.21
         version: 3.4.21(typescript@5.9.2)
       vue-i18n:
-        specifier: ^9.1.9
+        specifier: 9.1.9
         version: 9.1.9(vue@3.4.21(typescript@5.9.2))
       wot-design-uni:
         specifier: ^1.9.1
