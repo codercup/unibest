@@ -94,14 +94,17 @@ export const customTabbarList: CustomTabBarItem[] = [
 ]
 
 // NATIVE_TABBAR(1) 和 CUSTOM_TABBAR_WITH_CACHE(2) 时，需要tabbar缓存
-export const tabbarCacheEnable = selectedTabbarStrategy === TABBAR_MAP.NATIVE_TABBAR
-  || selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
+/** 是否启用 tabbar 缓存 */
+export const tabbarCacheEnable
+  = [TABBAR_MAP.NATIVE_TABBAR, TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE].includes(selectedTabbarStrategy)
 
 // CUSTOM_TABBAR_WITH_CACHE(2) 和 CUSTOM_TABBAR_WITHOUT_CACHE(3) 时，启用自定义tabbar
-export const customTabbarEnable = selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
-  || selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITHOUT_CACHE
+/** 是否启用自定义 tabbar */
+export const customTabbarEnable
+  = [TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE, TABBAR_MAP.CUSTOM_TABBAR_WITHOUT_CACHE].includes(selectedTabbarStrategy)
 
 // CUSTOM_TABBAR_WITH_CACHE(2)时，需要隐藏原生tabbar
+/** 是否需要隐藏原生 tabbar */
 export const nativeTabbarNeedHide = selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
 
 const _tabbar: TabBar = {
