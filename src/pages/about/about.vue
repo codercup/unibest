@@ -32,6 +32,15 @@ function gotoSubPage() {
     url: '/pages-sub/demo/index',
   })
 }
+// uniLayout里面的变量通过 expose 暴露出来后可以在 onReady 钩子获取到（onLoad 钩子不行）
+const uniLayout = ref()
+onLoad(() => {
+  console.log('onLoad:', uniLayout.value) // onLoad: undefined
+})
+onReady(() => {
+  console.log('onReady:', uniLayout.value) // onReady: Proxy(Object)
+  console.log('onReady:', uniLayout.value.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
+})
 </script>
 
 <template>

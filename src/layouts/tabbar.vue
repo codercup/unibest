@@ -7,6 +7,10 @@ const themeVars: ConfigProviderThemeVars = {
   // buttonPrimaryBgColor: '#07c160',
   // buttonPrimaryColor: '#07c160',
 }
+const testUniLayoutExposedData = ref('testUniLayoutExposedData')
+defineExpose({
+  testUniLayoutExposedData,
+})
 </script>
 
 <template>
