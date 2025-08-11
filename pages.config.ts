@@ -18,6 +18,6 @@ export default defineUniPages({
         'z-paging/components/z-paging$1/z-paging$1.vue',
     },
   },
-  // tabbar 的配置统一在 “./src/layouts/fg-tabbar/tabbarList.ts” 文件中
+  // tabbar 的配置统一在 “./src/tabbar/config.ts” 文件中
   tabBar: tabBar as any,
 })
