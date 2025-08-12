@@ -11,7 +11,7 @@ defineOptions({
 // #endif
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
-const BULGE_ENABLE = true
+const BULGE_ENABLE = false
 function handleClickBulge() {
   console.log('点击了中间的鼓包tabbarItem')
 }
