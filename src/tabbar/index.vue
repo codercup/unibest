@@ -156,7 +156,7 @@ function getImageByIndex(index: number, item: { iconActive?: string, icon: strin
   box-shadow: inset 0 0 0 1px #fefefe;
 
   &:active {
-    opacity: 0.8;
+    // opacity: 0.8;
   }
 }
 </style>
