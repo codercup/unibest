@@ -53,13 +53,15 @@ export function showToast(options: ToastOptions | string) {
   })
 }
 
+type _ToastOptions = Omit<ToastOptions, 'type' | 'message'>
+
 export const toast = {
-  success: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  success: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'success', message }),
-  error: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  error: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'error', message }),
-  warning: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  warning: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'warning', message }),
-  info: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  info: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'info', message }),
 }
