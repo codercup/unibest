@@ -13,7 +13,10 @@ defineOptions({
 // TODO 1/2: 中间的鼓包tabbarItem的开关
 const BULGE_ENABLE = false
 function handleClickBulge() {
-  console.log('点击了中间的鼓包tabbarItem')
+  uni.showToast({
+    title: '点击了中间的鼓包tabbarItem',
+    icon: 'none',
+  })
 }
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
