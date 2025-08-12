@@ -118,7 +118,6 @@
     "@iconify-json/carbon": "^1.2.4",
     "@rollup/rollup-darwin-x64": "^4.28.0",
     "@types/node": "^20.17.9",
-    "@types/wechat-miniprogram": "^3.4.8",
     "@uni-helper/eslint-config": "^0.4.0",
     "@uni-helper/plugin-uni": "0.1.0",
     "@uni-helper/uni-types": "^1.0.0-alpha.6",

@@ -1,5 +1,5 @@
 import type { uniappRequestAdapter } from '@alova/adapter-uniapp'
-import type { IResponse } from './tools/types'
+import type { IResponse } from './types'
 import AdapterUniapp from '@alova/adapter-uniapp'
 import { createAlova } from 'alova'
 import { createServerTokenAuthentication } from 'alova/client'

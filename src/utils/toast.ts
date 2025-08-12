@@ -12,14 +12,24 @@ interface ToastOptions {
   position?: 'top' | 'middle' | 'bottom'
   icon?: 'success' | 'error' | 'none' | 'loading' | 'fail' | 'exception'
   message: string
+  /**
+   * 是否显示透明蒙层，防止触摸穿透
+   * @default true
+   */
+  mask?: boolean
 }
-
-export function showToast(options: ToastOptions | string) {
+/**
+ * 显示 toast
+ */
+export function showToast(message: string): void
+export function showToast(options: ToastOptions): void
+export function showToast(options: ToastOptions | string): void {
   const defaultOptions: ToastOptions = {
     type: 'info',
     duration: 2000,
     position: 'middle',
     message: '',
+    mask: true,
   }
   const mergedOptions
     = typeof options === 'string'
@@ -49,17 +59,19 @@ export function showToast(options: ToastOptions | string) {
     duration: mergedOptions.duration,
     position: positionMap[mergedOptions.position],
     icon: mergedOptions.icon || iconMap[mergedOptions.type],
-    mask: true,
+    mask: mergedOptions.mask,
   })
 }
 
+type _ToastOptions = Omit<ToastOptions, 'type' | 'message'>
+
 export const toast = {
-  success: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  success: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'success', message }),
-  error: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  error: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'error', message }),
-  warning: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  warning: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'warning', message }),
-  info: (message: string, options?: Omit<ToastOptions, 'type'>) =>
+  info: (message: string, options?: _ToastOptions) =>
     showToast({ ...options, type: 'info', message }),
 }
