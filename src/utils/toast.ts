@@ -12,6 +12,11 @@ interface ToastOptions {
   position?: 'top' | 'middle' | 'bottom'
   icon?: 'success' | 'error' | 'none' | 'loading' | 'fail' | 'exception'
   message: string
+  /**
+   * 是否显示透明蒙层，防止触摸穿透
+   * @default true
+   */
+  mask?: boolean
 }
 
 export function showToast(options: ToastOptions | string) {
@@ -20,6 +25,7 @@ export function showToast(options: ToastOptions | string) {
     duration: 2000,
     position: 'middle',
     message: '',
+    mask: true,
   }
   const mergedOptions
     = typeof options === 'string'
@@ -49,7 +55,7 @@ export function showToast(options: ToastOptions | string) {
     duration: mergedOptions.duration,
     position: positionMap[mergedOptions.position],
     icon: mergedOptions.icon || iconMap[mergedOptions.type],
-    mask: true,
+    mask: mergedOptions.mask,
   })
 }
 
