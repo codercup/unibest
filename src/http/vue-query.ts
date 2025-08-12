@@ -1,4 +1,4 @@
-import type { CustomRequestOptions } from '@/http/interceptor'
+import type { CustomRequestOptions } from '@/http/types'
 import { http } from './http'
 
 /*

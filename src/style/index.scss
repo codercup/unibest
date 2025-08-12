@@ -19,6 +19,7 @@ page {
 }
 
 /*
+border-t-1
 由于uniapp中无法使用*选择器，使用魔法代替*，加上此规则可以简化border与divide的使用，并提升布局的兼容性
 1. 防止padding和border影响元素宽度。 (https://github.com/mozdevs/cssremedy/issues/4)
 2. 允许仅通过添加边框宽度来向元素添加边框。 (https://github.com/tailwindcss/tailwindcss/pull/116)

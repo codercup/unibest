@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-ignore
 import request from '@/http/vue-query';
-import { CustomRequestOptions } from '@/http/interceptor';
+import type { CustomRequestOptions } from '@/http/types';
 
 import * as API from './types';
 

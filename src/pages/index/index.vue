@@ -118,6 +118,7 @@ console.log('index')
         https://wot-design-uni.cn
       </text>
     </view>
+    <view class="h-6" />
   </view>
   <tabbar />
 </template>
