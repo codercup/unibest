@@ -1,0 +1,62 @@
+# uni-app 开发规范
+
+## 页面开发
+- 页面文件放在 [src/pages/](mdc:src/pages/) 目录下
+- 使用约定式路由，文件名即路由路径
+- 页面配置在仅需要在 `route-block` 中配置标题等内容即可，会自动生成到 `pages.json` 中
+
+## 组件开发
+- 组件文件放在 [src/components/](mdc:src/components/) 目录下
+- 使用 uni-app 内置组件和第三方组件库
+- 支持 wot-design-uni\uv-ui\uview-plus 等多种第三方组件库 和 z-paging 组件
+- 自定义组件遵循 uni-app 组件规范
+
+## 平台适配
+- 使用条件编译处理平台差异
+- 支持 H5、小程序、APP 多平台
+- 注意各平台的 API 差异
+- 使用 uni.xxx API 替代原生 API
+
+## 示例代码结构
+```vue
+<script setup lang="ts">
+// #ifdef H5
+import { h5Api } from '@/utils/h5'
+// #endif
+
+// #ifdef MP-WEIXIN
+import { mpApi } from '@/utils/mp'
+// #endif
+
+const handleClick = () => {
+  // #ifdef H5
+  h5Api.showToast('H5 平台')
+  // #endif
+  
+  // #ifdef MP-WEIXIN
+  mpApi.showToast('微信小程序')
+  // #endif
+}
+</script>
+
+<template>
+  <view class="page">
+    <!-- uni-app 组件 -->
+    <button @click="handleClick">点击</button>
+    
+    <!-- 条件渲染 -->
+    <!-- #ifdef H5 -->
+    <view>H5 特有内容</view>
+    <!-- #endif -->
+  </view>
+</template>
+```
+
+## 生命周期
+- 使用 uni-app 页面生命周期
+- onLoad、onShow、onReady、onHide、onUnload
+- 组件生命周期遵循 Vue3 规范
+- 注意页面栈和导航管理
+---
+globs: src/pages/*.vue,src/components/*.vue
+---
