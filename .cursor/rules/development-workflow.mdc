@@ -1,0 +1,41 @@
+# 开发工作流程
+
+## 项目启动
+1. 安装依赖：`pnpm install`
+2. 开发环境：
+   - H5: `pnpm dev` 或 `pnpm dev:h5`
+   - 微信小程序: `pnpm dev:mp`
+   - APP: `pnpm dev:app`
+
+## 代码规范
+- 使用 ESLint 进行代码检查：`pnpm lint`
+- 自动修复代码格式：`pnpm lint:fix`
+- 使用 eslint 格式化代码
+- 遵循 TypeScript 严格模式
+
+## 构建和部署
+- H5 构建：`pnpm build:h5`
+- 小程序构建：`pnpm build:mp`
+- APP 构建：`pnpm build:app`
+- 类型检查：`pnpm type-check`
+
+## 开发工具
+- 推荐使用 VSCode 编辑器
+- 安装 Vue 和 TypeScript 相关插件
+- 使用 uni-app 开发者工具调试小程序
+- 使用 HBuilderX 调试 APP
+
+## 调试技巧
+- 使用 console.log 和 uni.showToast 调试
+- 利用 Vue DevTools 调试组件状态
+- 使用网络面板调试 API 请求
+- 平台差异测试和兼容性检查
+
+## 性能优化
+- 使用懒加载和代码分割
+- 优化图片和静态资源
+- 减少不必要的重渲染
+- 合理使用缓存策略
+---
+description: 开发工作流程和最佳实践指南
+---
