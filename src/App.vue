@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
 import { navigateToInterceptor } from '@/router/interceptor'
+import { tabbarStore } from './tabbar/store'
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 onLaunch((options) => {
@@ -13,6 +14,8 @@ onLaunch((options) => {
   else {
     navigateToInterceptor.invoke({ url: '/' })
   }
+  // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
+  tabbarStore.setAutoCurIdx(options.path)
 })
 onShow((options) => {
   console.log('App Show', options)
