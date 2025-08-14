@@ -6,9 +6,8 @@ import { routeInterceptor } from './router/interceptor'
 
 import store from './store'
 import '@/style/index.scss'
-// import 'virtual:uno.css'
-import '@/style/uno.scss'
-// 替换 virtual:uno.css
+import 'virtual:uno.css'
+
 export function createApp() {
   const app = createSSRApp(App)
   app.use(store)
