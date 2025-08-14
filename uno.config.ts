@@ -9,6 +9,23 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  // 添加此配置避免重复扫描
+  content: {
+    pipeline: {
+      exclude: [
+        'node_modules',
+        '.git',
+        'dist',
+        '**/*.d.ts',
+        '__uno.css', // 🚨 排除警告中的问题文件
+      ],
+    },
+  },
+  // 添加此配置
+  include: [
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    './src/style/uno.scss', // 指定新入口
+  ],
   presets: [
     presetUni({
       attributify: {
