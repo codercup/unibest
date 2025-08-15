@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 'i-carbon-code',
-import { customTabbarList as _tabBarList, customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
+import { customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
 import { tabbarStore } from './store'
 
 // #ifdef MP-WEIXIN
@@ -20,7 +20,7 @@ function handleClickBulge() {
 }
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
-const tabbarList = _tabBarList.map(item => ({ ...item, path: `/${item.pagePath}` }))
+const tabbarList = tabbarStore.tabbarList.map(item => ({ ...item, path: `/${item.pagePath}` }))
 if (BULGE_ENABLE) {
   if (tabbarList.length % 2 === 1) {
     console.error('tabbar 数量必须是偶数，否则样式很奇怪！！')
