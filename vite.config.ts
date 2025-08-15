@@ -49,7 +49,7 @@ export default ({ command, mode }) => {
     VITE_DELETE_CONSOLE,
     VITE_SHOW_SOURCEMAP,
     VITE_APP_PUBLIC_BASE,
-    VITE_APP_PROXY,
+    VITE_APP_PROXY_ENABLE,
     VITE_APP_PROXY_PREFIX,
   } = env
   console.log('环境变量 env -> ', env)
@@ -133,7 +133,7 @@ export default ({ command, mode }) => {
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
-      __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY),
+      __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY_ENABLE),
     },
     css: {
       postcss: {
@@ -157,7 +157,7 @@ export default ({ command, mode }) => {
       hmr: true,
       port: Number.parseInt(VITE_APP_PORT, 10),
       // 仅 H5 端生效，其他端不生效（其他端走build，不走devServer)
-      proxy: JSON.parse(VITE_APP_PROXY)
+      proxy: JSON.parse(VITE_APP_PROXY_ENABLE)
         ? {
             [VITE_APP_PROXY_PREFIX]: {
               target: VITE_SERVER_BASEURL,
