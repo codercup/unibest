@@ -46,7 +46,7 @@ onReady(() => {
 <template>
   <view>
     <view class="mt-8 text-center text-xl text-gray-400">
-      组件使用、请求调用、unocss、static图片
+      请求调用、unocss、static图片
     </view>
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
@@ -73,6 +73,7 @@ onReady(() => {
         为了方便脚手架动态生成不同UI模板，本页的按钮统一使用UI库无关的原生button
       </view>
     </view>
+    <view class="h-6" />
   </view>
 </template>
 
