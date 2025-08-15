@@ -25,11 +25,12 @@ border-t-1
 2. 允许仅通过添加边框宽度来向元素添加边框。 (https://github.com/tailwindcss/tailwindcss/pull/116)
 3. [UnoCSS]: 允许使用css变量'--un-default-border-color'覆盖默认边框颜色
 */
-:not(not),
-::before,
-::after {
-  box-sizing: border-box; /* 1 */
-  border-width: 0; /* 2 */
-  border-style: solid; /* 2 */
-  border-color: var(--un-default-border-color, #e5e7eb); /* 3 */
-}
+// 这个样式有重大BUG，先去掉！！(2025-08-15)
+// :not(not),
+// ::before,
+// ::after {
+//   box-sizing: border-box; /* 1 */
+//   border-width: 0; /* 2 */
+//   border-style: solid; /* 2 */
+//   border-color: var(--un-default-border-color, #e5e7eb); /* 3 */
+// }
