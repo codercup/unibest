@@ -9,8 +9,9 @@ interface CustomTabBarItem {
   badge?: number | 'dot' // badge 显示一个数字或 小红点（样式可以直接在 tabbar/index.vue 里面修改）
   isBulge?: boolean // 是否是中间的鼓包tabbarItem
 }
+
 // pagePath 是 nativeTabbarList 和 customTabbarList 的关联点，如果没有对应上，会有问题！！
-// 如果希望通过接口调用 customTabbarList，可以在本文件里面调用接口
+// 如果希望通过接口调用 customTabbarList，可以在 tabbar/index.vue 文件里面调用接口
 export const customTabbarList: CustomTabBarItem[] = [
   {
     // text 和 pagePath 可以自己直接写，也可以通过索引从 nativeTabbarList 中获取

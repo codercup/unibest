@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // 'i-carbon-code',
+import { http } from '@/http/http'
 import { customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
 import { tabbarStore } from './store'
 
@@ -9,6 +10,12 @@ defineOptions({
   virtualHost: true,
 })
 // #endif
+
+// #region 接口获取tabbar demo
+http.get('/foo').then((res) => {
+  console.log('接口获取tabbar demo', res)
+})
+// #endregion
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
 const BULGE_ENABLE = false
