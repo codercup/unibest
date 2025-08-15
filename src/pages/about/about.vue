@@ -46,7 +46,10 @@ onReady(() => {
 <template>
   <view>
     <view class="mt-8 text-center text-xl text-gray-400">
-      组件使用、请求调用、unocss
+      组件使用、请求调用、unocss、static图片
+    </view>
+    <view class="my-2 text-center">
+      <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
     <RequestComp />
     <view class="mb-6 h-1px bg-#eee" />
