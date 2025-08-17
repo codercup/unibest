@@ -177,7 +177,6 @@ export default ({ command, mode }) => {
       target: 'es6',
       // 开发环境不用压缩
       minify: mode === 'development' ? false : 'esbuild',
-
     },
   })
 }
