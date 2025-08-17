@@ -1,6 +1,7 @@
 import { tabbarList } from './config'
 
 /**
+ * 自定义 tabbar 的状态管理，原生 tabbar 无需关注本文件
  * tabbar 状态，增加 storageSync 保证刷新浏览器时在正确的 tabbar 页面
  * 使用reactive简单状态，而不是 pinia 全局状态
  */

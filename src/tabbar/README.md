@@ -20,13 +20,13 @@
 
 ## tabbar 配置说明
 
-- 如果使用的是原生tabbar, 则每个 `item` 需要配置 `path`、`text`、`iconPath`、`selectedIconPath` 等属性。
-- 如果使用的是自定义tabbar, 则每个 `item` 需要配置 `path`、`text`、`icon` 、`iconType` 等属性（如果是local还需要配置2种图片）。
+- 如果使用的是原生tabbar, 需要配置 `nativeTabbarList`，每个 `item` 需要配置 `path`、`text`、`iconPath`、`selectedIconPath` 等属性。
+- 如果使用的是自定义tabbar, 需要配置 `customTabbarList`，每个 `item` 需要配置 `path`、`text`、`icon` 、`iconType` 等属性（如果是 `image` 图片还需要配置2种图片）。
 
-## 接口拿到tabbar列表怎么处理？
+## 文件说明
 
-首先，接口的配置需要跟原生tabbar的 `path` 对应上。
+`config.ts` 专门配置 `nativeTabbarList` 和 `customTabbarList` 的相关信息，请按照文件里面的注释配置相关项。
 
-然后，可以直接在 `index.vue` 文件请求接口拿到 `tabbarList`，然后赋值给 `tabbarList` 即可。
+`store.ts` 专门给 `自定义 tabbar` 提供状态管理，代码几乎不需要修改。
 
-最后，如果用的是 `unocss` 图标，还需要在 `uno.config.ts` 的 `safelist` 中添加图标名称。
+`index.vue` 专门给 `自定义 tabbar` 提供渲染逻辑，代码可以稍微修改，以符合自己的需求。
