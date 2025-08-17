@@ -11,10 +11,10 @@ import {
 export default defineConfig({
   presets: [
     presetUni({
-      attributify: {
-        // prefix: 'fg-', // 如果加前缀，则需要在代码里面使用 `fg-` 前缀，如：<div fg-border="1px solid #000"></div>
-        prefixedOnly: true,
-      },
+      // attributify: {
+      //   // prefix: 'fg-', // 如果加前缀，则需要在代码里面使用 `fg-` 前缀，如：<div fg-border="1px solid #000"></div>
+      //   prefixedOnly: true,
+      // },
     }),
     presetIcons({
       scale: 1.2,
