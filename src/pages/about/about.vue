@@ -56,8 +56,11 @@ onReady(() => {
       tabbar 页面也测试一下，也是成功的
       <I18nComp />
     </view>
-    <view class="mt-1 text-center text-xl text-gray-400">
-      组件使用、请求调用、unocss
+    <view class="mt-8 text-center text-xl text-gray-400">
+      请求调用、unocss、static图片
+    </view>
+    <view class="my-2 text-center">
+      <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
     <RequestComp />
     <view class="mb-6 h-1px bg-#eee" />
@@ -86,6 +89,7 @@ onReady(() => {
         为了方便脚手架动态生成不同UI模板，本页的按钮统一使用UI库无关的原生button
       </view>
     </view>
+    <view class="h-6" />
   </view>
 </template>
 
