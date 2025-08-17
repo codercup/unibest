@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // 'i-carbon-code',
 import { http } from '@/http/http'
-import { customTabbarEnable, nativeTabbarNeedHide, tabbarCacheEnable } from './config'
+import { tabbarList as _tabbarList, customTabbarEnable, needHideNativeTabbar, tabbarCacheEnable } from './config'
 import { tabbarStore } from './store'
 
 // #ifdef MP-WEIXIN
@@ -27,7 +27,7 @@ function handleClickBulge() {
 }
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
-const tabbarList = tabbarStore.tabbarList.map(item => ({ ...item, path: `/${item.pagePath}` }))
+const tabbarList = _tabbarList.map(item => ({ ...item, path: `/${item.pagePath}` }))
 if (BULGE_ENABLE) {
   if (tabbarList.length % 2 === 1) {
     console.error('tabbar 数量必须是偶数，否则样式很奇怪！！')
@@ -56,7 +56,7 @@ function handleClick(index: number) {
 }
 onLoad(() => {
   // 解决原生 tabBar 未隐藏导致有2个 tabBar 的问题
-  nativeTabbarNeedHide
+  needHideNativeTabbar
   && uni.hideTabBar({
     fail(err) {
       console.log('hideTabBar fail: ', err)
