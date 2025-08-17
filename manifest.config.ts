@@ -19,6 +19,7 @@ const {
   VITE_APP_PUBLIC_BASE,
   VITE_FALLBACK_LOCALE,
 } = env
+// console.log('manifest.config.ts env:', env)
 
 export default defineManifestConfig({
   'name': VITE_APP_TITLE,
