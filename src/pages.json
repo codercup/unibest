@@ -72,6 +72,22 @@
       "style": {
         "navigationBarTitleText": "Vue Query 请求演示"
       }
+    },
+    {
+      "path": "pages/login/login",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/login/register",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "注册"
+      }
     }
   ],
   "subPackages": [

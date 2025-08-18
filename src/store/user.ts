@@ -103,6 +103,7 @@ export const useUserStore = defineStore(
       getUserInfo,
       setUserAvatar,
       logout,
+      hasLogin: computed(() => !!userInfo.value.token),
     }
   },
   {

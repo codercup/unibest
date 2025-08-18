@@ -111,18 +111,6 @@ export function getCurrentPageI18nKey() {
 }
 
 /**
- * 得到所有的需要登录的 pages，包括主包和分包的
- * 只得到 path 数组
- */
-export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map(page => page.path)
-
-/**
- * 得到所有的需要登录的 pages，包括主包和分包的
- * 只得到 path 数组
- */
-export const needLoginPages: string[] = getAllPages('needLogin').map(page => page.path)
-
-/**
  * 根据微信小程序当前环境，判断应该获取的 baseUrl
  */
 export function getEnvBaseUrl() {

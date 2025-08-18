@@ -6,54 +6,43 @@
  */
 import { useUserStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
-import { needLoginPages as _needLoginPages, getLastPage, getNeedLoginPages } from '@/utils'
-
-// TODO Check
-const loginRoute = import.meta.env.VITE_LOGIN_URL
-
-function isLogined() {
-  const userStore = useUserStore()
-  return !!userStore.userInfo.username
-}
-
-const isDev = import.meta.env.DEV
+import { getLastPage } from '@/utils'
+import { EXCLUDE_LIST, LOGIN_PAGE_LIST } from '../login/config'
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
   // 增加对相对路径的处理，BY 网友 @ideal
   invoke({ url }: { url: string }) {
-    // console.log(url) // /pages/route-interceptor/index?name=feige&age=30
+    console.log(url) // /pages/route-interceptor/index?name=feige&age=30
     let path = url.split('?')[0]
 
     // 处理相对路径
     if (!path.startsWith('/')) {
-      const currentPath = getLastPage().route
+      const currentPath = getLastPage()?.route || ''
       const normalizedCurrentPath = currentPath.startsWith('/') ? currentPath : `/${currentPath}`
       const baseDir = normalizedCurrentPath.substring(0, normalizedCurrentPath.lastIndexOf('/'))
       path = `${baseDir}/${path}`
     }
 
-    let needLoginPages: string[] = []
-    // 为了防止开发时出现BUG，这里每次都获取一下。生产环境可以移到函数外，性能更好
-    if (isDev) {
-      needLoginPages = getNeedLoginPages()
+    if (LOGIN_PAGE_LIST.includes(path)) {
+      console.log('000')
+      return
     }
-    else {
-      needLoginPages = _needLoginPages
-    }
-    const isNeedLogin = needLoginPages.includes(path)
-    if (!isNeedLogin) {
-      return true
-    }
-    const hasLogin = isLogined()
-    if (hasLogin) {
-      return true
-    }
+
     tabbarStore.restorePrevIdx()
-    const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(url)}`
-    uni.navigateTo({ url: redirectRoute })
-    return false
+
+    console.log('拦截器中得到的 path:', path)
+    const userStore = useUserStore()
+
+    if (userStore.hasLogin || [...EXCLUDE_LIST, ...LOGIN_PAGE_LIST].includes(path)) {
+      console.log('111')
+      uni.navigateTo({ url: path })
+      return
+    }
+    console.log('222')
+    const redirectUrl = `/login/login?redirect=${encodeURIComponent(path)}`
+    uni.navigateTo({ url: redirectUrl })
   },
 }
 
