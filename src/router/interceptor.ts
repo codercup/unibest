@@ -5,6 +5,7 @@
  * 我这里应为大部分都可以随便进入，所以使用黑名单
  */
 import { useUserStore } from '@/store'
+import { tabbarStore } from '@/tabbar/store'
 import { getLastPage } from '@/utils'
 import { EXCLUDE_LIST, LOGIN_PAGE_LIST } from '../login/config'
 
@@ -14,6 +15,9 @@ export const navigateToInterceptor = {
   // 增加对相对路径的处理，BY 网友 @ideal
   invoke({ url }: { url: string }) {
     console.log(url) // /pages/route-interceptor/index?name=feige&age=30
+    if (url === undefined) {
+      return
+    }
     let path = url.split('?')[0]
 
     // 处理相对路径
@@ -24,6 +28,9 @@ export const navigateToInterceptor = {
       path = `${baseDir}/${path}`
     }
 
+    // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
+    tabbarStore.setAutoCurIdx(path)
+
     if (LOGIN_PAGE_LIST.includes(path)) {
       console.log('000')
       return
@@ -33,8 +40,6 @@ export const navigateToInterceptor = {
     if (userStore.hasLogin) {
       return
     }
-
-    // tabbarStore.restorePrevIdx()
 
     console.log('拦截器中得到的 path:', path, userStore.hasLogin)
 

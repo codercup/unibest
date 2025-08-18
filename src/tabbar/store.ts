@@ -33,8 +33,8 @@ export const tabbarStore = reactive({
     uni.setStorageSync('app-tabbar-index', idx)
   },
   setAutoCurIdx(path: string) {
-    const index = tabbarList.findIndex(item => item.pagePath === path)
-    // console.log('index:', index, path)
+    const index = tabbarList.findIndex(item => item.path === path)
+    console.log('index:', index, path)
     // console.log('tabbarList:', tabbarList)
     if (index === -1) {
       this.setCurIdx(0)

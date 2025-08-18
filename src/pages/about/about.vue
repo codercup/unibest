@@ -17,6 +17,12 @@ import RequestComp from './components/request.vue'
 // testOxlint('oxlint')
 console.log('about')
 
+function toLogin() {
+  uni.navigateTo({
+    url: `/pages/login/login?redirect=${encodeURIComponent('/pages/about/about')}`,
+  })
+}
+
 function gotoAlova() {
   uni.navigateTo({
     url: '/pages/about/alova',
@@ -51,6 +57,9 @@ onReady(() => {
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
+    <button class="mt-4 w-40 text-center" @click="toLogin">
+      点击去登录页
+    </button>
     <RequestComp />
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
