@@ -9,7 +9,7 @@ import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
  *
  * 温馨提示：本文件的任何代码更改了之后，都需要重新运行，否则 pages.json 不会更新导致配置不生效
  */
-export const TABBAR_MAP = {
+export const TABBAR_STRATEGY_MAP = {
   NO_TABBAR: 0,
   NATIVE_TABBAR: 1,
   CUSTOM_TABBAR_WITH_CACHE: 2,
@@ -20,7 +20,7 @@ export const TABBAR_MAP = {
 // 如果是使用 NO_TABBAR(0)，nativeTabbarList 和 customTabbarList 都不生效(里面的配置不用管)
 // 如果是使用 NATIVE_TABBAR(1)，只需要配置 nativeTabbarList，customTabbarList 不生效
 // 如果是使用 CUSTOM_TABBAR(2,3)，只需要配置 customTabbarList，nativeTabbarList 不生效
-export const selectedTabbarStrategy = TABBAR_MAP.NATIVE_TABBAR
+export const selectedTabbarStrategy = TABBAR_STRATEGY_MAP.NATIVE_TABBAR
 
 type NativeTabBarItem = TabBar['list'][0]
 // TODO: 2/3. 使用 NATIVE_TABBAR 时，更新下面的 tabbar 配置
@@ -94,26 +94,26 @@ export const customTabbarList: CustomTabBarItem[] = [
  * NATIVE_TABBAR(1) 和 CUSTOM_TABBAR_WITH_CACHE(2) 时，需要tabbar缓存
  */
 export const tabbarCacheEnable
-  = [TABBAR_MAP.NATIVE_TABBAR, TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE].includes(selectedTabbarStrategy)
+  = [TABBAR_STRATEGY_MAP.NATIVE_TABBAR, TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE].includes(selectedTabbarStrategy)
 
 /**
  * 是否启用自定义 tabbar
  * CUSTOM_TABBAR(2,3) 时，启用自定义tabbar
  */
 export const customTabbarEnable
-  = [TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE, TABBAR_MAP.CUSTOM_TABBAR_WITHOUT_CACHE].includes(selectedTabbarStrategy)
+  = [TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE, TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITHOUT_CACHE].includes(selectedTabbarStrategy)
 
 /**
  * 是否需要隐藏原生 tabbar
  * CUSTOM_TABBAR_WITH_CACHE(2) 时，需要隐藏原生tabbar
  */
-export const needHideNativeTabbar = selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE
+export const needHideNativeTabbar = selectedTabbarStrategy === TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE
 
 export const tabbarList = customTabbarEnable ? customTabbarList : nativeTabbarList
 
 const _tabbar: TabBar = {
   // 只有微信小程序支持 custom。App 和 H5 不生效
-  custom: selectedTabbarStrategy === TABBAR_MAP.CUSTOM_TABBAR_WITH_CACHE,
+  custom: selectedTabbarStrategy === TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE,
   color: '#999999',
   selectedColor: '#018d71',
   backgroundColor: '#F8F8F8',
