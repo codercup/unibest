@@ -16,6 +16,10 @@ if (BULGE_ENABLE) {
 
 export { tabbarList }
 
+export function isPageTabbar(path: string) {
+  return tabbarList.some(item => item.pagePath === path)
+}
+
 /**
  * 自定义 tabbar 的状态管理，原生 tabbar 无需关注本文件
  * tabbar 状态，增加 storageSync 保证刷新浏览器时在正确的 tabbar 页面

@@ -100,6 +100,7 @@ export const useUserStore = defineStore(
       userInfo,
       login,
       wxLogin,
+      setUserInfo,
       getUserInfo,
       setUserAvatar,
       logout,

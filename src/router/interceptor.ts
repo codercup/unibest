@@ -5,7 +5,6 @@
  * 我这里应为大部分都可以随便进入，所以使用黑名单
  */
 import { useUserStore } from '@/store'
-import { tabbarStore } from '@/tabbar/store'
 import { getLastPage } from '@/utils'
 import { EXCLUDE_LIST, LOGIN_PAGE_LIST } from '../login/config'
 
@@ -30,12 +29,16 @@ export const navigateToInterceptor = {
       return
     }
 
-    tabbarStore.restorePrevIdx()
-
-    console.log('拦截器中得到的 path:', path)
     const userStore = useUserStore()
+    if (userStore.hasLogin) {
+      return
+    }
 
-    if (userStore.hasLogin || [...EXCLUDE_LIST, ...LOGIN_PAGE_LIST].includes(path)) {
+    // tabbarStore.restorePrevIdx()
+
+    console.log('拦截器中得到的 path:', path, userStore.hasLogin)
+
+    if ([...EXCLUDE_LIST, ...LOGIN_PAGE_LIST].includes(path)) {
       console.log('111')
       uni.navigateTo({ url: path })
       return
