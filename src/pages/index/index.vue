@@ -46,6 +46,12 @@ onLoad(() => {
   console.log('项目作者:', author.value)
 })
 
+function toLogin() {
+  uni.navigateTo({
+    url: '/pages/login/login',
+  })
+}
+
 console.log('index')
 </script>
 
@@ -118,6 +124,9 @@ console.log('index')
         https://wot-design-uni.cn
       </text>
     </view>
+    <button class="mt-4 w-40 text-center" @click="toLogin">
+      点击去登录页
+    </button>
     <view class="h-6" />
   </view>
 </template>

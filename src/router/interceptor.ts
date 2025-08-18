@@ -41,7 +41,7 @@ export const navigateToInterceptor = {
       return
     }
     console.log('222')
-    const redirectUrl = `/login/login?redirect=${encodeURIComponent(path)}`
+    const redirectUrl = `/pages/login/login?redirect=${encodeURIComponent(path)}`
     uni.navigateTo({ url: redirectUrl })
   },
 }
