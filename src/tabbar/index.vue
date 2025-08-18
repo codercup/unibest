@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // 'i-carbon-code',
-import { tabbarList as _tabbarList, customTabbarEnable, needHideNativeTabbar, tabbarCacheEnable } from './config'
-import { tabbarStore } from './store'
+import { customTabbarEnable, needHideNativeTabbar, tabbarCacheEnable } from './config'
+import { tabbarList, tabbarStore } from './store'
 
 // #ifdef MP-WEIXIN
 // 将自定义节点设置成虚拟的（去掉自定义组件包裹层），更加接近Vue组件的表现，能更好的使用flex属性
@@ -10,8 +10,6 @@ defineOptions({
 })
 // #endif
 
-// TODO 1/2: 中间的鼓包tabbarItem的开关
-const BULGE_ENABLE = false
 /**
  * 中间的鼓包tabbarItem的点击事件
  */
@@ -22,16 +20,6 @@ function handleClickBulge() {
   })
 }
 
-/** tabbarList 里面的 path 从 pages.config.ts 得到 */
-const tabbarList = _tabbarList.map(item => ({ ...item, path: `/${item.pagePath}` }))
-if (BULGE_ENABLE) {
-  if (tabbarList.length % 2 === 1) {
-    console.error('tabbar 数量必须是偶数，否则样式很奇怪！！')
-  }
-  tabbarList.splice(tabbarList.length / 2, 0, {
-    isBulge: true,
-  } as any)
-}
 function handleClick(index: number) {
   // 点击原来的不做操作
   if (index === tabbarStore.curIdx) {
