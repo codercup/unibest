@@ -21,8 +21,8 @@
     "url-old": "https://github.com/codercup/unibest/issues"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=7.30"
+    "node": ">=22",
+    "pnpm": "10.10.0"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
