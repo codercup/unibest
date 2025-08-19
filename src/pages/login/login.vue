@@ -27,17 +27,18 @@ function doLogin() {
   })
   console.log(redirectUrl.value)
   let path = redirectUrl.value
-  if (path.startsWith('/')) {
-    path = redirectUrl.value.substring(1)
+  if (!path.startsWith('/')) {
+    path = `/${path}`
   }
+  console.log('path:', path)
   if (isPageTabbar(path)) {
     uni.switchTab({
-      url: `/${path}`,
+      url: path,
     })
   }
   else {
     uni.redirectTo({
-      url: `/${path}`,
+      url: path,
     })
   }
 }

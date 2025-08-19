@@ -5,7 +5,10 @@ import { tabbarList as _tabbarList } from './config'
 const BULGE_ENABLE = true
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
-const tabbarList: CustomTabBarItem[] = _tabbarList.map(item => ({ ...item, pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}` }))
+const tabbarList: CustomTabBarItem[] = _tabbarList.map(item => ({
+  ...item,
+  pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}`,
+}))
 
 if (BULGE_ENABLE) {
   if (tabbarList.length % 2 === 1) {
