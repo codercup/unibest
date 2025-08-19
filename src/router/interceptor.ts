@@ -1,5 +1,5 @@
 /**
- * by 菲鸽 on 2024-03-06
+ * by 菲鸽 on 2025-08-19
  * 路由拦截，通常也是登录拦截
  * 可以设置路由白名单，或者黑名单，看业务需要选哪一个
  * 我这里应为大部分都可以随便进入，所以使用黑名单
@@ -7,7 +7,7 @@
 import { useUserStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
 import { getLastPage } from '@/utils'
-import { EXCLUDE_PAGE_LIST, LOGIN_PAGE_LIST } from '../login/config'
+import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from '../login/config'
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
@@ -16,6 +16,10 @@ export const navigateToInterceptor = {
   invoke({ url }: { url: string }) {
     console.log(url) // /pages/route-interceptor/index?name=feige&age=30
     if (url === undefined) {
+      return
+    }
+    console.log(getCurrentPages())
+    if (getCurrentPages().length === 0) {
       return
     }
     let path = url.split('?')[0]
@@ -36,21 +40,34 @@ export const navigateToInterceptor = {
       return
     }
 
+    console.log('拦截器中得到的 path:', path)
+    const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(path)}`
+
     const userStore = useUserStore()
-    if (userStore.hasLogin) {
-      return
-    }
 
-    console.log('拦截器中得到的 path:', path, userStore.hasLogin)
-
-    if (EXCLUDE_PAGE_LIST.includes(path)) {
-      console.log('111')
-      uni.navigateTo({ url: path })
-      return
+    // #region 1/2 需要登录的情况 ---------------------------
+    if (isNeedLogin) {
+      if (userStore.hasLogin) {
+        return
+      }
+      else {
+        if (EXCLUDE_PAGE_LIST.includes(path)) {
+          return
+        }
+        else {
+          uni.navigateTo({ url: redirectUrl })
+        }
+      }
     }
-    console.log('222')
-    const redirectUrl = `/pages/login/login?redirect=${encodeURIComponent(path)}`
-    uni.navigateTo({ url: redirectUrl })
+    // #endregion 1/2 需要登录的情况 ---------------------------
+
+    // #region 2/2 不需要登录的情况 ---------------------------
+    else {
+      if (EXCLUDE_PAGE_LIST.includes(path)) {
+        uni.navigateTo({ url: redirectUrl })
+      }
+    }
+    // #endregion 2/2 不需要登录的情况 ---------------------------
   },
 }
 

@@ -15,7 +15,7 @@ import { isPageTabbar } from '@/tabbar/store'
 const redirectUrl = ref('')
 onLoad((options) => {
   console.log('login options', options)
-  redirectUrl.value = options.redirectUrl || tabbarList[0].pagePath
+  redirectUrl.value = options.redirect || tabbarList[0].pagePath
 })
 const userStore = useUserStore()
 function doLogin() {
@@ -26,14 +26,18 @@ function doLogin() {
     token: 'fake-token',
   })
   console.log(redirectUrl.value)
-  if (isPageTabbar(redirectUrl.value)) {
+  let path = redirectUrl.value
+  if (path.startsWith('/')) {
+    path = redirectUrl.value.substring(1)
+  }
+  if (isPageTabbar(path)) {
     uni.switchTab({
-      url: `/${redirectUrl.value}`,
+      url: `/${path}`,
     })
   }
   else {
     uni.redirectTo({
-      url: `/${redirectUrl.value}`,
+      url: `/${path}`,
     })
   }
 }
