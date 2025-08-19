@@ -7,7 +7,7 @@
 import { useUserStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
 import { getLastPage } from '@/utils'
-import { EXCLUDE_LIST, LOGIN_PAGE_LIST } from '../login/config'
+import { EXCLUDE_PAGE_LIST, LOGIN_PAGE_LIST } from '../login/config'
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
@@ -43,7 +43,7 @@ export const navigateToInterceptor = {
 
     console.log('拦截器中得到的 path:', path, userStore.hasLogin)
 
-    if ([...EXCLUDE_LIST, ...LOGIN_PAGE_LIST].includes(path)) {
+    if (EXCLUDE_PAGE_LIST.includes(path)) {
       console.log('111')
       uni.navigateTo({ url: path })
       return

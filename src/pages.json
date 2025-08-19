@@ -15,7 +15,7 @@
     }
   },
   "tabBar": {
-    "custom": false,
+    "custom": true,
     "color": "#999999",
     "selectedColor": "#018d71",
     "backgroundColor": "#F8F8F8",
@@ -26,16 +26,16 @@
     "spacing": "3px",
     "list": [
       {
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/homeHL.png",
+        "text": "首页",
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "iconType": "uniUi",
+        "icon": "home"
       },
       {
-        "iconPath": "static/tabbar/example.png",
-        "selectedIconPath": "static/tabbar/exampleHL.png",
+        "text": "关于",
         "pagePath": "pages/about/about",
-        "text": "关于"
+        "iconType": "unocss",
+        "icon": "i-carbon-code"
       }
     ]
   },
