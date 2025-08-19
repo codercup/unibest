@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-import type { ConfigProviderThemeVars } from 'wot-design-uni'
+import { useThemeStore } from '@/store'
 
-const themeVars: ConfigProviderThemeVars = {
-  // colorTheme: 'red',
-  // buttonPrimaryBgColor: '#07c160',
-  // buttonPrimaryColor: '#07c160',
-}
+const themeStore = useThemeStore()
 </script>
 
 <template>
-  <wd-config-provider :theme-vars="themeVars">
+  <wd-config-provider :theme-vars="themeStore.themeVars" :theme="themeStore.theme">
     <slot />
     <wd-toast />
     <wd-message-box />
