@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// 'i-carbon-code',
+import type { CustomTabBarItem } from './config'
 import { customTabbarEnable, needHideNativeTabbar, tabbarCacheEnable } from './config'
 import { tabbarList, tabbarStore } from './store'
 
@@ -29,7 +29,7 @@ function handleClick(index: number) {
     handleClickBulge()
     return
   }
-  const url = tabbarList[index].path
+  const url = tabbarList[index].pagePath
   tabbarStore.setCurIdx(index)
   if (tabbarCacheEnable) {
     uni.switchTab({ url })
@@ -56,12 +56,12 @@ function getColorByIndex(index: number) {
   return tabbarStore.curIdx === index ? activeColor : inactiveColor
 }
 
-function getImageByIndex(index: number, item: { iconActive?: string, icon: string }) {
-  if (!item.iconActive) {
+function getImageByIndex(index: number, item: CustomTabBarItem) {
+  if (!item.activeIcon) {
     console.warn('image 模式下，需要配置 iconActive (高亮时的图片），否则无法切换高亮图片')
     return item.icon
   }
-  return tabbarStore.curIdx === index ? item.iconActive : item.icon
+  return tabbarStore.curIdx === index ? item.activeIcon : item.icon
 }
 </script>
 

@@ -22,7 +22,8 @@ export const TABBAR_STRATEGY_MAP = {
 // 如果是使用 CUSTOM_TABBAR(2,3)，只需要配置 customTabbarList，nativeTabbarList 不生效
 export const selectedTabbarStrategy = TABBAR_STRATEGY_MAP.NATIVE_TABBAR
 
-type NativeTabBarItem = TabBar['list'][0]
+type NativeTabBarItem = TabBar['list'][number]
+
 // TODO: 2/3. 使用 NATIVE_TABBAR 时，更新下面的 tabbar 配置
 export const nativeTabbarList: NativeTabBarItem[] = [
   {
@@ -39,7 +40,7 @@ export const nativeTabbarList: NativeTabBarItem[] = [
   },
 ]
 
-interface CustomTabBarItem {
+export interface CustomTabBarItem {
   text: string
   pagePath: string
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图
