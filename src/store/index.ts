@@ -13,5 +13,6 @@ store.use(
 
 export default store
 
+export * from './theme'
 // 模块统一导出
 export * from './user'

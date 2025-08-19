@@ -1,12 +1,9 @@
 <script lang="ts" setup>
-import type { ConfigProviderThemeVars } from 'wot-design-uni'
+import { useThemeStore } from '@/store'
 import FgTabbar from '@/tabbar/index.vue'
 
-const themeVars: ConfigProviderThemeVars = {
-  // colorTheme: 'red',
-  // buttonPrimaryBgColor: '#07c160',
-  // buttonPrimaryColor: '#07c160',
-}
+const themeStore = useThemeStore()
+
 const testUniLayoutExposedData = ref('testUniLayoutExposedData')
 defineExpose({
   testUniLayoutExposedData,
@@ -14,7 +11,7 @@ defineExpose({
 </script>
 
 <template>
-  <wd-config-provider :theme-vars="themeVars">
+  <wd-config-provider :theme-vars="themeStore.themeVars" :theme="themeStore.theme">
     <slot />
     <FgTabbar />
     <wd-toast />
