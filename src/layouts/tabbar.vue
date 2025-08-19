@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { ConfigProviderThemeVars } from 'wot-design-uni'
+import { useThemeStore } from '@/store'
 import { getI18nText } from '@/tabbar/i18n'
 import FgTabbar from '@/tabbar/index.vue'
 import { getCurrentPageI18nKey } from '@/utils'
@@ -15,6 +16,7 @@ onShow(() => {
     title: getI18nText(getCurrentPageI18nKey()),
   })
 })
+const themeStore = useThemeStore()
 
 const testUniLayoutExposedData = ref('testUniLayoutExposedData')
 defineExpose({
@@ -23,7 +25,7 @@ defineExpose({
 </script>
 
 <template>
-  <wd-config-provider :theme-vars="themeVars">
+  <wd-config-provider :theme-vars="themeStore.themeVars" :theme="themeStore.theme">
     <slot />
     <FgTabbar />
     <wd-toast />
