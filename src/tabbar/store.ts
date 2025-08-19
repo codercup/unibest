@@ -1,27 +1,27 @@
+import type { CustomTabBarItem } from './config'
 import { tabbarList as _tabbarList } from './config'
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
 const BULGE_ENABLE = true
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
-const tabbarList = _tabbarList.map(item => ({ ...item, path: `/${item.pagePath}` }))
+const tabbarList: CustomTabBarItem[] = _tabbarList.map(item => ({ ...item, pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}` }))
+
 if (BULGE_ENABLE) {
   if (tabbarList.length % 2 === 1) {
     console.error('tabbar 数量必须是偶数，否则样式很奇怪！！')
   }
   tabbarList.splice(tabbarList.length / 2, 0, {
     isBulge: true,
-  } as any)
+  } as CustomTabBarItem)
 }
-
-export { tabbarList }
 
 /**
  * 自定义 tabbar 的状态管理，原生 tabbar 无需关注本文件
  * tabbar 状态，增加 storageSync 保证刷新浏览器时在正确的 tabbar 页面
  * 使用reactive简单状态，而不是 pinia 全局状态
  */
-export const tabbarStore = reactive({
+const tabbarStore = reactive({
   curIdx: uni.getStorageSync('app-tabbar-index') || 0,
   prevIdx: uni.getStorageSync('app-tabbar-index') || 0,
   setCurIdx(idx: number) {
@@ -46,3 +46,5 @@ export const tabbarStore = reactive({
     this.prevIdx = uni.getStorageSync('app-tabbar-index') || 0
   },
 })
+
+export { tabbarList, tabbarStore }

@@ -40,7 +40,7 @@ export const nativeTabbarList: NativeTabBarItem[] = [
   },
 ]
 
-interface CustomTabBarItem {
+export interface CustomTabBarItem {
   text: string
   pagePath: string
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图

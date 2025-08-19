@@ -29,7 +29,7 @@ function handleClick(index: number) {
     handleClickBulge()
     return
   }
-  const url = tabbarList[index].path
+  const url = tabbarList[index].pagePath
   tabbarStore.setCurIdx(index)
   if (tabbarCacheEnable) {
     uni.switchTab({ url })
