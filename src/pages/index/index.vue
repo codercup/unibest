@@ -11,9 +11,13 @@
 </route>
 
 <script lang="ts" setup>
+import { useThemeStore } from '@/store'
+
 defineOptions({
   name: 'Home',
 })
+
+const themeStore = useThemeStore()
 
 // 获取屏幕边界到安全区域距离
 let safeAreaInsets
@@ -115,8 +119,8 @@ console.log('index')
     <!-- #endif -->
 
     <view class="mt-4 text-center">
-      <wd-button type="primary">
-        UI组件按钮
+      <wd-button type="primary" class="ml-2" @click="themeStore.setThemeVars({ colorTheme: 'red' })">
+        设置主题变量
       </wd-button>
     </view>
     <view class="mt-4 text-center">
