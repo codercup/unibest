@@ -28,6 +28,14 @@ export function login(loginForm: ILoginForm) {
 }
 
 /**
+ * 刷新token
+ * @param refreshToken 刷新token
+ */
+export function refreshToken(refreshToken: string) {
+  return http.post<IUserLogin>('/user/refreshToken', { refreshToken })
+}
+
+/**
  * 获取用户信息
  */
 export function getUserInfo() {
