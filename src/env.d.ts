@@ -19,6 +19,8 @@ interface ImportMetaEnv {
   readonly VITE_APP_PROXY_ENABLE: 'true' | 'false'
   /** H5是否需要代理，需要的话有个前缀 */
   readonly VITE_APP_PROXY_PREFIX: string // 一般是/api
+  /** TOKEN策略，single：单token，double：双token */
+  readonly VITE_TOKEN_STRATEGY: 'single' | 'double'
   /** 上传图片地址 */
   readonly VITE_UPLOAD_BASEURL: string
   /** 是否清除console */
