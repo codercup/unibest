@@ -117,7 +117,8 @@ export const customTabbarEnable
  */
 export const needHideNativeTabbar = selectedTabbarStrategy === TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE
 
-export const tabbarList = customTabbarEnable ? customTabbarList.map(item => ({ text: item.text, pagePath: item.pagePath })) : nativeTabbarList
+const _tabbarList = customTabbarEnable ? customTabbarList.map(item => ({ text: item.text, pagePath: item.pagePath })) : nativeTabbarList
+export const tabbarList = customTabbarEnable ? customTabbarList : nativeTabbarList
 
 const _tabbar: TabBar = {
   // 只有微信小程序支持 custom。App 和 H5 不生效
@@ -130,7 +131,7 @@ const _tabbar: TabBar = {
   fontSize: '10px',
   iconWidth: '24px',
   spacing: '3px',
-  list: tabbarList as unknown as TabBar['list'],
+  list: _tabbarList as unknown as TabBar['list'],
 }
 
 // 0和1 需要显示底部的tabbar的各种配置，以利用缓存
