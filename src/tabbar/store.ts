@@ -2,7 +2,7 @@ import type { CustomTabBarItem } from './config'
 import { tabbarList as _tabbarList, customTabbarEnable } from './config'
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
-const BULGE_ENABLE = true
+const BULGE_ENABLE = false
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
 const tabbarList: CustomTabBarItem[] = _tabbarList.map(item => ({
