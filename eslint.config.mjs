@@ -18,6 +18,7 @@ export default uniHelper({
     'src/service/app/**',
   ],
   rules: {
+    'no-useless-return': 'off',
     'no-console': 'off',
     'no-unused-vars': 'off',
     'vue/no-unused-refs': 'off',

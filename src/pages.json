@@ -36,6 +36,12 @@
         "selectedIconPath": "static/tabbar/exampleHL.png",
         "pagePath": "pages/about/about",
         "text": "关于"
+      },
+      {
+        "iconPath": "static/tabbar/personal.png",
+        "selectedIconPath": "static/tabbar/personalHL.png",
+        "pagePath": "pages/me/me",
+        "text": "个人"
       }
     ]
   },
@@ -71,6 +77,29 @@
       "layout": "default",
       "style": {
         "navigationBarTitleText": "Vue Query 请求演示"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/login/register",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "注册"
+      }
+    },
+    {
+      "path": "pages/me/me",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     }
   ],

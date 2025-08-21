@@ -133,9 +133,11 @@ export const useUserStore = defineStore(
       userToken,
       login,
       wxLogin,
+      setUserInfo,
       getUserInfo,
       setUserAvatar,
       logout,
+      hasLogin: computed(() => !!userToken.value.token),
       refreshToken,
     }
   },

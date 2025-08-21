@@ -17,6 +17,12 @@ import RequestComp from './components/request.vue'
 // testOxlint('oxlint')
 console.log('about')
 
+function toLogin() {
+  uni.navigateTo({
+    url: `/pages/login/login?redirect=${encodeURIComponent('/pages/about/about')}`,
+  })
+}
+
 function gotoAlova() {
   uni.navigateTo({
     url: '/pages/about/alova',
@@ -41,6 +47,12 @@ onReady(() => {
   console.log('onReady:', uniLayout.value) // onReady: Proxy(Object)
   console.log('onReady:', uniLayout.value.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
 })
+
+function gotoTabbar() {
+  uni.switchTab({
+    url: '/pages/index/index',
+  })
+}
 </script>
 
 <template>
@@ -51,11 +63,19 @@ onReady(() => {
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
+    <button class="mt-4 w-40 text-center" @click="toLogin">
+      点击去登录页
+    </button>
     <RequestComp />
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
         前往 alova 示例页面
+      </button>
+    </view>
+    <view class="text-center">
+      <button type="primary" size="mini" class="w-160px" @click="gotoTabbar">
+        切换tabbar
       </button>
     </view>
     <view class="text-center">
