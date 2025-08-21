@@ -1,8 +1,11 @@
-<route lang="json5">
+<route lang="jsonc" type="home">
 {
-  style: {
-    navigationBarTitleText: '我的',
-  },
+  "layout": "tabbar",
+  "style": {
+    // 'custom' 表示开启自定义导航栏，默认 'default'
+    // "navigationStyle": "custom",
+    "navigationBarTitleText": "我的"
+  }
 }
 </route>
 
@@ -89,7 +92,7 @@ function handleLogout() {
         // #endif
         // #ifndef MP-WEIXIN
         // 非微信小程序，去登录页
-        // uni.navigateTo({ url: '/pages/login/login' })
+        uni.navigateTo({ url: '/pages/login/login' })
         // #endif
       }
     },
