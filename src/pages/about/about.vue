@@ -47,6 +47,12 @@ onReady(() => {
   console.log('onReady:', uniLayout.value) // onReady: Proxy(Object)
   console.log('onReady:', uniLayout.value.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
 })
+
+function gotoTabbar() {
+  uni.switchTab({
+    url: '/pages/index/index',
+  })
+}
 </script>
 
 <template>
@@ -65,6 +71,11 @@ onReady(() => {
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
         前往 alova 示例页面
+      </button>
+    </view>
+    <view class="text-center">
+      <button type="primary" size="mini" class="w-160px" @click="gotoTabbar">
+        切换tabbar
       </button>
     </view>
     <view class="text-center">
