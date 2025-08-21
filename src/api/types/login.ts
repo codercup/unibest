@@ -2,7 +2,7 @@
  * 用户信息
  */
 export interface IUserInfoVo {
-  id: number
+  id: number | string
   username: string
   avatar: string
   token: string

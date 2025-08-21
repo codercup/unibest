@@ -25,10 +25,11 @@ onLoad((options) => {
   }
   console.log('redirectUrl.value: ', redirectUrl.value)
 })
+
 const userStore = useUserStore()
 function doLogin() {
   userStore.setUserInfo({
-    id: 1,
+    id: '123456',
     username: '菲鸽',
     avatar: 'https://unibest.oss-cn-beijing.aliyuncs.com/avatar.png',
     token: 'fake-token',
