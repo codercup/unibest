@@ -1,5 +1,5 @@
 import type { CustomTabBarItem } from './config'
-import { tabbarList as _tabbarList } from './config'
+import { tabbarList as _tabbarList, customTabbarEnable } from './config'
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
 const BULGE_ENABLE = true
@@ -10,9 +10,9 @@ const tabbarList: CustomTabBarItem[] = _tabbarList.map(item => ({
   pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}`,
 }))
 
-if (BULGE_ENABLE) {
-  if (tabbarList.length % 2 === 1) {
-    console.error('tabbar 数量必须是偶数，否则样式很奇怪！！')
+if (customTabbarEnable && BULGE_ENABLE) {
+  if (tabbarList.length % 2) {
+    console.error('有鼓包时 tabbar 数量必须是偶数，否则样式很奇怪！！')
   }
   tabbarList.splice(tabbarList.length / 2, 0, {
     isBulge: true,
