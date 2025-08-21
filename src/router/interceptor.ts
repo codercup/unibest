@@ -13,7 +13,7 @@ import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from '../
 export const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
   // 增加对相对路径的处理，BY 网友 @ideal
-  invoke({ url }: { url: string }) {
+  invoke({ url, query }: { url: string, query?: Record<string, string> }) {
     console.log(url) // /pages/route-interceptor/index?name=feige&age=30
     if (url === undefined) {
       return
@@ -41,6 +41,10 @@ export const navigateToInterceptor = {
     }
 
     console.log('拦截器中得到的 path:', path)
+    console.log('拦截器中得到的 query:', query)
+    if (query) {
+      path += `?${Object.keys(query).map(key => `${key}=${query[key]}`).join('&')}`
+    }
     const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(path)}`
 
     const userStore = useUserStore()
