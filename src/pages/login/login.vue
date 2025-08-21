@@ -11,11 +11,12 @@
 import { useUserStore } from '@/store/user'
 import { tabbarList } from '@/tabbar/config'
 import { isPageTabbar } from '@/tabbar/store'
+import { ensureDecodeURIComponent } from '@/utils'
 
 const redirectUrl = ref('')
 onLoad((options) => {
   console.log('login options', options)
-  redirectUrl.value = options.redirect || tabbarList[0].pagePath
+  redirectUrl.value = ensureDecodeURIComponent(options.redirect) || tabbarList[0].pagePath
 })
 const userStore = useUserStore()
 function doLogin() {
