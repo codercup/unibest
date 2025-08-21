@@ -62,6 +62,7 @@ export function http<T>(options: CustomRequestOptions) {
               taskQueue.forEach(task => task())
             }
             catch (refreshErr) {
+              console.error('刷新 token 失败:', refreshErr)
               refreshing = false
               // 刷新 token 失败，跳转到登录页
               nextTick(() => {
