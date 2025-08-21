@@ -30,7 +30,6 @@ export const useUserStore = defineStore(
     // 定义用户信息
     const userInfo = ref<IUserInfoVo>({ ...userInfoState })
     const userToken = ref<IUserTokenVo>({ ...userTokenState })
-
     // 设置用户信息
     const setUserInfo = (val: IUserInfoVo) => {
       console.log('设置用户信息', val)
