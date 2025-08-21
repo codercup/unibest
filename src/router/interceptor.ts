@@ -18,38 +18,32 @@ export const navigateToInterceptor = {
     if (url === undefined) {
       return
     }
+    let { path, query: _query } = parseRouteStr(url)
 
-    let path = decodeURIComponent(url).split('?')[0]
+    console.log('路由拦截器 1: url->', url, ', query ->', query)
+    const myQuery = { ..._query, ...query }
     // /pages/route-interceptor/index?name=feige&age=30
-    console.log('路由拦截器：url->', url, ', query ->', query, ', path ->', path)
+    console.log('路由拦截器 2: path->', path, ', _query ->', _query)
+    console.log('路由拦截器 3: myQuery ->', myQuery)
 
     // 处理相对路径
     if (!path.startsWith('/')) {
-      console.log(getCurrentPages())
-      if (getCurrentPages().length === 0) {
-        return
-      }
       const currentPath = getLastPage()?.route || ''
       const normalizedCurrentPath = currentPath.startsWith('/') ? currentPath : `/${currentPath}`
       const baseDir = normalizedCurrentPath.substring(0, normalizedCurrentPath.lastIndexOf('/'))
       path = `${baseDir}/${path}`
     }
 
-    const { path: _path, query: _query } = parseRouteStr(path)
-    console.log('_path:', _path, 'query:', _query)
-
     // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
-    tabbarStore.setAutoCurIdx(_path)
+    tabbarStore.setAutoCurIdx(path)
 
-    if (LOGIN_PAGE_LIST.includes(_path)) {
+    if (LOGIN_PAGE_LIST.includes(path)) {
       console.log('命中了 LOGIN_PAGE_LIST')
       return
     }
 
-    console.log('拦截器中得到的 path:', path)
-    console.log('拦截器中得到的 query:', query)
-    if (query) {
-      path += `?${Object.keys(query).map(key => `${key}=${query[key]}`).join('&')}`
+    if (myQuery) {
+      path += `?${Object.keys(myQuery).map(key => `${key}=${myQuery[key]}`).join('&')}`
     }
     const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(path)}`
 
@@ -62,7 +56,7 @@ export const navigateToInterceptor = {
         return
       }
       else {
-        if (EXCLUDE_PAGE_LIST.includes(_path)) {
+        if (EXCLUDE_PAGE_LIST.includes(path)) {
           return
         }
         else {
