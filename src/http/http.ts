@@ -35,7 +35,7 @@ export function http<T>(options: CustomRequestOptions) {
             return reject(res)
           }
           /* -------- 无感刷新 token ----------- */
-          const { refreshToken } = store.userToken || {}
+          const { refreshToken } = store.userInfo || {}
           // token 失效的，且有刷新 token 的，才放到请求队列里
           if ((res.statusCode === 401 || resData.code === 401) && refreshToken) {
             taskQueue.push(() => {

@@ -1,4 +1,4 @@
-import type { IUserInfoVo, IUserLogin, IUserTokenVo } from '@/api/types/login'
+import type { IUserInfoVo } from '@/api/types/login'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import {
@@ -16,9 +16,6 @@ const userInfoState: IUserInfoVo = {
   id: 0,
   username: '',
   avatar: '/static/images/default-avatar.png',
-}
-
-const userTokenState: IUserTokenVo = {
   token: '',
   refreshToken: '',
   refreshExpire: 0,
@@ -29,7 +26,6 @@ export const useUserStore = defineStore(
   () => {
     // 定义用户信息
     const userInfo = ref<IUserInfoVo>({ ...userInfoState })
-    const userToken = ref<IUserTokenVo>({ ...userTokenState })
     // 设置用户信息
     const setUserInfo = (val: IUserInfoVo) => {
       console.log('设置用户信息', val)
@@ -50,21 +46,7 @@ export const useUserStore = defineStore(
     // 删除用户信息
     const removeUserInfo = () => {
       userInfo.value = { ...userInfoState }
-      userToken.value = { ...userTokenState }
-      uni.removeStorageSync('userInfo')
-      uni.removeStorageSync('token')
-      uni.removeStorageSync('refreshToken')
-    }
-
-    /**
-     * 存储token,非导出
-     */
-    const setToken = (tokenBody: IUserLogin) => {
-      userToken.value.token = tokenBody.token
-      userToken.value.refreshToken = tokenBody.refreshToken
-      userToken.value.refreshExpire = tokenBody.refreshExpire
-      uni.setStorageSync('token', tokenBody.token)
-      uni.setStorageSync('refreshToken', tokenBody.refreshToken)
+      uni.removeStorageSync('user')
     }
 
     /**
@@ -74,7 +56,6 @@ export const useUserStore = defineStore(
       const res = await _getUserInfo()
       const userInfo = res.data
       setUserInfo(userInfo)
-      uni.setStorageSync('userInfo', userInfo)
       // TODO 这里可以增加获取用户路由的方法 根据用户的角色动态生成路由
       return res
     }
@@ -92,8 +73,6 @@ export const useUserStore = defineStore(
       const res = await _login(credentials)
       console.log('登录信息', res)
       toast.success('登录成功')
-      // 这里设置token 和 refreshToken
-      setToken(res.data)
       await getUserInfo()
       return res
     }
@@ -102,8 +81,13 @@ export const useUserStore = defineStore(
      * 刷新token
      */
     const refreshToken = async () => {
-      const res = await _refreshToken(userToken.value.refreshToken)
-      setToken(res.data)
+      const res = await _refreshToken(userInfo.value.refreshToken)
+      setUserInfo({
+        ...userInfo.value,
+        token: res.data.token,
+        refreshToken: res.data.refreshToken,
+        refreshExpire: res.data.refreshExpire,
+      })
       await getUserInfo()
       return res
     }
@@ -130,14 +114,13 @@ export const useUserStore = defineStore(
 
     return {
       userInfo,
-      userToken,
       login,
       wxLogin,
       setUserInfo,
       getUserInfo,
       setUserAvatar,
       logout,
-      hasLogin: computed(() => !!userToken.value.token),
+      hasLogin: computed(() => !!userInfo.value.token),
       refreshToken,
     }
   },

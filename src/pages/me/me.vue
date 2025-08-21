@@ -15,14 +15,7 @@ import { useUpload } from '@/utils/uploadFile'
 const userStore = useUserStore()
 // 使用storeToRefs解构userInfo
 const { userInfo } = storeToRefs(userStore)
-const hasLogin = ref(false)
 
-onShow((options) => {
-  hasLogin.value = !!uni.getStorageSync('token')
-  console.log('个人中心onShow', hasLogin.value, options)
-
-  hasLogin.value && useUserStore().getUserInfo()
-})
 // #ifndef MP-WEIXIN
 // 上传头像
 const { run: uploadAvatar } = useUpload<IUploadSuccessInfo>(
@@ -43,7 +36,6 @@ async function handleLogin() {
 
   // 微信登录
   await userStore.wxLogin()
-  hasLogin.value = true
   // #endif
   // #ifndef MP-WEIXIN
   uni.navigateTo({ url: '/pages/login/login' })
@@ -86,7 +78,6 @@ function handleLogout() {
       if (res.confirm) {
         // 清空用户信息
         useUserStore().logout()
-        hasLogin.value = false
         // 执行退出登录逻辑
         uni.showToast({
           title: '退出登录成功',
@@ -146,7 +137,7 @@ function handleLogout() {
 
     <view class="mt-20 px-3">
       <view class="m-auto w-160px text-center">
-        <button v-if="hasLogin" type="warn" class="w-full" @click="handleLogout">
+        <button v-if="userStore.hasLogin" type="warn" class="w-full" @click="handleLogout">
           退出登录
         </button>
         <button v-else type="primary" class="w-full" @click="handleLogin">

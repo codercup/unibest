@@ -5,12 +5,6 @@ export interface IUserInfoVo {
   id: number
   username: string
   avatar: string
-}
-
-/**
- * 用户token
- */
-export interface IUserTokenVo {
   token: string
   refreshToken?: string
   refreshExpire?: number

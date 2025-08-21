@@ -8,6 +8,7 @@
 </route>
 
 <script lang="ts" setup>
+import { parseRouteStr } from '@/router/queryString'
 import { useUserStore } from '@/store/user'
 import { tabbarList } from '@/tabbar/config'
 import { isPageTabbar } from '@/tabbar/store'
@@ -15,13 +16,14 @@ import { ensureDecodeURIComponent } from '@/utils'
 
 const redirectUrl = ref('')
 onLoad((options) => {
-  console.log('login options', options)
+  console.log('login options: ', options)
   if (options.redirect) {
     redirectUrl.value = ensureDecodeURIComponent(options.redirect)
   }
   else {
     redirectUrl.value = tabbarList[0].pagePath
   }
+  console.log('redirectUrl.value: ', redirectUrl.value)
 })
 const userStore = useUserStore()
 function doLogin() {
@@ -36,10 +38,13 @@ function doLogin() {
   if (!path.startsWith('/')) {
     path = `/${path}`
   }
-  console.log('path:', path)
-  if (isPageTabbar(path)) {
+  const { path: _path, query } = parseRouteStr(path)
+  console.log('_path:', _path, 'query:', query)
+  console.log('isPageTabbar(_path):', isPageTabbar(_path))
+  if (isPageTabbar(_path)) {
     uni.switchTab({
-      url: path,
+      url: _path,
+      query,
     })
   }
   else {

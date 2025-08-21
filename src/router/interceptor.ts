@@ -8,35 +8,41 @@ import { useUserStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
 import { getLastPage } from '@/utils'
 import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from '../login/config'
+import { parseRouteStr } from './queryString'
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
   // 增加对相对路径的处理，BY 网友 @ideal
   invoke({ url, query }: { url: string, query?: Record<string, string> }) {
-    console.log(url) // /pages/route-interceptor/index?name=feige&age=30
     if (url === undefined) {
       return
     }
-    console.log(getCurrentPages())
-    if (getCurrentPages().length === 0) {
-      return
-    }
-    let path = url.split('?')[0]
+
+    let path = decodeURIComponent(url).split('?')[0]
+    // /pages/route-interceptor/index?name=feige&age=30
+    console.log('路由拦截器：url->', url, ', query ->', query, ', path ->', path)
 
     // 处理相对路径
     if (!path.startsWith('/')) {
+      console.log(getCurrentPages())
+      if (getCurrentPages().length === 0) {
+        return
+      }
       const currentPath = getLastPage()?.route || ''
       const normalizedCurrentPath = currentPath.startsWith('/') ? currentPath : `/${currentPath}`
       const baseDir = normalizedCurrentPath.substring(0, normalizedCurrentPath.lastIndexOf('/'))
       path = `${baseDir}/${path}`
     }
 
-    // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
-    tabbarStore.setAutoCurIdx(path)
+    const { path: _path, query: _query } = parseRouteStr(path)
+    console.log('_path:', _path, 'query:', _query)
 
-    if (LOGIN_PAGE_LIST.includes(path)) {
-      console.log('000')
+    // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
+    tabbarStore.setAutoCurIdx(_path)
+
+    if (LOGIN_PAGE_LIST.includes(_path)) {
+      console.log('命中了 LOGIN_PAGE_LIST')
       return
     }
 
@@ -48,6 +54,7 @@ export const navigateToInterceptor = {
     const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(path)}`
 
     const userStore = useUserStore()
+    console.log('userStore.hasLogin:', userStore.hasLogin)
 
     // #region 1/2 需要登录的情况 ---------------------------
     if (isNeedLogin) {
@@ -55,10 +62,11 @@ export const navigateToInterceptor = {
         return
       }
       else {
-        if (EXCLUDE_PAGE_LIST.includes(path)) {
+        if (EXCLUDE_PAGE_LIST.includes(_path)) {
           return
         }
         else {
+          console.log('isNeedLogin redirectUrl:', redirectUrl)
           uni.navigateTo({ url: redirectUrl })
         }
       }
@@ -68,6 +76,7 @@ export const navigateToInterceptor = {
     // #region 2/2 不需要登录的情况 ---------------------------
     else {
       if (EXCLUDE_PAGE_LIST.includes(path)) {
+        console.log('isNeedLogin redirectUrl:', redirectUrl)
         uni.navigateTo({ url: redirectUrl })
       }
     }
