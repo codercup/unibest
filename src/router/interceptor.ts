@@ -22,8 +22,9 @@ const isDev = import.meta.env.DEV
 export const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
   // 增加对相对路径的处理，BY 网友 @ideal
-  invoke({ url }: { url: string }) {
-    // console.log(url) // /pages/route-interceptor/index?name=feige&age=30
+  invoke({ url, query }: { url: string, query?: Record<string, string> }) {
+    console.log(url) // /pages/route-interceptor/index?name=feige&age=30
+    console.log(query) // /pages/route-interceptor/index?name=feige&age=30
     let path = url.split('?')[0]
 
     // 处理相对路径
