@@ -30,7 +30,7 @@ const { onAuthRequired, onResponseRefreshToken } = createServerTokenAuthenticati
       }
       catch (error) {
         // 切换到登录页
-        await uni.reLaunch({ url: '/pages/common/login/index' })
+        await uni.reLaunch({ url: '/pages/login/login' })
         throw error
       }
     },

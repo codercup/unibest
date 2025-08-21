@@ -38,6 +38,12 @@ export const nativeTabbarList: NativeTabBarItem[] = [
     pagePath: 'pages/about/about',
     text: '关于',
   },
+  {
+    iconPath: 'static/tabbar/personal.png',
+    selectedIconPath: 'static/tabbar/personalHL.png',
+    pagePath: 'pages/me/me',
+    text: '个人',
+  },
 ]
 
 export interface CustomTabBarItem {
@@ -71,17 +77,18 @@ export const customTabbarList: CustomTabBarItem[] = [
     icon: 'i-carbon-code',
     // badge: 10,
   },
-
-  // {
-  //   pagePath: 'pages/mine/index',
-  //   text: '我的',
-  //   // 注意 iconfont 图标需要额外加上 'iconfont'，如下
-  //   iconType: 'iconfont',
-  //   icon: 'iconfont icon-my',
-  // },
+  {
+    pagePath: 'pages/me/me',
+    text: '我的',
+    iconType: 'uniUi',
+    icon: 'contact',
+  },
   // {
   //   pagePath: 'pages/index/index',
   //   text: '首页',
+  // 注意 iconfont 图标需要额外加上 'iconfont'，如下
+  // iconType: 'iconfont',
+  // icon: 'iconfont icon-my',
   //   // 使用 ‘image’时，需要配置 icon + iconActive 2张图片（不推荐）
   //   // 既然已经用了自定义tabbar了，就不建议用图片了，所以不推荐
   //   iconType: 'image',
