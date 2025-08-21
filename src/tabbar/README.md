@@ -31,3 +31,48 @@
 - `store.ts` ，专门给 `自定义 tabbar` 提供状态管理，代码几乎不需要修改。
 - `index.vue` ，专门给 `自定义 tabbar` 提供渲染逻辑，代码可以稍微修改，以符合自己的需求。
 
+## 自定义tabbar的不同类型的配置
+
+- uniUi 图标
+
+ ```js
+  {
+    // ... 其他配置
+    "iconType": "uniUi",
+    "icon": "home",
+  }
+  ```
+- unocss 图标
+
+ ```js
+  {
+    // ... 其他配置
+    // 注意 unocss 图标需要如下处理：（二选一）
+    // 1）在fg-tabbar.vue页面上引入一下并注释掉（见tabbar/index.vue代码第2行）
+    // 2）配置到 unocss.config.ts 的 safelist 中
+    iconType: 'unocss',
+    icon: 'i-carbon-code',
+  }
+  ```
+- iconfont 图标
+
+ ```js
+  {
+    // ... 其他配置
+    // 注意 iconfont 图标需要额外加上 'iconfont'，如下
+    iconType: 'iconfont',
+    icon: 'iconfont icon-my',
+  }
+  ```
+- image 本地图片
+
+ ```js
+  {
+    // ... 其他配置
+    // 使用 ‘image’时，需要配置 icon + iconActive 2张图片（不推荐）
+    // 既然已经用了自定义tabbar了，就不建议用图片了，所以不推荐
+    iconType: 'image',
+    icon: '/static/tabbar/home.png',
+    iconActive: '/static/tabbar/homeHL.png',
+  }
+  ```

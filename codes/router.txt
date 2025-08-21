@@ -1,0 +1,222 @@
+import { getCurrentInstance, type App } from 'vue'
+import { useUserLoginStore } from '@/store/login'
+import { Pages } from './pages'
+import { LoginPopupViewer } from './loginPopupServices'
+import Loading from './Loading'
+
+/** 实时判断用户是否已登录（避免 computed 缓存） */
+function isUserLoggedIn(): boolean {
+  return useUserLoginStore().isLoggedIn
+}
+
+// 路由相关配置
+// 这里可以根据实际情况调整
+// 例如：需要登录验证的页面等
+// 以及登录页面、会员中心页面等
+
+// 需要登录验证的页面
+const authPages = [
+  Pages.USER_INFO_EDIT,
+  Pages.VIP_CENTER,
+  //Pages.PRODUCT_LIST,
+  //Pages.PRODUCT_DETAILS,
+  Pages.USER_ACCOUNT_SECURITY,
+  Pages.USER_EDIT_NICKNAME,
+  Pages.USER_ORDER_LIST,
+  Pages.USER_ORDER_DETAILS,
+  Pages.USER_MOBILE,
+  Pages.DISTRIBUTION_CENTER,
+  Pages.DISTRIBUTION_CENTER_DETAILS,
+  Pages.USER_MOBILE_CHANGE,
+  Pages.USER_PERSONAL_INFO,
+  Pages.USER_REMARK,
+  Pages.PRODUCT_ORDER_CONFIRM,
+  Pages.PRODUCT_PAY_MODE,
+  Pages.COUPON_CENTER,
+  Pages.COUPON_LIST,
+  Pages.CUSTOMER_SERVICE,
+  Pages.SHIPPING_ADDRESS_ADDED_OR_EDIT,
+  Pages.SHIPPING_ADDRESS_LIST,
+  Pages.USER_PASSWORD_CONFIG,
+  Pages.WITHDRAWAL,
+  Pages.WITHDRAWAL_RECORD_LIST,
+]
+
+/** 判断是否需要登录 */
+function getBasePath(url: string): string {
+  const index = url.indexOf('?')
+  return index !== -1 ? url.substring(0, index) : url
+}
+
+function isAuthRequired(url: string): boolean {
+  const cleanUrl = getBasePath(url)
+  console.log(`URL数据源:${authPages}`)
+  console.log(`URL原始值: ${url}`)
+  console.log(`URL过滤值: ${cleanUrl}`)
+  return authPages.some((item) => item === cleanUrl)
+}
+
+/** 缓存跳转路径 */
+function cacheRedirect(url: string) {
+  uni.setStorageSync('pending_redirect', url)
+}
+
+/** 读取并清除缓存跳转路径 */
+function consumeRedirect(): string | null {
+  const url = uni.getStorageSync('pending_redirect')
+  uni.removeStorageSync('pending_redirect')
+  return url || null
+}
+
+/** 路由核心跳转方法 */
+async function internalNavigate(
+  type: 'navigateTo' | 'redirectTo' | 'switchTab' | 'reLaunch',
+  url: string,
+  options: Record<string, any> = {},
+) {
+  const originUrl: string = url.startsWith('/') ? url : `/${url}`
+  const isAuthPage = isAuthRequired(originUrl)
+  console.log(`[Router][${type}] 跳转到:`, originUrl, '需要登录:', isAuthPage)
+  console.log(`[Router][${type}] 是否登录:`, isUserLoggedIn)
+
+  // 如果需要登录但未登录，则弹出登录框
+  if (isAuthPage && !isUserLoggedIn()) {
+    cacheRedirect(originUrl)
+    const loginResult = await LoginPopupViewer.open()
+    console.log(`[Router][${type}] 登录弹窗结果:`, loginResult)
+
+    // 如果登录失败（或用户取消），中断跳转
+    if (!loginResult) {
+      console.log(`[Router][${type}] 已终止跳转，原因：用户未登录或取消登录`)
+      Loading.showError({ msg: '已取消登录' })
+      return
+    }
+  }
+
+  // 登录状态已满足，可以安全跳转
+  try {
+    switch (type) {
+      case 'navigateTo':
+        return await uniNavigateTo(originUrl, options)
+      case 'redirectTo':
+        return await uniRedirectTo(originUrl, options)
+      case 'switchTab':
+        return await uniSwitchTab(originUrl)
+      case 'reLaunch':
+        return await uniReLaunch(originUrl)
+    }
+  } catch (error) {
+    console.error(`[Router][${type}] 跳转失败:`, error)
+  }
+}
+
+/** ✅ Promise 封装 uni API **/
+function uniNavigateTo(url: string, options: any) {
+  return new Promise((resolve, reject) => {
+    uni.navigateTo({
+      url,
+      ...options,
+      success: resolve,
+      fail: reject,
+    })
+  })
+}
+function uniRedirectTo(url: string, options: any) {
+  return new Promise((resolve, reject) => {
+    uni.redirectTo({
+      url,
+      ...options,
+      success: resolve,
+      fail: reject,
+    })
+  })
+}
+function uniSwitchTab(url: string) {
+  return new Promise((resolve, reject) => {
+    uni.switchTab({
+      url,
+      success: resolve,
+      fail: reject,
+    })
+  })
+}
+function uniReLaunch(url: string) {
+  return new Promise((resolve, reject) => {
+    uni.reLaunch({
+      url,
+      success: resolve,
+      fail: reject,
+    })
+  })
+}
+
+// ✅ Router API 对象
+// ✅ Router API 对象
+export const Router = {
+  // 页面跳转，支持登录鉴权
+  async navigateTo(opt: { url: string; requiresAuth?: boolean } & Record<string, any>) {
+    return await internalNavigate('navigateTo', opt.url, opt)
+  },
+
+  // 页面重定向，支持登录鉴权
+  async redirectTo(opt: { url: string; requiresAuth?: boolean } & Record<string, any>) {
+    return await internalNavigate('redirectTo', opt.url, opt)
+  },
+
+  // tab 页面切换
+  async switchTab(opt: { url: string }) {
+    return await internalNavigate('switchTab', opt.url, opt)
+  },
+
+  // 重新启动应用跳转
+  async reLaunch(opt: { url: string }) {
+    return await internalNavigate('reLaunch', opt.url, opt)
+  },
+
+  // 重定向别名
+  async replace(opt: { url: string; requiresAuth?: boolean } & Record<string, any>) {
+    return await internalNavigate('redirectTo', opt.url, opt)
+  },
+
+  // 返回上一级
+  async back(delta = 1) {
+    return await new Promise((resolve, reject) => {
+      uni.navigateBack({
+        delta,
+        success: resolve,
+        fail: reject,
+      })
+    })
+  },
+
+  consumeRedirect,
+}
+
+let cachedRouter: typeof Router | null = null
+
+/**
+ * ✅ 全局安全获取 $Router 实例（推荐使用）
+ */
+export function useRouter(): typeof Router {
+  if (cachedRouter) return cachedRouter
+
+  const instance = getCurrentInstance()
+  if (!instance) {
+    throw new Error('useRouter() 必须在 setup() 或生命周期中调用')
+  }
+
+  const router = instance.appContext.config.globalProperties.$Router
+  if (!router) {
+    throw new Error('$Router 尚未注入，请在 main.ts 中使用 app.use(RouterPlugin)')
+  }
+
+  cachedRouter = router
+  return router
+}
+
+/** ✅ 注册为全局插件 */
+export default {
+  install(app: App) {
+    app.config.globalProperties.$Router = Router
+  },
+}

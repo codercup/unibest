@@ -1,5 +1,4 @@
 import { pages, subPackages } from '@/pages.json'
-import { tabbarList } from '@/tabbar/config'
 import { isMpWeixin } from './platform'
 
 export function getLastPage() {
@@ -12,7 +11,7 @@ export function getLastPage() {
 
 /**
  * 获取当前页面路由的 path 路径和 redirectPath 路径
- * path 如 '/pages/login/index'
+ * path 如 '/pages/login/login'
  * redirectPath 如 '/pages/demo/base/route-interceptor'
  */
 export function currRoute() {
@@ -25,12 +24,12 @@ export function currRoute() {
   // 经过多端测试，只有 fullPath 靠谱，其他都不靠谱
   const { fullPath } = currRoute as { fullPath: string }
   // console.log(fullPath)
-  // eg: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
-  // eg: /pages/login/index?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
-  return getUrlObj(fullPath)
+  // eg: /pages/login/login?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
+  // eg: /pages/login/login?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
+  return parseUrlToObj(fullPath)
 }
 
-function ensureDecodeURIComponent(url: string) {
+export function ensureDecodeURIComponent(url: string) {
   if (url.startsWith('%')) {
     return ensureDecodeURIComponent(decodeURIComponent(url))
   }
@@ -38,10 +37,10 @@ function ensureDecodeURIComponent(url: string) {
 }
 /**
  * 解析 url 得到 path 和 query
- * 比如输入url: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
- * 输出: {path: /pages/login/index, query: {redirect: /pages/demo/base/route-interceptor}}
+ * 比如输入url: /pages/login/login?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
+ * 输出: {path: /pages/login/login, query: {redirect: /pages/demo/base/route-interceptor}}
  */
-export function getUrlObj(url: string) {
+export function parseUrlToObj(url: string) {
   const [path, queryStr] = url.split('?')
   // console.log(path, queryStr)
 
@@ -93,11 +92,6 @@ export function getAllPages(key = 'needLogin') {
   return result
 }
 
-export function isCurrentPageTabbar() {
-  const routeObj = currRoute()
-  return tabbarList.some(item => `/${item.pagePath}` === routeObj.path)
-}
-
 export function getCurrentPageI18nKey() {
   const routeObj = currRoute()
   const currPage = pages.find(page => `/${page.path}` === routeObj.path)
@@ -109,18 +103,6 @@ export function getCurrentPageI18nKey() {
   console.log(currPage.style.navigationBarTitleText)
   return currPage.style.navigationBarTitleText
 }
-
-/**
- * 得到所有的需要登录的 pages，包括主包和分包的
- * 只得到 path 数组
- */
-export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map(page => page.path)
-
-/**
- * 得到所有的需要登录的 pages，包括主包和分包的
- * 只得到 path 数组
- */
-export const needLoginPages: string[] = getAllPages('needLogin').map(page => page.path)
 
 /**
  * 根据微信小程序当前环境，判断应该获取的 baseUrl

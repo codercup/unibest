@@ -58,11 +58,11 @@ function getColorByIndex(index: number) {
 }
 
 function getImageByIndex(index: number, item: CustomTabBarItem) {
-  if (!item.activeIcon) {
+  if (!item.iconActive) {
     console.warn('image 模式下，需要配置 iconActive (高亮时的图片），否则无法切换高亮图片')
     return item.icon
   }
-  return tabbarStore.curIdx === index ? item.activeIcon : item.icon
+  return tabbarStore.curIdx === index ? item.iconActive : item.icon
 }
 
 // 注意，上面处理的是自定义tabbar，下面处理的是原生tabbar，参考：https://unibest.tech/base/10-i18n

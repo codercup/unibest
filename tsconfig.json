@@ -29,6 +29,7 @@
     "plugins": ["@uni-helper/uni-types/volar-plugin"]
   },
   "include": [
+    "package.json",
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.d.ts",

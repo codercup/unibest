@@ -20,7 +20,7 @@ export const TABBAR_STRATEGY_MAP = {
 // 如果是使用 NO_TABBAR(0)，nativeTabbarList 和 customTabbarList 都不生效(里面的配置不用管)
 // 如果是使用 NATIVE_TABBAR(1)，只需要配置 nativeTabbarList，customTabbarList 不生效
 // 如果是使用 CUSTOM_TABBAR(2,3)，只需要配置 customTabbarList，nativeTabbarList 不生效
-export const selectedTabbarStrategy = TABBAR_STRATEGY_MAP.NATIVE_TABBAR
+export const selectedTabbarStrategy = TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE
 
 type NativeTabBarItem = TabBar['list'][number]
 
@@ -38,6 +38,12 @@ export const nativeTabbarList: NativeTabBarItem[] = [
     pagePath: 'pages/about/about',
     text: '%tabbar.about%',
   },
+  {
+    iconPath: 'static/tabbar/personal.png',
+    selectedIconPath: 'static/tabbar/personalHL.png',
+    pagePath: 'pages/me/me',
+    text: '个人',
+  },
 ]
 
 export interface CustomTabBarItem {
@@ -45,11 +51,12 @@ export interface CustomTabBarItem {
   pagePath: string
   iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图
   icon: any // 其实是 string 类型，这里是为了避免 ts 报错 (tabbar/index.vue 里面 uni-icons 那行)
-  activeIcon?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
+  iconActive?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
   badge?: number | 'dot' // badge 显示一个数字或 小红点（样式可以直接在 tabbar/index.vue 里面修改）
   isBulge?: boolean // 是否是中间的鼓包tabbarItem
 }
 // TODO: 3/3. 使用 CUSTOM_TABBAR(2,3) 时，更新下面的 tabbar 配置
+// 如果需要配置鼓包，需要在 'tabbar/store.ts' 里面设置，最后在 `tabbar/index.vue` 里面更改鼓包的图片
 export const customTabbarList: CustomTabBarItem[] = [
   {
     // text 和 pagePath 可以自己直接写，也可以通过索引从 nativeTabbarList 中获取
@@ -72,17 +79,18 @@ export const customTabbarList: CustomTabBarItem[] = [
     icon: 'i-carbon-code',
     // badge: 10,
   },
-
-  // {
-  //   pagePath: 'pages/mine/index',
-  //   text: '我的',
-  //   // 注意 iconfont 图标需要额外加上 'iconfont'，如下
-  //   iconType: 'iconfont',
-  //   icon: 'iconfont icon-my',
-  // },
+  {
+    pagePath: 'pages/me/me',
+    text: '我的',
+    iconType: 'uniUi',
+    icon: 'contact',
+  },
   // {
   //   pagePath: 'pages/index/index',
   //   text: '首页',
+  // 注意 iconfont 图标需要额外加上 'iconfont'，如下
+  // iconType: 'iconfont',
+  // icon: 'iconfont icon-my',
   //   // 使用 ‘image’时，需要配置 icon + iconActive 2张图片（不推荐）
   //   // 既然已经用了自定义tabbar了，就不建议用图片了，所以不推荐
   //   iconType: 'image',
@@ -111,6 +119,7 @@ export const customTabbarEnable
  */
 export const needHideNativeTabbar = selectedTabbarStrategy === TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE
 
+const _tabbarList = customTabbarEnable ? customTabbarList.map(item => ({ text: item.text, pagePath: item.pagePath })) : nativeTabbarList
 export const tabbarList = customTabbarEnable ? customTabbarList : nativeTabbarList
 
 // NATIVE_TABBAR(1) 时，显示原生Tabbar，在i18n的情况下需要 setTabbarItem (框架已经处理)
@@ -127,7 +136,7 @@ const _tabbar: TabBar = {
   fontSize: '10px',
   iconWidth: '24px',
   spacing: '3px',
-  list: tabbarList as unknown as TabBar['list'],
+  list: _tabbarList as unknown as TabBar['list'],
 }
 
 // 0和1 需要显示底部的tabbar的各种配置，以利用缓存

@@ -15,7 +15,7 @@
     }
   },
   "tabBar": {
-    "custom": false,
+    "custom": true,
     "color": "#999999",
     "selectedColor": "#018d71",
     "backgroundColor": "#F8F8F8",
@@ -40,6 +40,14 @@
     ]
   },
   "pages": [
+    {
+      "path": "pages/me/me",
+      "type": "home",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
     {
       "path": "pages/index/index",
       "type": "home",
@@ -78,6 +86,22 @@
       "layout": "default",
       "style": {
         "navigationBarTitleText": "Vue Query 请求演示"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/login/register",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "注册"
       }
     }
   ],

@@ -2,10 +2,12 @@
  * 用户信息
  */
 export interface IUserInfoVo {
-  id: number
+  id: number | string
   username: string
   avatar: string
   token: string
+  refreshToken?: string
+  refreshExpire?: number
 }
 
 /**
@@ -15,6 +17,8 @@ export interface IUserLogin {
   id: string
   username: string
   token: string
+  refreshToken?: string
+  refreshExpire?: number
 }
 
 /**

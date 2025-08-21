@@ -5,6 +5,7 @@ import {
   getUserInfo as _getUserInfo,
   login as _login,
   logout as _logout,
+  refreshToken as _refreshToken,
   wxLogin as _wxLogin,
   getWxCode,
 } from '@/api/login'
@@ -16,6 +17,8 @@ const userInfoState: IUserInfoVo = {
   username: '',
   avatar: '/static/images/default-avatar.png',
   token: '',
+  refreshToken: '',
+  refreshExpire: 0,
 }
 
 export const useUserStore = defineStore(
@@ -43,9 +46,9 @@ export const useUserStore = defineStore(
     // 删除用户信息
     const removeUserInfo = () => {
       userInfo.value = { ...userInfoState }
-      uni.removeStorageSync('userInfo')
-      uni.removeStorageSync('token')
+      uni.removeStorageSync('user')
     }
+
     /**
      * 获取用户信息
      */
@@ -53,8 +56,6 @@ export const useUserStore = defineStore(
       const res = await _getUserInfo()
       const userInfo = res.data
       setUserInfo(userInfo)
-      uni.setStorageSync('userInfo', userInfo)
-      uni.setStorageSync('token', userInfo.token)
       // TODO 这里可以增加获取用户路由的方法 根据用户的角色动态生成路由
       return res
     }
@@ -72,6 +73,21 @@ export const useUserStore = defineStore(
       const res = await _login(credentials)
       console.log('登录信息', res)
       toast.success('登录成功')
+      await getUserInfo()
+      return res
+    }
+
+    /**
+     * 刷新token
+     */
+    const refreshToken = async () => {
+      const res = await _refreshToken(userInfo.value.refreshToken)
+      setUserInfo({
+        ...userInfo.value,
+        token: res.data.token,
+        refreshToken: res.data.refreshToken,
+        refreshExpire: res.data.refreshExpire,
+      })
       await getUserInfo()
       return res
     }
@@ -100,9 +116,12 @@ export const useUserStore = defineStore(
       userInfo,
       login,
       wxLogin,
+      setUserInfo,
       getUserInfo,
       setUserAvatar,
       logout,
+      hasLogin: computed(() => !!userInfo.value.token),
+      refreshToken,
     }
   },
   {
