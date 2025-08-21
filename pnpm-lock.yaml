@@ -95,7 +95,7 @@ importers:
         specifier: 3.4.21
         version: 3.4.21(typescript@5.9.2)
       wot-design-uni:
-        specifier: ^1.9.1
+        specifier: ^1.11.1
         version: 1.11.1(vue@3.4.21(typescript@5.9.2))
       z-paging:
         specifier: 2.8.7
