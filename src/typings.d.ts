@@ -21,7 +21,12 @@ declare global {
     avatar?: string
     /** 微信的 openid，非微信没有这个字段 */
     openid?: string
-    token?: string
+  }
+
+  interface IUserToken {
+    token: string
+    refreshToken?: string
+    refreshExpire?: number
   }
 }
 
