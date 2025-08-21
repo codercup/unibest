@@ -16,7 +16,12 @@ import { ensureDecodeURIComponent } from '@/utils'
 const redirectUrl = ref('')
 onLoad((options) => {
   console.log('login options', options)
-  redirectUrl.value = ensureDecodeURIComponent(options.redirect) || tabbarList[0].pagePath
+  if (options.redirect) {
+    redirectUrl.value = ensureDecodeURIComponent(options.redirect)
+  }
+  else {
+    redirectUrl.value = tabbarList[0].pagePath
+  }
 })
 const userStore = useUserStore()
 function doLogin() {
