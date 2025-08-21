@@ -8,11 +8,11 @@
 </route>
 
 <script lang="ts" setup>
-import { parseRouteStr } from '@/router/queryString'
 import { useUserStore } from '@/store/user'
 import { tabbarList } from '@/tabbar/config'
 import { isPageTabbar } from '@/tabbar/store'
 import { ensureDecodeURIComponent } from '@/utils'
+import { parseUrlToObj } from '@/utils/index'
 
 const redirectUrl = ref('')
 onLoad((options) => {
@@ -39,7 +39,7 @@ function doLogin() {
   if (!path.startsWith('/')) {
     path = `/${path}`
   }
-  const { path: _path, query } = parseRouteStr(path)
+  const { path: _path, query } = parseUrlToObj(path)
   console.log('_path:', _path, 'query:', query, 'path:', path)
   console.log('isPageTabbar(_path):', isPageTabbar(_path))
   if (isPageTabbar(_path)) {

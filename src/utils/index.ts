@@ -27,7 +27,7 @@ export function currRoute() {
   // console.log(fullPath)
   // eg: /pages/login/login?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
   // eg: /pages/login/login?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
-  return getUrlObj(fullPath)
+  return parseUrlToObj(fullPath)
 }
 
 export function ensureDecodeURIComponent(url: string) {
@@ -41,7 +41,7 @@ export function ensureDecodeURIComponent(url: string) {
  * 比如输入url: /pages/login/login?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
  * 输出: {path: /pages/login/login, query: {redirect: /pages/demo/base/route-interceptor}}
  */
-export function getUrlObj(url: string) {
+export function parseUrlToObj(url: string) {
   const [path, queryStr] = url.split('?')
   // console.log(path, queryStr)
 

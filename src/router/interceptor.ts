@@ -6,9 +6,8 @@
  */
 import { useUserStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
-import { getLastPage } from '@/utils'
+import { getLastPage, parseUrlToObj } from '@/utils/index'
 import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from '../login/config'
-import { parseRouteStr } from './queryString'
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
@@ -18,7 +17,7 @@ export const navigateToInterceptor = {
     if (url === undefined) {
       return
     }
-    let { path, query: _query } = parseRouteStr(url)
+    let { path, query: _query } = parseUrlToObj(url)
 
     console.log('路由拦截器 1: url->', url, ', query ->', query)
     const myQuery = { ..._query, ...query }
