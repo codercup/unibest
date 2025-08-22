@@ -155,7 +155,6 @@ export const useTokenStore = defineStore(
     const logout = async () => {
       try {
         await _logout()
-
         // 清除存储的过期时间
         uni.removeStorageSync('accessTokenExpireTime')
         uni.removeStorageSync('refreshTokenExpireTime')

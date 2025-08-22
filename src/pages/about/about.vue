@@ -8,6 +8,7 @@
 </route>
 
 <script lang="ts" setup>
+import { LOGIN_PAGE } from '@/router/config'
 import RequestComp from './components/request.vue'
 import I18nComp from './i18n.vue'
 
@@ -26,7 +27,7 @@ console.log('about')
 
 function toLogin() {
   uni.navigateTo({
-    url: `/pages/login/login?redirect=${encodeURIComponent('/pages/about/about')}`,
+    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about')}`,
   })
 }
 

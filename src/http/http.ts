@@ -1,14 +1,13 @@
 import type { IDoubleTokenRes } from '@/api/types/login'
 import type { CustomRequestOptions } from '@/http/types'
 import { nextTick } from 'vue'
+import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store/token'
+import { isDoubleTokenMode } from '@/utils'
 
 // 刷新 token 状态管理
 let refreshing = false // 防止重复刷新 token 标识
 let taskQueue: (() => void)[] = [] // 刷新 token 请求队列
-
-// token 刷新策略: single-不刷新，double-无感刷新(需后端配合)
-const sessionMode = import.meta.env.VITE_AUTH_MODE === 'double' ? 'double' : 'single'
 
 export function http<T>(options: CustomRequestOptions) {
   // 1. 返回 Promise 对象
@@ -29,10 +28,10 @@ export function http<T>(options: CustomRequestOptions) {
         const resData: IResData<T> = res.data as IResData<T>
         if ((res.statusCode === 401) || (resData.code === 401)) {
           const tokenStore = useTokenStore()
-          if (sessionMode === 'single') {
+          if (!isDoubleTokenMode) {
             // 未启用双token策略，清理用户信息，跳转到登录页
             tokenStore.logout()
-            uni.navigateTo({ url: '/pages/login/login' })
+            uni.navigateTo({ url: LOGIN_PAGE })
             return reject(res)
           }
           /* -------- 无感刷新 token ----------- */
@@ -78,7 +77,7 @@ export function http<T>(options: CustomRequestOptions) {
               await tokenStore.logout()
               // 跳转到登录页
               setTimeout(() => {
-                uni.navigateTo({ url: '/pages/login/login' })
+                uni.navigateTo({ url: LOGIN_PAGE })
               }, 2000)
             }
             finally {

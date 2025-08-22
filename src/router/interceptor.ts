@@ -6,7 +6,7 @@
 import { useTokenStore } from '@/store/token'
 import { tabbarStore } from '@/tabbar/store'
 import { getLastPage, parseUrlToObj } from '@/utils/index'
-import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from './config'
+import { EXCLUDE_PAGE_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_LIST } from './config'
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
@@ -49,7 +49,7 @@ export const navigateToInterceptor = {
     console.log('tokenStore.hasLogin:', tokenStore.hasLogin)
 
     // #region 1/2 需要登录的情况 ---------------------------
-    if (isNeedLogin) {
+    if (isNeedLoginMode) {
       if (tokenStore.hasLogin) {
         return
       }
