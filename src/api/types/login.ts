@@ -77,3 +77,21 @@ export interface IUpdatePassword {
   newPassword: string
   confirmPassword: string
 }
+
+/**
+ * 判断是否为单Token响应
+ * @param tokenRes 登录响应数据
+ * @returns 是否为单Token响应
+ */
+export function isSingleTokenRes(tokenRes: IAuthLoginRes): tokenRes is ISingleTokenRes {
+  return 'token' in tokenRes && !('refreshToken' in tokenRes)
+}
+
+/**
+ * 判断是否为双Token响应
+ * @param tokenRes 登录响应数据
+ * @returns 是否为双Token响应
+ */
+export function isDoubleTokenRes(tokenRes: IAuthLoginRes): tokenRes is IDoubleTokenRes {
+  return 'accessToken' in tokenRes && 'refreshToken' in tokenRes
+}
