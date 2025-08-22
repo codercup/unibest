@@ -11,6 +11,7 @@
 </route>
 
 <script lang="ts" setup>
+import { LOGIN_PAGE } from '@/router/config'
 import { useThemeStore } from '@/store'
 
 defineOptions({
@@ -52,7 +53,7 @@ onLoad(() => {
 
 function toLogin() {
   uni.navigateTo({
-    url: '/pages/login/login',
+    url: LOGIN_PAGE,
   })
 }
 

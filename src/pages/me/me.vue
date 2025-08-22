@@ -12,6 +12,7 @@
 <script lang="ts" setup>
 import type { IUploadSuccessInfo } from '@/api/types/login'
 import { storeToRefs } from 'pinia'
+import { LOGIN_PAGE } from '@/router/config'
 import { useUserStore } from '@/store'
 import { useTokenStore } from '@/store/token'
 import { useUpload } from '@/utils/uploadFile'
@@ -43,7 +44,7 @@ async function handleLogin() {
   await tokenStore.wxLogin()
   // #endif
   // #ifndef MP-WEIXIN
-  uni.navigateTo({ url: '/pages/login/login' })
+  uni.navigateTo({ url: LOGIN_PAGE })
   // #endif
 }
 
@@ -94,7 +95,7 @@ function handleLogout() {
         // #endif
         // #ifndef MP-WEIXIN
         // 非微信小程序，去登录页
-        uni.navigateTo({ url: '/pages/login/login' })
+        uni.navigateTo({ url: LOGIN_PAGE })
         // #endif
       }
     },

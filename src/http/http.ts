@@ -1,6 +1,7 @@
 import type { IDoubleTokenRes } from '@/api/types/login'
 import type { CustomRequestOptions } from '@/http/types'
 import { nextTick } from 'vue'
+import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store/token'
 import { isDoubleTokenMode } from '@/utils'
 
@@ -30,7 +31,7 @@ export function http<T>(options: CustomRequestOptions) {
           if (!isDoubleTokenMode) {
             // 未启用双token策略，清理用户信息，跳转到登录页
             tokenStore.logout()
-            uni.navigateTo({ url: '/pages/login/login' })
+            uni.navigateTo({ url: LOGIN_PAGE })
             return reject(res)
           }
           /* -------- 无感刷新 token ----------- */
@@ -76,7 +77,7 @@ export function http<T>(options: CustomRequestOptions) {
               await tokenStore.logout()
               // 跳转到登录页
               setTimeout(() => {
-                uni.navigateTo({ url: '/pages/login/login' })
+                uni.navigateTo({ url: LOGIN_PAGE })
               }, 2000)
             }
             finally {
