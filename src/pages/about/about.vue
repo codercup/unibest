@@ -8,6 +8,7 @@
 </route>
 
 <script lang="ts" setup>
+import { LOGIN_PAGE } from '@/router/config'
 import RequestComp from './components/request.vue'
 
 // 奇怪：同样的代码放在 vue 里面不会校验到错误，放在 .ts 文件里面会校验到错误
@@ -19,7 +20,7 @@ console.log('about')
 
 function toLogin() {
   uni.navigateTo({
-    url: `/pages/login/login?redirect=${encodeURIComponent('/pages/about/about')}`,
+    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about')}`,
   })
 }
 

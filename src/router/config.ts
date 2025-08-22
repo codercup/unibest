@@ -8,6 +8,7 @@ export const isNeedLogin = LOGIN_STRATEGY === LOGIN_STRATEGY_MAP.DEFAULT_NEED_LO
 
 export const LOGIN_PAGE = '/pages/login/login'
 export const REGISTER_PAGE = '/pages/login/register'
+
 export const LOGIN_PAGE_LIST = [LOGIN_PAGE, REGISTER_PAGE]
 
 // 排除在外的列表，白名单策略指白名单列表，黑名单策略指黑名单列表
