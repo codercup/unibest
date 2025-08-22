@@ -1,13 +1,14 @@
+import type { IDoubleTokenRes } from '@/api/types/login'
 import type { CustomRequestOptions } from '@/http/types'
 import { nextTick } from 'vue'
-import { useUserStore } from '@/store/user'
+import { useTokenStore } from '@/store/token'
 
 // 刷新 token 状态管理
 let refreshing = false // 防止重复刷新 token 标识
 let taskQueue: (() => void)[] = [] // 刷新 token 请求队列
 
 // token 刷新策略: single-不刷新，double-无感刷新(需后端配合)
-const sessionMode = import.meta.env.VITE_TOKEN_STRATEGY === 'double' ? 'double' : 'single'
+const sessionMode = import.meta.env.VITE_AUTH_MODE === 'double' ? 'double' : 'single'
 
 export function http<T>(options: CustomRequestOptions) {
   // 1. 返回 Promise 对象
@@ -27,15 +28,15 @@ export function http<T>(options: CustomRequestOptions) {
         }
         const resData: IResData<T> = res.data as IResData<T>
         if ((res.statusCode === 401) || (resData.code === 401)) {
-          const store = useUserStore()
+          const tokenStore = useTokenStore()
           if (sessionMode === 'single') {
             // 未启用双token策略，清理用户信息，跳转到登录页
-            store.logout()
+            tokenStore.logout()
             uni.navigateTo({ url: '/pages/login/login' })
             return reject(res)
           }
           /* -------- 无感刷新 token ----------- */
-          const { refreshToken } = store.userInfo || {}
+          const { refreshToken } = tokenStore.tokenInfo as IDoubleTokenRes || {}
           // token 失效的，且有刷新 token 的，才放到请求队列里
           if ((res.statusCode === 401 || resData.code === 401) && refreshToken) {
             taskQueue.push(() => {
@@ -47,7 +48,7 @@ export function http<T>(options: CustomRequestOptions) {
             refreshing = true
             try {
               // 发起刷新 token 请求（使用 store 的 refreshToken 方法）
-              await store.refreshToken()
+              await tokenStore.refreshToken()
               // 刷新 token 成功
               refreshing = false
               nextTick(() => {
@@ -74,7 +75,7 @@ export function http<T>(options: CustomRequestOptions) {
                 })
               })
               // 清除用户信息
-              await store.logout()
+              await tokenStore.logout()
               // 跳转到登录页
               setTimeout(() => {
                 uni.navigateTo({ url: '/pages/login/login' })
