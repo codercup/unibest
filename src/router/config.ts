@@ -4,7 +4,7 @@ export const LOGIN_STRATEGY_MAP = {
 }
 // 登录策略，默认使用`无需登录策略`，即默认不需要登录就可以访问
 export const LOGIN_STRATEGY = LOGIN_STRATEGY_MAP.DEFAULT_NO_NEED_LOGIN
-export const isNeedLogin = LOGIN_STRATEGY === LOGIN_STRATEGY_MAP.DEFAULT_NEED_LOGIN
+export const isNeedLoginMode = LOGIN_STRATEGY === LOGIN_STRATEGY_MAP.DEFAULT_NEED_LOGIN
 
 export const LOGIN_PAGE = '/pages/login/login'
 export const REGISTER_PAGE = '/pages/login/register'
