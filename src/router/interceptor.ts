@@ -1,13 +1,12 @@
 /**
  * by 菲鸽 on 2025-08-19
  * 路由拦截，通常也是登录拦截
- * 可以设置路由白名单，或者黑名单，看业务需要选哪一个
- * 我这里应为大部分都可以随便进入，所以使用黑名单
+ * 黑白名单的配置，请看 config.ts 文件， EXCLUDE_PAGE_LIST
  */
 import { useTokenStore } from '@/store/token'
 import { tabbarStore } from '@/tabbar/store'
 import { getLastPage, parseUrlToObj } from '@/utils/index'
-import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from './login'
+import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from './config'
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
