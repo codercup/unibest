@@ -4,7 +4,6 @@ import AdapterUniapp from '@alova/adapter-uniapp'
 import { createAlova } from 'alova'
 import { createServerTokenAuthentication } from 'alova/client'
 import VueHook from 'alova/vue'
-import { toast } from '@/utils/toast'
 import { ContentTypeEnum, ResultEnum, ShowMessage } from './tools/enum'
 
 // 配置动态Tag
@@ -91,7 +90,10 @@ const alovaInstance = createAlova({
     if (statusCode !== 200) {
       const errorMessage = ShowMessage(statusCode) || `HTTP请求错误[${statusCode}]`
       console.error('errorMessage===>', errorMessage)
-      toast.error(errorMessage)
+      uni.showToast({
+        title: errorMessage,
+        icon: 'error',
+      })
       throw new Error(`${errorMessage}：${errMsg}`)
     }
 
@@ -99,7 +101,10 @@ const alovaInstance = createAlova({
     const { code, message, data } = rawData as IResponse
     if (code !== ResultEnum.Success) {
       if (config.meta?.toast !== false) {
-        toast.warning(message)
+        uni.showToast({
+          title: message,
+          icon: 'none',
+        })
       }
       throw new Error(`请求错误[${code}]：${message}`)
     }

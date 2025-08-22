@@ -9,7 +9,6 @@ import {
   wxLogin as _wxLogin,
   getWxCode,
 } from '@/api/login'
-import { toast } from '@/utils/toast'
 
 // 初始化状态
 const userInfoState: IUserInfoVo = {
@@ -72,7 +71,10 @@ export const useUserStore = defineStore(
     }) => {
       const res = await _login(credentials)
       console.log('登录信息', res)
-      toast.success('登录成功')
+      uni.showToast({
+        title: '登录成功',
+        icon: 'success',
+      })
       await getUserInfo()
       return res
     }
