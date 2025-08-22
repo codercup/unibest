@@ -4,7 +4,7 @@
  * 可以设置路由白名单，或者黑名单，看业务需要选哪一个
  * 我这里应为大部分都可以随便进入，所以使用黑名单
  */
-import { useUserStore } from '@/store'
+import { useTokenStore } from '@/store/token'
 import { tabbarStore } from '@/tabbar/store'
 import { getLastPage, parseUrlToObj } from '@/utils/index'
 import { EXCLUDE_PAGE_LIST, isNeedLogin, LOGIN_PAGE, LOGIN_PAGE_LIST } from './login'
@@ -46,12 +46,12 @@ export const navigateToInterceptor = {
     }
     const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(path)}`
 
-    const userStore = useUserStore()
-    console.log('userStore.hasLogin:', userStore.hasLogin)
+    const tokenStore = useTokenStore()
+    console.log('tokenStore.hasLogin:', tokenStore.hasLogin)
 
     // #region 1/2 需要登录的情况 ---------------------------
     if (isNeedLogin) {
-      if (userStore.hasLogin) {
+      if (tokenStore.hasLogin) {
         return
       }
       else {

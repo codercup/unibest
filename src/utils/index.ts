@@ -170,3 +170,8 @@ export function getEnvBaseUploadUrl() {
 
   return baseUploadUrl
 }
+
+/**
+ * 是否是双token模式
+ */
+export const isDoubleTokenMode = import.meta.env.VITE_AUTH_MODE === 'double'
