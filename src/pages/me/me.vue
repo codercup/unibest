@@ -1,4 +1,4 @@
-<route lang="jsonc" type="home">
+<route lang="jsonc" type="page">
 {
   "layout": "tabbar",
   "style": {
@@ -184,6 +184,7 @@ function handleLogout() {
 }
 .avatar-button {
   height: 160rpx;
+  width: 160rpx;
   padding: 0;
   margin-right: 40rpx;
   overflow: hidden;
