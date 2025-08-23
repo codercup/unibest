@@ -15,3 +15,7 @@ export const LOGIN_PAGE_LIST = [LOGIN_PAGE, REGISTER_PAGE]
 export const EXCLUDE_PAGE_LIST = [
   '/pages/xxx/index',
 ]
+
+// 在微信小程序里面是否使用小程序默认的登录，默认为true
+// 如果为 false 则复用 h5 的登录逻辑
+export const IS_USE_WX_LOGIN_IN_MP = true // 暂时还没用到，没想好怎么整合

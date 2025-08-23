@@ -21,3 +21,17 @@
 在 `默认无需登录策略： DEFAULT_NO_NEED_LOGIN` 中，只有路由在 `EXCLUDE_PAGE_LIST` 中，才需要登录，相当于黑名单。
 
 在 `默认需要登录策略： DEFAULT_NEED_LOGIN` 中，只有路由在 `EXCLUDE_PAGE_LIST` 中，才不需要登录，相当于白名单。
+
+
+## 登录注册页路由
+
+登录页 `login.vue` 对应路由是 `/pages/login/login`.
+注册页 `register.vue` 对应路由是 `/pages/login/register`.
+
+## 登录注册页适用性
+
+登录注册页主要适用于 `h5` 和 `App`，默认不适用于 `小程序`，因为 `小程序` 通常会使用平台提供的快捷登录。
+
+特殊情况例外，如业务需要跨平台复用登录注册页时，也可以用在 `小程序` 上，所以主要还是看业务需求。
+
+通过一个参数 `IS_USE_WX_LOGIN_IN_MP` 来控制是否在 `小程序` 中使用 `小程序` 默认的登录逻辑。
