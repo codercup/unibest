@@ -29,10 +29,10 @@ onLoad((options) => {
 const userStore = useUserStore()
 function doLogin() {
   userStore.setUserInfo({
-    id: '123456',
-    username: '菲鸽',
-    avatar: 'https://unibest.oss-cn-beijing.aliyuncs.com/avatar.png',
-    token: 'fake-token',
+    userId: 123456,
+    username: 'abc123456',
+    nickname: '菲鸽',
+    avatar: 'https://oss.laf.run/ukw0y1-site/avatar.jpg',
   })
   console.log(redirectUrl.value)
   let path = redirectUrl.value
@@ -64,6 +64,7 @@ function doLogin() {
 
 <template>
   <view class="login">
+    <!-- 本页面是非MP的登录页，主要用于 h5 和 APP -->
     <view class="text-center">
       登录页
     </view>
