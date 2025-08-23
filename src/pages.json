@@ -41,14 +41,6 @@
   },
   "pages": [
     {
-      "path": "pages/me/me",
-      "type": "home",
-      "layout": "tabbar",
-      "style": {
-        "navigationBarTitleText": "我的"
-      }
-    },
-    {
       "path": "pages/index/index",
       "type": "home",
       "layout": "tabbar",
@@ -95,6 +87,14 @@
       "layout": "default",
       "style": {
         "navigationBarTitleText": "注册"
+      }
+    },
+    {
+      "path": "pages/me/me",
+      "type": "page",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     }
   ],
