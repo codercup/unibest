@@ -26,16 +26,16 @@
     "spacing": "3px",
     "list": [
       {
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/homeHL.png",
-        "pagePath": "pages/index/index",
-        "text": "%tabbar.home%"
+        "text": "%tabbar.home%",
+        "pagePath": "pages/index/index"
       },
       {
-        "iconPath": "static/tabbar/example.png",
-        "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/about/about",
-        "text": "%tabbar.about%"
+        "text": "%tabbar.about%",
+        "pagePath": "pages/about/about"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/me"
       }
     ]
   },
