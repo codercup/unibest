@@ -40,7 +40,13 @@ const tabbarStore = reactive({
     console.log('index:', index, path)
     // console.log('tabbarList:', tabbarList)
     if (index === -1) {
-      this.setCurIdx(0)
+      const pagesPathList = getCurrentPages().map(item => item.route.startsWith('/') ? item.route : `/${item.route}`)
+      // console.log(pagesPathList)
+      const flag = tabbarList.some(item => pagesPathList.includes(item.pagePath))
+      if (!flag) {
+        this.setCurIdx(0)
+        return
+      }
     }
     else {
       this.setCurIdx(index)
