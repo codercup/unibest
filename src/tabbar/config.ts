@@ -84,14 +84,27 @@ export const customTabbarList: CustomTabBarItem[] = [
     iconType: 'uniUi',
     icon: 'contact',
   },
+  // 其他类型演示
+  // 1、uiLib
   // {
   //   pagePath: 'pages/index/index',
   //   text: '首页',
-  // 注意 iconfont 图标需要额外加上 'iconfont'，如下
-  // iconType: 'iconfont',
-  // icon: 'iconfont icon-my',
-  //   // 使用 ‘image’时，需要配置 icon + iconActive 2张图片（不推荐）
-  //   // 既然已经用了自定义tabbar了，就不建议用图片了，所以不推荐
+  //   iconType: 'uiLib',
+  //   icon: 'home',
+  // },
+  // 2、iconfont
+  // {
+  //   pagePath: 'pages/index/index',
+  //   text: '首页',
+  //   // 注意 iconfont 图标需要额外加上 'iconfont'，如下
+  //   iconType: 'iconfont',
+  //   icon: 'iconfont icon-my',
+  // },
+  // 3、image
+  // {
+  //   pagePath: 'pages/index/index',
+  //   text: '首页',
+  //   // 使用 ‘image’时，需要配置 icon + iconActive 2张图片
   //   iconType: 'image',
   //   icon: '/static/tabbar/home.png',
   //   iconActive: '/static/tabbar/homeHL.png',
