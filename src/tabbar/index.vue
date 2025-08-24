@@ -109,7 +109,7 @@ function getImageByIndex(index: number, item: CustomTabBarItem) {
                 <view class="absolute right-0 top-0 h-2 w-2 rounded-full bg-#f56c6c" />
               </template>
               <template v-else>
-                <view class="absolute right-0 top-0 h-4 w-4 center rounded-full bg-#f56c6c text-center text-xs text-white">
+                <view class="absolute right-0 top-0 box-border h-5 min-w-5 center rounded-full bg-#f56c6c px-1 text-center text-xs text-white">
                   {{ item.badge > 99 ? '99+' : item.badge }}
                 </view>
               </template>

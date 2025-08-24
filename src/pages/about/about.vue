@@ -57,7 +57,7 @@ function gotoTabbar() {
 }
 // #region setTabbarBadge
 function setTabbarBadge() {
-  tabbarStore.setTabbarItemBadge(1, 10)
+  tabbarStore.setTabbarItemBadge(1, 100)
 }
 // #endregion
 </script>
