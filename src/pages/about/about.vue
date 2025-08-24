@@ -1,6 +1,5 @@
 <route lang="jsonc" type="page">
 {
-  "layout": "tabbar",
   "style": {
     "navigationBarTitleText": "关于"
   }
@@ -48,6 +47,11 @@ onLoad(() => {
 onReady(() => {
   console.log('onReady:', uniLayout.value) // onReady: Proxy(Object)
   console.log('onReady:', uniLayout.value.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
+})
+// 结论：第一次通过onShow获取不到，但是可以通过 onReady获取到，后面就可以通过onShow获取到了
+onShow(() => {
+  console.log('onShow:', uniLayout.value) // onReady: Proxy(Object)
+  console.log('onShow:', uniLayout.value?.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
 })
 
 function gotoTabbar() {

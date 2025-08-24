@@ -144,6 +144,7 @@
     "@uni-helper/vite-plugin-uni-pages": "0.3.0",
     "@uni-helper/vite-plugin-uni-platform": "0.0.5",
     "@uni-ku/bundle-optimizer": "^1.3.3",
+    "@uni-ku/root": "^1.3.2",
     "@unocss/eslint-plugin": "^66.2.3",
     "@vue/runtime-core": "3.4.21",
     "@vue/tsconfig": "^0.1.3",

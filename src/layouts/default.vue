@@ -2,6 +2,11 @@
 import { useThemeStore } from '@/store'
 
 const themeStore = useThemeStore()
+
+const testUniLayoutExposedData = ref('testUniLayoutExposedData')
+defineExpose({
+  testUniLayoutExposedData,
+})
 </script>
 
 <template>
