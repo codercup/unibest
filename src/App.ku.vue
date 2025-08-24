@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useThemeStore } from '@/store'
 import FgTabbar from '@/tabbar/index.vue'
 import { isPageTabbar } from './tabbar/store'
 import { currRoute } from './utils'
+
+const themeStore = useThemeStore()
 
 const isCurrentPageTabbar = ref(true)
 onShow(() => {
@@ -24,7 +27,11 @@ defineExpose({
   <view class="text-center">
     {{ helloKuRoot }}，这里可以配置全局的东西
   </view>
-  <!-- 顶级 KuRootView -->
-  <KuRootView />
+  <wd-config-provider :theme-vars="themeStore.themeVars" :theme="themeStore.theme">
+    <KuRootView />
+  </wd-config-provider>
+
   <FgTabbar v-if="isCurrentPageTabbar" />
+  <wd-toast />
+  <wd-message-box />
 </template>
