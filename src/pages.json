@@ -35,7 +35,7 @@
       },
       {
         "text": "我的",
-        "pagePath": "pages/me/me"
+        "pagePath": "%tabbar.me%"
       }
     ]
   },

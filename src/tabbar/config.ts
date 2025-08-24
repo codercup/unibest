@@ -42,7 +42,7 @@ export const nativeTabbarList: NativeTabBarItem[] = [
     iconPath: 'static/tabbar/personal.png',
     selectedIconPath: 'static/tabbar/personalHL.png',
     pagePath: 'pages/me/me',
-    text: '个人',
+    text: '%tabbar.me%',
   },
 ]
 
@@ -84,7 +84,7 @@ export const customTabbarList: CustomTabBarItem[] = [
   },
   {
     pagePath: 'pages/me/me',
-    text: '我的',
+    text: '%tabbar.me%',
     iconType: 'uniUi',
     icon: 'contact',
     // badge: 100,
