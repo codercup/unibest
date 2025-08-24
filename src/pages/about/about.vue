@@ -64,9 +64,18 @@ function setTabbarBadge() {
   tabbarStore.setTabbarItemBadge(1, 100)
 }
 // #endregion
+
+const uniKuRoot = ref()
+// 结论：(同上）第一次通过onShow获取不到，但是可以通过 onReady获取到，后面就可以通过onShow获取到了
+onReady(() => {
+  console.log('onReady uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
+})
+onShow(() => {
+  console.log('onShow uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
+})
 </script>
 
-<template>
+<template root="uniKuRoot">
   <view>
     <view class="mt-8 text-center text-xl text-gray-400">
       请求调用、unocss、static图片

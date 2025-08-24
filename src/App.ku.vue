@@ -12,6 +12,12 @@ onShow(() => {
 })
 
 const helloKuRoot = ref('Hello AppKuVue')
+
+const exposeRef = ref('this is form app.Ku.vue')
+
+defineExpose({
+  exposeRef,
+})
 </script>
 
 <template>
