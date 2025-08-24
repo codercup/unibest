@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import { LOGIN_PAGE } from '@/router/config'
+import { tabbarStore } from '@/tabbar/store'
 import RequestComp from './components/request.vue'
 
 // 奇怪：同样的代码放在 vue 里面不会校验到错误，放在 .ts 文件里面会校验到错误
@@ -54,6 +55,11 @@ function gotoTabbar() {
     url: '/pages/index/index',
   })
 }
+// #region setTabbarBadge
+function setTabbarBadge() {
+  tabbarStore.setTabbarItemBadge(3, 10)
+}
+// #endregion
 </script>
 
 <template>
@@ -66,6 +72,9 @@ function gotoTabbar() {
     </view>
     <button class="mt-4 w-40 text-center" @click="toLogin">
       点击去登录页
+    </button>
+    <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
+      设置tabbarBadge
     </button>
     <RequestComp />
     <view class="mb-6 h-1px bg-#eee" />

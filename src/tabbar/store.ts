@@ -36,7 +36,9 @@ const tabbarStore = reactive({
     uni.setStorageSync('app-tabbar-index', idx)
   },
   setTabbarItemBadge(idx: number, badge: CustomTabBarItemBadge) {
-    tabbarList[idx].badge = badge
+    if (tabbarList[idx]) {
+      tabbarList[idx].badge = badge
+    }
   },
   setAutoCurIdx(path: string) {
     const index = tabbarList.findIndex(item => item.pagePath === path)
