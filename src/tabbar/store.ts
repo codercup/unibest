@@ -1,14 +1,16 @@
 import type { CustomTabBarItem, CustomTabBarItemBadge } from './config'
+import { reactive } from 'vue'
+
 import { tabbarList as _tabbarList, customTabbarEnable } from './config'
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
 const BULGE_ENABLE = false
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
-const tabbarList: CustomTabBarItem[] = _tabbarList.map(item => ({
+const tabbarList = reactive<CustomTabBarItem[]>(_tabbarList.map(item => ({
   ...item,
   pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}`,
-}))
+})))
 
 if (customTabbarEnable && BULGE_ENABLE) {
   if (tabbarList.length % 2) {
