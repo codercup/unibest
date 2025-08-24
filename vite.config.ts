@@ -16,6 +16,8 @@ import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
  * @see https://github.com/uni-ku/bundle-optimizer
  */
 import Optimization from '@uni-ku/bundle-optimizer'
+// https://github.com/uni-ku/root
+import UniKuRoot from '@uni-ku/root'
 import dayjs from 'dayjs'
 import { visualizer } from 'rollup-plugin-visualizer'
 import UnoCSS from 'unocss/vite'
@@ -129,6 +131,8 @@ export default ({ command, mode }) => {
         directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
         dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
       }),
+      // 若存在改变 pages.json 的插件，请将 UniKuRoot 放置其后
+      UniKuRoot(),
       Uni(),
     ],
     define: {

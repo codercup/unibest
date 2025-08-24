@@ -1,6 +1,5 @@
 <route lang="jsonc" type="page">
 {
-  "layout": "tabbar",
   "style": {
     "navigationBarTitleText": "%tabbar.about%"
   }
@@ -56,6 +55,11 @@ onReady(() => {
   console.log('onReady:', uniLayout.value) // onReady: Proxy(Object)
   console.log('onReady:', uniLayout.value.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
 })
+// 结论：第一次通过onShow获取不到，但是可以通过 onReady获取到，后面就可以通过onShow获取到了
+onShow(() => {
+  console.log('onShow:', uniLayout.value) // onReady: Proxy(Object)
+  console.log('onShow:', uniLayout.value?.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
+})
 
 function gotoTabbar() {
   uni.switchTab({
@@ -67,9 +71,18 @@ function setTabbarBadge() {
   tabbarStore.setTabbarItemBadge(1, 100)
 }
 // #endregion
+
+const uniKuRoot = ref()
+// 结论：(同上）第一次通过onShow获取不到，但是可以通过 onReady获取到，后面就可以通过onShow获取到了
+onReady(() => {
+  console.log('onReady uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
+})
+onShow(() => {
+  console.log('onShow uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
+})
 </script>
 
-<template>
+<template root="uniKuRoot">
   <view>
     <view class="mt-8 text-center text-green-500">
       tabbar 页面也测试一下，也是成功的
