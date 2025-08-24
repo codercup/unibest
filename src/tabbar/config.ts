@@ -86,6 +86,7 @@ export const customTabbarList: CustomTabBarItem[] = [
     text: '我的',
     iconType: 'uniUi',
     icon: 'contact',
+    // badge: 100,
   },
   // 其他类型演示
   // 1、uiLib
