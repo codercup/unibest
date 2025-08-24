@@ -1,4 +1,4 @@
-import type { CustomTabBarItem } from './config'
+import type { CustomTabBarItem, CustomTabBarItemBadge } from './config'
 import { tabbarList as _tabbarList, customTabbarEnable } from './config'
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
@@ -34,6 +34,9 @@ const tabbarStore = reactive({
   setCurIdx(idx: number) {
     this.curIdx = idx
     uni.setStorageSync('app-tabbar-index', idx)
+  },
+  setTabbarItemBadge(idx: number, badge: CustomTabBarItemBadge) {
+    tabbarList[idx].badge = badge
   },
   setAutoCurIdx(path: string) {
     const index = tabbarList.findIndex(item => item.pagePath === path)
