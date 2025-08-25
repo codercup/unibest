@@ -39,11 +39,12 @@ export const navigateToInterceptor = {
       console.log('命中了 LOGIN_PAGE_LIST')
       return
     }
+    let fullPath = path
 
     if (myQuery) {
-      path += `?${Object.keys(myQuery).map(key => `${key}=${myQuery[key]}`).join('&')}`
+      fullPath += `?${Object.keys(myQuery).map(key => `${key}=${myQuery[key]}`).join('&')}`
     }
-    const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(path)}`
+    const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(fullPath)}`
 
     const tokenStore = useTokenStore()
     console.log('tokenStore.hasLogin:', tokenStore.hasLogin)
