@@ -61,6 +61,7 @@ export const navigateToInterceptor = {
         else {
           console.log('isNeedLogin redirectUrl:', redirectUrl)
           uni.navigateTo({ url: redirectUrl })
+          return
         }
       }
     }
@@ -71,6 +72,7 @@ export const navigateToInterceptor = {
       if (EXCLUDE_PAGE_LIST.includes(path)) {
         console.log('isNeedLogin redirectUrl:', redirectUrl)
         uni.navigateTo({ url: redirectUrl })
+        return
       }
     }
     // #endregion 2/2 不需要登录的情况 ---------------------------
