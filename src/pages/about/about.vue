@@ -73,6 +73,8 @@ onReady(() => {
 onShow(() => {
   console.log('onShow uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
 })
+
+const testBindCssVariable = ref('red')
 </script>
 
 <template root="uniKuRoot">
@@ -90,6 +92,9 @@ onShow(() => {
       设置tabbarBadge
     </button>
     <RequestComp />
+    <view class="test-css text-center">
+      测试v-bind css变量
+    </view>
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
@@ -122,10 +127,7 @@ onShow(() => {
 
 <style lang="scss" scoped>
 .test-css {
-  // 16rpx=>0.5rem
-  padding-bottom: 16rpx;
-  // mt-4=>1rem=>16px;
-  margin-top: 16px;
-  text-align: center;
+  color: v-bind(testBindCssVariable);
+  font-size: 24px;
 }
 </style>
