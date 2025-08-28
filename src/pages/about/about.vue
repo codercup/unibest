@@ -75,6 +75,14 @@ onShow(() => {
 })
 
 const testBindCssVariable = ref('red')
+function changeTestBindCssVariable() {
+  if (testBindCssVariable.value === 'red') {
+    testBindCssVariable.value = 'green'
+  }
+  else {
+    testBindCssVariable.value = 'red'
+  }
+}
 </script>
 
 <template root="uniKuRoot">
@@ -92,8 +100,11 @@ const testBindCssVariable = ref('red')
       设置tabbarBadge
     </button>
     <RequestComp />
+    <button class="mt-4 w-60 text-center" @click="changeTestBindCssVariable">
+      toggle v-bind css变量
+    </button>
     <view class="test-css text-center">
-      测试v-bind css变量
+      测试v-bind css变量的具体文案
     </view>
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
