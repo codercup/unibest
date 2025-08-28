@@ -10,7 +10,9 @@ import {
 
 export default defineConfig({
   presets: [
-    presetUni(),
+    presetUni({
+      attributify: false,
+    }),
     presetIcons({
       scale: 1.2,
       warn: true,
