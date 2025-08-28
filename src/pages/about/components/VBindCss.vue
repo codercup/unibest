@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+// 备注：本文件内容直接放到 about.vue 页面，在`微信小程序`里面不生效，单独放到一个文件却生效，原因未知
 const testBindCssVariable = ref('red')
 function changeTestBindCssVariable() {
   if (testBindCssVariable.value === 'red') {
