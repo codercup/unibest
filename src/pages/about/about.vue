@@ -1,15 +1,8 @@
-<route lang="jsonc" type="page">
-{
-  "style": {
-    "navigationBarTitleText": "%tabbar.about%"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 import { LOGIN_PAGE } from '@/router/config'
 import { tabbarStore } from '@/tabbar/store'
 import RequestComp from './components/request.vue'
+import VBindCss from './components/VBindCss.vue'
 import I18nComp from './i18n.vue'
 
 function gotoI18nPage() {
@@ -18,12 +11,11 @@ function gotoI18nPage() {
   })
 }
 
-// 奇怪：同样的代码放在 vue 里面不会校验到错误，放在 .ts 文件里面会校验到错误
-// const testOxlint = (name: string) => {
-//   console.log('oxlint')
-// }
-// testOxlint('oxlint')
-console.log('about')
+definePage({
+  style: {
+    navigationBarTitleText: '%tabbar.about%',
+  },
+})
 
 function toLogin() {
   uni.navigateTo({
@@ -80,8 +72,6 @@ onReady(() => {
 onShow(() => {
   console.log('onShow uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
 })
-
-const testBindCssVariable = ref('red')
 </script>
 
 <template root="uniKuRoot">
@@ -103,9 +93,7 @@ const testBindCssVariable = ref('red')
       设置tabbarBadge
     </button>
     <RequestComp />
-    <view class="test-css text-center">
-      测试v-bind css变量
-    </view>
+    <VBindCss />
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoI18nPage()">
@@ -140,10 +128,3 @@ const testBindCssVariable = ref('red')
     <view class="h-6" />
   </view>
 </template>
-
-<style lang="scss" scoped>
-.test-css {
-  color: v-bind(testBindCssVariable);
-  font-size: 24px;
-}
-</style>

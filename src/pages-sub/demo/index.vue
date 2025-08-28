@@ -1,15 +1,12 @@
-<route lang="jsonc" type="page">
-{
-  "layout": "default",
-  "style": {
-    "navigationBarTitleText": "分包页面"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 // code here
 import RequestComp from './components/request.vue'
+
+definePage({
+  style: {
+    navigationBarTitleText: '分包页面',
+  },
+})
 </script>
 
 <template>

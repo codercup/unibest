@@ -1,15 +1,12 @@
-<route lang="jsonc" type="page">
-{
-  "layout": "default",
-  "style": {
-    "navigationBarTitleText": "%alova.title%"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 import { useRequest } from 'alova/client'
 import { foo } from '@/api/foo-alova'
+
+definePage({
+  style: {
+    navigationBarTitleText: '%alova.title%',
+  },
+})
 
 const initialData = undefined
 

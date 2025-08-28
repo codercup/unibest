@@ -1,16 +1,13 @@
-<route lang="jsonc" type="page">
-{
-  "layout": "default",
-  "style": {
-    "navigationBarTitleText": "Vue Query 请求演示"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 import { useQuery } from '@tanstack/vue-query'
 import { foo } from '@/api/foo'
 import { getFooQueryOptions } from '@/api/foo-vue-query'
+
+definePage({
+  style: {
+    navigationBarTitleText: 'Vue Query 演示',
+  },
+})
 
 // 简单使用
 onShow(async () => {

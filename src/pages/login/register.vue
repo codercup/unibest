@@ -1,14 +1,11 @@
-<route lang="jsonc" type="page">
-{
-  "layout": "default",
-  "style": {
-    "navigationBarTitleText": "注册"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 import { LOGIN_PAGE } from '@/router/config'
+
+definePage({
+  style: {
+    navigationBarTitleText: '注册',
+  },
+})
 
 function doRegister() {
   uni.showToast({

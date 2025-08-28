@@ -34,8 +34,8 @@
         "pagePath": "pages/about/about"
       },
       {
-        "text": "我的",
-        "pagePath": "%tabbar.me%"
+        "text": "%tabbar.me%",
+        "pagePath": "pages/me/me"
       }
     ]
   },
@@ -58,7 +58,6 @@
     {
       "path": "pages/about/alova",
       "type": "page",
-      "layout": "default",
       "style": {
         "navigationBarTitleText": "%alova.title%"
       }
@@ -73,15 +72,13 @@
     {
       "path": "pages/about/vue-query",
       "type": "page",
-      "layout": "default",
       "style": {
-        "navigationBarTitleText": "Vue Query 请求演示"
+        "navigationBarTitleText": "Vue Query 演示"
       }
     },
     {
       "path": "pages/login/login",
       "type": "page",
-      "layout": "default",
       "style": {
         "navigationBarTitleText": "登录"
       }
@@ -89,7 +86,6 @@
     {
       "path": "pages/login/register",
       "type": "page",
-      "layout": "default",
       "style": {
         "navigationBarTitleText": "注册"
       }
@@ -109,7 +105,6 @@
         {
           "path": "demo/index",
           "type": "page",
-          "layout": "default",
           "style": {
             "navigationBarTitleText": "分包页面"
           }
