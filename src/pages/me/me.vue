@@ -1,13 +1,3 @@
-<route lang="jsonc" type="page">
-{
-  "style": {
-    // 'custom' 表示开启自定义导航栏，默认 'default'
-    // "navigationStyle": "custom",
-    "navigationBarTitleText": "我的"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 import type { IUploadSuccessInfo } from '@/api/types/login'
 import { storeToRefs } from 'pinia'
@@ -15,6 +5,12 @@ import { LOGIN_PAGE } from '@/router/config'
 import { useUserStore } from '@/store'
 import { useTokenStore } from '@/store/token'
 import { useUpload } from '@/utils/uploadFile'
+
+definePage({
+  style: {
+    navigationBarTitleText: '我的',
+  },
+})
 
 const userStore = useUserStore()
 const tokenStore = useTokenStore()

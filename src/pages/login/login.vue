@@ -1,18 +1,15 @@
-<route lang="jsonc" type="page">
-{
-  "layout": "default",
-  "style": {
-    "navigationBarTitleText": "登录"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 import { useUserStore } from '@/store/user'
 import { tabbarList } from '@/tabbar/config'
 import { isPageTabbar } from '@/tabbar/store'
 import { ensureDecodeURIComponent } from '@/utils'
 import { parseUrlToObj } from '@/utils/index'
+
+definePage({
+  style: {
+    navigationBarTitleText: '登录',
+  },
+})
 
 const redirectUrl = ref('')
 onLoad((options) => {
