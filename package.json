@@ -1,8 +1,8 @@
 {
   "name": "unibest",
   "type": "module",
-  "version": "3.12.0",
-  "unibest-version": "3.12.0",
+  "version": "3.12.1",
+  "unibest-version": "3.12.1",
   "packageManager": "pnpm@10.10.0",
   "description": "unibest - 最好的 uniapp 开发模板",
   "generate-time": "用户创建项目时生成",
