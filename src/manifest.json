@@ -35,7 +35,7 @@
           "<uses-feature android:name=\"android.hardware.camera\"/>",
           "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
         ],
-        "minSdkVersion": 30,
+        "minSdkVersion": 21,
         "targetSdkVersion": 30,
         "abiFilters": [
           "armeabi-v7a",
