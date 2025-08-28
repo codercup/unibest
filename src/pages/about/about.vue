@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb } from '@uni-helper/uni-env'
 import { LOGIN_PAGE } from '@/router/config'
 import { tabbarStore } from '@/tabbar/store'
 import RequestComp from './components/request.vue'
@@ -9,6 +10,9 @@ definePage({
     navigationBarTitleText: '关于',
   },
 })
+
+// 浏览器打印 isH5为true, isWeb为false，大家尽量用 isH5
+console.log({ isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb })
 
 function toLogin() {
   uni.navigateTo({
