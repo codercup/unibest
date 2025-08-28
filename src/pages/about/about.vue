@@ -10,6 +10,7 @@
 import { LOGIN_PAGE } from '@/router/config'
 import { tabbarStore } from '@/tabbar/store'
 import RequestComp from './components/request.vue'
+import VBindCss from './components/VBindCss.vue'
 
 // 奇怪：同样的代码放在 vue 里面不会校验到错误，放在 .ts 文件里面会校验到错误
 // const testOxlint = (name: string) => {
@@ -73,16 +74,6 @@ onReady(() => {
 onShow(() => {
   console.log('onShow uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
 })
-
-const testBindCssVariable = ref('red')
-function changeTestBindCssVariable() {
-  if (testBindCssVariable.value === 'red') {
-    testBindCssVariable.value = 'green'
-  }
-  else {
-    testBindCssVariable.value = 'red'
-  }
-}
 </script>
 
 <template root="uniKuRoot">
@@ -100,12 +91,7 @@ function changeTestBindCssVariable() {
       设置tabbarBadge
     </button>
     <RequestComp />
-    <button class="mt-4 w-60 text-center" @click="changeTestBindCssVariable">
-      toggle v-bind css变量
-    </button>
-    <view class="test-css text-center">
-      测试v-bind css变量的具体文案
-    </view>
+    <VBindCss />
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
@@ -135,10 +121,3 @@ function changeTestBindCssVariable() {
     <view class="h-6" />
   </view>
 </template>
-
-<style lang="scss" scoped>
-.test-css {
-  color: v-bind(testBindCssVariable);
-  font-size: 24px;
-}
-</style>
