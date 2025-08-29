@@ -44,9 +44,9 @@ const description = ref(
   'unibest 是一个集成了多种工具和技术的 uniapp 开发模板，由 uniapp + Vue3 + Ts + Vite5 + UnoCss + VSCode 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 uniapp 拥有 best 体验。',
 )
 console.log('index/index 首页打印了')
-// 测试 uni API 自动引入
+
 onLoad(() => {
-  console.log('项目作者:', author.value)
+  console.log('测试 uni API 自动引入: onLoad')
 })
 
 function toLogin() {
@@ -54,8 +54,6 @@ function toLogin() {
     url: LOGIN_PAGE,
   })
 }
-
-console.log('index')
 </script>
 
 <template>

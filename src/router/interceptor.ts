@@ -8,6 +8,8 @@ import { tabbarStore } from '@/tabbar/store'
 import { getLastPage, parseUrlToObj } from '@/utils/index'
 import { EXCLUDE_PAGE_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_LIST } from './config'
 
+export const FG_LOG_ENABLE = false
+
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 export const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
@@ -18,11 +20,11 @@ export const navigateToInterceptor = {
     }
     let { path, query: _query } = parseUrlToObj(url)
 
-    console.log('路由拦截器 1: url->', url, ', query ->', query)
+    FG_LOG_ENABLE && console.log('路由拦截器 1: url->', url, ', query ->', query)
     const myQuery = { ..._query, ...query }
     // /pages/route-interceptor/index?name=feige&age=30
-    console.log('路由拦截器 2: path->', path, ', _query ->', _query)
-    console.log('路由拦截器 3: myQuery ->', myQuery)
+    FG_LOG_ENABLE && console.log('路由拦截器 2: path->', path, ', _query ->', _query)
+    FG_LOG_ENABLE && console.log('路由拦截器 3: myQuery ->', myQuery)
 
     // 处理相对路径
     if (!path.startsWith('/')) {
@@ -36,7 +38,7 @@ export const navigateToInterceptor = {
     tabbarStore.setAutoCurIdx(path)
 
     if (LOGIN_PAGE_LIST.includes(path)) {
-      console.log('命中了 LOGIN_PAGE_LIST')
+      FG_LOG_ENABLE && console.log('命中了 LOGIN_PAGE_LIST')
       return true // 明确表示允许路由继续执行
     }
     let fullPath = path
@@ -47,7 +49,7 @@ export const navigateToInterceptor = {
     const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(fullPath)}`
 
     const tokenStore = useTokenStore()
-    console.log('tokenStore.hasLogin:', tokenStore.hasLogin)
+    FG_LOG_ENABLE && console.log('tokenStore.hasLogin:', tokenStore.hasLogin)
 
     // #region 1/2 需要登录的情况 ---------------------------
     if (isNeedLoginMode) {
@@ -61,7 +63,7 @@ export const navigateToInterceptor = {
         }
         // 否则需要重定向到登录页
         else {
-          console.log('1 isNeedLogin redirectUrl:', redirectUrl)
+          FG_LOG_ENABLE && console.log('1 isNeedLogin redirectUrl:', redirectUrl)
           uni.navigateTo({ url: redirectUrl })
           return false // 明确表示阻止原路由继续执行
         }
@@ -73,7 +75,7 @@ export const navigateToInterceptor = {
     else {
       // 不需要登录里面的 EXCLUDE_PAGE_LIST 表示黑名单，需要重定向到登录页
       if (EXCLUDE_PAGE_LIST.includes(path)) {
-        console.log('2 isNeedLogin redirectUrl:', redirectUrl)
+        FG_LOG_ENABLE && console.log('2 isNeedLogin redirectUrl:', redirectUrl)
         uni.navigateTo({ url: redirectUrl })
         return false // 明确表示阻止原路由继续执行
       }
