@@ -37,7 +37,7 @@ export const navigateToInterceptor = {
 
     if (LOGIN_PAGE_LIST.includes(path)) {
       console.log('命中了 LOGIN_PAGE_LIST')
-      return
+      return true // 明确表示允许路由继续执行
     }
     let fullPath = path
 
@@ -52,16 +52,18 @@ export const navigateToInterceptor = {
     // #region 1/2 需要登录的情况 ---------------------------
     if (isNeedLoginMode) {
       if (tokenStore.hasLogin) {
-        return
+        return true // 明确表示允许路由继续执行
       }
       else {
+        // 需要登录里面的 EXCLUDE_PAGE_LIST 表示白名单，可以直接通过
         if (EXCLUDE_PAGE_LIST.includes(path)) {
-          return
+          return true // 明确表示允许路由继续执行
         }
+        // 否则需要重定向到登录页
         else {
-          console.log('isNeedLogin redirectUrl:', redirectUrl)
+          console.log('1 isNeedLogin redirectUrl:', redirectUrl)
           uni.navigateTo({ url: redirectUrl })
-          return
+          return false // 明确表示阻止原路由继续执行
         }
       }
     }
@@ -69,13 +71,15 @@ export const navigateToInterceptor = {
 
     // #region 2/2 不需要登录的情况 ---------------------------
     else {
+      // 不需要登录里面的 EXCLUDE_PAGE_LIST 表示黑名单，需要重定向到登录页
       if (EXCLUDE_PAGE_LIST.includes(path)) {
-        console.log('isNeedLogin redirectUrl:', redirectUrl)
+        console.log('2 isNeedLogin redirectUrl:', redirectUrl)
         uni.navigateTo({ url: redirectUrl })
-        return
+        return false // 明确表示阻止原路由继续执行
       }
     }
     // #endregion 2/2 不需要登录的情况 ---------------------------
+    return true // 明确表示允许路由继续执行
   },
 }
 
