@@ -33,6 +33,7 @@ declare global {
 // patch uni 类型
 // 1. 补全 uni.hideToast() 的 options 类型
 // 2. 补全 uni.hideLoading() 的 options 类型
+// 3. 使用方式见：https://github.com/unibest-tech/unibest/pull/241
 declare global {
   declare namespace UniNamespace {
     /** 接口调用结束的回调函数（调用成功、失败都会执行） */
