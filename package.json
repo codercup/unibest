@@ -34,7 +34,7 @@
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
     "dev:custom": "uni -p",
-    "dev": "uni",
+    "dev": "node --experimental-loader ./scripts/window-path-loader.js node_modules/@dcloudio/vite-plugin-uni/bin/uni.js",
     "dev:test": "uni --mode test",
     "dev:prod": "uni --mode production",
     "dev:h5": "uni",
