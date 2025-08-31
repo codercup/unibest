@@ -69,6 +69,18 @@ onReady(() => {
 onShow(() => {
   console.log('onShow uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
 })
+
+// 备注：本文件内容直接放到 about.vue 页面，在`微信小程序`里面不生效，单独放到一个文件却生效，原因未知
+// 2025-08-31 经过测试，不适用root插件就可以。
+const testBindCssVariable = ref('red')
+function changeTestBindCssVariable() {
+  if (testBindCssVariable.value === 'red') {
+    testBindCssVariable.value = 'green'
+  }
+  else {
+    testBindCssVariable.value = 'red'
+  }
+}
 </script>
 
 <template root="uniKuRoot">
@@ -87,6 +99,15 @@ onShow(() => {
     </button>
     <RequestComp />
     <VBindCss />
+    <view class="text-center text-sm text-gray">
+      如下直接写，不生效，如果去掉 root插件也可以。看起来是root插件影响了
+    </view>
+    <button class="mt-4 w-60 text-center" @click="changeTestBindCssVariable">
+      toggle v-bind css变量
+    </button>
+    <view class="test-css my-2 text-center">
+      测试v-bind css变量的具体文案
+    </view>
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
@@ -116,3 +137,10 @@ onShow(() => {
     <view class="h-6" />
   </view>
 </template>
+
+<style lang="scss" scoped>
+.test-css {
+  color: v-bind(testBindCssVariable);
+  font-size: 24px;
+}
+</style>
