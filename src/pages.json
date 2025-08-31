@@ -15,6 +15,7 @@
     }
   },
   "tabBar": {
+    "custom": true,
     "color": "#999999",
     "selectedColor": "#018d71",
     "backgroundColor": "#F8F8F8",
@@ -25,20 +26,16 @@
     "spacing": "3px",
     "list": [
       {
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/homeHL.png",
-        "pagePath": "pages/index/index",
         "text": "首页",
-        "icon": "home",
-        "iconType": "uiLib"
+        "pagePath": "pages/index/index"
       },
       {
-        "iconPath": "static/tabbar/example.png",
-        "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/about/about",
         "text": "关于",
-        "icon": "i-carbon-code",
-        "iconType": "unocss"
+        "pagePath": "pages/about/about"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/me"
       }
     ]
   },
@@ -46,7 +43,6 @@
     {
       "path": "pages/index/index",
       "type": "home",
-      "layout": "tabbar",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "首页"
@@ -55,7 +51,6 @@
     {
       "path": "pages/about/about",
       "type": "page",
-      "layout": "tabbar",
       "style": {
         "navigationBarTitleText": "关于"
       }
@@ -63,9 +58,36 @@
     {
       "path": "pages/about/alova",
       "type": "page",
-      "layout": "default",
       "style": {
-        "navigationBarTitleText": "Alova 请求演示"
+        "navigationBarTitleText": "Alova 演示"
+      }
+    },
+    {
+      "path": "pages/about/vue-query",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "Vue Query 演示"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/login/register",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "注册"
+      }
+    },
+    {
+      "path": "pages/me/me",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     }
   ],
@@ -76,7 +98,6 @@
         {
           "path": "demo/index",
           "type": "page",
-          "layout": "default",
           "style": {
             "navigationBarTitleText": "分包页面"
           }

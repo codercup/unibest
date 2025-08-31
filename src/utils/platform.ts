@@ -11,6 +11,7 @@ export const isMp = __UNI_PLATFORM__.startsWith('mp-')
 export const isMpWeixin = __UNI_PLATFORM__.startsWith('mp-weixin')
 export const isMpAplipay = __UNI_PLATFORM__.startsWith('mp-alipay')
 export const isMpToutiao = __UNI_PLATFORM__.startsWith('mp-toutiao')
+export const isHarmony = __UNI_PLATFORM__.startsWith('app-harmony')
 
 const PLATFORM = {
   platform,
@@ -20,5 +21,6 @@ const PLATFORM = {
   isMpWeixin,
   isMpAplipay,
   isMpToutiao,
+  isHarmony,
 }
 export default PLATFORM

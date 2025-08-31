@@ -18,6 +18,7 @@ export default uniHelper({
     'src/service/app/**',
   ],
   rules: {
+    'no-useless-return': 'off',
     'no-console': 'off',
     'no-unused-vars': 'off',
     'vue/no-unused-refs': 'off',
@@ -27,6 +28,12 @@ export default uniHelper({
     'jsdoc/require-returns-description': 'off',
     'ts/no-empty-object-type': 'off',
     'no-extend-native': 'off',
+    'vue/singleline-html-element-content-newline': [
+      'error',
+      {
+        externalIgnores: ['text'],
+      },
+    ],
   },
   formatters: {
     /**

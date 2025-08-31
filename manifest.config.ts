@@ -19,6 +19,7 @@ const {
   VITE_APP_PUBLIC_BASE,
   VITE_FALLBACK_LOCALE,
 } = env
+// console.log('manifest.config.ts env:', env)
 
 export default defineManifestConfig({
   'name': VITE_APP_TITLE,
@@ -30,7 +31,7 @@ export default defineManifestConfig({
   'locale': VITE_FALLBACK_LOCALE, // 'zh-Hans'
   'h5': {
     router: {
-      // base: VITE_APP_PUBLIC_BASE,
+      base: VITE_APP_PUBLIC_BASE,
     },
   },
   /* 5+App特有相关 */
@@ -53,7 +54,7 @@ export default defineManifestConfig({
     distribute: {
       /* android打包配置 */
       android: {
-        minSdkVersion: 30,
+        minSdkVersion: 21,
         targetSdkVersion: 30,
         abiFilters: ['armeabi-v7a', 'arm64-v8a'],
         permissions: [
@@ -127,6 +128,7 @@ export default defineManifestConfig({
     optimization: {
       subPackages: true,
     },
+    // styleIsolation: 'shared',
     usingComponents: true,
     // __usePrivacyCheck__: true,
   },

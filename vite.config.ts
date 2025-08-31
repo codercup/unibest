@@ -1,6 +1,6 @@
 import path from 'node:path'
 import process from 'node:process'
-import Uni from '@dcloudio/vite-plugin-uni'
+import Uni from '@uni-helper/plugin-uni'
 import Components from '@uni-helper/vite-plugin-uni-components'
 // @see https://uni-helper.js.org/vite-plugin-uni-layouts
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
@@ -16,16 +16,19 @@ import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
  * @see https://github.com/uni-ku/bundle-optimizer
  */
 import Optimization from '@uni-ku/bundle-optimizer'
+// https://github.com/uni-ku/root
+import UniKuRoot from '@uni-ku/root'
 import dayjs from 'dayjs'
 import { visualizer } from 'rollup-plugin-visualizer'
+import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig, loadEnv } from 'vite'
 import ViteRestart from 'vite-plugin-restart'
 
 // https://vitejs.dev/config/
-export default async ({ command, mode }) => {
+export default ({ command, mode }) => {
   // @see https://unocss.dev/
-  const UnoCSS = (await import('unocss/vite')).default
+  // const UnoCSS = (await import('unocss/vite')).default
   // console.log(mode === process.env.NODE_ENV) // true
 
   // mode: 区分生产环境还是开发环境
@@ -48,7 +51,7 @@ export default async ({ command, mode }) => {
     VITE_DELETE_CONSOLE,
     VITE_SHOW_SOURCEMAP,
     VITE_APP_PUBLIC_BASE,
-    VITE_APP_PROXY,
+    VITE_APP_PROXY_ENABLE,
     VITE_APP_PROXY_PREFIX,
   } = env
   console.log('环境变量 env -> ', env)
@@ -128,11 +131,13 @@ export default async ({ command, mode }) => {
         directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
         dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
       }),
+      // 若存在改变 pages.json 的插件，请将 UniKuRoot 放置其后
+      UniKuRoot(),
       Uni(),
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
-      __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY),
+      __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY_ENABLE),
     },
     css: {
       postcss: {
@@ -156,7 +161,7 @@ export default async ({ command, mode }) => {
       hmr: true,
       port: Number.parseInt(VITE_APP_PORT, 10),
       // 仅 H5 端生效，其他端不生效（其他端走build，不走devServer)
-      proxy: JSON.parse(VITE_APP_PROXY)
+      proxy: JSON.parse(VITE_APP_PROXY_ENABLE)
         ? {
             [VITE_APP_PROXY_PREFIX]: {
               target: VITE_SERVER_BASEURL,
@@ -176,7 +181,6 @@ export default async ({ command, mode }) => {
       target: 'es6',
       // 开发环境不用压缩
       minify: mode === 'development' ? false : 'esbuild',
-
     },
   })
 }

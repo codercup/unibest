@@ -11,10 +11,7 @@ import {
 export default defineConfig({
   presets: [
     presetUni({
-      attributify: {
-        // prefix: 'fg-', // 如果加前缀，则需要在代码里面使用 `fg-` 前缀，如：<div fg-border="1px solid #000"></div>
-        prefixedOnly: true,
-      },
+      attributify: false,
     }),
     presetIcons({
       scale: 1.2,
@@ -39,7 +36,8 @@ export default defineConfig({
       center: 'flex justify-center items-center',
     },
   ],
-  safelist: [],
+  // 动态图标需要在这里配置，或者写在vue页面中注释掉
+  safelist: ['i-carbon-code'],
   rules: [
     [
       'p-safe',

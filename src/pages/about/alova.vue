@@ -1,15 +1,12 @@
-<route lang="jsonc" type="page">
-{
-  "layout": "default",
-  "style": {
-    "navigationBarTitleText": "Alova 请求演示"
-  }
-}
-</route>
-
 <script lang="ts" setup>
 import { useRequest } from 'alova/client'
 import { foo } from '@/api/foo-alova'
+
+definePage({
+  style: {
+    navigationBarTitleText: 'Alova 演示',
+  },
+})
 
 const initialData = undefined
 
@@ -25,7 +22,7 @@ function reset() {
 
 <template>
   <view class="p-6 text-center">
-    <button class="my-6 w-200px text-green" @click="send">
+    <button type="primary" size="mini" class="my-6 w-160px" @click="send">
       发送请求
     </button>
     <view class="h-16">
@@ -45,7 +42,7 @@ function reset() {
         {{ data?.id }}
       </view>
     </view>
-    <button class="my-6 w-200px text-red" :disabled="!data" @click="reset">
+    <button type="default" size="mini" class="my-6 w-160px" @click="reset">
       重置数据
     </button>
   </view>

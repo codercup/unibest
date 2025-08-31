@@ -1,0 +1,52 @@
+# Vue3 + TypeScript 开发规范
+
+## Vue 组件规范
+- 使用 Composition API 和 `<script setup>` 语法
+- 组件文件使用 PascalCase 命名
+- 页面文件放在 `src/pages/` 目录下
+- 组件文件放在 `src/components/` 目录下
+
+## Vue SFC 组件规范
+- `<script setup>` 标签必须是第一个子元素
+- `<template>` 标签必须是第二个子元素
+- `<style scoped>` 标签必须是最后一个子元素（因为推荐使用原子化类名，所以很可能没有）
+
+## TypeScript 规范
+- 严格使用 TypeScript，避免使用 `any` 类型
+- 为 API 响应数据定义接口类型
+- 使用 `interface` 定义对象类型，`type` 定义联合类型
+- 导入类型时使用 `import type` 语法
+
+## 状态管理
+- 使用 Pinia 进行状态管理
+- Store 文件放在 `src/store/` 目录下
+- 使用 `defineStore` 定义 store
+- 支持持久化存储
+
+## 示例代码结构
+```vue
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import type { UserInfo } from '@/types/user'
+
+const userInfo = ref<UserInfo | null>(null)
+
+onMounted(() => {
+  // 初始化逻辑
+})
+</script>
+
+<template>
+  <view class="container">
+    <!-- 模板内容 -->
+  </view>
+</template>
+
+<style lang="scss" scoped>
+.container {
+  // 样式
+}
+</style>
+---
+globs: *.vue,*.ts,*.tsx
+---

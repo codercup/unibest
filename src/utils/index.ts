@@ -11,7 +11,7 @@ export function getLastPage() {
 
 /**
  * 获取当前页面路由的 path 路径和 redirectPath 路径
- * path 如 '/pages/login/index'
+ * path 如 '/pages/login/login'
  * redirectPath 如 '/pages/demo/base/route-interceptor'
  */
 export function currRoute() {
@@ -24,12 +24,12 @@ export function currRoute() {
   // 经过多端测试，只有 fullPath 靠谱，其他都不靠谱
   const { fullPath } = currRoute as { fullPath: string }
   // console.log(fullPath)
-  // eg: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
-  // eg: /pages/login/index?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
-  return getUrlObj(fullPath)
+  // eg: /pages/login/login?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
+  // eg: /pages/login/login?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
+  return parseUrlToObj(fullPath)
 }
 
-function ensureDecodeURIComponent(url: string) {
+export function ensureDecodeURIComponent(url: string) {
   if (url.startsWith('%')) {
     return ensureDecodeURIComponent(decodeURIComponent(url))
   }
@@ -37,10 +37,10 @@ function ensureDecodeURIComponent(url: string) {
 }
 /**
  * 解析 url 得到 path 和 query
- * 比如输入url: /pages/login/index?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
- * 输出: {path: /pages/login/index, query: {redirect: /pages/demo/base/route-interceptor}}
+ * 比如输入url: /pages/login/login?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor
+ * 输出: {path: /pages/login/login, query: {redirect: /pages/demo/base/route-interceptor}}
  */
-export function getUrlObj(url: string) {
+export function parseUrlToObj(url: string) {
   const [path, queryStr] = url.split('?')
   // console.log(path, queryStr)
 
@@ -92,17 +92,17 @@ export function getAllPages(key = 'needLogin') {
   return result
 }
 
-/**
- * 得到所有的需要登录的 pages，包括主包和分包的
- * 只得到 path 数组
- */
-export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map(page => page.path)
-
-/**
- * 得到所有的需要登录的 pages，包括主包和分包的
- * 只得到 path 数组
- */
-export const needLoginPages: string[] = getAllPages('needLogin').map(page => page.path)
+export function getCurrentPageI18nKey() {
+  const routeObj = currRoute()
+  const currPage = pages.find(page => `/${page.path}` === routeObj.path)
+  if (!currPage) {
+    console.warn('路由不正确')
+    return ''
+  }
+  console.log(currPage)
+  console.log(currPage.style.navigationBarTitleText)
+  return currPage.style.navigationBarTitleText
+}
 
 /**
  * 根据微信小程序当前环境，判断应该获取的 baseUrl
@@ -110,6 +110,11 @@ export const needLoginPages: string[] = getAllPages('needLogin').map(page => pag
 export function getEnvBaseUrl() {
   // 请求基准地址
   let baseUrl = import.meta.env.VITE_SERVER_BASEURL
+
+  // # 有些同学可能需要在微信小程序里面根据 develop、trial、release 分别设置上传地址，参考代码如下。
+  const VITE_SERVER_BASEURL__WEIXIN_DEVELOP = 'https://ukw0y1.laf.run'
+  const VITE_SERVER_BASEURL__WEIXIN_TRIAL = 'https://ukw0y1.laf.run'
+  const VITE_SERVER_BASEURL__WEIXIN_RELEASE = 'https://ukw0y1.laf.run'
 
   // 微信小程序端环境区分
   if (isMpWeixin) {
@@ -119,13 +124,13 @@ export function getEnvBaseUrl() {
 
     switch (envVersion) {
       case 'develop':
-        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_DEVELOP || baseUrl
+        baseUrl = VITE_SERVER_BASEURL__WEIXIN_DEVELOP || baseUrl
         break
       case 'trial':
-        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_TRIAL || baseUrl
+        baseUrl = VITE_SERVER_BASEURL__WEIXIN_TRIAL || baseUrl
         break
       case 'release':
-        baseUrl = import.meta.env.VITE_SERVER_BASEURL__WEIXIN_RELEASE || baseUrl
+        baseUrl = VITE_SERVER_BASEURL__WEIXIN_RELEASE || baseUrl
         break
     }
   }
@@ -140,6 +145,10 @@ export function getEnvBaseUploadUrl() {
   // 请求基准地址
   let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
 
+  const VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP = 'https://ukw0y1.laf.run/upload'
+  const VITE_UPLOAD_BASEURL__WEIXIN_TRIAL = 'https://ukw0y1.laf.run/upload'
+  const VITE_UPLOAD_BASEURL__WEIXIN_RELEASE = 'https://ukw0y1.laf.run/upload'
+
   // 微信小程序端环境区分
   if (isMpWeixin) {
     const {
@@ -148,16 +157,21 @@ export function getEnvBaseUploadUrl() {
 
     switch (envVersion) {
       case 'develop':
-        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP || baseUploadUrl
+        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP || baseUploadUrl
         break
       case 'trial':
-        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_TRIAL || baseUploadUrl
+        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_TRIAL || baseUploadUrl
         break
       case 'release':
-        baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL__WEIXIN_RELEASE || baseUploadUrl
+        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_RELEASE || baseUploadUrl
         break
     }
   }
 
   return baseUploadUrl
 }
+
+/**
+ * 是否是双token模式
+ */
+export const isDoubleTokenMode = import.meta.env.VITE_AUTH_MODE === 'double'

@@ -1,54 +1,38 @@
-<!-- 使用 type="home" 属性设置首页，其他页面不需要设置，默认为page -->
-<route lang="jsonc" type="home">
-{
-  "layout": "tabbar",
-  "style": {
-    // 'custom' 表示开启自定义导航栏，默认 'default'
-    "navigationStyle": "custom",
-    "navigationBarTitleText": "首页"
-  }
-}
-</route>
-
 <script lang="ts" setup>
-import PLATFORM from '@/utils/platform'
+import { LOGIN_PAGE } from '@/router/config'
+import { useThemeStore } from '@/store'
+import { safeAreaInsets } from '@/utils/systemInfo'
 
 defineOptions({
   name: 'Home',
 })
+definePage({
+  // 使用 type: "home" 属性设置首页，其他页面不需要设置，默认为page
+  type: 'home',
+  style: {
+    // 'custom' 表示开启自定义导航栏，默认 'default'
+    navigationStyle: 'custom',
+    navigationBarTitleText: '首页',
+  },
+})
 
-// 获取屏幕边界到安全区域距离
-let safeAreaInsets
-let systemInfo
+const themeStore = useThemeStore()
 
-// #ifdef MP-WEIXIN
-// 微信小程序使用新的API
-systemInfo = uni.getWindowInfo()
-safeAreaInsets = systemInfo.safeArea
-  ? {
-      top: systemInfo.safeArea.top,
-      right: systemInfo.windowWidth - systemInfo.safeArea.right,
-      bottom: systemInfo.windowHeight - systemInfo.safeArea.bottom,
-      left: systemInfo.safeArea.left,
-    }
-  : null
-// #endif
-
-// #ifndef MP-WEIXIN
-// 其他平台继续使用uni API
-systemInfo = uni.getSystemInfoSync()
-safeAreaInsets = systemInfo.safeAreaInsets
-// #endif
 const author = ref('菲鸽')
 const description = ref(
   'unibest 是一个集成了多种工具和技术的 uniapp 开发模板，由 uniapp + Vue3 + Ts + Vite5 + UnoCss + VSCode 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 uniapp 拥有 best 体验。',
 )
-// 测试 uni API 自动引入
+console.log('index/index 首页打印了')
+
 onLoad(() => {
-  console.log('项目作者:', author.value)
+  console.log('测试 uni API 自动引入: onLoad')
 })
 
-console.log('index')
+function toLogin() {
+  uni.navigateTo({
+    url: LOGIN_PAGE,
+  })
+}
 </script>
 
 <template>
@@ -78,12 +62,51 @@ console.log('index')
         https://unibest.tech
       </text>
     </view>
-    <view class="mt-6 h-1px bg-#eee" />
-    <view class="mt-8 text-center">
-      当前平台是：
+
+    <!-- #ifdef H5 -->
+    <view class="mt-4 text-center">
+      <a href="https://unibest.tech/base/3-plugin" target="_blank" class="text-green-500">
+        新手请看必看章节1：
+      </a>
+    </view>
+    <!-- #endif -->
+    <!-- #ifdef MP-WEIXIN -->
+    <view class="mt-4 text-center">
+      新手请看必看章节1：
       <text class="text-green-500">
-        {{ PLATFORM.platform }}
+        https://unibest.tech/base/3-plugin
       </text>
     </view>
+    <!-- #endif -->
+    <!-- #ifdef H5 -->
+    <view class="mt-4 text-center">
+      <a href="https://unibest.tech/base/14-faq" target="_blank" class="text-green-500">
+        新手请看必看章节2：
+      </a>
+    </view>
+    <!-- #endif -->
+    <!-- #ifdef MP-WEIXIN -->
+    <view class="mt-4 text-center">
+      新手请看必看章节2：
+      <text class="text-green-500">
+        https://unibest.tech/base/14-faq
+      </text>
+    </view>
+    <!-- #endif -->
+
+    <view class="mt-4 text-center">
+      <wd-button type="primary" class="ml-2" @click="themeStore.setThemeVars({ colorTheme: 'red' })">
+        设置主题变量
+      </wd-button>
+    </view>
+    <view class="mt-4 text-center">
+      UI组件官网：<text class="text-green-500">
+        https://wot-design-uni.cn
+      </text>
+    </view>
+    <button class="mt-4 w-40 text-center" @click="toLogin">
+      点击去登录页
+    </button>
+    <view class="h-6" />
   </view>
 </template>
