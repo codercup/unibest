@@ -16,6 +16,12 @@ export function getLastPage() {
  */
 export function currRoute() {
   const lastPage = getLastPage()
+  if (!lastPage) {
+    return {
+      path: '',
+      query: {},
+    }
+  }
   const currRoute = (lastPage as any).$page
   // console.log('lastPage.$page:', currRoute)
   // console.log('lastPage.$page.fullpath:', currRoute.fullPath)
