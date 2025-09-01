@@ -5,9 +5,10 @@
  */
 import { useTokenStore } from '@/store/token'
 import { tabbarStore } from '@/tabbar/store'
-import { getLastPage, parseUrlToObj } from '@/utils/index'
+import { getAllPages, getLastPage, parseUrlToObj } from '@/utils/index'
 import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_LIST } from './config'
 
+const isDev = import.meta.env.DEV
 export const FG_LOG_ENABLE = false
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
@@ -57,8 +58,9 @@ export const navigateToInterceptor = {
         return true // 明确表示允许路由继续执行
       }
       else {
+        const allExcludeLoginPages = getAllPages('excludeLoginPath') // dev 环境下，需要每次都重新获取，否则新配置就不会生效
         // 需要登录里面的 EXCLUDE_LOGIN_PATH_LIST 表示白名单，可以直接通过
-        if (EXCLUDE_LOGIN_PATH_LIST.includes(path)) {
+        if (EXCLUDE_LOGIN_PATH_LIST.includes(path) || (isDev && allExcludeLoginPages.some(page => page.path === path))) {
           return true // 明确表示允许路由继续执行
         }
         // 否则需要重定向到登录页
