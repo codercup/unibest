@@ -27,6 +27,10 @@ onLoad((options) => {
 const userStore = useUserStore()
 const tokenStore = useTokenStore()
 function doLogin() {
+  if (tokenStore.hasLogin) {
+    uni.navigateBack()
+    return
+  }
   userStore.setUserInfo({
     userId: 123456,
     username: 'abc123456',
