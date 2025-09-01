@@ -268,6 +268,7 @@ export const useTokenStore = defineStore(
 
       // 调试或特殊场景可能需要直接访问的信息
       tokenInfo,
+      setTokenInfo,
     }
   },
   {
