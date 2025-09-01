@@ -1,8 +1,9 @@
 {
   "name": "unibest",
   "type": "module",
-  "version": "3.12.5",
-  "unibest-version": "3.12.5",
+  "version": "3.13.0",
+  "unibest-version": "3.13.0",
+  "update-time": "2025-09-01",
   "description": "unibest - 最好的 uniapp 开发模板",
   "generate-time": "用户创建项目时生成",
   "author": {
