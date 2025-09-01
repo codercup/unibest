@@ -12,9 +12,6 @@ import { isDoubleTokenRes, isSingleTokenRes } from '@/api/types/login'
 import { isDoubleTokenMode } from '@/utils'
 import { useUserStore } from './user'
 
-// 修复：添加 isSingleTokenMode 变量
-export const isSingleTokenMode = !isDoubleTokenMode
-
 // 初始化状态
 const tokenInfoState = isDoubleTokenMode
   ? {
@@ -208,7 +205,7 @@ export const useTokenStore = defineStore(
         return ''
       }
 
-      if (isSingleTokenMode) {
+      if (!isDoubleTokenMode) {
         return isSingleTokenRes(tokenInfo.value) ? tokenInfo.value.token : ''
       }
       else {
