@@ -9,9 +9,12 @@ import {
   getWxCode,
 } from '@/api/login'
 import { isDoubleTokenRes, isSingleTokenRes } from '@/api/types/login'
-import { isDoubleTokenMode } from '@/utils'
 import { useUserStore } from './user'
 
+/**
+ * 是否是双token模式
+ */
+export const isDoubleTokenMode = import.meta.env.VITE_AUTH_MODE === 'double'
 // 初始化状态
 const tokenInfoState = isDoubleTokenMode
   ? {
