@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useTokenStore } from '@/store/token'
 import { useUserStore } from '@/store/user'
 import { tabbarList } from '@/tabbar/config'
 import { isPageTabbar } from '@/tabbar/store'
@@ -24,12 +25,22 @@ onLoad((options) => {
 })
 
 const userStore = useUserStore()
+const tokenStore = useTokenStore()
 function doLogin() {
+  if (tokenStore.hasLogin) {
+    uni.navigateBack()
+    return
+  }
   userStore.setUserInfo({
     userId: 123456,
     username: 'abc123456',
     nickname: '菲鸽',
     avatar: 'https://oss.laf.run/ukw0y1-site/avatar.jpg',
+  })
+  // 这里用单token来模拟
+  tokenStore.setTokenInfo({
+    token: '123456',
+    expiresIn: 60 * 60 * 24 * 7,
   })
   console.log(redirectUrl.value)
   let path = redirectUrl.value

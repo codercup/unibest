@@ -23,7 +23,8 @@ if (customTabbarEnable && BULGE_ENABLE) {
 }
 
 export function isPageTabbar(path: string) {
-  return tabbarList.some(item => item.pagePath === path)
+  const _path = path.split('?')[0]
+  return tabbarList.some(item => item.pagePath === _path)
 }
 
 /**

@@ -16,16 +16,35 @@ definePage({
   style: {
     navigationBarTitleText: '%tabbar.about%',
   },
+  // 登录授权(可选)：跟以前的 needLogin 类似功能，但是同时支持黑白名单，详情请见 arc/router 文件夹
+  excludeLoginPath: true,
+  // 角色授权(可选)：如果需要根据角色授权，就配置这个
+  roleAuth: {
+    field: 'role',
+    value: 'admin',
+    redirect: '/pages/auth/403',
+  },
 })
 
 // 浏览器打印 isH5为true, isWeb为false，大家尽量用 isH5
 console.log({ isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb })
 
-function toLogin() {
+function gotoLogin() {
   uni.navigateTo({
-    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about')}`,
+    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
   })
 }
+
+function gotoTabbar() {
+  uni.switchTab({
+    url: '/pages/index/index',
+  })
+}
+// #region setTabbarBadge
+function setTabbarBadge() {
+  tabbarStore.setTabbarItemBadge(1, 100)
+}
+// #endregion
 
 function gotoAlova() {
   uni.navigateTo({
@@ -42,6 +61,7 @@ function gotoSubPage() {
     url: '/pages-sub/demo/index',
   })
 }
+
 // uniLayout里面的变量通过 expose 暴露出来后可以在 onReady 钩子获取到（onLoad 钩子不行）
 const uniLayout = ref()
 onLoad(() => {
@@ -57,17 +77,6 @@ onShow(() => {
   console.log('onShow:', uniLayout.value?.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
 })
 
-function gotoTabbar() {
-  uni.switchTab({
-    url: '/pages/index/index',
-  })
-}
-// #region setTabbarBadge
-function setTabbarBadge() {
-  tabbarStore.setTabbarItemBadge(1, 100)
-}
-// #endregion
-
 const uniKuRoot = ref()
 // 结论：(同上）第一次通过onShow获取不到，但是可以通过 onReady获取到，后面就可以通过onShow获取到了
 onReady(() => {
@@ -76,18 +85,6 @@ onReady(() => {
 onShow(() => {
   console.log('onShow uniKuRoot exposeRef', uniKuRoot.value?.exposeRef)
 })
-
-// 备注：本文件内容直接放到 about.vue 页面，在`微信小程序`里面不生效，单独放到一个文件却生效，原因未知
-// 2025-08-31 经过测试，不适用root插件就可以。
-const testBindCssVariable = ref('red')
-function changeTestBindCssVariable() {
-  if (testBindCssVariable.value === 'red') {
-    testBindCssVariable.value = 'green'
-  }
-  else {
-    testBindCssVariable.value = 'red'
-  }
-}
 </script>
 
 <template root="uniKuRoot">
@@ -102,7 +99,7 @@ function changeTestBindCssVariable() {
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
-    <button class="mt-4 w-40 text-center" @click="toLogin">
+    <button class="mt-4 w-40 text-center" @click="gotoLogin">
       点击去登录页
     </button>
     <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
@@ -110,15 +107,6 @@ function changeTestBindCssVariable() {
     </button>
     <RequestComp />
     <VBindCss />
-    <view class="text-center text-sm text-gray">
-      如下直接写，不生效，如果去掉 root插件也可以。看起来是root插件影响了
-    </view>
-    <button class="mt-4 w-60 text-center" @click="changeTestBindCssVariable">
-      toggle v-bind css变量
-    </button>
-    <view class="test-css my-2 text-center">
-      测试v-bind css变量的具体文案
-    </view>
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoI18nPage()">
@@ -153,10 +141,3 @@ function changeTestBindCssVariable() {
     <view class="h-6" />
   </view>
 </template>
-
-<style lang="scss" scoped>
-.test-css {
-  color: v-bind(testBindCssVariable);
-  font-size: 24px;
-}
-</style>

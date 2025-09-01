@@ -17,6 +17,12 @@ export function getLastPage() {
  */
 export function currRoute() {
   const lastPage = getLastPage()
+  if (!lastPage) {
+    return {
+      path: '',
+      query: {},
+    }
+  }
   const currRoute = (lastPage as any).$page
   // console.log('lastPage.$page:', currRoute)
   // console.log('lastPage.$page.fullpath:', currRoute.fullPath)
@@ -61,10 +67,10 @@ export function parseUrlToObj(url: string) {
 }
 /**
  * 得到所有的需要登录的 pages，包括主包和分包的
- * 这里设计得通用一点，可以传递 key 作为判断依据，默认是 needLogin, 与 route-block 配对使用
+ * 这里设计得通用一点，可以传递 key 作为判断依据，默认是 excludeLoginPath, 与 route-block 配对使用
  * 如果没有传 key，则表示所有的 pages，如果传递了 key, 则表示通过 key 过滤
  */
-export function getAllPages(key = 'needLogin') {
+export function getAllPages(key = 'excludeLoginPath') {
   // 这里处理主包
   const mainPages = pages
     .filter(page => !key || page[key])
