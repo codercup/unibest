@@ -80,6 +80,9 @@ export const navigateToInterceptor = {
       }
       // 否则需要重定向到登录页
       else {
+        if (path === LOGIN_PAGE) {
+          return true // 明确表示允许路由继续执行
+        }
         FG_LOG_ENABLE && console.log('1 isNeedLogin(白名单策略) redirectUrl:', redirectUrl)
         uni.navigateTo({ url: redirectUrl })
         return false // 明确表示阻止原路由继续执行
