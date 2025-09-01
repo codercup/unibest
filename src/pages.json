@@ -53,6 +53,12 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "关于"
+      },
+      "excludeLoginPath": true,
+      "roleAuth": {
+        "field": "role",
+        "value": "admin",
+        "redirect": "/pages/auth/403"
       }
     },
     {

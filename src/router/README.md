@@ -15,12 +15,12 @@
 
 比如大部分2B和后台管理类的应用，比如企业微信、钉钉、飞书、内部报表系统、CMS系统等，都需要登录，只有登录后，才能使用。
 
-### EXCLUDE_PAGE_LIST
-`EXCLUDE_PAGE_LIST` 表示排除的路由列表。
+### EXCLUDE_LOGIN_PATH_LIST
+`EXCLUDE_LOGIN_PATH_LIST` 表示排除的路由列表。
 
-在 `默认无需登录策略： DEFAULT_NO_NEED_LOGIN` 中，只有路由在 `EXCLUDE_PAGE_LIST` 中，才需要登录，相当于黑名单。
+在 `默认无需登录策略： DEFAULT_NO_NEED_LOGIN` 中，只有路由在 `EXCLUDE_LOGIN_PATH_LIST` 中，才需要登录，相当于黑名单。
 
-在 `默认需要登录策略： DEFAULT_NEED_LOGIN` 中，只有路由在 `EXCLUDE_PAGE_LIST` 中，才不需要登录，相当于白名单。
+在 `默认需要登录策略： DEFAULT_NEED_LOGIN` 中，只有路由在 `EXCLUDE_LOGIN_PATH_LIST` 中，才不需要登录，相当于白名单。
 
 
 ## 登录注册页路由

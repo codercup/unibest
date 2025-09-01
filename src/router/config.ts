@@ -12,7 +12,7 @@ export const REGISTER_PAGE = '/pages/login/register'
 export const LOGIN_PAGE_LIST = [LOGIN_PAGE, REGISTER_PAGE]
 
 // 排除在外的列表，白名单策略指白名单列表，黑名单策略指黑名单列表
-export const EXCLUDE_PAGE_LIST = [
+export const EXCLUDE_LOGIN_PATH_LIST = [
   '/pages/xxx/index',
 ]
 

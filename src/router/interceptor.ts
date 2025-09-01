@@ -1,12 +1,12 @@
 /**
  * by 菲鸽 on 2025-08-19
  * 路由拦截，通常也是登录拦截
- * 黑白名单的配置，请看 config.ts 文件， EXCLUDE_PAGE_LIST
+ * 黑白名单的配置，请看 config.ts 文件， EXCLUDE_LOGIN_PATH_LIST
  */
 import { useTokenStore } from '@/store/token'
 import { tabbarStore } from '@/tabbar/store'
 import { getLastPage, parseUrlToObj } from '@/utils/index'
-import { EXCLUDE_PAGE_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_LIST } from './config'
+import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_LIST } from './config'
 
 export const FG_LOG_ENABLE = false
 
@@ -57,8 +57,8 @@ export const navigateToInterceptor = {
         return true // 明确表示允许路由继续执行
       }
       else {
-        // 需要登录里面的 EXCLUDE_PAGE_LIST 表示白名单，可以直接通过
-        if (EXCLUDE_PAGE_LIST.includes(path)) {
+        // 需要登录里面的 EXCLUDE_LOGIN_PATH_LIST 表示白名单，可以直接通过
+        if (EXCLUDE_LOGIN_PATH_LIST.includes(path)) {
           return true // 明确表示允许路由继续执行
         }
         // 否则需要重定向到登录页
@@ -73,8 +73,8 @@ export const navigateToInterceptor = {
 
     // #region 2/2 不需要登录的情况 ---------------------------
     else {
-      // 不需要登录里面的 EXCLUDE_PAGE_LIST 表示黑名单，需要重定向到登录页
-      if (EXCLUDE_PAGE_LIST.includes(path)) {
+      // 不需要登录里面的 EXCLUDE_LOGIN_PATH_LIST 表示黑名单，需要重定向到登录页
+      if (EXCLUDE_LOGIN_PATH_LIST.includes(path)) {
         FG_LOG_ENABLE && console.log('2 isNeedLogin redirectUrl:', redirectUrl)
         uni.navigateTo({ url: redirectUrl })
         return false // 明确表示阻止原路由继续执行
