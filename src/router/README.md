@@ -22,6 +22,24 @@
 
 在 `默认需要登录策略： DEFAULT_NEED_LOGIN` 中，只有路由在 `EXCLUDE_LOGIN_PATH_LIST` 中，才不需要登录，相当于白名单。
 
+### excludeLoginPath
+definePage 中可以通过 `excludeLoginPath` 来配置路由是否需要登录。(类似过去的 needLogin 的功能)
+
+```ts
+definePage({
+  style: {
+    navigationBarTitleText: '关于',
+  },
+  // 登录授权(可选)：跟以前的 needLogin 类似功能，但是同时支持黑白名单，详情请见 arc/router 文件夹
+  excludeLoginPath: true,
+  // 角色授权(可选)：如果需要根据角色授权，就配置这个
+  roleAuth: {
+    field: 'role',
+    value: 'admin',
+    redirect: '/pages/auth/403',
+  },
+})
+```
 
 ## 登录注册页路由
 

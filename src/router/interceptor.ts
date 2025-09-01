@@ -8,16 +8,16 @@ import { isPageTabbar, tabbarStore } from '@/tabbar/store'
 import { getAllPages, getLastPage, parseUrlToObj } from '@/utils/index'
 import { EXCLUDE_LOGIN_PATH_LIST, HOME_PAGE, isNeedLoginMode, LOGIN_PAGE } from './config'
 
-const isDev = import.meta.env.DEV
 export const FG_LOG_ENABLE = false
 export function judgeIsExcludePath(path: string) {
+  const isDev = import.meta.env.DEV
   if (!isDev) {
     return EXCLUDE_LOGIN_PATH_LIST.includes(path)
   }
   const allExcludeLoginPages = getAllPages('excludeLoginPath') // dev 环境下，需要每次都重新获取，否则新配置就不会生效
   return EXCLUDE_LOGIN_PATH_LIST.includes(path) || (isDev && allExcludeLoginPages.some(page => page.path === path))
 }
-// 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
+
 export const navigateToInterceptor = {
   // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
   // 增加对相对路径的处理，BY 网友 @ideal
