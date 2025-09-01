@@ -5,8 +5,8 @@
  */
 import { useTokenStore } from '@/store/token'
 import { isPageTabbar, tabbarStore } from '@/tabbar/store'
-import { getAllPages, getLastPage, parseUrlToObj } from '@/utils/index'
-import { EXCLUDE_LOGIN_PATH_LIST, HOME_PAGE, isNeedLoginMode, LOGIN_PAGE } from './config'
+import { getAllPages, getLastPage, HOME_PAGE, parseUrlToObj } from '@/utils/index'
+import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE } from './config'
 
 export const FG_LOG_ENABLE = false
 export function judgeIsExcludePath(path: string) {
