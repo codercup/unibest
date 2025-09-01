@@ -22,11 +22,22 @@ definePage({
 // 浏览器打印 isH5为true, isWeb为false，大家尽量用 isH5
 console.log({ isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb })
 
-function toLogin() {
+function gotoLogin() {
   uni.navigateTo({
     url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
   })
 }
+
+function gotoTabbar() {
+  uni.switchTab({
+    url: '/pages/index/index',
+  })
+}
+// #region setTabbarBadge
+function setTabbarBadge() {
+  tabbarStore.setTabbarItemBadge(1, 100)
+}
+// #endregion
 
 function gotoAlova() {
   uni.navigateTo({
@@ -43,6 +54,7 @@ function gotoSubPage() {
     url: '/pages-sub/demo/index',
   })
 }
+
 // uniLayout里面的变量通过 expose 暴露出来后可以在 onReady 钩子获取到（onLoad 钩子不行）
 const uniLayout = ref()
 onLoad(() => {
@@ -57,17 +69,6 @@ onShow(() => {
   console.log('onShow:', uniLayout.value) // onReady: Proxy(Object)
   console.log('onShow:', uniLayout.value?.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
 })
-
-function gotoTabbar() {
-  uni.switchTab({
-    url: '/pages/index/index',
-  })
-}
-// #region setTabbarBadge
-function setTabbarBadge() {
-  tabbarStore.setTabbarItemBadge(1, 100)
-}
-// #endregion
 
 const uniKuRoot = ref()
 // 结论：(同上）第一次通过onShow获取不到，但是可以通过 onReady获取到，后面就可以通过onShow获取到了
@@ -87,7 +88,7 @@ onShow(() => {
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
-    <button class="mt-4 w-40 text-center" @click="toLogin">
+    <button class="mt-4 w-40 text-center" @click="gotoLogin">
       点击去登录页
     </button>
     <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
