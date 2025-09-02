@@ -54,12 +54,7 @@
       "style": {
         "navigationBarTitleText": "关于"
       },
-      "excludeLoginPath": true,
-      "roleAuth": {
-        "field": "role",
-        "value": "admin",
-        "redirect": "/pages/auth/403"
-      }
+      "excludeLoginPath": false
     },
     {
       "path": "pages/about/alova",
