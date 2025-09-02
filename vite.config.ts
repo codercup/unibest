@@ -111,7 +111,7 @@ export default ({ command, mode }) => {
       UNI_PLATFORM === 'h5' && {
         name: 'html-transform',
         transformIndexHtml(html) {
-          return html.replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+          return html.replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss')).replace('%VITE_APP_TITLE%', env.VITE_APP_TITLE)
         },
       },
       // 打包分析插件，h5 + 生产环境才弹出
