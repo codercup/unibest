@@ -6,7 +6,7 @@
 import { useTokenStore } from '@/store/token'
 import { isPageTabbar, tabbarStore } from '@/tabbar/store'
 import { getAllPages, getLastPage, HOME_PAGE, parseUrlToObj } from '@/utils/index'
-import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE } from './config'
+import { EXCLUDE_LOGIN_PATH_LIST, IS_USE_WX_LOGIN_IN_MP, isNeedLoginMode, LOGIN_PAGE } from './config'
 
 export const FG_LOG_ENABLE = false
 export function judgeIsExcludePath(path: string) {
@@ -44,6 +44,11 @@ export const navigateToInterceptor = {
 
     // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
     tabbarStore.setAutoCurIdx(path)
+
+    // 小程序里面使用平台自带的登录，则不走下面的逻辑
+    if (IS_USE_WX_LOGIN_IN_MP) {
+      return true
+    }
 
     const tokenStore = useTokenStore()
     FG_LOG_ENABLE && console.log('tokenStore.hasLogin:', tokenStore.hasLogin)
