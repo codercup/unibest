@@ -1,3 +1,4 @@
+import { isMp } from '@uni-helper/uni-env'
 /**
  * by 菲鸽 on 2025-08-19
  * 路由拦截，通常也是登录拦截
@@ -46,8 +47,8 @@ export const navigateToInterceptor = {
     tabbarStore.setAutoCurIdx(path)
 
     // 小程序里面使用平台自带的登录，则不走下面的逻辑
-    if (IS_USE_WX_LOGIN_IN_MP) {
-      return true
+    if (isMp && IS_USE_WX_LOGIN_IN_MP) {
+      return true // 明确表示允许路由继续执行
     }
 
     const tokenStore = useTokenStore()
@@ -67,7 +68,7 @@ export const navigateToInterceptor = {
         else {
           uni.navigateTo({ url })
         }
-        return true // 明确表示阻止原路由继续执行
+        return true
       }
     }
     let fullPath = path
