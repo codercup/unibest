@@ -22,6 +22,6 @@ export const EXCLUDE_LOGIN_PATH_LIST = [
   ...excludeLoginPathList, // 都是以 / 开头的 path
 ]
 
-// 在微信小程序里面是否使用小程序默认的登录，默认为true
-// 如果为 false 则复用 h5 的登录逻辑
-export const IS_USE_WX_LOGIN_IN_MP = true
+// 在小程序里面是否使用H5的登录页，默认为 false
+// 如果为 true 则复用 h5 的登录逻辑
+export const LOGIN_PAGE_ENABLE_IN_WP = false
