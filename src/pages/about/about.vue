@@ -82,6 +82,8 @@ onShow(() => {
 </script>
 
 <template root="uniKuRoot">
+  <!-- page-meta 使用范例 -->
+  <page-meta page-style="overflow: auto" />
   <view>
     <view class="mt-8 text-center text-green-500">
       tabbar 页面也测试一下，也是成功的
