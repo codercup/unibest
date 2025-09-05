@@ -266,6 +266,7 @@ export const useTokenStore = defineStore(
       // 内部系统使用的方法
       refreshToken,
       tryGetValidToken,
+      validToken: getValidToken,
 
       // 调试或特殊场景可能需要直接访问的信息
       tokenInfo,
