@@ -152,5 +152,4 @@ const _tabbar: TabBar = {
   list: _tabbarList as unknown as TabBar['list'],
 }
 
-// 0和1 需要显示底部的tabbar的各种配置，以利用缓存
 export const tabBar = tabbarCacheEnable ? _tabbar : undefined
