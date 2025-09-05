@@ -54,6 +54,10 @@ export const useTokenStore = defineStore(
      * 判断token是否过期
      */
     const isTokenExpired = computed(() => {
+      if (!tokenInfo.value) {
+        return true
+      }
+
       const now = Date.now()
       const expireTime = uni.getStorageSync('accessTokenExpireTime')
 
