@@ -68,7 +68,7 @@ export const navigateToInterceptor = {
         else {
           uni.navigateTo({ url })
         }
-        return true
+        return false // 明确表示阻止原路由继续执行
       }
     }
     let fullPath = path
