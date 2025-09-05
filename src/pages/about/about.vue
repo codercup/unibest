@@ -75,6 +75,8 @@ onShow(() => {
 </script>
 
 <template root="uniKuRoot">
+  <!-- page-meta 使用范例 -->
+  <page-meta page-style="overflow: auto" />
   <view>
     <view class="mt-8 text-center text-xl text-gray-400">
       请求调用、unocss、static图片
