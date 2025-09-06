@@ -7,7 +7,7 @@ import { isMp } from '@uni-helper/uni-env'
 import { useTokenStore } from '@/store/token'
 import { isPageTabbar, tabbarStore } from '@/tabbar/store'
 import { getAllPages, getLastPage, HOME_PAGE, parseUrlToObj } from '@/utils/index'
-import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_ENABLE_IN_WP } from './config'
+import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_ENABLE_IN_MP } from './config'
 
 export const FG_LOG_ENABLE = false
 export function judgeIsExcludePath(path: string) {
@@ -47,7 +47,7 @@ export const navigateToInterceptor = {
     tabbarStore.setAutoCurIdx(path)
 
     // 小程序里面使用平台自带的登录，则不走下面的逻辑
-    if (isMp && LOGIN_PAGE_ENABLE_IN_WP) {
+    if (isMp && LOGIN_PAGE_ENABLE_IN_MP) {
       return true // 明确表示允许路由继续执行
     }
 

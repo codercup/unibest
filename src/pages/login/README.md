@@ -9,7 +9,7 @@
 
 但是如果您的小程序也需要现实的 `登录页` 那也是可以使用的。
 
-在 `src/router/config.ts` 中有一个变量 `LOGIN_PAGE_ENABLE_IN_WP` 来控制是否在小程序中使用 `H5的登录页`。
+在 `src/router/config.ts` 中有一个变量 `LOGIN_PAGE_ENABLE_IN_MP` 来控制是否在小程序中使用 `H5的登录页`。
 
 更多信息请看 `src/router` 文件夹的内容。
 
