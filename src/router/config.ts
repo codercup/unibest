@@ -24,4 +24,4 @@ export const EXCLUDE_LOGIN_PATH_LIST = [
 
 // 在小程序里面是否使用H5的登录页，默认为 false
 // 如果为 true 则复用 h5 的登录逻辑
-export const LOGIN_PAGE_ENABLE_IN_WP = false
+export const LOGIN_PAGE_ENABLE_IN_MP = false
