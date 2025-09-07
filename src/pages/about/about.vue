@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb } from '@uni-helper/uni-env'
 import { LOGIN_PAGE } from '@/router/config'
+import { useTokenStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
 import RequestComp from './components/request.vue'
 import VBindCss from './components/VBindCss.vue'
@@ -13,10 +14,18 @@ definePage({
   excludeLoginPath: false,
 })
 
+const tokenStore = useTokenStore()
 // 浏览器打印 isH5为true, isWeb为false，大家尽量用 isH5
 console.log({ isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb })
 
 function gotoLogin() {
+  if (tokenStore.hasLogin) {
+    uni.showToast({
+      title: '已登录，不能去登录页',
+      icon: 'none',
+    })
+    return
+  }
   uni.navigateTo({
     url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
   })
