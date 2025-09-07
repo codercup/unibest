@@ -7,8 +7,8 @@ import { http } from '@/http/http'
 export interface ILoginForm {
   username: string
   password: string
-  code: string
-  uuid: string
+  code?: string
+  uuid?: string
 }
 
 /**
