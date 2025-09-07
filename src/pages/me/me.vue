@@ -90,7 +90,7 @@ function handleLogout() {
         // #endif
         // #ifndef MP-WEIXIN
         // 非微信小程序，去登录页
-        uni.navigateTo({ url: LOGIN_PAGE })
+        // uni.navigateTo({ url: LOGIN_PAGE })
         // #endif
       }
     },
@@ -127,7 +127,7 @@ function handleLogout() {
         </view>
         <!-- #endif -->
         <view class="user-id">
-          ID: {{ userInfo.id }}
+          ID: {{ userInfo.userId }}
         </view>
       </view>
     </view>
