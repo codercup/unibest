@@ -73,7 +73,7 @@ export const navigateToInterceptor = {
     }
     let fullPath = path
 
-    if (myQuery) {
+    if (Object.keys(myQuery).length) {
       fullPath += `?${Object.keys(myQuery).map(key => `${key}=${myQuery[key]}`).join('&')}`
     }
     const redirectUrl = `${LOGIN_PAGE}?redirect=${encodeURIComponent(fullPath)}`
