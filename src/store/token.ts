@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue' // 修复：导入 computed
 import {
   login as _login,
+  logout as _logout,
   refreshToken as _refreshToken,
   wxLogin as _wxLogin,
   getWxCode,
@@ -155,7 +156,7 @@ export const useTokenStore = defineStore(
     const logout = async () => {
       try {
         // TODO 实现自己的退出登录逻辑
-        // await _logout()
+        await _logout()
       }
       catch (error) {
         console.error('退出登录失败:', error)
