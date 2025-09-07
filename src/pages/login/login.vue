@@ -26,23 +26,35 @@ onLoad((options) => {
 
 const userStore = useUserStore()
 const tokenStore = useTokenStore()
-function doLogin() {
+async function doLogin() {
   if (tokenStore.hasLogin) {
     uni.navigateBack()
     return
   }
-  userStore.setUserInfo({
-    userId: 123456,
-    username: 'abc123456',
-    nickname: '菲鸽',
-    avatar: 'https://oss.laf.run/ukw0y1-site/avatar.jpg',
-  })
-  // 这里用单token来模拟
-  tokenStore.setTokenInfo({
-    token: '123456',
-    expiresIn: 60 * 60 * 24 * 7,
-  })
-  console.log(redirectUrl.value)
+  try {
+    // 1/2 调用接口回来后设置用户信息
+    // const res = await login({
+    //   username: '菲鸽',
+    //   password: '123456',
+    // })
+    // console.log('接口拿到的登录信息：', res)
+    userStore.setUserInfo({
+      userId: 123456,
+      username: 'abc123456',
+      nickname: '菲鸽',
+      avatar: 'https://oss.laf.run/ukw0y1-site/avatar.jpg',
+    })
+    // 2/2 调用接口回来后设置token信息
+    // 这里用单token来模拟
+    tokenStore.setTokenInfo({
+      token: '123456',
+      expiresIn: 60 * 60 * 24 * 7,
+    })
+    console.log(redirectUrl.value)
+  }
+  catch (error) {
+    console.log('登录失败', error)
+  }
   let path = redirectUrl.value
   if (!path.startsWith('/')) {
     path = `/${path}`
