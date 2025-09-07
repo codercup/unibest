@@ -39,7 +39,9 @@ async function handleLogin() {
   await tokenStore.wxLogin()
   // #endif
   // #ifndef MP-WEIXIN
-  uni.navigateTo({ url: LOGIN_PAGE })
+  uni.navigateTo({
+    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/me/me')}`,
+  })
   // #endif
 }
 
