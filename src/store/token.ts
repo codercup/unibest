@@ -158,18 +158,21 @@ export const useTokenStore = defineStore(
      */
     const logout = async () => {
       try {
+        // TODO 实现自己的退出登录逻辑
         await _logout()
-        // 清除存储的过期时间
-        uni.removeStorageSync('accessTokenExpireTime')
-        uni.removeStorageSync('refreshTokenExpireTime')
       }
       catch (error) {
         console.error('退出登录失败:', error)
       }
       finally {
         // 无论成功失败，都需要清除本地token信息
-        const userStore = useUserStore()
-        await userStore.removeUserInfo()
+        // 清除存储的过期时间
+        uni.removeStorageSync('accessTokenExpireTime')
+        uni.removeStorageSync('refreshTokenExpireTime')
+        console.log('退出登录-清除用户信息')
+        tokenInfo.value = { ...tokenInfoState }
+        uni.removeStorageSync('user')
+        uni.removeStorageSync('token')
       }
     }
 
@@ -224,6 +227,9 @@ export const useTokenStore = defineStore(
      * 检查是否有登录信息（不考虑token是否过期）
      */
     const hasLoginInfo = computed(() => {
+      if (!tokenInfo.value) {
+        return false
+      }
       if (isDoubleTokenMode) {
         return isDoubleTokenRes(tokenInfo.value) && !!tokenInfo.value.accessToken
       }
@@ -236,6 +242,7 @@ export const useTokenStore = defineStore(
      * 检查是否已登录且token有效
      */
     const hasValidLogin = computed(() => {
+      console.log('hasValidLogin', hasLoginInfo.value, !isTokenExpired.value)
       return hasLoginInfo.value && !isTokenExpired.value
     })
 

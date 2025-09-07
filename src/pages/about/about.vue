@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb } from '@uni-helper/uni-env'
 import { LOGIN_PAGE } from '@/router/config'
+import { useTokenStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
 import RequestComp from './components/request.vue'
 import VBindCss from './components/VBindCss.vue'
@@ -20,12 +21,29 @@ definePage({
   excludeLoginPath: false,
 })
 
+const tokenStore = useTokenStore()
 // 浏览器打印 isH5为true, isWeb为false，大家尽量用 isH5
 console.log({ isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb })
 
 function gotoLogin() {
+  if (tokenStore.hasLogin) {
+    uni.showToast({
+      title: '已登录，不能去登录页',
+      icon: 'none',
+    })
+    return
+  }
   uni.navigateTo({
     url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
+  })
+}
+function logout() {
+  // 清空用户信息
+  tokenStore.logout()
+  // 执行退出登录逻辑
+  uni.showToast({
+    title: '退出登录成功',
+    icon: 'success',
   })
 }
 
@@ -95,9 +113,17 @@ onShow(() => {
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
-    <button class="mt-4 w-40 text-center" @click="gotoLogin">
-      点击去登录页
-    </button>
+    <view class="my-2 text-center">
+      当前是否登录：{{ tokenStore.hasLogin }}
+    </view>
+    <view class="m-auto max-w-600px flex items-center">
+      <button class="mt-4 w-40 text-center" @click="gotoLogin">
+        点击去登录页
+      </button>
+      <button class="mt-4 w-40 text-center" @click="logout">
+        点击退出登录
+      </button>
+    </view>
     <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
       设置tabbarBadge
     </button>
