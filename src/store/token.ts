@@ -168,8 +168,9 @@ export const useTokenStore = defineStore(
         uni.removeStorageSync('refreshTokenExpireTime')
         console.log('退出登录-清除用户信息')
         tokenInfo.value = { ...tokenInfoState }
-        uni.removeStorageSync('user')
         uni.removeStorageSync('token')
+        const userStore = useUserStore()
+        userStore.clearUserInfo()
       }
     }
 
