@@ -119,7 +119,7 @@ export async function userCreateWithListUsingPost({
   });
 }
 
-/** Logs user into the system GET /user/login */
+/** Logs user into the system GET /auth/login */
 export async function userLoginUsingGet({
   params,
   options,
@@ -128,7 +128,7 @@ export async function userLoginUsingGet({
   params: API.userLoginUsingGetParams;
   options?: CustomRequestOptions;
 }) {
-  return request<string>('/user/login', {
+  return request<string>('/auth/login', {
     method: 'GET',
     params: {
       ...params,

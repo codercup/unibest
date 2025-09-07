@@ -30,6 +30,15 @@ function gotoLogin() {
     url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
   })
 }
+function logout() {
+  // 清空用户信息
+  tokenStore.logout()
+  // 执行退出登录逻辑
+  uni.showToast({
+    title: '退出登录成功',
+    icon: 'success',
+  })
+}
 
 function gotoTabbar() {
   uni.switchTab({
@@ -93,9 +102,17 @@ onShow(() => {
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
-    <button class="mt-4 w-40 text-center" @click="gotoLogin">
-      点击去登录页
-    </button>
+    <view class="my-2 text-center">
+      当前是否登录：{{ tokenStore.hasLogin }}
+    </view>
+    <view class="m-auto max-w-600px flex items-center">
+      <button class="mt-4 w-40 text-center" @click="gotoLogin">
+        点击去登录页
+      </button>
+      <button class="mt-4 w-40 text-center" @click="logout">
+        点击退出登录
+      </button>
+    </view>
     <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
       设置tabbarBadge
     </button>
