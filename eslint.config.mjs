@@ -17,6 +17,7 @@ export default uniHelper({
     // 忽略自动生成文件
     'src/service/app/**',
   ],
+  // https://eslint-config.antfu.me/rules
   rules: {
     'no-useless-return': 'off',
     'no-console': 'off',
@@ -34,6 +35,10 @@ export default uniHelper({
         externalIgnores: ['text'],
       },
     ],
+    // vue SFC 调换顺序改这里
+    'vue/block-order': ['error', {
+      order: [['script', 'template'], 'style'],
+    }],
   },
   formatters: {
     /**
