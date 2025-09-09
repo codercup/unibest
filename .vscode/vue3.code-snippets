@@ -52,6 +52,19 @@
       "</script>\n"
     ],
   },
+  "Print unibest script with definePage": {
+    "scope": "vue",
+    "prefix": "scdp",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "definePage({",
+      "  style: {",
+      "    navigationBarTitleText: '$1',",
+      "  },",
+      "})",
+      "</script>\n"
+    ],
+  },
   "Print unibest template": {
     "scope": "vue",
     "prefix": "te",
