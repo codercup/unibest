@@ -88,7 +88,7 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
-    "prepare": "git init && husky",
+    "prepare": "git init && husky && node ./scripts/create-base-files.js",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
