@@ -1,8 +1,8 @@
 {
   "name": "unibest",
   "type": "module",
-  "version": "3.14.2",
-  "unibest-version": "3.14.2",
+  "version": "3.15.0",
+  "unibest-version": "3.15.0",
   "update-time": "2025-09-09",
   "packageManager": "pnpm@10.10.0",
   "description": "unibest - 最好的 uniapp 开发模板",
@@ -88,7 +88,7 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
-    "prepare": "git init && husky",
+    "prepare": "git init && husky && node ./scripts/create-base-files.js",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
