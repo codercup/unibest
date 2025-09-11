@@ -15,7 +15,7 @@ export default uniHelper({
     'src/pages.json',
     'src/manifest.json',
     // 忽略自动生成文件
-    'src/service/app/**',
+    'src/service/**',
   ],
   // https://eslint-config.antfu.me/rules
   rules: {
