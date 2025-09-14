@@ -1,3 +1,4 @@
+import { isH5 } from '@uni-helper/uni-env'
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 import { tabBar } from './src/tabbar/config'
 
@@ -19,5 +20,6 @@ export default defineUniPages({
     },
   },
   // tabbar 的配置统一在 “./src/tabbar/config.ts” 文件中
-  tabBar: tabBar as any,
+  // 无tabbar模式下，h5 设置为 {} 为了防止浏览器报错导致白屏
+  tabBar: tabBar || (isH5 ? {} : undefined) as any,
 })

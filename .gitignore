@@ -28,10 +28,12 @@ docs/.vitepress/dist
 docs/.vitepress/cache
 
 src/types
+src/manifest.json
+src/pages.json
 
 # lock 文件还是不要了，我主要的版本写死就好了
-# pnpm-lock.yaml
-# package-lock.json
+pnpm-lock.yaml
+package-lock.json
 
 # TIPS：如果某些文件已经加入了版本管理，现在重新加入 .gitignore 是不生效的，需要执行下面的操作
 # `git rm -r --cached .` 然后提交 commit 即可。

@@ -1,5 +1,11 @@
+import type {
+  Preset,
+} from 'unocss'
 // https://www.npmjs.com/package/@uni-helper/unocss-preset-uni
 import { presetUni } from '@uni-helper/unocss-preset-uni'
+
+// @see https://unocss.dev/presets/legacy-compat
+import { presetLegacyCompat } from '@unocss/preset-legacy-compat'
 import {
   defineConfig,
   presetAttributify,
@@ -23,6 +29,14 @@ export default defineConfig({
     }),
     // 支持css class属性化
     presetAttributify(),
+    // TODO: check 是否会有别的影响
+    // 处理低端安卓机的样式问题
+    // 将颜色函数 (rgb()和hsl()) 从空格分隔转换为逗号分隔，更好的兼容性app端，example：
+    // `rgb(255 0 0)` -> `rgb(255, 0, 0)`
+    // `rgba(255 0 0 / 0.5)` -> `rgba(255, 0, 0, 0.5)`
+    presetLegacyCompat({
+      commaStyleColorFunction: true,
+    }) as Preset,
   ],
   transformers: [
     // 启用指令功能：主要用于支持 @apply、@screen 和 theme() 等 CSS 指令

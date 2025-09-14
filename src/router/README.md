@@ -15,13 +15,31 @@
 
 比如大部分2B和后台管理类的应用，比如企业微信、钉钉、飞书、内部报表系统、CMS系统等，都需要登录，只有登录后，才能使用。
 
-### EXCLUDE_PAGE_LIST
-`EXCLUDE_PAGE_LIST` 表示排除的路由列表。
+### EXCLUDE_LOGIN_PATH_LIST
+`EXCLUDE_LOGIN_PATH_LIST` 表示排除的路由列表。
 
-在 `默认无需登录策略： DEFAULT_NO_NEED_LOGIN` 中，只有路由在 `EXCLUDE_PAGE_LIST` 中，才需要登录，相当于黑名单。
+在 `默认无需登录策略： DEFAULT_NO_NEED_LOGIN` 中，只有路由在 `EXCLUDE_LOGIN_PATH_LIST` 中，才需要登录，相当于黑名单。
 
-在 `默认需要登录策略： DEFAULT_NEED_LOGIN` 中，只有路由在 `EXCLUDE_PAGE_LIST` 中，才不需要登录，相当于白名单。
+在 `默认需要登录策略： DEFAULT_NEED_LOGIN` 中，只有路由在 `EXCLUDE_LOGIN_PATH_LIST` 中，才不需要登录，相当于白名单。
 
+### excludeLoginPath
+definePage 中可以通过 `excludeLoginPath` 来配置路由是否需要登录。(类似过去的 needLogin 的功能)
+
+```ts
+definePage({
+  style: {
+    navigationBarTitleText: '关于',
+  },
+  // 登录授权(可选)：跟以前的 needLogin 类似功能，但是同时支持黑白名单，详情请见 src/router 文件夹
+  excludeLoginPath: true,
+  // 角色授权(可选)：如果需要根据角色授权，就配置这个
+  roleAuth: {
+    field: 'role',
+    value: 'admin',
+    redirect: '/pages/auth/403',
+  },
+})
+```
 
 ## 登录注册页路由
 
@@ -34,4 +52,4 @@
 
 特殊情况例外，如业务需要跨平台复用登录注册页时，也可以用在 `小程序` 上，所以主要还是看业务需求。
 
-通过一个参数 `IS_USE_WX_LOGIN_IN_MP` 来控制是否在 `小程序` 中使用 `小程序` 默认的登录逻辑。
+通过一个参数 `LOGIN_PAGE_ENABLE_IN_MP` 来控制是否在 `小程序` 中使用 `H5登录页` 的登录逻辑。

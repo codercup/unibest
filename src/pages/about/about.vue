@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb } from '@uni-helper/uni-env'
 import { LOGIN_PAGE } from '@/router/config'
+import { useTokenStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
 import RequestComp from './components/request.vue'
 import VBindCss from './components/VBindCss.vue'
@@ -9,16 +10,46 @@ definePage({
   style: {
     navigationBarTitleText: '关于',
   },
+  // 登录授权(可选)：跟以前的 needLogin 类似功能，但是同时支持黑白名单，详情请见 arc/router 文件夹
+  excludeLoginPath: false,
 })
 
+const tokenStore = useTokenStore()
 // 浏览器打印 isH5为true, isWeb为false，大家尽量用 isH5
 console.log({ isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb })
 
-function toLogin() {
+function gotoLogin() {
+  if (tokenStore.hasLogin) {
+    uni.showToast({
+      title: '已登录，不能去登录页',
+      icon: 'none',
+    })
+    return
+  }
   uni.navigateTo({
-    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about')}`,
+    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
   })
 }
+function logout() {
+  // 清空用户信息
+  tokenStore.logout()
+  // 执行退出登录逻辑
+  uni.showToast({
+    title: '退出登录成功',
+    icon: 'success',
+  })
+}
+
+function gotoTabbar() {
+  uni.switchTab({
+    url: '/pages/index/index',
+  })
+}
+// #region setTabbarBadge
+function setTabbarBadge() {
+  tabbarStore.setTabbarItemBadge(1, 100)
+}
+// #endregion
 
 function gotoAlova() {
   uni.navigateTo({
@@ -35,6 +66,7 @@ function gotoSubPage() {
     url: '/pages-sub/demo/index',
   })
 }
+
 // uniLayout里面的变量通过 expose 暴露出来后可以在 onReady 钩子获取到（onLoad 钩子不行）
 const uniLayout = ref()
 onLoad(() => {
@@ -50,17 +82,6 @@ onShow(() => {
   console.log('onShow:', uniLayout.value?.testUniLayoutExposedData) // onReady: testUniLayoutExposedData
 })
 
-function gotoTabbar() {
-  uni.switchTab({
-    url: '/pages/index/index',
-  })
-}
-// #region setTabbarBadge
-function setTabbarBadge() {
-  tabbarStore.setTabbarItemBadge(1, 100)
-}
-// #endregion
-
 const uniKuRoot = ref()
 // 结论：(同上）第一次通过onShow获取不到，但是可以通过 onReady获取到，后面就可以通过onShow获取到了
 onReady(() => {
@@ -72,6 +93,8 @@ onShow(() => {
 </script>
 
 <template root="uniKuRoot">
+  <!-- page-meta 使用范例 -->
+  <page-meta page-style="overflow: auto" />
   <view>
     <view class="mt-8 text-center text-xl text-gray-400">
       请求调用、unocss、static图片
@@ -79,9 +102,17 @@ onShow(() => {
     <view class="my-2 text-center">
       <image src="/static/images/avatar.jpg" class="h-100px w-100px" />
     </view>
-    <button class="mt-4 w-40 text-center" @click="toLogin">
-      点击去登录页
-    </button>
+    <view class="my-2 text-center">
+      当前是否登录：{{ tokenStore.hasLogin }}
+    </view>
+    <view class="m-auto max-w-600px flex items-center">
+      <button class="mt-4 w-40 text-center" @click="gotoLogin">
+        点击去登录页
+      </button>
+      <button class="mt-4 w-40 text-center" @click="logout">
+        点击退出登录
+      </button>
+    </view>
     <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
       设置tabbarBadge
     </button>

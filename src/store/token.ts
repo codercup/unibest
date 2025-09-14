@@ -12,9 +12,6 @@ import { isDoubleTokenRes, isSingleTokenRes } from '@/api/types/login'
 import { isDoubleTokenMode } from '@/utils'
 import { useUserStore } from './user'
 
-// 修复：添加 isSingleTokenMode 变量
-export const isSingleTokenMode = !isDoubleTokenMode
-
 // 初始化状态
 const tokenInfoState = isDoubleTokenMode
   ? {
@@ -57,6 +54,10 @@ export const useTokenStore = defineStore(
      * 判断token是否过期
      */
     const isTokenExpired = computed(() => {
+      if (!tokenInfo.value) {
+        return true
+      }
+
       const now = Date.now()
       const expireTime = uni.getStorageSync('accessTokenExpireTime')
 
@@ -154,18 +155,22 @@ export const useTokenStore = defineStore(
      */
     const logout = async () => {
       try {
+        // TODO 实现自己的退出登录逻辑
         await _logout()
-        // 清除存储的过期时间
-        uni.removeStorageSync('accessTokenExpireTime')
-        uni.removeStorageSync('refreshTokenExpireTime')
       }
       catch (error) {
         console.error('退出登录失败:', error)
       }
       finally {
         // 无论成功失败，都需要清除本地token信息
+        // 清除存储的过期时间
+        uni.removeStorageSync('accessTokenExpireTime')
+        uni.removeStorageSync('refreshTokenExpireTime')
+        console.log('退出登录-清除用户信息')
+        tokenInfo.value = { ...tokenInfoState }
+        uni.removeStorageSync('token')
         const userStore = useUserStore()
-        await userStore.removeUserInfo()
+        userStore.clearUserInfo()
       }
     }
 
@@ -208,7 +213,7 @@ export const useTokenStore = defineStore(
         return ''
       }
 
-      if (isSingleTokenMode) {
+      if (!isDoubleTokenMode) {
         return isSingleTokenRes(tokenInfo.value) ? tokenInfo.value.token : ''
       }
       else {
@@ -220,6 +225,9 @@ export const useTokenStore = defineStore(
      * 检查是否有登录信息（不考虑token是否过期）
      */
     const hasLoginInfo = computed(() => {
+      if (!tokenInfo.value) {
+        return false
+      }
       if (isDoubleTokenMode) {
         return isDoubleTokenRes(tokenInfo.value) && !!tokenInfo.value.accessToken
       }
@@ -232,6 +240,7 @@ export const useTokenStore = defineStore(
      * 检查是否已登录且token有效
      */
     const hasValidLogin = computed(() => {
+      console.log('hasValidLogin', hasLoginInfo.value, !isTokenExpired.value)
       return hasLoginInfo.value && !isTokenExpired.value
     })
 
@@ -265,9 +274,11 @@ export const useTokenStore = defineStore(
       // 内部系统使用的方法
       refreshToken,
       tryGetValidToken,
+      validToken: getValidToken,
 
       // 调试或特殊场景可能需要直接访问的信息
       tokenInfo,
+      setTokenInfo,
     }
   },
   {

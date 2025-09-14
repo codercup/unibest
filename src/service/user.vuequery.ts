@@ -122,7 +122,7 @@ export function useUserCreateWithListUsingPostMutation(options?: {
   return response;
 }
 
-/** Logs user into the system GET /user/login */
+/** Logs user into the system GET /auth/login */
 export function userLoginUsingGetQueryOptions(options: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
   params: API.userLoginUsingGetParams;

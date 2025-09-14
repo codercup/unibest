@@ -48,10 +48,11 @@ export default ({ command, mode }) => {
   const {
     VITE_APP_PORT,
     VITE_SERVER_BASEURL,
+    VITE_APP_TITLE,
     VITE_DELETE_CONSOLE,
-    VITE_SHOW_SOURCEMAP,
     VITE_APP_PUBLIC_BASE,
     VITE_APP_PROXY_ENABLE,
+    VITE_SERVER_HAS_API_PREFIX,
     VITE_APP_PROXY_PREFIX,
   } = env
   console.log('环境变量 env -> ', env)
@@ -111,7 +112,7 @@ export default ({ command, mode }) => {
       UNI_PLATFORM === 'h5' && {
         name: 'html-transform',
         transformIndexHtml(html) {
-          return html.replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+          return html.replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss')).replace('%VITE_APP_TITLE%', VITE_APP_TITLE)
         },
       },
       // 打包分析插件，h5 + 生产环境才弹出
@@ -166,7 +167,10 @@ export default ({ command, mode }) => {
             [VITE_APP_PROXY_PREFIX]: {
               target: VITE_SERVER_BASEURL,
               changeOrigin: true,
-              rewrite: path => path.replace(new RegExp(`^${VITE_APP_PROXY_PREFIX}`), ''),
+              // 后端有/api前缀则不做处理，没有则需要去掉
+              rewrite: path => JSON.parse(VITE_SERVER_HAS_API_PREFIX)
+                ? path
+                : path.replace(new RegExp(`^${VITE_APP_PROXY_PREFIX}`), ''),
             },
           }
         : undefined,
