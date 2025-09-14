@@ -23,7 +23,7 @@ interface IUseRequestReturn<T> {
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
 export default function useRequest<T>(
-  func: () => Promise<IResData<T>>,
+  func: () => Promise<T>,
   options: IUseRequestOptions<T> = { immediate: false },
 ): IUseRequestReturn<T> {
   const loading = ref(false)
@@ -33,7 +33,7 @@ export default function useRequest<T>(
     loading.value = true
     return func()
       .then((res) => {
-        data.value = res.data
+        data.value = res
         error.value = false
         return data.value
       })
