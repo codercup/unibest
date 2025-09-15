@@ -45,6 +45,11 @@ const tabbarStore = reactive({
     }
   },
   setAutoCurIdx(path: string) {
+    // '/' 当做首页
+    if (path === '/') {
+      this.setCurIdx(0)
+      return
+    }
     const index = tabbarList.findIndex(item => item.pagePath === path)
     FG_LOG_ENABLE && console.log('index:', index, path)
     // console.log('tabbarList:', tabbarList)
