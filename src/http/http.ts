@@ -175,6 +175,7 @@ export function httpDelete<T>(url: string, query?: Record<string, any>, header?:
   })
 }
 
+// 支持与 axios 类似的API调用
 http.get = httpGet
 http.post = httpPost
 http.put = httpPut
