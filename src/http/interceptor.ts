@@ -43,8 +43,9 @@ const httpInterceptor = {
     options.timeout = 60000 // 60s
     // 2. （可选）添加小程序端请求头标识
     options.header = {
-      platform, // 可选，与 uniapp 定义的平台一致，告诉后台来源
       ...options.header,
+      'Content-Type': 'application/json; charset=utf-8',
+      platform, // 可选，与 uniapp 定义的平台一致，告诉后台来源
     }
     // 3. 添加 token 请求头标识
     const tokenStore = useTokenStore()
@@ -53,6 +54,7 @@ const httpInterceptor = {
     if (token) {
       options.header.Authorization = `Bearer ${token}`
     }
+    return options
   },
 }
 
