@@ -52,7 +52,7 @@ export type CustomTabBarItemBadge = number | 'dot'
 export interface CustomTabBarItem {
   text: string
   pagePath: string
-  iconType: 'uniUi' | 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图
+  iconType: 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图
   icon: any // 其实是 string 类型，这里是为了避免 ts 报错 (tabbar/index.vue 里面 uni-icons 那行)
   iconActive?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
   badge?: CustomTabBarItemBadge
@@ -68,8 +68,8 @@ export const customTabbarList: CustomTabBarItem[] = [
     // 本框架内置了 uniapp 官方UI库 （uni-ui)的图标库
     // 使用方式如：<uni-icons type="home" size="30"/>
     // 图标列表地址：https://uniapp.dcloud.net.cn/component/uniui/uni-icons.html
-    iconType: 'uniUi',
-    icon: 'home',
+    iconType: 'unocss',
+    icon: 'i-carbon-home',
     // badge: 'dot',
   },
   {
@@ -85,8 +85,8 @@ export const customTabbarList: CustomTabBarItem[] = [
   {
     pagePath: 'pages/me/me',
     text: '%tabbar.me%',
-    iconType: 'uniUi',
-    icon: 'contact',
+    iconType: 'unocss',
+    icon: 'i-carbon-user',
     // badge: 100,
   },
   // 其他类型演示
