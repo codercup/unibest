@@ -47,7 +47,7 @@ export const navigateToInterceptor = {
     tabbarStore.setAutoCurIdx(path)
 
     // 小程序里面使用平台自带的登录，则不走下面的逻辑
-    if (isMp && LOGIN_PAGE_ENABLE_IN_MP) {
+    if (isMp && !LOGIN_PAGE_ENABLE_IN_MP) {
       return true // 明确表示允许路由继续执行
     }
 
