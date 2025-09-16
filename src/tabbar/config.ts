@@ -62,12 +62,11 @@ export interface CustomTabBarItem {
 // 如果需要配置鼓包，需要在 'tabbar/store.ts' 里面设置，最后在 `tabbar/index.vue` 里面更改鼓包的图片
 export const customTabbarList: CustomTabBarItem[] = [
   {
-    // text 和 pagePath 可以自己直接写，也可以通过索引从 nativeTabbarList 中获取
     text: '%tabbar.home%',
-    pagePath: 'pages/index/index', // pagePath 是两者的关联点
-    // 本框架内置了 uniapp 官方UI库 （uni-ui)的图标库
-    // 使用方式如：<uni-icons type="home" size="30"/>
-    // 图标列表地址：https://uniapp.dcloud.net.cn/component/uniui/uni-icons.html
+    pagePath: 'pages/index/index',
+    // 注意 unocss 图标需要如下处理：（二选一）
+    // 1）在fg-tabbar.vue页面上引入一下并注释掉（见tabbar/index.vue代码第2行）
+    // 2）配置到 unocss.config.ts 的 safelist 中
     iconType: 'unocss',
     icon: 'i-carbon-home',
     // badge: 'dot',
