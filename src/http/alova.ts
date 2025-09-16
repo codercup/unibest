@@ -100,7 +100,7 @@ const alovaInstance = createAlova({
 
     // 处理业务逻辑错误
     const { code, message, data } = rawData as IResponse
-    if (code !== ResultEnum.Success) {
+    if (code !== ResultEnum.Success0 && code !== ResultEnum.Success200) {
       if (config.meta?.toast !== false) {
         uni.showToast({
           title: message,
