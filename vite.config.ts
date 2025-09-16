@@ -24,6 +24,7 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig, loadEnv } from 'vite'
 import ViteRestart from 'vite-plugin-restart'
+import openDevTools from './scripts/open-dev-tools'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -134,6 +135,8 @@ export default defineConfig(({ command, mode }) => {
       // 若存在改变 pages.json 的插件，请将 UniKuRoot 放置其后
       UniKuRoot(),
       Uni(),
+      // 自动打开开发者工具插件 (必须修改 .env 文件中的 VITE_WX_APPID)
+      openDevTools(),
     ],
     define: {
       __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
