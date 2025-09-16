@@ -71,6 +71,18 @@ export default defineConfig(({ command, mode }) => {
       UniLayouts(),
       UniPlatform(),
       UniManifest(),
+      // Optimization 插件需要 page.json 文件，故应在 UniPages 插件之后执行
+      Optimization({
+        enable: {
+          'optimization': true,
+          'async-import': true,
+          'async-component': true,
+        },
+        dts: {
+          base: 'src/types',
+        },
+        logger: true,
+      }),
       // UniXXX 需要在 Uni 之前引入
       {
         // 临时解决 dcloudio 官方的 @dcloudio/uni-mp-compiler 出现的编译 BUG
@@ -91,19 +103,6 @@ export default defineConfig(({ command, mode }) => {
         dirs: ['src/hooks'], // 自动导入 hooks
         vueTemplate: true, // default false
       }),
-      // Optimization 插件需要 page.json 文件，故应在 UniPages 插件之后执行
-      Optimization({
-        enable: {
-          'optimization': true,
-          'async-import': true,
-          'async-component': true,
-        },
-        dts: {
-          base: 'src/types',
-        },
-        logger: false,
-      }),
-
       ViteRestart({
         // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
         restart: ['vite.config.js'],
