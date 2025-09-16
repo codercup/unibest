@@ -24,8 +24,7 @@ const httpInterceptor = {
     // 非 http 开头需拼接地址
     if (!options.url.startsWith('http')) {
       // #ifdef H5
-      // console.log(__VITE_APP_PROXY__)
-      if (JSON.parse(__VITE_APP_PROXY__)) {
+      if (JSON.parse(import.meta.env.VITE_APP_PROXY_ENABLE)) {
         // 自动拼接代理前缀
         options.url = import.meta.env.VITE_APP_PROXY_PREFIX + options.url
       }

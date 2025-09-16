@@ -23,8 +23,6 @@ interface ImportMetaEnv {
   readonly VITE_SERVER_HAS_API_PREFIX: 'true' | 'false'
   /** 认证模式，'single' | 'double' ==> 单token | 双token */
   readonly VITE_AUTH_MODE: 'single' | 'double'
-  /** 上传图片地址 */
-  readonly VITE_UPLOAD_BASEURL: string
   /** 是否清除console */
   readonly VITE_DELETE_CONSOLE: string
   // 更多环境变量...

@@ -145,39 +145,6 @@ export function getEnvBaseUrl() {
 }
 
 /**
- * 根据微信小程序当前环境，判断应该获取的 UPLOAD_BASEURL
- */
-export function getEnvBaseUploadUrl() {
-  // 请求基准地址
-  let baseUploadUrl = import.meta.env.VITE_UPLOAD_BASEURL
-
-  const VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP = 'https://ukw0y1.laf.run/upload'
-  const VITE_UPLOAD_BASEURL__WEIXIN_TRIAL = 'https://ukw0y1.laf.run/upload'
-  const VITE_UPLOAD_BASEURL__WEIXIN_RELEASE = 'https://ukw0y1.laf.run/upload'
-
-  // 微信小程序端环境区分
-  if (isMpWeixin) {
-    const {
-      miniProgram: { envVersion },
-    } = uni.getAccountInfoSync()
-
-    switch (envVersion) {
-      case 'develop':
-        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_DEVELOP || baseUploadUrl
-        break
-      case 'trial':
-        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_TRIAL || baseUploadUrl
-        break
-      case 'release':
-        baseUploadUrl = VITE_UPLOAD_BASEURL__WEIXIN_RELEASE || baseUploadUrl
-        break
-    }
-  }
-
-  return baseUploadUrl
-}
-
-/**
  * 是否是双token模式
  */
 export const isDoubleTokenMode = import.meta.env.VITE_AUTH_MODE === 'double'
