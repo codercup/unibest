@@ -81,7 +81,7 @@ export default defineConfig(({ command, mode }) => {
         dts: {
           base: 'src/types',
         },
-        logger: true,
+        logger: false,
       }),
       // UniXXX 需要在 Uni 之前引入
       {
