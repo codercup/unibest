@@ -34,9 +34,9 @@ const { run: uploadAvatar } = useUpload<IUploadSuccessInfo>(
 // 微信小程序下登录
 async function handleLogin() {
   // #ifdef MP-WEIXIN
-
   // 微信登录
   await tokenStore.wxLogin()
+
   // #endif
   // #ifndef MP-WEIXIN
   uni.navigateTo({
