@@ -28,8 +28,7 @@ FROM nginx:1.29.1-alpine3.22 AS production-stage
 # 将构建好的项目复制到nginx下
 COPY --from=builder /app/dist/build/h5 /usr/share/nginx/html
 
-# 将默认的nginx配置文件替换为我们自定义的nginx配置文件
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # 暴露端口
 EXPOSE 80
