@@ -184,11 +184,6 @@ export default defineConfig(({ command, mode }) => {
       target: 'es6',
       // 开发环境不用压缩
       minify: mode === 'development' ? false : 'esbuild',
-      // 添加外部依赖，解决Docker构建中的依赖解析问题
-      rollupOptions: {
-        // std-env 由 @uni-helper/uni-env 引起的
-        external: ['std-env'],
-      },
     },
   })
 })
