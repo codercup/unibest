@@ -1,0 +1,31 @@
+# 依赖目录
+node_modules
+
+# 版本控制
+.git
+.gitignore
+
+# 构建产物
+/dist
+
+# 开发工具配置
+.vscode/
+.idea/
+.trae/
+.cursor/
+
+# 其他配置文件
+.github/
+.husky/
+
+# 日志文件
+logs/
+
+# 缓存文件
+.cache/
+
+*.swp
+*.swo
+
+# 操作系统文件
+.DS_Store
