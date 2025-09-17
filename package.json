@@ -1,8 +1,8 @@
 {
   "name": "unibest",
   "type": "module",
-  "version": "3.16.1",
-  "unibest-version": "3.16.1",
+  "version": "3.16.2",
+  "unibest-version": "3.16.2",
   "update-time": "2025-09-16",
   "packageManager": "pnpm@10.10.0",
   "description": "unibest - 最好的 uniapp 开发模板",
@@ -22,7 +22,7 @@
     "url-old": "https://github.com/codercup/unibest/issues"
   },
   "engines": {
-    "node": ">=22",
+    "node": ">=20",
     "pnpm": ">=9"
   },
   "scripts": {
@@ -111,7 +111,6 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-4070620250821001",
     "@dcloudio/uni-mp-xhs": "3.0.0-4070620250821001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-4070620250821001",
-    "@tanstack/vue-query": "^5.62.16",
     "abortcontroller-polyfill": "^1.7.8",
     "alova": "^3.3.3",
     "dayjs": "1.11.10",
@@ -165,6 +164,7 @@
     "postcss-scss": "^4.0.9",
     "rollup-plugin-visualizer": "^6.0.3",
     "sass": "1.77.8",
+    "std-env": "^3.9.0",
     "typescript": "~5.8.0",
     "unocss": "66.0.0",
     "unplugin-auto-import": "^20.0.0",

@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-ignore
 import request from '@/http/vue-query';
-import type { CustomRequestOptions } from '@/http/types';
+import { CustomRequestOptions } from '@/http/types';
 
 import * as API from './types';
 
@@ -47,7 +47,7 @@ export async function petPetIdUsingGet({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.petPetIdUsingGetParams;
+  params: API.PetPetIdUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   const { petId: param0, ...queryParams } = params;
@@ -66,7 +66,7 @@ export async function petPetIdUsingPost({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.petPetIdUsingPostParams;
+  params: API.PetPetIdUsingPostParams;
   body: API.PetPetIdUsingPostBody;
   options?: CustomRequestOptions;
 }) {
@@ -89,7 +89,7 @@ export async function petPetIdUsingDelete({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.petPetIdUsingDeleteParams;
+  params: API.PetPetIdUsingDeleteParams;
   options?: CustomRequestOptions;
 }) {
   const { petId: param0, ...queryParams } = params;
@@ -109,7 +109,7 @@ export async function petPetIdUploadImageUsingPost({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.petPetIdUploadImageUsingPostParams;
+  params: API.PetPetIdUploadImageUsingPostParams;
   body: API.PetPetIdUploadImageUsingPostBody;
   file?: File;
   options?: CustomRequestOptions;
@@ -154,7 +154,7 @@ export async function petFindByStatusUsingGet({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.petFindByStatusUsingGetParams;
+  params: API.PetFindByStatusUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   return request<API.Pet[]>('/pet/findByStatus', {
@@ -172,7 +172,7 @@ export async function petFindByTagsUsingGet({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.petFindByTagsUsingGetParams;
+  params: API.PetFindByTagsUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   return request<API.Pet[]>('/pet/findByTags', {
