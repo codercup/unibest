@@ -1,4 +1,4 @@
-# 使用官方 Node.js 作为基础镜像；不适用 alpine 版本，这样可以自带git
+# 使用 node:24-alpine 作为基础镜像，固定版本+减少体积
 FROM node:24-alpine AS builder
 
 # 在容器中创建目录
