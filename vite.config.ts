@@ -186,8 +186,8 @@ export default defineConfig(({ command, mode }) => {
       minify: mode === 'development' ? false : 'esbuild',
       // 添加外部依赖，解决Docker构建中的依赖解析问题
       rollupOptions: {
-        // 前4个由 @tanstack/vue-query 引起的，std-env 由 @uni-helper/uni-env 引起的
-        external: ['@tanstack/query-core', 'vue-demi', '@vue/devtools-api', '@tanstack/match-sorter-utils', 'std-env'],
+        // std-env 由 @uni-helper/uni-env 引起的
+        external: ['std-env'],
       },
     },
   })

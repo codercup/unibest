@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-ignore
 import request from '@/http/vue-query';
-import type { CustomRequestOptions } from '@/http/types';
+import { CustomRequestOptions } from '@/http/types';
 
 import * as API from './types';
 
@@ -29,7 +29,7 @@ export async function userUsernameUsingGet({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.userUsernameUsingGetParams;
+  params: API.UserUsernameUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   const { username: param0, ...queryParams } = params;
@@ -48,7 +48,7 @@ export async function userUsernameUsingPut({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.userUsernameUsingPutParams;
+  params: API.UserUsernameUsingPutParams;
   body: API.User;
   options?: CustomRequestOptions;
 }) {
@@ -71,7 +71,7 @@ export async function userUsernameUsingDelete({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.userUsernameUsingDeleteParams;
+  params: API.UserUsernameUsingDeleteParams;
   options?: CustomRequestOptions;
 }) {
   const { username: param0, ...queryParams } = params;
@@ -119,16 +119,16 @@ export async function userCreateWithListUsingPost({
   });
 }
 
-/** Logs user into the system GET /auth/login */
+/** Logs user into the system GET /user/login */
 export async function userLoginUsingGet({
   params,
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.userLoginUsingGetParams;
+  params: API.UserLoginUsingGetParams;
   options?: CustomRequestOptions;
 }) {
-  return request<string>('/auth/login', {
+  return request<string>('/user/login', {
     method: 'GET',
     params: {
       ...params,

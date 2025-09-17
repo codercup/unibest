@@ -6,7 +6,7 @@ export default [
     serversPath: './src/service',
     requestLibPath: `import request from '@/http/vue-query';\n import { CustomRequestOptions } from '@/http/types';`,
     requestOptionsType: 'CustomRequestOptions',
-    isGenReactQuery: true,
+    isGenReactQuery: false,
     reactQueryMode: 'vue',
     isGenJavaScript: false,
   },

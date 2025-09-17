@@ -32,14 +32,36 @@ export type Pet = {
   status?: 'available' | 'pending' | 'sold';
 };
 
-export type petFindByStatusUsingGetParams = {
+export type PetFindByStatusUsingGetParams = {
   /** Status values that need to be considered for filter */
   status: ('available' | 'pending' | 'sold')[];
 };
 
-export type petFindByTagsUsingGetParams = {
+export type PetFindByStatusUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  200: Pet[];
+  /**
+   * Invalid status value
+   */
+  400: unknown;
+};
+
+export type PetFindByTagsUsingGetParams = {
   /** Tags to filter by */
   tags: string[];
+};
+
+export type PetFindByTagsUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  200: Pet[];
+  /**
+   * Invalid tag value
+   */
+  400: unknown;
 };
 
 export type PetPetIdUploadImageUsingPostBody = {
@@ -49,19 +71,52 @@ export type PetPetIdUploadImageUsingPostBody = {
   file?: string;
 };
 
-export type petPetIdUploadImageUsingPostParams = {
+export type PetPetIdUploadImageUsingPostParams = {
   /** ID of pet to update */
   petId: number;
 };
 
-export type petPetIdUsingDeleteParams = {
+export type PetPetIdUploadImageUsingPostResponses = {
+  /**
+   * successful operation
+   */
+  200: ApiResponse;
+};
+
+export type PetPetIdUsingDeleteParams = {
   /** Pet id to delete */
   petId: number;
 };
 
-export type petPetIdUsingGetParams = {
+export type PetPetIdUsingDeleteResponses = {
+  /**
+   * Invalid ID supplied
+   */
+  400: unknown;
+  /**
+   * Pet not found
+   */
+  404: unknown;
+};
+
+export type PetPetIdUsingGetParams = {
   /** ID of pet to return */
   petId: number;
+};
+
+export type PetPetIdUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  200: Pet;
+  /**
+   * Invalid ID supplied
+   */
+  400: unknown;
+  /**
+   * Pet not found
+   */
+  404: unknown;
 };
 
 export type PetPetIdUsingPostBody = {
@@ -71,9 +126,38 @@ export type PetPetIdUsingPostBody = {
   status?: string;
 };
 
-export type petPetIdUsingPostParams = {
+export type PetPetIdUsingPostParams = {
   /** ID of pet that needs to be updated */
   petId: number;
+};
+
+export type PetPetIdUsingPostResponses = {
+  /**
+   * Invalid input
+   */
+  405: unknown;
+};
+
+export type PetUsingPostResponses = {
+  /**
+   * Invalid input
+   */
+  405: unknown;
+};
+
+export type PetUsingPutResponses = {
+  /**
+   * Invalid ID supplied
+   */
+  400: unknown;
+  /**
+   * Pet not found
+   */
+  404: unknown;
+  /**
+   * Validation exception
+   */
+  405: unknown;
 };
 
 export enum StatusEnum {
@@ -92,14 +176,58 @@ export enum StatusEnum2 {
 
 export type IStatusEnum2 = keyof typeof StatusEnum2;
 
-export type storeOrderOrderIdUsingDeleteParams = {
+export type StoreInventoryUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  200: Record<string, number>;
+};
+
+export type StoreOrderOrderIdUsingDeleteParams = {
   /** ID of the order that needs to be deleted */
   orderId: number;
 };
 
-export type storeOrderOrderIdUsingGetParams = {
+export type StoreOrderOrderIdUsingDeleteResponses = {
+  /**
+   * Invalid ID supplied
+   */
+  400: unknown;
+  /**
+   * Order not found
+   */
+  404: unknown;
+};
+
+export type StoreOrderOrderIdUsingGetParams = {
   /** ID of pet that needs to be fetched */
   orderId: number;
+};
+
+export type StoreOrderOrderIdUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  200: Order;
+  /**
+   * Invalid ID supplied
+   */
+  400: unknown;
+  /**
+   * Order not found
+   */
+  404: unknown;
+};
+
+export type StoreOrderUsingPostResponses = {
+  /**
+   * successful operation
+   */
+  200: Order;
+  /**
+   * Invalid Order
+   */
+  400: unknown;
 };
 
 export type Tag = {
@@ -121,26 +249,102 @@ export type User = {
 
 export type UserCreateWithArrayUsingPostBody = User[];
 
+export type UserCreateWithArrayUsingPostResponses = {
+  /**
+   * successful operation
+   */
+  default: unknown;
+};
+
 export type UserCreateWithListUsingPostBody = User[];
 
-export type userLoginUsingGetParams = {
+export type UserCreateWithListUsingPostResponses = {
+  /**
+   * successful operation
+   */
+  default: unknown;
+};
+
+export type UserLoginUsingGetParams = {
   /** The user name for login */
   username: string;
   /** The password for login in clear text */
   password: string;
 };
 
-export type userUsernameUsingDeleteParams = {
+export type UserLoginUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  200: string;
+  /**
+   * Invalid username/password supplied
+   */
+  400: unknown;
+};
+
+export type UserLogoutUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  default: unknown;
+};
+
+export type UserUsernameUsingDeleteParams = {
   /** The name that needs to be deleted */
   username: string;
 };
 
-export type userUsernameUsingGetParams = {
+export type UserUsernameUsingDeleteResponses = {
+  /**
+   * Invalid username supplied
+   */
+  400: unknown;
+  /**
+   * User not found
+   */
+  404: unknown;
+};
+
+export type UserUsernameUsingGetParams = {
   /** The name that needs to be fetched. Use user1 for testing.  */
   username: string;
 };
 
-export type userUsernameUsingPutParams = {
+export type UserUsernameUsingGetResponses = {
+  /**
+   * successful operation
+   */
+  200: User;
+  /**
+   * Invalid username supplied
+   */
+  400: unknown;
+  /**
+   * User not found
+   */
+  404: unknown;
+};
+
+export type UserUsernameUsingPutParams = {
   /** name that need to be updated */
   username: string;
+};
+
+export type UserUsernameUsingPutResponses = {
+  /**
+   * Invalid user supplied
+   */
+  400: unknown;
+  /**
+   * User not found
+   */
+  404: unknown;
+};
+
+export type UserUsingPostResponses = {
+  /**
+   * successful operation
+   */
+  default: unknown;
 };
