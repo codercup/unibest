@@ -26,5 +26,15 @@ const pages = {
 }
 
 // 使用修复后的 __dirname 来解析文件路径
-fs.writeFileSync(path.resolve(__dirname, '../src/manifest.json'), JSON.stringify(manifest, null, 2))
-fs.writeFileSync(path.resolve(__dirname, '../src/pages.json'), JSON.stringify(pages, null, 2))
+const manifestPath = path.resolve(__dirname, '../src/manifest.json')
+const pagesPath = path.resolve(__dirname, '../src/pages.json')
+
+// 确保 src 目录存在
+const srcDir = path.resolve(__dirname, '../src')
+if (!fs.existsSync(srcDir)) {
+  fs.mkdirSync(srcDir, { recursive: true })
+}
+
+// 写入文件
+fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2))

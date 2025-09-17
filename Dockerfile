@@ -12,8 +12,6 @@ RUN pnpm config set registry https://registry.npmmirror.com
 COPY package.json pnpm-lock.yaml ./
 # 先复制scripts目录，因为prepare脚本需要用到其中的文件
 COPY scripts ./scripts
-# 创建src目录，确保create-base-files.js脚本能正常写入文件
-RUN mkdir -p src
 # 安装依赖
 RUN pnpm install
 # 复制其余源代码

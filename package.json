@@ -118,7 +118,7 @@
     "pinia": "2.0.36",
     "pinia-plugin-persistedstate": "3.2.1",
     "vue": "^3.4.21",
-    "wot-design-uni": "^1.11.1",
+    "wot-design-uni": "^1.12.4",
     "z-paging": "2.8.7"
   },
   "devDependencies": {
