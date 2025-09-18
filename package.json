@@ -1,8 +1,8 @@
 {
   "name": "unibest",
   "type": "module",
-  "version": "3.16.2",
-  "unibest-version": "3.16.2",
+  "version": "3.16.3",
+  "unibest-version": "3.16.3",
   "update-time": "2025-09-16",
   "packageManager": "pnpm@10.10.0",
   "description": "unibest - 最好的 uniapp 开发模板",
@@ -89,6 +89,7 @@
     "type-check": "vue-tsc --noEmit",
     "openapi-ts-request": "openapi-ts",
     "prepare": "git init && husky && node ./scripts/create-base-files.js",
+    "docker:prepare": "node ./scripts/create-base-files.js",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
@@ -119,7 +120,7 @@
     "pinia-plugin-persistedstate": "3.2.1",
     "vue": "^3.4.21",
     "vue-i18n": "9.1.9",
-    "wot-design-uni": "^1.11.1",
+    "wot-design-uni": "^1.12.4",
     "z-paging": "2.8.7"
   },
   "devDependencies": {

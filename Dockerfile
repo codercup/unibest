@@ -1,21 +1,21 @@
-# 使用官方 Node.js 作为基础镜像；不适用 alpine 版本，这样可以自带git
-FROM node:latest AS builder
+# 使用 node:24-alpine 作为基础镜像，固定版本+减少体积
+FROM node:24-alpine AS builder
 
 # 在容器中创建目录
 WORKDIR /app
 
-# 安装pnpm
-RUN npm install -g pnpm@10.10.0
+# 安装pnpm（使用 npm 的 --global-style 可以减少依赖安装体积）
+RUN npm install -g pnpm@10.10.0 --global-style
 # 设置pnpm镜像源
 RUN pnpm config set registry https://registry.npmmirror.com
 # 复制依赖文件
 COPY package.json pnpm-lock.yaml ./
 # 先复制scripts目录，因为prepare脚本需要用到其中的文件
 COPY scripts ./scripts
-# 创建src目录，确保create-base-files.js脚本能正常写入文件
-RUN mkdir -p src
-# 安装依赖
-RUN pnpm install
+# 安装依赖，但跳过prepare脚本（这一步会缓存，只有 package.json 或 pnpm-lock.yaml 变化时才会重新运行）
+RUN pnpm install --ignore-scripts --frozen-lockfile
+# 手动执行我们需要的docker:prepare脚本
+RUN pnpm run docker:prepare
 # 复制其余源代码
 COPY . .
 # 构建项目
