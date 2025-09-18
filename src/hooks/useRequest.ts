@@ -1,4 +1,5 @@
-import { type Ref, ref } from 'vue'
+import type { Ref } from 'vue'
+import { ref } from 'vue'
 
 interface IUseRequestOptions<T> {
   /** 是否立即执行 */
@@ -7,11 +8,11 @@ interface IUseRequestOptions<T> {
   initialData?: T
 }
 
-interface IUseRequestReturn<T, P> {
+interface IUseRequestReturn<T, P = undefined> {
   loading: Ref<boolean>
   error: Ref<boolean | Error>
   data: Ref<T | undefined>
-  run: (args: P) => Promise<T | undefined>
+  run: (args?: P) => Promise<T | undefined>
 }
 
 /**
@@ -22,14 +23,14 @@ interface IUseRequestReturn<T, P> {
  * @param options.initialData 初始化数据，默认为undefined。
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
-export default function useRequest<T, P>(
-  func: (args: P) => Promise<T>,
+export default function useRequest<T, P = undefined>(
+  func: (args?: P) => Promise<T>,
   options: IUseRequestOptions<T> = { immediate: false },
 ): IUseRequestReturn<T, P> {
   const loading = ref(false)
   const error = ref(false)
   const data = ref<T | undefined>(options.initialData) as Ref<T | undefined>
-  const run = async (args: P) => {
+  const run = async (args?: P) => {
     loading.value = true
     return func(args)
       .then((res) => {
