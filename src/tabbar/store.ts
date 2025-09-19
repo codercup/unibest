@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 
 import { isNeedLoginMode } from '@/router/config'
 import { FG_LOG_ENABLE, judgeIsExcludePath } from '@/router/interceptor'
-
+import { useTokenStore } from '@/store/token'
 import { tabbarList as _tabbarList, customTabbarEnable } from './config'
 
 // TODO 1/2: 中间的鼓包tabbarItem的开关
@@ -38,8 +38,9 @@ const tabbarStore = reactive({
   curIdx: uni.getStorageSync('app-tabbar-index') || 0,
   prevIdx: uni.getStorageSync('app-tabbar-index') || 0,
   setCurIdx(idx: number) {
-    // url 需要登录 && 不在白名单 || 不需要登录 && 不在黑名单 （关于 白名单|黑名单 逻辑： src/router/interceptor.ts）
-    if ((isNeedLoginMode && judgeIsExcludePath(tabbarList[idx].pagePath)) || (!isNeedLoginMode && !judgeIsExcludePath(tabbarList[idx].pagePath))) {
+    const tokenStore = useTokenStore()
+    // 已登录 或 (url 需要登录 && 在白名单 || 不需要登录 && 不在黑名单) （关于 白名单|黑名单 逻辑： src/router/interceptor.ts）
+    if (tokenStore.hasLogin || (isNeedLoginMode && judgeIsExcludePath(tabbarList[idx].pagePath)) || (!isNeedLoginMode && !judgeIsExcludePath(tabbarList[idx].pagePath))) {
       this.curIdx = idx
       uni.setStorageSync('app-tabbar-index', idx)
     }
