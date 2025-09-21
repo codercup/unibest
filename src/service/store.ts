@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-ignore
 import request from '@/http/vue-query';
-import type { CustomRequestOptions } from '@/http/types';
+import { CustomRequestOptions } from '@/http/types';
 
 import * as API from './types';
 
@@ -41,7 +41,7 @@ export async function storeOrderOrderIdUsingGet({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.storeOrderOrderIdUsingGetParams;
+  params: API.StoreOrderOrderIdUsingGetParams;
   options?: CustomRequestOptions;
 }) {
   const { orderId: param0, ...queryParams } = params;
@@ -59,7 +59,7 @@ export async function storeOrderOrderIdUsingDelete({
   options,
 }: {
   // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
-  params: API.storeOrderOrderIdUsingDeleteParams;
+  params: API.StoreOrderOrderIdUsingDeleteParams;
   options?: CustomRequestOptions;
 }) {
   const { orderId: param0, ...queryParams } = params;

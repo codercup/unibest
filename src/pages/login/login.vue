@@ -32,27 +32,11 @@ async function doLogin() {
     return
   }
   try {
-    // 有的时候后端会用一个接口返回token和用户信息，有的时候会分开2个接口（各有利弊，看业务场景和系统复杂度），这里使用2个接口返回的来模拟
-    // 1/2 调用接口回来后设置token信息
-    // 这里用单token来模拟
-    tokenStore.setTokenInfo({
-      token: '123456',
-      expiresIn: 60 * 60 * 24 * 7,
+    // 调用登录接口
+    await tokenStore.login({
+      username: '菲鸽',
+      password: '123456',
     })
-
-    // 2/2 调用接口回来后设置用户信息
-    // const res = await login({
-    //   username: '菲鸽',
-    //   password: '123456',
-    // })
-    // console.log('接口拿到的登录信息：', res)
-    userStore.setUserInfo({
-      userId: 123456,
-      username: 'abc123456',
-      nickname: '菲鸽',
-      avatar: 'https://oss.laf.run/ukw0y1-site/avatar.jpg',
-    })
-
     console.log(redirectUrl.value)
   }
   catch (error) {

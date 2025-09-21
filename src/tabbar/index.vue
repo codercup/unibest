@@ -88,9 +88,6 @@ function getImageByIndex(index: number, item: CustomTabBarItem) {
             </view>
           </view>
           <view v-else class="relative px-3 text-center">
-            <template v-if="item.iconType === 'uniUi'">
-              <uni-icons :type="item.icon" size="20" :color="getColorByIndex(index)" />
-            </template>
             <template v-if="item.iconType === 'uiLib'">
               <!-- TODO: 以下内容请根据选择的UI库自行替换 -->
               <!-- 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html) -->

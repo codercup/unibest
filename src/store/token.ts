@@ -1,3 +1,6 @@
+import type {
+  ILoginForm,
+} from '@/api/login'
 import type { IAuthLoginRes } from '@/api/types/login'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue' // 修复：导入 computed
@@ -93,19 +96,16 @@ export const useTokenStore = defineStore(
 
     /**
      * 用户登录
-     * @param credentials 登录参数
+     * 有的时候后端会用一个接口返回token和用户信息，有的时候会分开2个接口，一个获取token，一个获取用户信息
+     * （各有利弊，看业务场景和系统复杂度），这里使用2个接口返回的来模拟
+     * @param loginForm 登录参数
      * @returns 登录结果
      */
-    const login = async (credentials: {
-      username: string
-      password: string
-      code: string
-      uuid: string
-    }) => {
+    const login = async (loginForm: ILoginForm) => {
       try {
-        const res = await _login(credentials)
+        const res = await _login(loginForm)
         console.log('普通登录-res: ', res)
-        await _postLogin(res.data)
+        await _postLogin(res)
         uni.showToast({
           title: '登录成功',
           icon: 'success',
@@ -124,6 +124,8 @@ export const useTokenStore = defineStore(
 
     /**
      * 微信登录
+     * 有的时候后端会用一个接口返回token和用户信息，有的时候会分开2个接口，一个获取token，一个获取用户信息
+     * （各有利弊，看业务场景和系统复杂度），这里使用2个接口返回的来模拟
      * @returns 登录结果
      */
     const wxLogin = async () => {
@@ -133,7 +135,7 @@ export const useTokenStore = defineStore(
         console.log('微信登录-code: ', code)
         const res = await _wxLogin(code)
         console.log('微信登录-res: ', res)
-        await _postLogin(res.data)
+        await _postLogin(res)
         uni.showToast({
           title: '登录成功',
           icon: 'success',
@@ -193,7 +195,7 @@ export const useTokenStore = defineStore(
         const refreshToken = tokenInfo.value.refreshToken
         const res = await _refreshToken(refreshToken)
         console.log('刷新token-res: ', res)
-        setTokenInfo(res.data)
+        setTokenInfo(res)
         return res
       }
       catch (error) {

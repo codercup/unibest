@@ -1,7 +1,4 @@
 import { ref } from 'vue'
-import { getEnvBaseUploadUrl } from '@/utils'
-
-const VITE_UPLOAD_BASEURL = `${getEnvBaseUploadUrl()}`
 
 type TfileType = 'image' | 'file'
 type TImage = 'png' | 'jpg' | 'jpeg' | 'webp' | '*'
@@ -138,7 +135,7 @@ async function uploadFile({
   onComplete: () => void
 }) {
   uni.uploadFile({
-    url: VITE_UPLOAD_BASEURL,
+    url: '/upload',
     filePath: tempFilePath,
     name: 'file',
     formData,

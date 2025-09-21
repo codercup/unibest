@@ -56,11 +56,6 @@ function gotoAlova() {
     url: '/pages/about/alova',
   })
 }
-function gotoVueQuery() {
-  uni.navigateTo({
-    url: '/pages/about/vue-query',
-  })
-}
 function gotoSubPage() {
   uni.navigateTo({
     url: '/pages-sub/demo/index',
@@ -127,11 +122,6 @@ onShow(() => {
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoTabbar">
         切换tabbar
-      </button>
-    </view>
-    <view class="text-center">
-      <button type="primary" size="mini" class="w-160px" @click="gotoVueQuery">
-        vue-query 示例页面
       </button>
     </view>
     <view class="text-center">

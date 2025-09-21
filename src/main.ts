@@ -1,4 +1,3 @@
-import { VueQueryPlugin } from '@tanstack/vue-query'
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 import { requestInterceptor } from './http/interceptor'
@@ -13,7 +12,6 @@ export function createApp() {
   app.use(store)
   app.use(routeInterceptor)
   app.use(requestInterceptor)
-  app.use(VueQueryPlugin)
 
   return {
     app,

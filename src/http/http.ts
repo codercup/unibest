@@ -25,7 +25,8 @@ export function http<T>(options: CustomRequestOptions) {
         if (res.statusCode >= 200 && res.statusCode < 300) {
           // 2.1  处理业务逻辑错误
           const { code, message, data } = res.data as IResponse<T>
-          if (code !== ResultEnum.Success) {
+          // 0和200当做成功都很普遍，这里直接兼容两者，见 ResultEnum
+          if (code !== ResultEnum.Success0 && code !== ResultEnum.Success200) {
             throw new Error(`请求错误[${code}]：${message}`)
           }
           return resolve(data as T)
@@ -175,6 +176,7 @@ export function httpDelete<T>(url: string, query?: Record<string, any>, header?:
   })
 }
 
+// 支持与 axios 类似的API调用
 http.get = httpGet
 http.post = httpPost
 http.put = httpPut
