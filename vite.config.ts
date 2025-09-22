@@ -138,7 +138,6 @@ export default defineConfig(({ command, mode }) => {
       openDevTools(),
     ],
     define: {
-      __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
       __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY_ENABLE),
     },
     css: {
