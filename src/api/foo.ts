@@ -35,7 +35,7 @@ export function postFooAPI(name: string) {
 }
 /** POST 请求；需要传递 query 参数的范例；微信小程序经常有同时需要query参数和body参数的场景 */
 export function postFooAPI2(name: string) {
-  return http.post<IFooItem>('/foo', { name })
+  return http.post<IFooItem>('/foo', { name }, { name })
 }
 /** POST 请求；支持 传递 header 的范例 */
 export function postFooAPI3(name: string) {
