@@ -33,4 +33,3 @@ interface ImportMeta {
 }
 
 declare const __VITE_APP_PROXY__: 'true' | 'false'
-declare const __UNI_PLATFORM__: 'app' | 'h5' | 'mp-alipay' | 'mp-baidu' | 'mp-kuaishou' | 'mp-lark' | 'mp-qq' | 'mp-tiktok' | 'mp-weixin' | 'mp-xiaochengxu'
