@@ -1,5 +1,5 @@
+import { isMpWeixin } from '@uni-helper/uni-env'
 import { pages, subPackages } from '@/pages.json'
-import { isMpWeixin } from './platform'
 
 export function getLastPage() {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
