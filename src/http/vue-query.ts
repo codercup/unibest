@@ -1,4 +1,4 @@
-import type { CustomRequestOptions } from '@/http/types'
+import type { CustomRequestOptions, HttpRequestResult } from '@/http/types'
 import { http } from './http'
 
 /*
@@ -10,7 +10,7 @@ export default function request<T = unknown>(
     params?: Record<string, unknown>
     headers?: Record<string, unknown>
   },
-) {
+): HttpRequestResult<T> {
   const requestOptions = {
     url,
     ...options,

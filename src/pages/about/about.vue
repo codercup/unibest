@@ -3,6 +3,7 @@ import { isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixi
 import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store'
 import { tabbarStore } from '@/tabbar/store'
+import RequestCompOpenApi from './components/request-openapi.vue'
 import RequestComp from './components/request.vue'
 import VBindCss from './components/VBindCss.vue'
 
@@ -113,6 +114,7 @@ onShow(() => {
     </button>
     <RequestComp />
     <VBindCss />
+    <RequestCompOpenApi />
     <view class="mb-6 h-1px bg-#eee" />
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
