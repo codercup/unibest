@@ -21,8 +21,8 @@ export interface IFooItem {
 }
 
 /** GET 请求 */
-export function getFooAPI(name: string) {
-  return http.get<IFooItem>('/foo', { name })
+export async function getFooAPI(name: string) {
+  return await http.get<IFooItem>('/foo', { name })
 }
 /** GET 请求；支持 传递 header 的范例 */
 export function getFooAPI2(name: string) {
