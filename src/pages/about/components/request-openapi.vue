@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { UserItem } from '@/service'
-import { infoUsingGet } from '@/service/info'
+import { infoUsingGet, listAllUsingGet } from '@/service'
 
 const loading = ref(false)
 const error = ref<Error | null>(null)
@@ -22,7 +22,7 @@ async function getUserInfo() {
     loading.value = false
   }
 }
-const { data: data2, loading: loading2, run } = useRequest(() => infoUsingGet({}), {
+const { data: data2, loading: loading2, run, cancel } = useRequest(() => listAllUsingGet({}), {
   immediate: false,
 })
 </script>
@@ -46,16 +46,19 @@ const { data: data2, loading: loading2, run } = useRequest(() => infoUsingGet({}
     <view class="my-4 text-center">
       2)直接使用 openapi + useRequest 生成的请求
     </view>
-    <view class="my-4 text-center">
+    <view class="my-4 flex items-center gap-2 text-center">
       <button type="primary" size="mini" class="w-160px" @click="run">
         发送请求
       </button>
-      <view class="text-xl">
-        请求数据如下
-      </view>
-      <view class="text-green leading-8">
-        {{ JSON.stringify(data2) }}
-      </view>
+      <button type="default" size="mini" class="w-160px" @click="cancel">
+        取消请求
+      </button>
+    </view>
+    <view class="text-xl">
+      请求数据如下
+    </view>
+    <view class="text-green leading-8">
+      {{ JSON.stringify(data2) }}
     </view>
   </view>
 </template>
