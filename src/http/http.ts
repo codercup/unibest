@@ -27,7 +27,7 @@ export function http<T>(options: CustomRequestOptions) {
           const { code = 0, message = '', data = null } = res.data as IResponse<T>
           // 0和200当做成功都很普遍，这里直接兼容两者，见 ResultEnum
           if (code !== ResultEnum.Success0 && code !== ResultEnum.Success200) {
-            throw new Error(`请求错误[${code}]：${message}`)
+            throw new Error(`请求错误[${code}]：${message || msg}`)
           }
           return resolve(data as T)
         }
