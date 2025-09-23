@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import type { UserItem } from '@/service'
+import { ref } from 'vue'
+import useRequest from '@/hooks/useRequest'
 import { infoUsingGet } from '@/service/info'
 
 const loading = ref(false)
@@ -9,7 +11,9 @@ const data = ref<UserItem>()
 async function getUserInfo() {
   try {
     loading.value = true
-    const res = await (await infoUsingGet({})).promise
+    // 直接使用openapi生成的请求，需要解构获取promise
+    const { promise } = await infoUsingGet({})
+    const res = await promise
     console.log(res)
     data.value = res
     error.value = null
@@ -22,7 +26,9 @@ async function getUserInfo() {
     loading.value = false
   }
 }
-const { data: data2, loading: loading2, run } = useRequest(() => infoUsingGet({}), {
+
+// 使用openapi + useRequest生成的请求
+const { data: data2, loading: loading2, run } = useRequest<UserItem>(() => infoUsingGet({}), {
   immediate: false,
 })
 </script>

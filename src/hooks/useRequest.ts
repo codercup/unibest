@@ -19,14 +19,14 @@ interface IUseRequestReturn<T, P = undefined> {
 
 /**
  * useRequest是一个定制化的请求钩子，用于处理异步请求和响应。
- * @param func 一个执行异步请求的函数，返回一个包含响应数据的Promise。
+ * @param func 一个执行异步请求的函数，返回HttpRequestResult<T>或Promise<HttpRequestResult<T>>。
  * @param options 包含请求选项的对象 {immediate, initialData}。
  * @param options.immediate 是否立即执行请求，默认为false。
  * @param options.initialData 初始化数据，默认为undefined。
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
 export default function useRequest<T, P = undefined>(
-  func: (args?: P) => HttpRequestResult<T>,
+  func: (args?: P) => HttpRequestResult<T> | Promise<HttpRequestResult<T>>,
   options: IUseRequestOptions<T> = { immediate: false },
 ): IUseRequestReturn<T, P> {
   const loading = ref(false)
@@ -36,21 +36,24 @@ export default function useRequest<T, P = undefined>(
 
   const run = async (args?: P) => {
     loading.value = true
-    const { promise, requestTask: task } = func(args)
-    requestTask = task // Store the requestTask
-    return promise
-      .then((res) => {
-        data.value = res
-        error.value = false
-        return data.value
-      })
-      .catch((err) => {
-        error.value = err
-        throw err
-      })
-      .finally(() => {
-        loading.value = false
-      })
+    try {
+      // 支持同步和异步函数
+      const result = await func(args)
+      const { promise, requestTask: task } = result
+      requestTask = task // Store the requestTask
+
+      const res = await promise
+      data.value = res
+      error.value = false
+      return data.value
+    }
+    catch (err) {
+      error.value = err instanceof Error ? err : new Error('Request failed')
+      throw err
+    }
+    finally {
+      loading.value = false
+    }
   }
 
   const cancel = () => {
