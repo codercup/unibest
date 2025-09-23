@@ -103,7 +103,12 @@ export function http<T>(options: CustomRequestOptions) {
         }
       },
       // 响应失败
-      fail(err) {
+      fail(err: UniApp.RequestSuccessCallbackResult | UniApp.GeneralCallbackResult) {
+        console.log(`🚀 - fail - err:`, err)
+        // 如果是请求取消，则不显示错误提示
+        if (err.errMsg === 'request:fail abort') {
+          return reject(new Error('Request cancelled'))
+        }
         uni.showToast({
           icon: 'none',
           title: '网络错误，换个网络试试',
