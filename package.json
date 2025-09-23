@@ -87,7 +87,7 @@
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "type-check": "vue-tsc --noEmit",
-    "openapi-ts-request": "openapi-ts",
+    "openapi": "openapi-ts",
     "prepare": "git init && husky && node ./scripts/create-base-files.js",
     "docker:prepare": "node ./scripts/create-base-files.js",
     "lint": "eslint",

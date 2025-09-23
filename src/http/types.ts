@@ -12,12 +12,17 @@ export interface HttpRequestResult<T> {
   requestTask: UniApp.RequestTask
 }
 
-// 通用响应格式
-export interface IResponse<T = any> {
-  code: number | string
+// 通用响应格式（兼容 msg + message 字段）
+export type IResponse<T = any> = {
+  code: number
   data: T
   message: string
-  status: string | number
+  [key: string]: any // 允许额外属性
+} | {
+  code: number
+  data: T
+  msg: string
+  [key: string]: any // 允许额外属性
 }
 
 // 分页请求参数

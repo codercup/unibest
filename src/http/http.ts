@@ -1,5 +1,5 @@
 import type { IDoubleTokenRes } from '@/api/types/login'
-import type { CustomRequestOptions, IResponse } from '@/http/types'
+import type { CustomRequestOptions, HttpRequestResult, IResponse } from '@/http/types'
 import { nextTick } from 'vue'
 import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store/token'
@@ -10,7 +10,7 @@ import { ResultEnum } from './tools/enum'
 let refreshing = false // 防止重复刷新 token 标识
 let taskQueue: { resolve: (value: any) => void, reject: (reason?: any) => void, options: CustomRequestOptions }[] = [] as { resolve: (value: any) => void, reject: (reason?: any) => void, options: CustomRequestOptions }[] // 刷新 token 请求队列
 
-export function http<T>(options: CustomRequestOptions) {
+export function http<T>(options: CustomRequestOptions): HttpRequestResult<T> {
   let requestTask: UniApp.RequestTask | undefined
   const promise = new Promise<T>((resolve, reject) => {
     requestTask = uni.request({
@@ -24,10 +24,10 @@ export function http<T>(options: CustomRequestOptions) {
         // 状态码 2xx，参考 axios 的设计
         if (res.statusCode >= 200 && res.statusCode < 300) {
           // 2.1  处理业务逻辑错误
-          const { code, message, data } = res.data as IResponse<T>
+          const { code, message, msg, data } = res.data as IResponse<T>
           // 0和200当做成功都很普遍，这里直接兼容两者，见 ResultEnum
           if (code !== ResultEnum.Success0 && code !== ResultEnum.Success200) {
-            throw new Error(`请求错误[${code}]：${message}`)
+            throw new Error(`请求错误[${code}]：${message || msg}`)
           }
           return resolve(data as T)
         }
