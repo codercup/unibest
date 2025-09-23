@@ -1,4 +1,5 @@
 import type { Ref } from 'vue'
+import type { HttpRequestResult } from '@/http/types'
 import { ref } from 'vue'
 
 interface IUseRequestOptions<T> {
@@ -13,6 +14,7 @@ interface IUseRequestReturn<T, P = undefined> {
   error: Ref<boolean | Error>
   data: Ref<T | undefined>
   run: (args?: P) => Promise<T | undefined>
+  cancel: () => void
 }
 
 /**
@@ -24,15 +26,19 @@ interface IUseRequestReturn<T, P = undefined> {
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
 export default function useRequest<T, P = undefined>(
-  func: (args?: P) => Promise<T>,
+  func: (args?: P) => HttpRequestResult<T>,
   options: IUseRequestOptions<T> = { immediate: false },
 ): IUseRequestReturn<T, P> {
   const loading = ref(false)
-  const error = ref(false)
+  const error = ref<boolean | Error>(false)
   const data = ref<T | undefined>(options.initialData) as Ref<T | undefined>
+  let requestTask: UniApp.RequestTask | undefined
+
   const run = async (args?: P) => {
     loading.value = true
-    return func(args)
+    const { promise, requestTask: task } = func(args)
+    requestTask = task // Store the requestTask
+    return promise
       .then((res) => {
         data.value = res
         error.value = false
@@ -47,8 +53,16 @@ export default function useRequest<T, P = undefined>(
       })
   }
 
+  const cancel = () => {
+    if (requestTask) {
+      requestTask.abort()
+      loading.value = false // Reset loading state on cancel
+      error.value = new Error('Request cancelled') // Set a specific error for cancellation
+    }
+  }
+
   if (options.immediate) {
     (run as (args?: P) => Promise<T | undefined>)({} as P)
   }
-  return { loading, error, data, run }
+  return { loading, error, data, run, cancel }
 }

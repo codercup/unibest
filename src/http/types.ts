@@ -7,6 +7,11 @@ export type CustomRequestOptions = UniApp.RequestOptions & {
   hideErrorToast?: boolean
 } & IUniUploadFileOptions // 添加uni.uploadFile参数类型
 
+export interface HttpRequestResult<T> {
+  promise: Promise<T>
+  requestTask: UniApp.RequestTask
+}
+
 // 通用响应格式
 export interface IResponse<T = any> {
   code: number | string
