@@ -26,7 +26,7 @@ interface IUseRequestReturn<T, P = undefined> {
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
 export default function useRequest<T, P = undefined>(
-  func: (args?: P) => HttpRequestResult<T>,
+  func: (args?: P) => Promise<T> | Promise<HttpRequestResult<T>> | HttpRequestResult<T> | T,
   options: IUseRequestOptions<T> = { immediate: false },
 ): IUseRequestReturn<T, P> {
   const loading = ref(false)
@@ -36,12 +36,36 @@ export default function useRequest<T, P = undefined>(
 
   const run = async (args?: P) => {
     loading.value = true
-    const { promise, requestTask: task } = func(args)
-    requestTask = task // Store the requestTask
+    error.value = false // Move error reset to the beginning
+    let promise: Promise<T | undefined>
+    const result = func(args)
+
+    if (result instanceof Promise) {
+      // If func returns a Promise
+      promise = result.then((res) => {
+        if (res && typeof (res as HttpRequestResult<T>).promise === 'object' && typeof (res as HttpRequestResult<T>).requestTask === 'object') {
+          // If the resolved value is HttpRequestResult
+          const { promise: p, requestTask: task } = res as HttpRequestResult<T>
+          requestTask = task
+          return p
+        }
+        return res as T | undefined
+      }) as Promise<T | undefined> // Cast to ensure correct type
+    }
+    else if (result && typeof (result as HttpRequestResult<T>).promise === 'object' && typeof (result as HttpRequestResult<T>).requestTask === 'object') {
+      // If func returns HttpRequestResult directly
+      const { promise: p, requestTask: task } = result as HttpRequestResult<T>
+      requestTask = task
+      promise = p
+    }
+    else {
+      // If func returns T directly
+      promise = Promise.resolve(result as T | undefined)
+    }
+
     return promise
       .then((res) => {
         data.value = res
-        error.value = false
         return data.value
       })
       .catch((err) => {
