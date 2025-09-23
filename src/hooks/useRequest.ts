@@ -26,27 +26,62 @@ interface IUseRequestReturn<T, P = undefined> {
  * @returns 返回一个对象{loading, error, data, run}，包含请求的加载状态、错误信息、响应数据和手动触发请求的函数。
  */
 export default function useRequest<T, P = undefined>(
-  func: (args?: P) => HttpRequestResult<T>,
+  func: (args?: P) => Promise<T> | Promise<HttpRequestResult<T>> | HttpRequestResult<T> | T,
   options: IUseRequestOptions<T> = { immediate: false },
 ): IUseRequestReturn<T, P> {
   const loading = ref(false)
   const error = ref<boolean | Error>(false)
   const data = ref<T | undefined>(options.initialData) as Ref<T | undefined>
   let requestTask: UniApp.RequestTask | undefined
+  const isCancelled = ref(false)
 
-  const run = async (args?: P) => {
+  const run = async (args?: P): Promise<T | undefined> => {
     loading.value = true
-    const { promise, requestTask: task } = func(args)
-    requestTask = task // Store the requestTask
+    error.value = false
+    isCancelled.value = false
+    let promise: Promise<T | undefined>
+    const result = func(args)
+
+    if (result instanceof Promise) {
+      promise = result.then((res) => {
+        if (res && typeof (res as HttpRequestResult<T>).promise === 'object' && typeof (res as HttpRequestResult<T>).requestTask === 'object') {
+          const { promise: p, requestTask: task } = res as HttpRequestResult<T>
+          requestTask = task
+          if (isCancelled.value) {
+            task.abort()
+            throw new Error('Request cancelled')
+          }
+          return p
+        }
+        if (isCancelled.value) {
+          throw new Error('Request cancelled')
+        }
+        return res as T | undefined
+      }) as Promise<T | undefined>
+    }
+    else if (result && typeof (result as HttpRequestResult<T>).promise === 'object' && typeof (result as HttpRequestResult<T>).requestTask === 'object') {
+      const { promise: p, requestTask: task } = result as HttpRequestResult<T>
+      requestTask = task
+      promise = p
+    }
+    else {
+      promise = Promise.resolve(result as T | undefined)
+    }
+
     return promise
       .then((res) => {
+        if (isCancelled.value) {
+          return
+        }
         data.value = res
-        error.value = false
         return data.value
       })
       .catch((err) => {
-        error.value = err
-        throw err
+        if (!isCancelled.value) {
+          error.value = err
+          throw err
+        }
+        return Promise.resolve(undefined)
       })
       .finally(() => {
         loading.value = false
@@ -54,11 +89,12 @@ export default function useRequest<T, P = undefined>(
   }
 
   const cancel = () => {
+    isCancelled.value = true
     if (requestTask) {
       requestTask.abort()
-      loading.value = false // Reset loading state on cancel
-      error.value = new Error('Request cancelled') // Set a specific error for cancellation
     }
+    loading.value = false
+    error.value = new Error('Request cancelled')
   }
 
   if (options.immediate) {
