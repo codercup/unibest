@@ -8,12 +8,12 @@ import { ResultEnum } from './tools/enum'
 
 // 刷新 token 状态管理
 let refreshing = false // 防止重复刷新 token 标识
-let taskQueue: (() => void)[] = [] // 刷新 token 请求队列
+let taskQueue: { resolve: (value: any) => void, reject: (reason?: any) => void, options: CustomRequestOptions }[] = [] as { resolve: (value: any) => void, reject: (reason?: any) => void, options: CustomRequestOptions }[] // 刷新 token 请求队列
 
 export function http<T>(options: CustomRequestOptions) {
-  // 1. 返回 Promise 对象
-  return new Promise<T>((resolve, reject) => {
-    uni.request({
+  let requestTask: UniApp.RequestTask | undefined
+  const promise = new Promise<T>((resolve, reject) => {
+    requestTask = uni.request({
       ...options,
       dataType: 'json',
       // #ifndef MP-WEIXIN
@@ -44,9 +44,7 @@ export function http<T>(options: CustomRequestOptions) {
           const { refreshToken } = tokenStore.tokenInfo as IDoubleTokenRes || {}
           // token 失效的，且有刷新 token 的，才放到请求队列里
           if ((res.statusCode === 401 || resData.code === 401) && refreshToken) {
-            taskQueue.push(() => {
-              resolve(http<T>(options))
-            })
+            taskQueue.push({ resolve, reject, options })
           }
           // 如果有 refreshToken 且未在刷新中，发起刷新 token 请求
           if ((res.statusCode === 401 || resData.code === 401) && refreshToken && !refreshing) {
@@ -65,7 +63,9 @@ export function http<T>(options: CustomRequestOptions) {
                 })
               })
               // 将任务队列的所有任务重新请求
-              taskQueue.forEach(task => task())
+              taskQueue.forEach((task) => {
+                http<T>(task.options).promise.then(task.resolve, task.reject)
+              })
             }
             catch (refreshErr) {
               console.error('刷新 token 失败:', refreshErr)
@@ -103,7 +103,12 @@ export function http<T>(options: CustomRequestOptions) {
         }
       },
       // 响应失败
-      fail(err) {
+      fail(err: UniApp.RequestSuccessCallbackResult | UniApp.GeneralCallbackResult) {
+        console.log(`🚀 - fail - err:`, err)
+        // 如果是请求取消，则不显示错误提示
+        if (err.errMsg === 'request:fail abort') {
+          return reject(new Error('Request cancelled'))
+        }
         uni.showToast({
           icon: 'none',
           title: '网络错误，换个网络试试',
@@ -112,6 +117,7 @@ export function http<T>(options: CustomRequestOptions) {
       },
     })
   })
+  return { promise, requestTask: requestTask! }
 }
 
 /**
