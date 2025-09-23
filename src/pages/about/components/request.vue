@@ -8,10 +8,14 @@ import { getFooAPI } from '@/api/foo'
 // }
 const initialData = undefined
 
-const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
+const { loading, error, data, run, cancel } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
   immediate: true,
   initialData,
 })
+function reqFooAPI() {
+  run()
+  cancel()
+}
 
 function reset() {
   data.value = initialData
@@ -31,17 +35,31 @@ function reset() {
       <button type="primary" size="mini" class="w-160px" @click="run">
         发送请求
       </button>
+      <button type="default" size="mini" class="ml-4 w-160px" @click="reqFooAPI">
+        发送请求立即取消
+      </button>
+      <button type="default" size="mini" class="ml-4 w-160px" :disabled="!loading" @click="cancel">
+        取消请求
+      </button>
     </view>
     <view class="h-16">
       <view v-if="loading">
         loading...
       </view>
       <block v-else>
-        <view class="text-xl">
-          请求数据如下
+        <view v-if="error instanceof Error" class="text-red leading-8">
+          错误: {{ error.message }}
         </view>
-        <view class="text-green leading-8">
-          {{ JSON.stringify(data) }}
+        <view v-else-if="error" class="text-red leading-8">
+          错误: 未知错误
+        </view>
+        <view v-else>
+          <view class="text-xl">
+            请求数据如下
+          </view>
+          <view class="text-green leading-8">
+            {{ JSON.stringify(data) }}
+          </view>
         </view>
       </block>
     </view>
