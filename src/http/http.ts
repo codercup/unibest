@@ -1,5 +1,5 @@
 import type { IDoubleTokenRes } from '@/api/types/login'
-import type { CustomRequestOptions, HttpRequestResult, IResponse } from '@/http/types'
+import type { CustomRequestOptions, IResponse } from '@/http/types'
 import { nextTick } from 'vue'
 import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store/token'
@@ -10,7 +10,7 @@ import { ResultEnum } from './tools/enum'
 let refreshing = false // 防止重复刷新 token 标识
 let taskQueue: { resolve: (value: any) => void, reject: (reason?: any) => void, options: CustomRequestOptions }[] = [] as { resolve: (value: any) => void, reject: (reason?: any) => void, options: CustomRequestOptions }[] // 刷新 token 请求队列
 
-export function http<T>(options: CustomRequestOptions): HttpRequestResult<T> {
+export function http<T>(options: CustomRequestOptions) {
   let requestTask: UniApp.RequestTask | undefined
   const promise = new Promise<T>((resolve, reject) => {
     requestTask = uni.request({
