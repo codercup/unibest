@@ -2,7 +2,7 @@ import type { GenerateServiceProps } from 'openapi-ts-request'
 
 export default [
   {
-    schemaPath: 'https://ukw0y1.laf.run/unibest-opapi-test.json',
+    schemaPath: 'http://petstore.swagger.io/v2/swagger.json',
     serversPath: './src/service',
     requestLibPath: `import request from '@/http/vue-query';\n import { CustomRequestOptions } from '@/http/types';`,
     requestOptionsType: 'CustomRequestOptions',
