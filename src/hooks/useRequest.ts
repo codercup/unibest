@@ -33,44 +33,55 @@ export default function useRequest<T, P = undefined>(
   const error = ref<boolean | Error>(false)
   const data = ref<T | undefined>(options.initialData) as Ref<T | undefined>
   let requestTask: UniApp.RequestTask | undefined
+  const isCancelled = ref(false)
 
-  const run = async (args?: P) => {
+  const run = async (args?: P): Promise<T | undefined> => {
     loading.value = true
-    error.value = false // Move error reset to the beginning
+    error.value = false
+    isCancelled.value = false
     let promise: Promise<T | undefined>
     const result = func(args)
 
     if (result instanceof Promise) {
-      // If func returns a Promise
       promise = result.then((res) => {
         if (res && typeof (res as HttpRequestResult<T>).promise === 'object' && typeof (res as HttpRequestResult<T>).requestTask === 'object') {
-          // If the resolved value is HttpRequestResult
           const { promise: p, requestTask: task } = res as HttpRequestResult<T>
           requestTask = task
+          if (isCancelled.value) {
+            task.abort()
+            throw new Error('Request cancelled')
+          }
           return p
         }
+        if (isCancelled.value) {
+          throw new Error('Request cancelled')
+        }
         return res as T | undefined
-      }) as Promise<T | undefined> // Cast to ensure correct type
+      }) as Promise<T | undefined>
     }
     else if (result && typeof (result as HttpRequestResult<T>).promise === 'object' && typeof (result as HttpRequestResult<T>).requestTask === 'object') {
-      // If func returns HttpRequestResult directly
       const { promise: p, requestTask: task } = result as HttpRequestResult<T>
       requestTask = task
       promise = p
     }
     else {
-      // If func returns T directly
       promise = Promise.resolve(result as T | undefined)
     }
 
     return promise
       .then((res) => {
+        if (isCancelled.value) {
+          return
+        }
         data.value = res
         return data.value
       })
       .catch((err) => {
-        error.value = err
-        throw err
+        if (!isCancelled.value) {
+          error.value = err
+          throw err
+        }
+        return Promise.resolve(undefined)
       })
       .finally(() => {
         loading.value = false
@@ -78,11 +89,12 @@ export default function useRequest<T, P = undefined>(
   }
 
   const cancel = () => {
+    isCancelled.value = true
     if (requestTask) {
       requestTask.abort()
-      loading.value = false // Reset loading state on cancel
-      error.value = new Error('Request cancelled') // Set a specific error for cancellation
     }
+    loading.value = false
+    error.value = new Error('Request cancelled')
   }
 
   if (options.immediate) {
