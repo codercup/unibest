@@ -140,7 +140,7 @@
     "@uni-helper/uni-env": "^0.1.8",
     "@uni-helper/uni-types": "^1.0.0-alpha.6",
     "@uni-helper/unocss-preset-uni": "^0.2.11",
-    "@uni-helper/vite-plugin-uni-components": "^0.2.8",
+    "@uni-helper/vite-plugin-uni-components": "^0.2.3",
     "@uni-helper/vite-plugin-uni-layouts": "^0.1.11",
     "@uni-helper/vite-plugin-uni-manifest": "^0.2.8",
     "@uni-helper/vite-plugin-uni-pages": "^0.3.15",
