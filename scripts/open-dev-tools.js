@@ -8,9 +8,9 @@ import process from 'node:process'
  */
 function _openDevTools() {
   const platform = process.platform // darwin, win32, linux
-  const { UNI_PLATFORM } = process.env // mp, mp-weixin, mp-alipay
+  const { UNI_PLATFORM } = process.env //  mp-weixin, mp-alipay
 
-  const uniPlatformText = UNI_PLATFORM === 'mp' || UNI_PLATFORM === 'mp-weixin' ? '微信小程序' : UNI_PLATFORM === 'mp-alipay' ? '支付宝小程序' : '小程序'
+  const uniPlatformText = UNI_PLATFORM === 'mp-weixin' ? '微信小程序' : UNI_PLATFORM === 'mp-alipay' ? '支付宝小程序' : '小程序'
 
   // 项目路径（构建输出目录）
   const projectPath = path.resolve(process.cwd(), `dist/dev/${UNI_PLATFORM}`)
