@@ -25,6 +25,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig, loadEnv } from 'vite'
 import ViteRestart from 'vite-plugin-restart'
 import openDevTools from './scripts/open-dev-tools'
+import syncManifestPlugin from './vite-plugins/sync-manifest-plugins'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -125,6 +126,7 @@ export default defineConfig(({ command, mode }) => {
       }),
       // 只有在 app 平台时才启用 copyNativeRes 插件
       // UNI_PLATFORM === 'app' && copyNativeRes(),
+      syncManifestPlugin(),
       Components({
         extensions: ['vue'],
         deep: true, // 是否递归扫描子目录，
