@@ -103,7 +103,7 @@ export const useTokenStore = defineStore(
      */
     const login = async (loginForm: ILoginForm) => {
       try {
-        const res = await _login(loginForm).promise
+        const res = await _login(loginForm)
         console.log('普通登录-res: ', res)
         await _postLogin(res)
         uni.showToast({
@@ -133,7 +133,7 @@ export const useTokenStore = defineStore(
         // 获取微信小程序登录的code
         const code = await getWxCode()
         console.log('微信登录-code: ', code)
-        const res = await _wxLogin(code).promise
+        const res = await _wxLogin(code)
         console.log('微信登录-res: ', res)
         await _postLogin(res)
         uni.showToast({
@@ -193,7 +193,7 @@ export const useTokenStore = defineStore(
         }
 
         const refreshToken = tokenInfo.value.refreshToken
-        const res = await _refreshToken(refreshToken).promise
+        const res = await _refreshToken(refreshToken)
         console.log('刷新token-res: ', res)
         setTokenInfo(res)
         return res

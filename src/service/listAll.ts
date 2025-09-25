@@ -12,7 +12,6 @@ export async function listAllUsingGet({
 }: {
   options?: CustomRequestOptions;
 }) {
-  await sleep(2000); // 方便测试 cancel 功能
   return request<API.UserItem[]>('/user/listAll', {
     method: 'GET',
     ...(options || {}),
