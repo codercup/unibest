@@ -239,6 +239,12 @@ if (!fs.existsSync(srcDir)) {
   fs.mkdirSync(srcDir, { recursive: true })
 }
 
-// 写入文件
-fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
-fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2))
+// 如果 src/manifest.json 不存在，就创建它；存在就不处理，以免覆盖
+if (!fs.existsSync(manifestPath)) {
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+}
+
+// 如果 src/pages.json 不存在，就创建它；存在就不处理，以免覆盖
+if (!fs.existsSync(pagesPath)) {
+  fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2))
+}
