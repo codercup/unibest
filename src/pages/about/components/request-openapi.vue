@@ -6,10 +6,11 @@ const loading = ref(false)
 const error = ref<Error | null>(null)
 const data = ref<UserItem>()
 
+// openapi 请求示例
 async function getUserInfo() {
   try {
     loading.value = true
-    const res = await (await infoUsingGet({})).promise
+    const res = await infoUsingGet({})
     console.log(res)
     data.value = res
     error.value = null
@@ -22,7 +23,9 @@ async function getUserInfo() {
     loading.value = false
   }
 }
-const { data: data2, loading: loading2, run, cancel } = useRequest(() => listAllUsingGet({}), {
+
+// openapi + useRequest 请求示例
+const { data: data2, loading: loading2, run } = useRequest(() => listAllUsingGet({}), {
   immediate: false,
 })
 </script>
@@ -49,9 +52,6 @@ const { data: data2, loading: loading2, run, cancel } = useRequest(() => listAll
     <view class="my-4 flex items-center gap-2 text-center">
       <button type="primary" size="mini" class="w-160px" @click="run">
         发送请求
-      </button>
-      <button type="default" size="mini" class="w-160px" @click="cancel">
-        取消请求
       </button>
     </view>
     <view class="text-xl">

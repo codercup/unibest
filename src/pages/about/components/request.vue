@@ -8,14 +8,23 @@ import { getFooAPI } from '@/api/foo'
 // }
 const initialData = undefined
 
-const { loading, error, data, run, cancel } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
+// 直接请求示例
+async function reqFooAPI() {
+  try {
+    const res = await getFooAPI('菲鸽')
+    console.log('直接请求示例res', res)
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+reqFooAPI()
+
+// 直接useRequest请求示例
+const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
   immediate: true,
   initialData,
 })
-function reqFooAPI() {
-  run()
-  cancel()
-}
 
 function reset() {
   data.value = initialData
@@ -34,12 +43,6 @@ function reset() {
     <view class="my-4 text-center">
       <button type="primary" size="mini" class="w-160px" @click="run">
         发送请求
-      </button>
-      <button type="default" size="mini" class="ml-4 w-160px" @click="reqFooAPI">
-        发送请求立即取消
-      </button>
-      <button type="default" size="mini" class="ml-4 w-160px" :disabled="!loading" @click="cancel">
-        取消请求
       </button>
     </view>
     <view class="h-16">

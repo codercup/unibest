@@ -42,7 +42,7 @@ export const useUserStore = defineStore(
      * 获取用户信息
      */
     const fetchUserInfo = async () => {
-      const res = await getUserInfo().promise
+      const res = await getUserInfo()
       setUserInfo(res)
       return res
     }
