@@ -25,6 +25,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig, loadEnv } from 'vite'
 import ViteRestart from 'vite-plugin-restart'
 import openDevTools from './scripts/open-dev-tools'
+import { createCopyNativeResourcesPlugin } from './vite-plugins/copy-native-resources'
 import syncManifestPlugin from './vite-plugins/sync-manifest-plugins'
 
 // https://vitejs.dev/config/
@@ -55,6 +56,7 @@ export default defineConfig(({ command, mode }) => {
     VITE_APP_PUBLIC_BASE,
     VITE_APP_PROXY_ENABLE,
     VITE_APP_PROXY_PREFIX,
+    VITE_COPY_NATIVE_RES_ENABLE,
   } = env
   console.log('环境变量 env -> ', env)
 
@@ -124,8 +126,13 @@ export default defineConfig(({ command, mode }) => {
         gzipSize: true,
         brotliSize: true,
       }),
-      // 只有在 app 平台时才启用 copyNativeRes 插件
-      // UNI_PLATFORM === 'app' && copyNativeRes(),
+      // 原生插件资源复制插件 - 仅在 app 平台且启用时生效
+      createCopyNativeResourcesPlugin(
+        UNI_PLATFORM === 'app' && VITE_COPY_NATIVE_RES_ENABLE === 'true',
+        {
+          verbose: mode === 'development', // 开发模式显示详细日志
+        },
+      ),
       syncManifestPlugin(),
       Components({
         extensions: ['vue'],
