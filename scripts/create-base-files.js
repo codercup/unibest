@@ -1,4 +1,6 @@
-// 生成 src/manifest.json 和 src/pages.json
+// 基础配置文件生成脚本
+// 此脚本用于生成 src/manifest.json 和 src/pages.json 基础文件
+// 由于这两个配置文件会被添加到 .gitignore 中，因此需要通过此脚本确保项目能正常运行
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
