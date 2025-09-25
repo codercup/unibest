@@ -10,7 +10,7 @@ import { ContentTypeEnum, ResultEnum, ShowMessage } from './tools/enum'
 // 配置动态Tag
 export const API_DOMAINS = {
   DEFAULT: import.meta.env.VITE_SERVER_BASEURL,
-  SECONDARY: import.meta.env.VITE_API_SECONDARY_URL,
+  SECONDARY: import.meta.env.VITE_SERVER_BASEURL_SECONDARY,
 }
 
 /**
@@ -41,7 +41,7 @@ const { onAuthRequired, onResponseRefreshToken } = createServerTokenAuthenticati
  * alova 请求实例
  */
 const alovaInstance = createAlova({
-  baseURL: import.meta.env.VITE_APP_PROXY_PREFIX,
+  baseURL: API_DOMAINS.DEFAULT,
   ...AdapterUniapp(),
   timeout: 5000,
   statesHook: VueHook,
