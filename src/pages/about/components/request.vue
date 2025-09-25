@@ -8,7 +8,7 @@ import { getFooAPI } from '@/api/foo'
 // }
 const initialData = undefined
 
-const { loading, error, data, run, cancel } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
+const { loading, error, data, run } = useRequest<IFooItem>(() => getFooAPI('菲鸽'), {
   immediate: true,
   initialData,
 })
