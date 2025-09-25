@@ -5,7 +5,10 @@ export default uniHelper({
   vue: true,
   markdown: false,
   ignores: [
-    'src/uni_modules/',
+    // 忽略uni_modules目录
+    '**/uni_modules/',
+    // 忽略原生插件目录
+    '**/nativeplugins/',
     'dist',
     // unplugin-auto-import 生成的类型文件，每次提交都改变，所以加入这里吧，与 .gitignore 配合使用
     'auto-import.d.ts',

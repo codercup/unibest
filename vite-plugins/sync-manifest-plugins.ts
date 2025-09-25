@@ -1,9 +1,10 @@
 import type { Plugin } from 'vite'
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
+import process from 'node:process'
 
 interface ManifestType {
-  plus?: {
+  'plus'?: {
     distribute?: {
       plugins?: Record<string, any>
     }
@@ -45,8 +46,10 @@ export default function syncManifestPlugin(): Plugin {
           // 如果源文件存在 plugins
           if (srcManifest['app-plus']?.distribute?.plugins) {
             // 确保目标文件中有必要的对象结构
-            if (!distManifest.plus) distManifest.plus = {}
-            if (!distManifest.plus.distribute) distManifest.plus.distribute = {}
+            if (!distManifest.plus)
+              distManifest.plus = {}
+            if (!distManifest.plus.distribute)
+              distManifest.plus.distribute = {}
 
             // 复制 plugins 内容
             distManifest.plus.distribute.plugins = srcManifest['app-plus'].distribute.plugins
@@ -55,7 +58,8 @@ export default function syncManifestPlugin(): Plugin {
             fs.writeFileSync(distAppPath, JSON.stringify(distManifest, null, 2))
             console.log('✅ Manifest plugins 同步成功')
           }
-        } catch (error) {
+        }
+        catch (error) {
           console.error('❌ 同步 manifest plugins 失败:', error)
         }
       },
