@@ -20,6 +20,7 @@ const { onAuthRequired, onResponseRefreshToken } = createServerTokenAuthenticati
   typeof VueHook,
   typeof uniappRequestAdapter
 >({
+  // 如果下面拦截不到，请使用 refreshTokenOnSuccess by 群友@琛
   refreshTokenOnError: {
     isExpired: (error) => {
       return error.response?.status === ResultEnum.Unauthorized
