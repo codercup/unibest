@@ -48,7 +48,7 @@ function gotoTabbar() {
 }
 function gotoScroll() {
   uni.navigateTo({
-    url: '/pages/demo/scroll',
+    url: '/pages-sub/demo/scroll',
   })
 }
 // #region setTabbarBadge
