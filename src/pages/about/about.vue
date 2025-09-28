@@ -46,6 +46,11 @@ function gotoTabbar() {
     url: '/pages/index/index',
   })
 }
+function gotoScroll() {
+  uni.navigateTo({
+    url: '/pages/demo/scroll',
+  })
+}
 // #region setTabbarBadge
 function setTabbarBadge() {
   tabbarStore.setTabbarItemBadge(1, 100)
@@ -116,6 +121,11 @@ onShow(() => {
     <RequestComp />
     <VBindCss />
     <view class="mb-6 h-1px bg-#eee" />
+    <view class="text-center">
+      <button type="primary" size="mini" class="w-160px" @click="gotoScroll">
+        下拉刷新和下拉加载更多 简单hooks（非z-paging组件）
+      </button>
+    </view>
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
         前往 alova 示例页面
