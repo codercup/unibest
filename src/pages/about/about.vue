@@ -53,6 +53,11 @@ function gotoTabbar() {
     url: '/pages/index/index',
   })
 }
+function gotoScroll() {
+  uni.navigateTo({
+    url: '/pages-sub/demo/scroll',
+  })
+}
 // #region setTabbarBadge
 function setTabbarBadge() {
   tabbarStore.setTabbarItemBadge(1, 100)
@@ -127,6 +132,12 @@ onShow(() => {
     <RequestComp />
     <VBindCss />
     <view class="mb-6 h-1px bg-#eee" />
+    <view class="mb-2 text-center">
+      <button type="primary" size="mini" class="w-240px" @click="gotoScroll">
+        下拉刷新和下拉加载更多
+      </button>
+      <view>简单hooks（非z-paging组件）</view>
+    </view>
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoI18nPage()">
         去I18n页面
