@@ -7,6 +7,12 @@ definePage({
     navigationBarTitleText: '分包页面',
   },
 })
+
+function gotoScroll() {
+  uni.navigateTo({
+    url: '/pages-sub/demo/scroll',
+  })
+}
 </script>
 
 <template>
@@ -20,6 +26,9 @@ definePage({
     <view class="text-blue-500">
       分包页面里面的components示例
     </view>
+    <button class="my-4" type="primary" size="mini" @click="gotoScroll">
+      跳转到上拉刷新和下拉加载更多
+    </button>
     <view>
       <RequestComp />
     </view>
