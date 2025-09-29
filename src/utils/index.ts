@@ -1,12 +1,15 @@
+import type { PageMetaDatum, SubPackages } from '@uni-helper/vite-plugin-uni-pages'
 import { isMpWeixin } from '@uni-helper/uni-env'
 import { pages, subPackages } from '@/pages.json'
+
+export type PageInstance = Page.PageInstance<AnyObject, object> & { $page: Page.PageInstance<AnyObject, object> & { fullPath: string } }
 
 export function getLastPage() {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   // const lastPage = getCurrentPages().at(-1)
   // 上面那个在低版本安卓中打包会报错，所以改用下面这个【虽然我加了 src/interceptions/prototype.ts，但依然报错】
   const pages = getCurrentPages()
-  return pages[pages.length - 1]
+  return pages[pages.length - 1] as PageInstance
 }
 
 /**
@@ -15,20 +18,20 @@ export function getLastPage() {
  * redirectPath 如 '/pages/demo/base/route-interceptor'
  */
 export function currRoute() {
-  const lastPage = getLastPage()
+  const lastPage = getLastPage() as PageInstance
   if (!lastPage) {
     return {
       path: '',
       query: {},
     }
   }
-  const currRoute = (lastPage as any).$page
+  const currRoute = lastPage.$page
   // console.log('lastPage.$page:', currRoute)
   // console.log('lastPage.$page.fullpath:', currRoute.fullPath)
   // console.log('lastPage.$page.options:', currRoute.options)
   // console.log('lastPage.options:', (lastPage as any).options)
   // 经过多端测试，只有 fullPath 靠谱，其他都不靠谱
-  const { fullPath } = currRoute as { fullPath: string }
+  const { fullPath } = currRoute
   // console.log(fullPath)
   // eg: /pages/login/login?redirect=%2Fpages%2Fdemo%2Fbase%2Froute-interceptor (小程序)
   // eg: /pages/login/login?redirect=%2Fpages%2Froute-interceptor%2Findex%3Fname%3Dfeige%26age%3D30(h5)
@@ -69,9 +72,9 @@ export function parseUrlToObj(url: string) {
  * 这里设计得通用一点，可以传递 key 作为判断依据，默认是 excludeLoginPath, 与 route-block 配对使用
  * 如果没有传 key，则表示所有的 pages，如果传递了 key, 则表示通过 key 过滤
  */
-export function getAllPages(key = 'excludeLoginPath') {
+export function getAllPages(key?: string) {
   // 这里处理主包
-  const mainPages = pages
+  const mainPages = (pages as PageMetaDatum[])
     .filter(page => !key || page[key])
     .map(page => ({
       ...page,
@@ -79,14 +82,14 @@ export function getAllPages(key = 'excludeLoginPath') {
     }))
 
   // 这里处理分包
-  const subPages: any[] = []
-  subPackages.forEach((subPageObj) => {
+  const subPages: PageMetaDatum[] = []
+  ;(subPackages as SubPackages).forEach((subPageObj) => {
     // console.log(subPageObj)
     const { root } = subPageObj
 
     subPageObj.pages
       .filter(page => !key || page[key])
-      .forEach((page: { path: string } & Record<string, any>) => {
+      .forEach((page) => {
         subPages.push({
           ...page,
           path: `/${root}/${page.path}`,
@@ -100,14 +103,14 @@ export function getAllPages(key = 'excludeLoginPath') {
 
 export function getCurrentPageI18nKey() {
   const routeObj = currRoute()
-  const currPage = pages.find(page => `/${page.path}` === routeObj.path)
+  const currPage = (pages as PageMetaDatum[]).find(page => `/${page.path}` === routeObj.path)
   if (!currPage) {
     console.warn('路由不正确')
     return ''
   }
   console.log(currPage)
   console.log(currPage.style.navigationBarTitleText)
-  return currPage.style.navigationBarTitleText
+  return currPage.style?.navigationBarTitleText || ''
 }
 
 /**
@@ -153,4 +156,4 @@ export const isDoubleTokenMode = import.meta.env.VITE_AUTH_MODE === 'double'
  * 首页路径，通过 page.json 里面的 type 为 home 的页面获取，如果没有，则默认是第一个页面
  * 通常为 /pages/index/index
  */
-export const HOME_PAGE = `/${pages.find(page => page.type === 'home')?.path || pages[0].path}`
+export const HOME_PAGE = `/${(pages as PageMetaDatum[]).find(page => page.type === 'home')?.path || (pages as PageMetaDatum[])[0].path}`

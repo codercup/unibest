@@ -7,7 +7,7 @@ import { isMp } from '@uni-helper/uni-env'
 import { useTokenStore } from '@/store/token'
 import { isPageTabbar, tabbarStore } from '@/tabbar/store'
 import { getAllPages, getLastPage, HOME_PAGE, parseUrlToObj } from '@/utils/index'
-import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_ENABLE_IN_MP } from './config'
+import { EXCLUDE_LOGIN_PATH_LIST, isNeedLoginMode, LOGIN_PAGE, LOGIN_PAGE_ENABLE_IN_MP, NOT_FOUND_PAGE } from './config'
 
 export const FG_LOG_ENABLE = false
 export function judgeIsExcludePath(path: string) {
@@ -41,6 +41,13 @@ export const navigateToInterceptor = {
       const normalizedCurrentPath = currentPath.startsWith('/') ? currentPath : `/${currentPath}`
       const baseDir = normalizedCurrentPath.substring(0, normalizedCurrentPath.lastIndexOf('/'))
       path = `${baseDir}/${path}`
+    }
+
+    // 处理路由不存在的情况
+    if (getAllPages().every(page => page.path !== path)) {
+      console.warn('路由不存在:', path)
+      uni.navigateTo({ url: NOT_FOUND_PAGE })
+      return false // 明确表示阻止原路由继续执行
     }
 
     // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
@@ -104,9 +111,9 @@ export const navigateToInterceptor = {
         uni.navigateTo({ url: redirectUrl })
         return false // 修改为false，阻止原路由继续执行
       }
+      return true // 明确表示允许路由继续执行
     }
     // #endregion 2/2 默认不需要登录的情况(黑名单策略) ---------------------------
-    return true // 明确表示允许路由继续执行
   },
 }
 
