@@ -2,7 +2,6 @@
 import { isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb } from '@uni-helper/uni-env'
 import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store'
-import { tabbarStore } from '@/tabbar/store'
 import RequestOpenApiComp from './components/request-openapi.vue'
 import RequestComp from './components/request.vue'
 import VBindCss from './components/VBindCss.vue'
@@ -41,21 +40,11 @@ function logout() {
   })
 }
 
-function gotoTabbar() {
-  uni.switchTab({
-    url: '/pages/index/index',
-  })
-}
 function gotoScroll() {
   uni.navigateTo({
     url: '/pages-sub/demo/scroll',
   })
 }
-// #region setTabbarBadge
-function setTabbarBadge() {
-  tabbarStore.setTabbarItemBadge(1, 100)
-}
-// #endregion
 
 function gotoAlova() {
   uni.navigateTo({
@@ -114,9 +103,6 @@ onShow(() => {
         点击退出登录
       </button>
     </view>
-    <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
-      设置tabbarBadge
-    </button>
     <RequestOpenApiComp />
     <RequestComp />
     <VBindCss />
@@ -130,11 +116,6 @@ onShow(() => {
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
         前往 alova 示例页面
-      </button>
-    </view>
-    <view class="text-center">
-      <button type="primary" size="mini" class="w-160px" @click="gotoTabbar">
-        切换tabbar
       </button>
     </view>
     <view class="text-center">
