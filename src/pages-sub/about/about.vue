@@ -28,7 +28,7 @@ function gotoLogin() {
     return
   }
   uni.navigateTo({
-    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
+    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages-sub/about/about?a=1&b=2')}`,
   })
 }
 function logout() {

@@ -61,10 +61,11 @@ async function doLogin() {
     // })
   }
   else {
-    console.log('redirectTo:', path)
-    uni.redirectTo({
-      url: path,
-    })
+    // 自己决定是 redirectTo 还是 navigateBack
+    // uni.redirectTo({
+    //   url: path,
+    // })
+    uni.navigateBack()
   }
 }
 </script>
