@@ -1,8 +1,8 @@
 <template>
   <view class="p-4 text-center">
-    <wd-button @click="run">
+    <button type="primary" size="mini" class="w-160px" @click="run">
       选择图片并上传
-    </wd-button>
+    </button>
     <view v-if="loading" class="h-10 text-blue">
       上传...
     </view>
@@ -13,7 +13,7 @@
       <view class="m-2">
         {{ data }}
       </view>
-      <view class="h-80 w-full">
+      <view class="m-auto h-40 max-w-40">
         <image v-if="data" :src="data.url" mode="scaleToFill" />
       </view>
     </template>
