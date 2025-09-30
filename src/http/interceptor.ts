@@ -47,7 +47,6 @@ const httpInterceptor = {
     // 2. （可选）添加小程序端请求头标识
     options.header = {
       ...options.header,
-      'Content-Type': 'application/json; charset=utf-8',
     }
     // 3. 添加 token 请求头标识
     const tokenStore = useTokenStore()
