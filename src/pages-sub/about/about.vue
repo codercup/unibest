@@ -4,6 +4,7 @@ import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store'
 import RequestOpenApiComp from './components/request-openapi.vue'
 import RequestComp from './components/request.vue'
+import UploadComp from './components/Upload.vue'
 import VBindCss from './components/VBindCss.vue'
 import I18nComp from './i18n.vue'
 
@@ -116,6 +117,7 @@ onShow(() => {
     </view>
     <RequestOpenApiComp />
     <RequestComp />
+    <UploadComp />
     <VBindCss />
     <view class="mb-6 h-1px bg-#eee" />
     <view class="mb-2 text-center">
