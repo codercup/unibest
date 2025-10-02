@@ -160,10 +160,6 @@ const pages = {
         pagePath: 'pages/index/index',
       },
       {
-        text: '关于',
-        pagePath: 'pages/about/about',
-      },
-      {
         text: '我的',
         pagePath: 'pages/me/me',
       },
@@ -176,35 +172,6 @@ const pages = {
       style: {
         navigationStyle: 'custom',
         navigationBarTitleText: '首页',
-      },
-    },
-    {
-      path: 'pages/about/about',
-      type: 'page',
-      style: {
-        navigationBarTitleText: '关于',
-      },
-      excludeLoginPath: false,
-    },
-    {
-      path: 'pages/about/alova',
-      type: 'page',
-      style: {
-        navigationBarTitleText: 'Alova 演示',
-      },
-    },
-    {
-      path: 'pages/login/login',
-      type: 'page',
-      style: {
-        navigationBarTitleText: '登录',
-      },
-    },
-    {
-      path: 'pages/login/register',
-      type: 'page',
-      style: {
-        navigationBarTitleText: '注册',
       },
     },
     {

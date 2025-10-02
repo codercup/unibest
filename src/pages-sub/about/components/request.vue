@@ -37,7 +37,7 @@ function reset() {
       pages 里面的 vue 文件会扫描成页面，将自动添加到 pages.json 里面。
     </view>
     <view class="my-2 text-green-400">
-      但是 pages/components 里面的 vue 不会。
+      但是 components 里面的 vue 不会。
     </view>
 
     <view class="my-4 text-center">
