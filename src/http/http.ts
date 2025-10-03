@@ -21,18 +21,13 @@ export function http<T>(options: CustomRequestOptions) {
       // #endif
       // 响应成功
       success: async (res) => {
-        // 状态码 2xx，参考 axios 的设计
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          // 2.1  处理业务逻辑错误
-          const { code, data, message, msg } = res.data as IResponse<T>
-          // 0和200当做成功都很普遍，这里直接兼容两者，见 ResultEnum
-          if (code !== ResultEnum.Success0 && code !== ResultEnum.Success200) {
-            throw new Error(`请求错误[${code}]：${message || msg}`)
-          }
-          return resolve(data as T)
-        }
-        const resData: IResData<T> = res.data as IResData<T>
-        if ((res.statusCode === 401) || (resData.code === 401)) {
+        const responseData = res.data as IResponse<T>
+        const { code } = responseData
+
+        // 检查是否是401错误（包括HTTP状态码401或业务码401）
+        const isTokenExpired = res.statusCode === 401 || code === 401
+
+        if (isTokenExpired) {
           const tokenStore = useTokenStore()
           if (!isDoubleTokenMode) {
             // 未启用双token策略，清理用户信息，跳转到登录页
@@ -40,16 +35,18 @@ export function http<T>(options: CustomRequestOptions) {
             uni.navigateTo({ url: LOGIN_PAGE })
             return reject(res)
           }
+
           /* -------- 无感刷新 token ----------- */
           const { refreshToken } = tokenStore.tokenInfo as IDoubleTokenRes || {}
           // token 失效的，且有刷新 token 的，才放到请求队列里
-          if ((res.statusCode === 401 || resData.code === 401) && refreshToken) {
+          if (refreshToken) {
             taskQueue.push(() => {
               resolve(http<T>(options))
             })
           }
+
           // 如果有 refreshToken 且未在刷新中，发起刷新 token 请求
-          if ((res.statusCode === 401 || resData.code === 401) && refreshToken && !refreshing) {
+          if (refreshToken && !refreshing) {
             refreshing = true
             try {
               // 发起刷新 token 请求（使用 store 的 refreshToken 方法）
@@ -91,16 +88,26 @@ export function http<T>(options: CustomRequestOptions) {
               taskQueue = []
             }
           }
+
+          return reject(res)
         }
-        else {
-          // 其他错误 -> 根据后端错误信息轻提示
-          !options.hideErrorToast
-          && uni.showToast({
-            icon: 'none',
-            title: (res.data as IResData<T>).msg || '请求错误',
-          })
-          reject(res)
+
+        // 处理其他成功状态（HTTP状态码200-299）
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          // 处理业务逻辑错误
+          if (code !== ResultEnum.Success0 && code !== ResultEnum.Success200) {
+            throw new Error(`请求错误[${code}]：${responseData.message || responseData.msg}`)
+          }
+          return resolve(responseData.data as T)
         }
+
+        // 处理其他错误
+        !options.hideErrorToast
+        && uni.showToast({
+          icon: 'none',
+          title: (res.data as any).msg || '请求错误',
+        })
+        reject(res)
       },
       // 响应失败
       fail(err) {
