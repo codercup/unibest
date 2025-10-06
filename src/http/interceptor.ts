@@ -1,7 +1,6 @@
 import type { CustomRequestOptions } from '@/http/types'
 import { useTokenStore } from '@/store'
 import { getEnvBaseUrl } from '@/utils'
-import { platform } from '@/utils/platform'
 import { stringifyQuery } from './tools/queryString'
 
 // 请求基准地址
@@ -11,6 +10,11 @@ const baseUrl = getEnvBaseUrl()
 const httpInterceptor = {
   // 拦截前触发
   invoke(options: CustomRequestOptions) {
+    // 如果您使用了alova，则请把下面的代码放开注释
+    // alova 执行流程：alova beforeRequest --> 本拦截器 --> alova responded
+    // return options
+
+    // 非 alova 请求，正常执行
     // 接口请求支持通过 query 参数配置 queryString
     if (options.query) {
       const queryStr = stringifyQuery(options.query)
@@ -43,8 +47,6 @@ const httpInterceptor = {
     // 2. （可选）添加小程序端请求头标识
     options.header = {
       ...options.header,
-      'Content-Type': 'application/json; charset=utf-8',
-      platform, // 可选，与 uniapp 定义的平台一致，告诉后台来源
     }
     // 3. 添加 token 请求头标识
     const tokenStore = useTokenStore()

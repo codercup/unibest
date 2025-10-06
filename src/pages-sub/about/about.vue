@@ -2,8 +2,9 @@
 import { isApp, isAppAndroid, isAppHarmony, isAppIOS, isAppPlus, isH5, isMpWeixin, isWeb } from '@uni-helper/uni-env'
 import { LOGIN_PAGE } from '@/router/config'
 import { useTokenStore } from '@/store'
-import { tabbarStore } from '@/tabbar/store'
+import RequestOpenApiComp from './components/request-openapi.vue'
 import RequestComp from './components/request.vue'
+import UploadComp from './components/Upload.vue'
 import VBindCss from './components/VBindCss.vue'
 
 definePage({
@@ -27,7 +28,7 @@ function gotoLogin() {
     return
   }
   uni.navigateTo({
-    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages/about/about?a=1&b=2')}`,
+    url: `${LOGIN_PAGE}?redirect=${encodeURIComponent('/pages-sub/about/about?a=1&b=2')}`,
   })
 }
 function logout() {
@@ -40,20 +41,15 @@ function logout() {
   })
 }
 
-function gotoTabbar() {
-  uni.switchTab({
-    url: '/pages/index/index',
+function gotoScroll() {
+  uni.navigateTo({
+    url: '/pages-sub/demo/scroll',
   })
 }
-// #region setTabbarBadge
-function setTabbarBadge() {
-  tabbarStore.setTabbarItemBadge(1, 100)
-}
-// #endregion
 
 function gotoAlova() {
   uni.navigateTo({
-    url: '/pages/about/alova',
+    url: '/pages-sub/about/alova',
   })
 }
 function gotoSubPage() {
@@ -108,20 +104,20 @@ onShow(() => {
         点击退出登录
       </button>
     </view>
-    <button class="mt-4 w-60 text-center" @click="setTabbarBadge">
-      设置tabbarBadge
-    </button>
+    <RequestOpenApiComp />
     <RequestComp />
+    <UploadComp />
     <VBindCss />
     <view class="mb-6 h-1px bg-#eee" />
+    <view class="mb-2 text-center">
+      <button type="primary" size="mini" class="w-240px" @click="gotoScroll">
+        下拉刷新和下拉加载更多
+      </button>
+      <view>简单hooks（非z-paging组件）</view>
+    </view>
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
         前往 alova 示例页面
-      </button>
-    </view>
-    <view class="text-center">
-      <button type="primary" size="mini" class="w-160px" @click="gotoTabbar">
-        切换tabbar
       </button>
     </view>
     <view class="text-center">

@@ -25,6 +25,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig, loadEnv } from 'vite'
 import ViteRestart from 'vite-plugin-restart'
 import openDevTools from './scripts/open-dev-tools'
+import { createCopyNativeResourcesPlugin } from './vite-plugins/copy-native-resources'
+import syncManifestPlugin from './vite-plugins/sync-manifest-plugins'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -54,6 +56,7 @@ export default defineConfig(({ command, mode }) => {
     VITE_APP_PUBLIC_BASE,
     VITE_APP_PROXY_ENABLE,
     VITE_APP_PROXY_PREFIX,
+    VITE_COPY_NATIVE_RES_ENABLE,
   } = env
   console.log('环境变量 env -> ', env)
 
@@ -63,9 +66,12 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       UniPages({
         exclude: ['**/components/**/**.*'],
-        // homePage 通过 vue 文件的 route-block 的type="home"来设定
-        // pages 目录为 src/pages，分包目录不能配置在pages目录下
-        subPackages: ['src/pages-sub'], // 是个数组，可以配置多个，但是不能为pages里面的目录
+        // pages 目录为 src/pages，分包目录不能配置在pages目录下！！
+        // 是个数组，可以配置多个，但是不能为pages里面的目录！！
+        subPackages: [
+          'src/pages-fg', // 这个是相对必要的路由，尽量留着（登录页、注册页、404页等）
+          'src/pages-sub', // 这个多为示例代码，参考用的，开发完后注释掉即可（或者直接删除）
+        ],
         dts: 'src/types/uni-pages.d.ts',
       }),
       UniLayouts(),
@@ -123,8 +129,14 @@ export default defineConfig(({ command, mode }) => {
         gzipSize: true,
         brotliSize: true,
       }),
-      // 只有在 app 平台时才启用 copyNativeRes 插件
-      // UNI_PLATFORM === 'app' && copyNativeRes(),
+      // 原生插件资源复制插件 - 仅在 app 平台且启用时生效
+      createCopyNativeResourcesPlugin(
+        UNI_PLATFORM === 'app' && VITE_COPY_NATIVE_RES_ENABLE === 'true',
+        {
+          verbose: mode === 'development', // 开发模式显示详细日志
+        },
+      ),
+      syncManifestPlugin(),
       Components({
         extensions: ['vue'],
         deep: true, // 是否递归扫描子目录，
@@ -138,7 +150,6 @@ export default defineConfig(({ command, mode }) => {
       openDevTools(),
     ],
     define: {
-      __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM),
       __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY_ENABLE),
     },
     css: {

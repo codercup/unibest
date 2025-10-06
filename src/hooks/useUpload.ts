@@ -1,4 +1,7 @@
 import { ref } from 'vue'
+import { getEnvBaseUrl } from '@/utils/index'
+
+const VITE_UPLOAD_BASEURL = `${getEnvBaseUrl()}/upload`
 
 type TfileType = 'image' | 'file'
 type TImage = 'png' | 'jpg' | 'jpeg' | 'webp' | '*'
@@ -52,10 +55,21 @@ export default function useUpload<T extends TfileType>(options: TOptions<T> = {}
       tempFilePath,
       formData,
       onSuccess: (res) => {
-        const { data: _data } = JSON.parse(res)
-        data.value = _data
+        // 修改这里的解析逻辑，适应不同平台的返回格式
+        let parsedData = res
+        try {
+          // 尝试解析为JSON
+          const jsonData = JSON.parse(res)
+          // 检查是否包含data字段
+          parsedData = jsonData.data || jsonData
+        }
+        catch (e) {
+          // 如果解析失败，使用原始数据
+          console.log('Response is not JSON, using raw data:', res)
+        }
+        data.value = parsedData
         // console.log('上传成功', res)
-        success?.(_data)
+        success?.(parsedData)
       },
       onError: (err) => {
         error.value = err
@@ -135,7 +149,7 @@ async function uploadFile({
   onComplete: () => void
 }) {
   uni.uploadFile({
-    url: '/upload',
+    url: VITE_UPLOAD_BASEURL,
     filePath: tempFilePath,
     name: 'file',
     formData,

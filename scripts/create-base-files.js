@@ -1,4 +1,6 @@
-// 生成 src/manifest.json 和 src/pages.json
+// 基础配置文件生成脚本
+// 此脚本用于生成 src/manifest.json 和 src/pages.json 基础文件
+// 由于这两个配置文件会被添加到 .gitignore 中，因此需要通过此脚本确保项目能正常运行
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -158,10 +160,6 @@ const pages = {
         pagePath: 'pages/index/index',
       },
       {
-        text: '关于',
-        pagePath: 'pages/about/about',
-      },
-      {
         text: '我的',
         pagePath: 'pages/me/me',
       },
@@ -174,35 +172,6 @@ const pages = {
       style: {
         navigationStyle: 'custom',
         navigationBarTitleText: '首页',
-      },
-    },
-    {
-      path: 'pages/about/about',
-      type: 'page',
-      style: {
-        navigationBarTitleText: '关于',
-      },
-      excludeLoginPath: false,
-    },
-    {
-      path: 'pages/about/alova',
-      type: 'page',
-      style: {
-        navigationBarTitleText: 'Alova 演示',
-      },
-    },
-    {
-      path: 'pages/login/login',
-      type: 'page',
-      style: {
-        navigationBarTitleText: '登录',
-      },
-    },
-    {
-      path: 'pages/login/register',
-      type: 'page',
-      style: {
-        navigationBarTitleText: '注册',
       },
     },
     {
@@ -239,6 +208,12 @@ if (!fs.existsSync(srcDir)) {
   fs.mkdirSync(srcDir, { recursive: true })
 }
 
-// 写入文件
-fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
-fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2))
+// 如果 src/manifest.json 不存在，就创建它；存在就不处理，以免覆盖
+if (!fs.existsSync(manifestPath)) {
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+}
+
+// 如果 src/pages.json 不存在，就创建它；存在就不处理，以免覆盖
+if (!fs.existsSync(pagesPath)) {
+  fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2))
+}

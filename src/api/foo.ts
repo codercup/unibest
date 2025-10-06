@@ -21,8 +21,8 @@ export interface IFooItem {
 }
 
 /** GET 请求 */
-export function getFooAPI(name: string) {
-  return http.get<IFooItem>('/foo', { name })
+export async function getFooAPI(name: string) {
+  return await http.get<IFooItem>('/foo', { name })
 }
 /** GET 请求；支持 传递 header 的范例 */
 export function getFooAPI2(name: string) {
@@ -35,9 +35,9 @@ export function postFooAPI(name: string) {
 }
 /** POST 请求；需要传递 query 参数的范例；微信小程序经常有同时需要query参数和body参数的场景 */
 export function postFooAPI2(name: string) {
-  return http.post<IFooItem>('/foo', { name })
+  return http.post<IFooItem>('/foo', { name }, { a: 1, b: 2 })
 }
 /** POST 请求；支持 传递 header 的范例 */
 export function postFooAPI3(name: string) {
-  return http.post<IFooItem>('/foo', { name }, { name }, { 'Content-Type-100': '100' })
+  return http.post<IFooItem>('/foo', { name }, { a: 1, b: 2 }, { 'Content-Type-100': '100' })
 }
