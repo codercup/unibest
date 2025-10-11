@@ -1,4 +1,4 @@
-import { createPinia } from 'pinia'
+import { createPinia, setActivePinia } from 'pinia'
 import { createPersistedState } from 'pinia-plugin-persistedstate' // 数据持久化
 
 const store = createPinia()
@@ -10,6 +10,7 @@ store.use(
     },
   }),
 )
+setActivePinia(store)
 
 export default store
 
