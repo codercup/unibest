@@ -91,7 +91,6 @@
     "init-husky": "git init && husky",
     "init-baseFile": "node ./scripts/create-base-files.js",
     "prepare": "pnpm init-husky & pnpm init-baseFile",
-    "docker:prepare": "pnpm init-baseFile",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
