@@ -88,8 +88,10 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "type-check": "vue-tsc --noEmit",
     "openapi": "openapi-ts",
-    "prepare": "git init && husky && node ./scripts/create-base-files.js",
-    "docker:prepare": "node ./scripts/create-base-files.js",
+    "init-husky": "git init && husky",
+    "init-baseFile": "node ./scripts/create-base-files.js",
+    "prepare": "pnpm init-husky & pnpm init-baseFile",
+    "docker:prepare": "pnpm init-baseFile",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
