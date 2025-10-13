@@ -39,10 +39,25 @@ function handleClick(index: number) {
     uni.navigateTo({ url })
   }
 }
-// #ifndef MP-WEIXIN
+// #ifndef MP-WEIXIN || MP-ALIPAY
 // 因为有了 custom:true， 微信里面不需要多余的hide操作
 onLoad(() => {
   // 解决原生 tabBar 未隐藏导致有2个 tabBar 的问题
+  needHideNativeTabbar
+  && uni.hideTabBar({
+    fail(err) {
+      console.log('hideTabBar fail: ', err)
+    },
+    success(res) {
+      // console.log('hideTabBar success: ', res)
+    },
+  })
+})
+// #endif
+
+// #ifdef MP-ALIPAY
+onMounted(() => {
+  // 解决支付宝自定义tabbar 未隐藏导致有2个 tabBar 的问题; 注意支付宝很特别，需要在 onMounted 钩子调用
   needHideNativeTabbar
   && uni.hideTabBar({
     fail(err) {
