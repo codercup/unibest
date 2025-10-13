@@ -58,7 +58,7 @@ onLoad(() => {
 // #ifdef MP-ALIPAY
 onMounted(() => {
   // 解决支付宝自定义tabbar 未隐藏导致有2个 tabBar 的问题; 注意支付宝很特别，需要在 onMounted 钩子调用
-  needHideNativeTabbar
+  customTabbarEnable // 另外，支付宝里面，只要是 customTabbar 都需要隐藏
   && uni.hideTabBar({
     fail(err) {
       console.log('hideTabBar fail: ', err)
