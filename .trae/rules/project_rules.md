@@ -23,10 +23,12 @@
 - `src/http/` - HTTP 请求封装
 - `src/store/` - 状态管理
 - `src/tabbar/` - 底部导航栏
+- `src/App.ku.vue` - 全局根组件（类似 App.vue 里面的 template作用）
 
 ## 开发命令
 - `pnpm dev` - 开发 H5 版本
 - `pnpm dev:mp` - 开发微信小程序
+- `pnpm dev:mp-alipay` - 开发支付宝小程序(含钉钉)
 - `pnpm dev:app` - 开发 APP 版本
 - `pnpm build` - 构建生产版本
 
@@ -34,7 +36,8 @@
 - 使用 Composition API 和 `<script setup>` 语法
 - 组件文件使用 PascalCase 命名
 - 页面文件放在 `src/pages/` 目录下
-- 组件文件放在 `src/components/` 目录下
+- 全局组件文件放在 `src/components/` 目录下
+- 局部组件文件放在页面的 `/components/` 目录下
 
 ## TypeScript 规范
 - 严格使用 TypeScript，避免使用 `any` 类型
@@ -50,24 +53,25 @@
 
 ## UnoCSS 原子化 CSS
 - 项目使用 UnoCSS 作为原子化 CSS 框架
-- 配置在 [uno.config.ts](mdc:uno.config.ts)
+- 配置在 [uno.config.ts]
 - 支持预设和自定义规则
 - 优先使用原子化类名，减少自定义 CSS
 
 ## Vue SFC 组件规范
-- `<script setup>` 标签必须是第一个子元素
+- `<script setup lang="ts">` 标签必须是第一个子元素
 - `<template>` 标签必须是第二个子元素
 - `<style scoped>` 标签必须是最后一个子元素（因为推荐使用原子化类名，所以很可能没有）
 
 ## 页面开发
-- 页面文件放在 [src/pages/](mdc:src/pages/) 目录下
+- 页面文件放在 [src/pages/]目录下
 - 使用约定式路由，文件名即路由路径
-- 页面配置在仅需要在 `route-block` 中配置标题等内容即可，会自动生成到 `pages.json` 中
+- 页面配置在仅需要在 宏`definePage` 中配置标题等内容即可，会自动生成到 `pages.json` 中
 
 ## 组件开发
-- 组件文件放在 [src/components/](mdc:src/components/) 目录下
+- 全局组件文件放在 `src/components/` 目录下
+- 局部组件文件放在页面的 `/components/` 目录下
 - 使用 uni-app 内置组件和第三方组件库
-- 支持 wot-design-uni\uv-ui\uview-plus 等多种第三方组件库 和 z-paging 组件
+- 支持 wot-ui\uview-pro\uv-ui\sard-ui\uview-plus 等多种第三方组件库 和 z-paging 组件
 - 自定义组件遵循 uni-app 组件规范
 
 ## 平台适配

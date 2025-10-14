@@ -4,10 +4,11 @@
 - 使用 Composition API 和 `<script setup>` 语法
 - 组件文件使用 PascalCase 命名
 - 页面文件放在 `src/pages/` 目录下
-- 组件文件放在 `src/components/` 目录下
+- 全局组件文件放在 `src/components/` 目录下
+- 局部组件文件放在页面的 `/components/` 目录下
 
 ## Vue SFC 组件规范
-- `<script setup>` 标签必须是第一个子元素
+- `<script setup lang="ts">` 标签必须是第一个子元素
 - `<template>` 标签必须是第二个子元素
 - `<style scoped>` 标签必须是最后一个子元素（因为推荐使用原子化类名，所以很可能没有）
 
