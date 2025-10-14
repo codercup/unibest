@@ -6,7 +6,7 @@ import { useScroll } from '@/hooks/useScroll'
 
 definePage({
   style: {
-    navigationBarTitleText: '下拉刷新和下拉加载更多',
+    navigationBarTitleText: '上拉刷新和下拉加载更多',
     enablePullDownRefresh: true,
     onReachBottomDistance: 100,
   },
