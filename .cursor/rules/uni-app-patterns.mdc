@@ -3,12 +3,12 @@
 ## 页面开发
 - 页面文件放在 [src/pages/](mdc:src/pages/) 目录下
 - 使用约定式路由，文件名即路由路径
-- 页面配置在仅需要在 `route-block` 中配置标题等内容即可，会自动生成到 `pages.json` 中
+- 页面配置在仅需要在 宏`definePage` 中配置标题等内容即可，会自动生成到 `pages.json` 中
 
 ## 组件开发
-- 组件文件放在 [src/components/](mdc:src/components/) 目录下
+- 组件文件放在 [src/components/](mdc:src/components/) 或者 [src/pages/xx/components/](mdc:src/pages/xx/components/) 目录下
 - 使用 uni-app 内置组件和第三方组件库
-- 支持 wot-design-uni\uv-ui\uview-plus 等多种第三方组件库 和 z-paging 组件
+- 支持 wot-ui\uview-pro\uv-ui\sard-ui\uview-plus 等多种第三方组件库 和 z-paging 组件
 - 自定义组件遵循 uni-app 组件规范
 
 ## 平台适配
