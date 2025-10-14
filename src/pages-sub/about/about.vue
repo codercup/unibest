@@ -109,11 +109,10 @@ onShow(() => {
     <UploadComp />
     <VBindCss />
     <view class="mb-6 h-1px bg-#eee" />
-    <view class="mb-2 text-center">
+    <view class="text-center">
       <button type="primary" size="mini" class="w-240px" @click="gotoScroll">
-        下拉刷新和下拉加载更多
+        前往上拉和下拉加载更多页面
       </button>
-      <view>简单hooks（非z-paging组件）</view>
     </view>
     <view class="text-center">
       <button type="primary" size="mini" class="w-160px" @click="gotoAlova">
