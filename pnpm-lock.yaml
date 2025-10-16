@@ -87,6 +87,9 @@ importers:
       vue:
         specifier: ^3.4.21
         version: 3.4.21(typescript@5.8.3)
+      vue-router:
+        specifier: 4.5.1
+        version: 4.5.1(vue@3.4.21(typescript@5.8.3))
       wot-design-uni:
         specifier: ^1.12.4
         version: 1.12.4(vue@3.4.21(typescript@5.8.3))
