@@ -100,15 +100,8 @@ export function http<T>(options: CustomRequestOptions) {
               icon: 'none',
               title: responseData.msg || responseData.message || '请求错误',
             })
-            //这里不直接抛出错误，会中断promise链条，无法进入finally，在下方return resolve(responseData as T)继续执行，在接口调用可通过判断code来处理业务逻辑
-            //async getSampleEnums() {
-            //  const res = await getSampleEnumsApi();
-            //  if (res.code === ResultEnum.Success200) {
-            //    // 处理成功
-            //  }
-            //},
-            //throw new Error(`请求错误[${code}]：${responseData.message || responseData.msg}`)
           }
+          // TODO: check 如果不满足业务要求，也可以改为 reject(responseData as T)
           return resolve(responseData as T)
         }
 
