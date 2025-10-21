@@ -104,10 +104,24 @@ export function getAllPages(key?: string) {
 
 export function getCurrentPageI18nKey() {
   const routeObj = currRoute()
-  const currPage = (pages as PageMetaDatum[]).find(page => `/${page.path}` === routeObj.path)
+
+  let currPage = (pages as PageMetaDatum[]).find(page => `/${page.path}` === routeObj.path)
   if (!currPage) {
-    console.warn('路由不正确')
-    return ''
+    // 在主包中找不到对应的页面，则在分包中找
+    const allSubPages: PageMetaDatum[] = []
+    subPackages?.forEach((config) => {
+      config.pages?.forEach((cur) => {
+        allSubPages.push({
+          ...cur,
+          path: `/${config.root}/${cur.path}`,
+        })
+      })
+    })
+    currPage = allSubPages.find(page => page.path === routeObj.path)
+    if (!currPage) {
+      console.warn('路由不正确')
+      return ''
+    }
   }
   console.log(currPage)
   console.log(currPage.style.navigationBarTitleText)
