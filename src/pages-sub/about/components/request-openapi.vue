@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { UserItem } from '@/service'
+import type { InfoUsingGetResponse } from '@/service'
 import { infoUsingGet, listAllUsingGet } from '@/service'
 
 const loading = ref(false)
 const error = ref<Error | null>(null)
-const data = ref<UserItem>()
+const userInfo = ref<InfoUsingGetResponse>()
 
 // openapi 请求示例
 async function getUserInfo() {
@@ -12,12 +12,12 @@ async function getUserInfo() {
     loading.value = true
     const res = await infoUsingGet({})
     console.log(res)
-    data.value = res
+    userInfo.value = res
     error.value = null
   }
   catch (err) {
     error.value = err as Error
-    data.value = null
+    userInfo.value = null
   }
   finally {
     loading.value = false
@@ -25,7 +25,7 @@ async function getUserInfo() {
 }
 
 // openapi + useRequest 请求示例
-const { data: data2, loading: loading2, run } = useRequest(() => listAllUsingGet({}), {
+const { data: userList, loading: loading2, run } = useRequest(() => listAllUsingGet({}), {
   immediate: false,
 })
 </script>
@@ -43,7 +43,7 @@ const { data: data2, loading: loading2, run } = useRequest(() => listAllUsingGet
         请求数据如下
       </view>
       <view class="text-green leading-8">
-        {{ JSON.stringify(data) }}
+        {{ JSON.stringify(userInfo) }}
       </view>
     </view>
     <view class="my-4 text-center">
@@ -58,7 +58,7 @@ const { data: data2, loading: loading2, run } = useRequest(() => listAllUsingGet
       请求数据如下
     </view>
     <view class="text-green leading-8">
-      {{ JSON.stringify(data2) }}
+      {{ JSON.stringify(userList) }}
     </view>
   </view>
 </template>
