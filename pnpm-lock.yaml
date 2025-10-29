@@ -203,8 +203,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       openapi-ts-request:
-        specifier: ^1.6.7
-        version: 1.7.0(@types/node@20.19.11)(@vue/compiler-sfc@3.5.22)(chokidar@3.6.0)(typescript@5.8.3)
+        specifier: ^1.10.0
+        version: 1.10.0(@types/node@20.19.11)(@vue/compiler-sfc@3.5.22)(chokidar@3.6.0)(typescript@5.8.3)
       postcss:
         specifier: ^8.4.49
         version: 8.5.6
@@ -4936,8 +4936,8 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  openapi-ts-request@1.7.0:
-    resolution: {integrity: sha512-yXmMxcoIbqPlf1GYjWfEK6fCnsUjDV6Wt5gboAOTrfoQXjG2YCwcGKUP3Q5seRoFHHq/Fg96xNFrGf3lHWXuaQ==}
+  openapi-ts-request@1.10.0:
+    resolution: {integrity: sha512-PkyEMqGXaLirDtomEi8ThocGapeR74D16Bb2O9KMTRHQmm4EvlfXCofe4KCycBxWQUNARuodZVpZrSS2OFZ6ng==}
     engines: {node: '>=18.0.0', pnpm: '>=9'}
     hasBin: true
 
@@ -8864,9 +8864,9 @@ snapshots:
   '@trivago/prettier-plugin-sort-imports@5.2.2(@vue/compiler-sfc@3.5.22)(prettier@3.6.2)':
     dependencies:
       '@babel/generator': 7.28.3
-      '@babel/parser': 7.28.3
-      '@babel/traverse': 7.28.3
-      '@babel/types': 7.28.2
+      '@babel/parser': 7.28.4
+      '@babel/traverse': 7.28.4
+      '@babel/types': 7.28.4
       javascript-natural-sort: 0.7.1
       lodash: 4.17.21
       prettier: 3.6.2
@@ -8911,7 +8911,7 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 20.19.11
+      '@types/node': 20.19.20
       '@types/responselike': 1.0.3
 
   '@types/conventional-commits-parser@5.0.1':
@@ -8944,7 +8944,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 20.19.11
+      '@types/node': 20.19.20
 
   '@types/mdast@4.0.4':
     dependencies:
@@ -8968,7 +8968,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 20.19.11
+      '@types/node': 20.19.20
 
   '@types/retry@0.12.5': {}
 
@@ -12456,7 +12456,7 @@ snapshots:
 
   mockjs@1.1.0:
     dependencies:
-      commander: 12.1.0
+      commander: 13.1.0
 
   module-alias@2.2.3: {}
 
@@ -12606,8 +12606,9 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openapi-ts-request@1.7.0(@types/node@20.19.11)(@vue/compiler-sfc@3.5.22)(chokidar@3.6.0)(typescript@5.8.3):
+  openapi-ts-request@1.10.0(@types/node@20.19.11)(@vue/compiler-sfc@3.5.22)(chokidar@3.6.0)(typescript@5.8.3):
     dependencies:
+      '@clack/prompts': 0.11.0
       '@prettier/sync': 0.6.1(prettier@3.6.2)
       '@trivago/prettier-plugin-sort-imports': 5.2.2(@vue/compiler-sfc@3.5.22)(prettier@3.6.2)
       axios: 1.11.0
