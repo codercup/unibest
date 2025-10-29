@@ -101,8 +101,7 @@ export function http<T>(options: CustomRequestOptions) {
               title: responseData.msg || responseData.message || '请求错误',
             })
           }
-          // TODO: check 如果不满足业务要求，也可以改为 reject(responseData as T)
-          return resolve(responseData as T)
+          return resolve(responseData.data)
         }
 
         // 处理其他错误
