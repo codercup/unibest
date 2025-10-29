@@ -1,4 +1,4 @@
-import type { CustomTabBarItem, CustomTabBarItemBadge } from './config'
+import type { CustomTabBarItem, CustomTabBarItemBadge } from './types'
 import { reactive } from 'vue'
 
 import { isNeedLoginMode } from '@/router/config'

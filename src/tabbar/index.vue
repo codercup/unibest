@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // i-carbon-code
-import type { CustomTabBarItem } from './config'
+import type { CustomTabBarItem } from './types'
 import { customTabbarEnable, needHideNativeTabbar, tabbarCacheEnable } from './config'
 import { tabbarList, tabbarStore } from './store'
 
