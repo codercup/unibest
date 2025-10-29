@@ -1,4 +1,5 @@
 import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
+import type { RemoveLeadingSlashFromUnion } from '@/typings'
 
 /**
  * tabbar 选择的策略，更详细的介绍见 tabbar.md 文件
@@ -22,7 +23,9 @@ export const TABBAR_STRATEGY_MAP = {
 // 如果是使用 CUSTOM_TABBAR(2,3)，只需要配置 customTabbarList，nativeTabbarList 不生效
 export const selectedTabbarStrategy = TABBAR_STRATEGY_MAP.CUSTOM_TABBAR_WITH_CACHE
 
-type NativeTabBarItem = TabBar['list'][number]
+type NativeTabBarItem = TabBar['list'][number] & {
+  pagePath: RemoveLeadingSlashFromUnion<_LocationUrl>
+}
 
 // TODO: 2/3. 使用 NATIVE_TABBAR 时，更新下面的 tabbar 配置
 export const nativeTabbarList: NativeTabBarItem[] = [
@@ -45,7 +48,7 @@ export type CustomTabBarItemBadge = number | 'dot'
 
 export interface CustomTabBarItem {
   text: string
-  pagePath: string
+  pagePath: RemoveLeadingSlashFromUnion<_LocationUrl>
   iconType: 'uiLib' | 'unocss' | 'iconfont' | 'image' // 不建议用 image 模式，需要配置2张图
   icon: any // 其实是 string 类型，这里是为了避免 ts 报错 (tabbar/index.vue 里面 uni-icons 那行)
   iconActive?: string // 只有在 image 模式下才需要，传递的是高亮的图片（PS： 不建议用 image 模式）
