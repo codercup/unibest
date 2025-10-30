@@ -3,8 +3,8 @@
     "composite": true,
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"],
       "@img/*": ["./src/static/*"]
