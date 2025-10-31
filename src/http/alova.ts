@@ -4,7 +4,7 @@ import AdapterUniapp from '@alova/adapter-uniapp'
 import { createAlova } from 'alova'
 import { createServerTokenAuthentication } from 'alova/client'
 import VueHook from 'alova/vue'
-import { LOGIN_PAGE } from '@/router/config'
+import { toLoginPage } from '@/utils/toLoginPage'
 import { ContentTypeEnum, ResultEnum, ShowMessage } from './tools/enum'
 
 // 配置动态Tag
@@ -31,7 +31,7 @@ const { onAuthRequired, onResponseRefreshToken } = createServerTokenAuthenticati
       }
       catch (error) {
         // 切换到登录页
-        await uni.reLaunch({ url: LOGIN_PAGE })
+        toLoginPage({ mode: 'reLaunch' })
         throw error
       }
     },
