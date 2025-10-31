@@ -10,7 +10,6 @@
     "uni-helper.uni-highlight-vscode",
     "uni-helper.uni-ui-snippets-vscode",
     "uni-helper.uni-app-snippets-vscode",
-    "streetsidesoftware.code-spell-checker",
-    "christian-kohler.path-intellisense"
+    "streetsidesoftware.code-spell-checker"
   ]
 }
