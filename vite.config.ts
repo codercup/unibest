@@ -188,7 +188,7 @@ export default defineConfig(({ command, mode }) => {
         : undefined,
     },
     esbuild: {
-      drop: VITE_DELETE_CONSOLE === 'true' ? ['console', 'debugger'] : ['debugger'],
+      drop: VITE_DELETE_CONSOLE === 'true' ? ['console', 'debugger'] : [],
     },
     build: {
       sourcemap: false,
