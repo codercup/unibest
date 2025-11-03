@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-ignore
 import request from '@/http/vue-query';
-import { CustomRequestOptions } from '@/http/types';
+import { CustomRequestOptions_ } from '@/http/types';
 
 import * as API from './types';
 
@@ -9,7 +9,7 @@ import * as API from './types';
 export function listAllUsingGet({
   options,
 }: {
-  options?: CustomRequestOptions;
+  options?: CustomRequestOptions_;
 }) {
   return request<API.ListAllUsingGetResponse>('/user/listAll', {
     method: 'GET',
