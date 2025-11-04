@@ -13,19 +13,13 @@ const execPromise = promisify(exec)
 
 // 定义要执行的命令
 const dependencies = [
-  '@dcloudio/uni-app-harmony',
   // TODO: 如果不需要某个平台的小程序，请手动删除或注释掉
-  '@dcloudio/uni-mp-alipay',
   '@dcloudio/uni-mp-baidu',
   '@dcloudio/uni-mp-jd',
   '@dcloudio/uni-mp-kuaishou',
-  '@dcloudio/uni-mp-lark',
   '@dcloudio/uni-mp-qq',
-  '@dcloudio/uni-mp-toutiao',
   '@dcloudio/uni-mp-xhs',
   '@dcloudio/uni-quickapp-webview',
-  // i18n模板要注释掉下面的
-  'vue-i18n',
 ]
 
 /**
