@@ -31,6 +31,10 @@ function gotoScroll() {
     </button>
     <view>
       <RequestComp />
+      <view class="mt-4">
+        本地SVG图标示例
+      </view>
+      <view class="i-my-icons-copyright text-red" />
     </view>
   </view>
 </template>
