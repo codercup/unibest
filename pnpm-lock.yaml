@@ -90,9 +90,6 @@ importers:
       vue-router:
         specifier: 4.5.1
         version: 4.5.1(vue@3.4.21(typescript@5.8.3))
-      wot-design-uni:
-        specifier: ^1.12.4
-        version: 1.12.4(vue@3.4.21(typescript@5.8.3))
       z-paging:
         specifier: 2.8.7
         version: 2.8.7
@@ -6142,12 +6139,6 @@ packages:
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
-
-  wot-design-uni@1.12.4:
-    resolution: {integrity: sha512-GE7hfJ+RKRCiWtEkhoQ5gz3fbwNB69EzLcXiIUPK2gawk9+hp7KescjplcxdxGfeuCJUlhF6wW9VUEe86h/63g==}
-    engines: {HBuilderX: ^3.8.7}
-    peerDependencies:
-      vue: '>=3.2.47'
 
   wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
@@ -13873,10 +13864,6 @@ snapshots:
       isexe: 2.0.0
 
   word-wrap@1.2.5: {}
-
-  wot-design-uni@1.12.4(vue@3.4.21(typescript@5.8.3)):
-    dependencies:
-      vue: 3.4.21(typescript@5.8.3)
 
   wrap-ansi@7.0.0:
     dependencies:
