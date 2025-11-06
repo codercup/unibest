@@ -29,6 +29,7 @@ const pages = {
       },
     },
   ],
+  subPackages: [],
 }
 
 // 使用修复后的 __dirname 来解析文件路径
