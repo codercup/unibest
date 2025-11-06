@@ -92,24 +92,26 @@ export default defineConfig({
       '3xs': ['18rpx', '26rpx'],
     },
   },
-  content: {
-    /**
-     * 解决小程序报错 `./app.wxss(78:2814): unexpected unexpected at pos 5198`
-     * 为什么同时使用include和exclude？虽然看起来多余，但同时配置两者是一种常见的 `防御性编程` 做法。
-       1. 结构变化保障 : 如果未来项目结构发生变化，某些排除目录可能被移动到包含路径下，exclude配置可以确保它们仍被排除
-       2. 明确性 : 明确列出要排除的目录使配置意图更加清晰
-       3. 性能优化 : 避免处理不必要的文件，提高构建性能
-       4. 防止冲突 : 排除第三方库和构建输出目录，避免潜在的CSS冲突
-     */
-    pipeline: {
-      exclude: [
-        'node_modules/**/*',
-        'public/**/*',
-        'dist/**/*',
-      ],
-      include: [
-        './src/**/*',
-      ],
-    },
-  },
+  // windows 系统会报错：[plugin:unocss:transformers:pre] Cannot overwrite a zero-length range - use append Left or prependRight instead.
+  // 去掉下面的就正常了
+  // content: {
+  //   /**
+  //    * 解决小程序报错 `./app.wxss(78:2814): unexpected unexpected at pos 5198`
+  //    * 为什么同时使用include和exclude？虽然看起来多余，但同时配置两者是一种常见的 `防御性编程` 做法。
+  //      1. 结构变化保障 : 如果未来项目结构发生变化，某些排除目录可能被移动到包含路径下，exclude配置可以确保它们仍被排除
+  //      2. 明确性 : 明确列出要排除的目录使配置意图更加清晰
+  //      3. 性能优化 : 避免处理不必要的文件，提高构建性能
+  //      4. 防止冲突 : 排除第三方库和构建输出目录，避免潜在的CSS冲突
+  //    */
+  //   pipeline: {
+  //     exclude: [
+  //       'node_modules/**/*',
+  //       'public/**/*',
+  //       'dist/**/*',
+  //     ],
+  //     include: [
+  //       './src/**/*',
+  //     ],
+  //   },
+  // },
 })
