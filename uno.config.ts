@@ -1,14 +1,14 @@
 import type {
   Preset,
 } from 'unocss'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+
 // https://www.npmjs.com/package/@uni-helper/unocss-preset-uni
 import { presetUni } from '@uni-helper/unocss-preset-uni'
-
 // @see https://unocss.dev/presets/legacy-compat
 import { presetLegacyCompat } from '@unocss/preset-legacy-compat'
 import {
   defineConfig,
-  presetAttributify,
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
@@ -26,9 +26,27 @@ export default defineConfig({
         'display': 'inline-block',
         'vertical-align': 'middle',
       },
+      collections: {
+        // 注册本地 SVG 图标集合, 从本地文件系统加载图标
+        // 在 './src/static/my-icons' 目录下的所有 svg 文件将被注册为图标，
+        // my-icons 是图标集合名称，使用 `i-my-icons-图标名` 调用
+        'my-icons': FileSystemIconLoader(
+          './src/static/my-icons',
+          // 可选的，你可以提供一个 transform 回调来更改每个图标
+          (svg) => {
+            let svgStr = svg
+
+            // 如果 SVG 文件未定义 `fill` 属性，则默认填充 `currentColor`, 这样图标颜色会继承文本颜色，方便在不同场景下适配
+            svgStr = svgStr.includes('fill="') ? svgStr : svgStr.replace(/^<svg /, '<svg fill="currentColor" ')
+
+            // 如果 svg 有 width, 和 height 属性，将这些属性改为 1em，否则无法显示图标
+            svgStr = svgStr.replace(/(<svg.*?width=)"(.*?)"/, '$1"1em"').replace(/(<svg.*?height=)"(.*?)"/, '$1"1em"')
+
+            return svgStr
+          },
+        ),
+      },
     }),
-    // 支持css class属性化
-    presetAttributify(),
     // TODO: check 是否会有别的影响
     // 处理低端安卓机的样式问题
     // 将颜色函数 (rgb()和hsl()) 从空格分隔转换为逗号分隔，更好的兼容性app端，example：
@@ -74,4 +92,26 @@ export default defineConfig({
       '3xs': ['18rpx', '26rpx'],
     },
   },
+  // windows 系统会报错：[plugin:unocss:transformers:pre] Cannot overwrite a zero-length range - use append Left or prependRight instead.
+  // 去掉下面的就正常了
+  // content: {
+  //   /**
+  //    * 解决小程序报错 `./app.wxss(78:2814): unexpected unexpected at pos 5198`
+  //    * 为什么同时使用include和exclude？虽然看起来多余，但同时配置两者是一种常见的 `防御性编程` 做法。
+  //      1. 结构变化保障 : 如果未来项目结构发生变化，某些排除目录可能被移动到包含路径下，exclude配置可以确保它们仍被排除
+  //      2. 明确性 : 明确列出要排除的目录使配置意图更加清晰
+  //      3. 性能优化 : 避免处理不必要的文件，提高构建性能
+  //      4. 防止冲突 : 排除第三方库和构建输出目录，避免潜在的CSS冲突
+  //    */
+  //   pipeline: {
+  //     exclude: [
+  //       'node_modules/**/*',
+  //       'public/**/*',
+  //       'dist/**/*',
+  //     ],
+  //     include: [
+  //       './src/**/*',
+  //     ],
+  //   },
+  // },
 })
