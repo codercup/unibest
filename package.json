@@ -90,6 +90,7 @@
     "openapi": "openapi-ts",
     "init-husky": "git init && husky",
     "init-baseFile": "node ./scripts/create-base-files.js",
+    "init-json": "pnpm init-baseFile",
     "prepare": "pnpm init-husky & pnpm init-baseFile",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
