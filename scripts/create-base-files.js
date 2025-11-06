@@ -42,11 +42,11 @@ if (!fs.existsSync(srcDir)) {
 }
 
 // 如果 src/manifest.json 不存在，就创建它；存在就不处理，以免覆盖
-if (!fs.existsSync(manifestPath)) {
+if (!fs.existsSync(manifestPath) || fs.statSync(manifestPath).size === 0) {
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
 }
 
 // 如果 src/pages.json 不存在，就创建它；存在就不处理，以免覆盖
-if (!fs.existsSync(pagesPath)) {
+if (!fs.existsSync(pagesPath) || fs.statSync(pagesPath).size === 0) {
   fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2))
 }
