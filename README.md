@@ -60,6 +60,11 @@
 - Vue Official>=2.1.10
 - TypeScript>=5.0
 
+## 新版分支 
+- main == base
+- base --> base-i18n
+- base-login --> base-login-i18n
+
 ## &#x1F4C2; 快速开始
 
 执行 `pnpm create unibest` 创建项目
