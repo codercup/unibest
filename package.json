@@ -1,8 +1,8 @@
 {
   "name": "unibest",
   "type": "module",
-  "version": "3.20.0",
-  "unibest-version": "3.20.0",
+  "version": "4.0.0",
+  "unibest-version": "4.0.0",
   "update-time": "2025-11-06",
   "packageManager": "pnpm@10.10.0",
   "description": "unibest - 最好的 uniapp 开发模板",
@@ -122,7 +122,6 @@
     "pinia-plugin-persistedstate": "3.2.1",
     "vue": "^3.4.21",
     "vue-router": "4.5.1",
-    "wot-design-uni": "^1.12.4",
     "z-paging": "2.8.7"
   },
   "devDependencies": {
