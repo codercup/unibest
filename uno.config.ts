@@ -54,6 +54,8 @@ export default defineConfig({
     // `rgba(255 0 0 / 0.5)` -> `rgba(255, 0, 0, 0.5)`
     presetLegacyCompat({
       commaStyleColorFunction: true,
+      legacyColorSpace: true, // by QQ4群-量子蔷薇
+      // @菲鸽 unocss 配置中，建议在 presetLegacyCompat 中添加 legacyColorSpace: true，以去除生成的颜色样式中的 in oklch 关键字，现在发现有些渐变色生成不符合预期
     }) as Preset,
   ],
   transformers: [
