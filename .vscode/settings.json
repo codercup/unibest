@@ -10,7 +10,7 @@
   "scss.validate": false, // 禁用 SCSS 内置验证
   "less.validate": false, // 禁用 LESS 内置验证
 
-  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.tsdk": "node_modules/typescript/lib",
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
