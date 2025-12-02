@@ -87,6 +87,9 @@ importers:
       vue:
         specifier: ^3.4.21
         version: 3.4.21(typescript@5.8.3)
+      vue-i18n:
+        specifier: 9.1.9
+        version: 9.1.9(vue@3.4.21(typescript@5.8.3))
       vue-router:
         specifier: 4.5.1
         version: 4.5.1(vue@3.4.21(typescript@5.8.3))
@@ -155,8 +158,8 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(rollup@4.50.0)
       '@uni-helper/vite-plugin-uni-manifest':
-        specifier: 0.2.8
-        version: 0.2.8(vite@5.2.8(@types/node@20.19.11)(sass@1.77.8)(terser@5.43.1))
+        specifier: 0.2.11
+        version: 0.2.11(vite@5.2.8(@types/node@20.19.11)(sass@1.77.8)(terser@5.43.1))
       '@uni-helper/vite-plugin-uni-pages':
         specifier: 0.3.19
         version: 0.3.19(vite@5.2.8(@types/node@20.19.11)(sass@1.77.8)(terser@5.43.1))
@@ -2223,8 +2226,8 @@ packages:
   '@uni-helper/vite-plugin-uni-layouts@0.1.11':
     resolution: {integrity: sha512-FXdFATBFsHAl7xY9q3KO0EexMRGua/7txIiQTm2rQi1/bXcft4CUXldtuHl9Upq0V6CT47aanmfzcOF5CpHK7Q==}
 
-  '@uni-helper/vite-plugin-uni-manifest@0.2.8':
-    resolution: {integrity: sha512-6QtUcCTkvpR5GAPUxyKlEtm+KYxOk1RSVfdrxlWYW2q7Iws0D7UeNirA4GMuc/SaayEjURlU7cUrS7NceoPCfQ==}
+  '@uni-helper/vite-plugin-uni-manifest@0.2.11':
+    resolution: {integrity: sha512-0qc+XexlyngeC+TukIM4ogjTj8S9FwU1Ab607EgUIuuhaqbhxhPdEIb406VcAF1klRRwKIxBzZWfNoW9fv+AwQ==}
     peerDependencies:
       vite: ^4.0.0 || ^5.0.0 || ^6.0.0
 
@@ -6074,6 +6077,12 @@ packages:
     peerDependencies:
       vue: ^3.4.37
 
+  vue-i18n@9.1.9:
+    resolution: {integrity: sha512-JeRdNVxS2OGp1E+pye5XB6+M6BBkHwAv9C80Q7+kzoMdUDGRna06tjC0vCB/jDX9aWrl5swxOMFcyAr7or8XTA==}
+    engines: {node: '>= 10'}
+    peerDependencies:
+      vue: ^3.0.0
+
   vue-router@4.5.1:
     resolution: {integrity: sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw==}
     peerDependencies:
@@ -9227,7 +9236,7 @@ snapshots:
       - magicast
       - rollup
 
-  '@uni-helper/vite-plugin-uni-manifest@0.2.8(vite@5.2.8(@types/node@20.19.11)(sass@1.77.8)(terser@5.43.1))':
+  '@uni-helper/vite-plugin-uni-manifest@0.2.11(vite@5.2.8(@types/node@20.19.11)(sass@1.77.8)(terser@5.43.1))':
     dependencies:
       c12: 2.0.4
       vite: 5.2.8(@types/node@20.19.11)(sass@1.77.8)(terser@5.43.1)
@@ -10045,7 +10054,7 @@ snapshots:
       defu: 6.1.4
       dotenv: 16.6.1
       giget: 1.2.5
-      jiti: 2.5.1
+      jiti: 2.6.1
       mlly: 1.8.0
       ohash: 2.0.11
       pathe: 2.0.3
@@ -13799,6 +13808,14 @@ snapshots:
 
   vue-flow-layout@0.1.1(vue@3.4.21(typescript@5.8.3)):
     dependencies:
+      vue: 3.4.21(typescript@5.8.3)
+
+  vue-i18n@9.1.9(vue@3.4.21(typescript@5.8.3)):
+    dependencies:
+      '@intlify/core-base': 9.1.9
+      '@intlify/shared': 9.1.9
+      '@intlify/vue-devtools': 9.1.9
+      '@vue/devtools-api': 6.6.4
       vue: 3.4.21(typescript@5.8.3)
 
   vue-router@4.5.1(vue@3.4.21(typescript@5.8.3)):
