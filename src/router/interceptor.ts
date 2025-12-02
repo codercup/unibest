@@ -38,6 +38,12 @@ export const navigateToInterceptor = {
       return false // 明确表示阻止原路由继续执行
     }
 
+    // 插件页面
+    if (url.startsWith('plugin://')) {
+      FG_LOG_ENABLE && console.log('路由拦截器 4: plugin:// 路径 ==>', url)
+      path = url
+    }
+
     // 处理直接进入路由非首页时，tabbarIndex 不正确的问题
     tabbarStore.setAutoCurIdx(path)
   },
