@@ -8,7 +8,7 @@ alwaysApply: true
 ## 项目特点
 - 支持 H5、小程序、APP 多平台开发
 - 使用最新的前端技术栈
-- 内置约定式路由、layout布局、请求封装等功能
+- 内置约定式路由、layout布局、请求封装、登录拦截、自定义tabbar等功能
 - 无需依赖 HBuilderX，支持命令行开发
 
 ## 核心配置文件
@@ -26,9 +26,11 @@ alwaysApply: true
 - `src/http/` - HTTP 请求封装
 - `src/store/` - 状态管理
 - `src/tabbar/` - 底部导航栏
+- `src/App.ku.vue` - 全局根组件（类似 App.vue 里面的 template作用）
 
 ## 开发命令
 - `pnpm dev` - 开发 H5 版本
 - `pnpm dev:mp` - 开发微信小程序
+- `pnpm dev:mp-alipay` - 开发支付宝小程序（含钉钉）
 - `pnpm dev:app` - 开发 APP 版本
 - `pnpm build` - 构建生产版本

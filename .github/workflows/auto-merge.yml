@@ -7,26 +7,8 @@ on:
   workflow_dispatch: # 手动触发
 
 jobs:
-  # merge-to-release:
-  #   name: Merge main into release
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #         token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-  #     - name: Merge main into release
-  #       run: |
-  #         git config user.name "GitHub Actions"
-  #         git config user.email "actions@github.com"
-  #         git checkout release
-  #         git merge main --no-ff -m "Auto merge main into release"
-  #         git push origin release
-
-  merge-to-i18n:
-    name: Merge main into i18n
+  merge-to-base:
+    name: Merge main into base
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -35,154 +17,34 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
 
-      - name: Merge main into i18n
+      - name: Merge main into base
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git checkout i18n
-          git merge main --no-ff -m "Auto merge main into i18n"
-          git push origin i18n
+          git checkout base
+          git merge main --no-ff -m "Auto merge main into base"
+          git push origin base
 
-  merge-to-base-sard-ui:
-    name: Merge main into base-sard-ui
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-      - name: Merge main into base-sard-ui
+      - name: Merge base into base-login
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git checkout base-sard-ui
-          git merge main --no-ff -m "Auto merge main into base-sard-ui"
-          git push origin base-sard-ui
+          git checkout base-login
+          git merge base --no-ff -m "Auto merge base into base-login"
+          git push origin base-login
 
-  merge-to-base-uv-ui:
-    name: Merge main into base-uv-ui
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-      - name: Merge main into base-uv-ui
+      - name: Merge base into base-i18n
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git checkout base-uv-ui
-          git merge main --no-ff -m "Auto merge main into base-uv-ui"
-          git push origin base-uv-ui
+          git checkout base-i18n
+          git merge base --no-ff -m "Auto merge base into base-i18n"
+          git push origin base-i18n
 
-  merge-to-base-uview-pro:
-    name: Merge main into base-uview-pro
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-      - name: Merge main into base-uview-pro
+      - name: Merge base into base-login-i18n
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git checkout base-uview-pro
-          git merge main --no-ff -m "Auto merge main into base-uview-pro"
-          git push origin base-uview-pro
-
-  merge-to-base-uview-plus:
-    name: Merge main into base-uview-plus
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-      - name: Merge main into base-uview-plus
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout base-uview-plus
-          git merge main --no-ff -m "Auto merge main into base-uview-plus"
-          git push origin base-uview-plus
-
-  # merge-to-base-tm-ui:
-  #   name: Merge main into base-tm-ui
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #         token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-  #     - name: Merge main into base-tm-ui
-  #       run: |
-  #         git config user.name "GitHub Actions"
-  #         git config user.email "actions@github.com"
-  #         git checkout base-tm-ui
-  #         git merge main --no-ff -m "Auto merge main into base-tm-ui"
-  #         git push origin base-tm-ui
-
-  merge-to-base-skiyee-ui:
-    name: Merge main into base-skiyee-ui
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-      - name: Merge main into base-skiyee-ui
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout base-skiyee-ui
-          git merge main --no-ff -m "Auto merge main into base-skiyee-ui"
-          git push origin base-skiyee-ui
-
-  merge-to-main-v4:
-    name: Merge main into main-v4
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-      - name: Merge main into main-v4
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout main-v4
-          git merge main --no-ff -m "Auto merge main into main-v4"
-          git push origin main-v4
-
-  merge-to-i18n-v4:
-    name: Merge main into i18n-v4
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN_AUTO_MERGE }}
-
-      - name: Merge main into i18n-v4
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout i18n-v4
-          git merge main --no-ff -m "Auto merge main into i18n-v4"
-          git push origin i18n-v4
+          git checkout base-login-i18n
+          git merge base --no-ff -m "Auto merge base into base-login-i18n"
+          git push origin base-login-i18n

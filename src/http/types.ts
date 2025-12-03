@@ -7,6 +7,9 @@ export type CustomRequestOptions = UniApp.RequestOptions & {
   hideErrorToast?: boolean
 } & IUniUploadFileOptions // 添加uni.uploadFile参数类型
 
+/** 主要提供给 openapi-ts-request 生成的代码使用 */
+export type CustomRequestOptions_ = Omit<CustomRequestOptions, 'url'>
+
 export interface HttpRequestResult<T> {
   promise: Promise<T>
   requestTask: UniApp.RequestTask

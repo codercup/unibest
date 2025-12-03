@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // i-carbon-code
-import type { CustomTabBarItem } from './config'
+import type { CustomTabBarItem } from './types'
 import { customTabbarEnable, needHideNativeTabbar, tabbarCacheEnable } from './config'
 import { tabbarList, tabbarStore } from './store'
 
@@ -39,11 +39,26 @@ function handleClick(index: number) {
     uni.navigateTo({ url })
   }
 }
-// #ifndef MP-WEIXIN
+// #ifndef MP-WEIXIN || MP-ALIPAY
 // 因为有了 custom:true， 微信里面不需要多余的hide操作
 onLoad(() => {
   // 解决原生 tabBar 未隐藏导致有2个 tabBar 的问题
   needHideNativeTabbar
+  && uni.hideTabBar({
+    fail(err) {
+      console.log('hideTabBar fail: ', err)
+    },
+    success(res) {
+      // console.log('hideTabBar success: ', res)
+    },
+  })
+})
+// #endif
+
+// #ifdef MP-ALIPAY
+onMounted(() => {
+  // 解决支付宝自定义tabbar 未隐藏导致有2个 tabBar 的问题; 注意支付宝很特别，需要在 onMounted 钩子调用
+  customTabbarEnable // 另外，支付宝里面，只要是 customTabbar 都需要隐藏
   && uni.hideTabBar({
     fail(err) {
       console.log('hideTabBar fail: ', err)
@@ -93,7 +108,7 @@ function getImageByIndex(index: number, item: CustomTabBarItem) {
               <!-- 如：<wd-icon name="home" /> (https://wot-design-uni.cn/component/icon.html) -->
               <!-- 如：<uv-icon name="home" /> (https://www.uvui.cn/components/icon.html) -->
               <!-- 如：<sar-icon name="image" /> (https://sard.wzt.zone/sard-uniapp-docs/components/icon)(sar没有home图标^_^) -->
-              <wd-icon :name="item.icon" size="20" />
+              <!-- <wd-icon :name="item.icon" size="20" /> -->
             </template>
             <template v-if="item.iconType === 'unocss' || item.iconType === 'iconfont'">
               <view :class="item.icon" class="text-20px" />
@@ -130,7 +145,8 @@ function getImageByIndex(index: number, item: CustomTabBarItem) {
   bottom: 0;
   left: 0;
   right: 0;
-
+  z-index: 1000;
+  
   border-top: 1px solid #eee;
   box-sizing: border-box;
 }

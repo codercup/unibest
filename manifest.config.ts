@@ -141,6 +141,15 @@ export default defineManifestConfig({
     optimization: {
       subPackages: true,
     },
+    // 解决支付宝小程序开发工具报错 【globalThis is not defined】
+    compileOptions: {
+      globalObjectMode: 'enable',
+      transpile: {
+        script: {
+          ignore: ['node_modules/**'],
+        },
+      },
+    },
   },
   'mp-baidu': {
     usingComponents: true,

@@ -5,6 +5,7 @@
 2. 开发环境：
    - H5: `pnpm dev` 或 `pnpm dev:h5`
    - 微信小程序: `pnpm dev:mp`
+   - 支付宝小程序: `pnpm dev:mp-alipay`
    - APP: `pnpm dev:app`
 
 ## 代码规范
@@ -15,7 +16,8 @@
 
 ## 构建和部署
 - H5 构建：`pnpm build:h5`
-- 小程序构建：`pnpm build:mp`
+- 微信小程序构建：`pnpm build:mp`
+- 支付宝小程序构建：`pnpm build:mp-alipay`
 - APP 构建：`pnpm build:app`
 - 类型检查：`pnpm type-check`
 

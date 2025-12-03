@@ -64,19 +64,16 @@ export default defineConfig(({ command, mode }) => {
     envDir: './env', // 自定义env目录
     base: VITE_APP_PUBLIC_BASE,
     plugins: [
+      UniLayouts(),
+      UniPlatform(),
+      UniManifest(),
       UniPages({
         exclude: ['**/components/**/**.*'],
         // pages 目录为 src/pages，分包目录不能配置在pages目录下！！
         // 是个数组，可以配置多个，但是不能为pages里面的目录！！
-        subPackages: [
-          'src/pages-fg', // 这个是相对必要的路由，尽量留着（登录页、注册页、404页等）
-          'src/pages-sub', // 这个多为示例代码，参考用的，开发完后注释掉即可（或者直接删除）
-        ],
+        subPackages: [],
         dts: 'src/types/uni-pages.d.ts',
       }),
-      UniLayouts(),
-      UniPlatform(),
-      UniManifest(),
       // Optimization 插件需要 page.json 文件，故应在 UniPages 插件之后执行
       Optimization({
         enable: {
@@ -90,6 +87,18 @@ export default defineConfig(({ command, mode }) => {
         logger: false,
       }),
       // UniXXX 需要在 Uni 之前引入
+      // 若存在改变 pages.json 的插件，请将 UniKuRoot 放置其后
+      UniKuRoot({
+        excludePages: ['**/components/**/**.*'],
+      }),
+      // Components 需要在 Uni 之前引入
+      Components({
+        extensions: ['vue'],
+        deep: true, // 是否递归扫描子目录，
+        directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
+        dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
+      }),
+      Uni(),
       {
         // 临时解决 dcloudio 官方的 @dcloudio/uni-mp-compiler 出现的编译 BUG
         // 参考 github issue: https://github.com/dcloudio/uni-app/issues/4952
@@ -137,15 +146,6 @@ export default defineConfig(({ command, mode }) => {
         },
       ),
       syncManifestPlugin(),
-      Components({
-        extensions: ['vue'],
-        deep: true, // 是否递归扫描子目录，
-        directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
-        dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
-      }),
-      // 若存在改变 pages.json 的插件，请将 UniKuRoot 放置其后
-      UniKuRoot(),
-      Uni(),
       // 自动打开开发者工具插件 (必须修改 .env 文件中的 VITE_WX_APPID)
       openDevTools(),
     ],
@@ -186,7 +186,7 @@ export default defineConfig(({ command, mode }) => {
         : undefined,
     },
     esbuild: {
-      drop: VITE_DELETE_CONSOLE === 'true' ? ['console', 'debugger'] : ['debugger'],
+      drop: VITE_DELETE_CONSOLE === 'true' ? ['console', 'debugger'] : [],
     },
     build: {
       sourcemap: false,
