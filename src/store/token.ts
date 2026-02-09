@@ -33,8 +33,23 @@ export const useTokenStore = defineStore(
   () => {
     // 定义用户信息
     const tokenInfo = ref<IAuthLoginRes>({ ...tokenInfoState })
+
+    // 添加一个时间戳 ref 作为响应式依赖
+    const nowTime = ref(Date.now())
+    /**
+     * 更新响应式数据:now
+     * 确保isTokenExpired/isRefreshTokenExpired重新计算,而不是用错误过期缓存值
+     * 可useTokenStore内部适时调用;也可链式调用:tokenStore.updateNowTime().hasLogin
+     * @returns 最新的tokenStore实例
+     */
+    const updateNowTime = () => {
+      nowTime.value = Date.now()
+      return useTokenStore()
+    }
+
     // 设置用户信息
     const setTokenInfo = (val: IAuthLoginRes) => {
+      updateNowTime()
       tokenInfo.value = val
 
       // 计算并存储过期时间
@@ -61,7 +76,7 @@ export const useTokenStore = defineStore(
         return true
       }
 
-      const now = Date.now()
+      const now = nowTime.value
       const expireTime = uni.getStorageSync('accessTokenExpireTime')
 
       if (!expireTime)
@@ -76,7 +91,7 @@ export const useTokenStore = defineStore(
       if (!isDoubleTokenMode)
         return true
 
-      const now = Date.now()
+      const now = nowTime.value
       const refreshExpireTime = uni.getStorageSync('refreshTokenExpireTime')
 
       if (!refreshExpireTime)
@@ -120,6 +135,9 @@ export const useTokenStore = defineStore(
         })
         throw error
       }
+      finally {
+        updateNowTime()
+      }
     }
 
     /**
@@ -150,6 +168,9 @@ export const useTokenStore = defineStore(
         })
         throw error
       }
+      finally {
+        updateNowTime()
+      }
     }
 
     /**
@@ -164,6 +185,8 @@ export const useTokenStore = defineStore(
         console.error('退出登录失败:', error)
       }
       finally {
+        updateNowTime()
+
         // 无论成功失败，都需要清除本地token信息
         // 清除存储的过期时间
         uni.removeStorageSync('accessTokenExpireTime')
@@ -202,12 +225,16 @@ export const useTokenStore = defineStore(
         console.error('刷新token失败:', error)
         throw error
       }
+      finally {
+        updateNowTime()
+      }
     }
 
     /**
      * 获取有效的token
      * 注意：在computed中不直接调用异步函数，只做状态判断
      * 实际的刷新操作应由调用方处理
+     * 建议这样使用 tokenStore.updateNowTime().validToken
      */
     const getValidToken = computed(() => {
       // token已过期，返回空
@@ -240,6 +267,7 @@ export const useTokenStore = defineStore(
 
     /**
      * 检查是否已登录且token有效
+     * 建议这样使用tokenStore.updateNowTime().hasLogin
      */
     const hasValidLogin = computed(() => {
       console.log('hasValidLogin', hasLoginInfo.value, !isTokenExpired.value)
@@ -251,6 +279,7 @@ export const useTokenStore = defineStore(
      * @returns 有效的token或空字符串
      */
     const tryGetValidToken = async (): Promise<string> => {
+      updateNowTime()
       if (!getValidToken.value && isDoubleTokenMode && !isRefreshTokenExpired.value) {
         try {
           await refreshToken()
@@ -281,6 +310,7 @@ export const useTokenStore = defineStore(
       // 调试或特殊场景可能需要直接访问的信息
       tokenInfo,
       setTokenInfo,
+      updateNowTime,
     }
   },
   {

@@ -1,25 +1,13 @@
 import type { CustomTabBarItem, CustomTabBarItemBadge } from './types'
 import { reactive } from 'vue'
 
-import { tabbarList as _tabbarList, customTabbarEnable, selectedTabbarStrategy, TABBAR_STRATEGY_MAP } from './config'
-
-// TODO 1/2: 中间的鼓包tabbarItem的开关
-const BULGE_ENABLE = false
+import { tabbarList as _tabbarList, selectedTabbarStrategy, TABBAR_STRATEGY_MAP } from './config'
 
 /** tabbarList 里面的 path 从 pages.config.ts 得到 */
 const tabbarList = reactive<CustomTabBarItem[]>(_tabbarList.map(item => ({
   ...item,
-  pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}`,
+  pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}`, // 统一成 '/' 开头的路径
 })))
-
-if (customTabbarEnable && BULGE_ENABLE) {
-  if (tabbarList.length % 2) {
-    console.error('有鼓包时 tabbar 数量必须是偶数，否则样式很奇怪！！')
-  }
-  tabbarList.splice(tabbarList.length / 2, 0, {
-    isBulge: true,
-  } as CustomTabBarItem)
-}
 
 export function isPageTabbar(path: string) {
   if (selectedTabbarStrategy === TABBAR_STRATEGY_MAP.NO_TABBAR) {

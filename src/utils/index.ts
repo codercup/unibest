@@ -1,5 +1,8 @@
+/* eslint-disable style/indent */
 import type { PageMetaDatum, SubPackages } from '@uni-helper/vite-plugin-uni-pages'
+/** 如果是运行抖音小程序，就不引入 @uni-helper/uni-env，否则运行报错（找不到process) */
 import { isMpWeixin } from '@uni-helper/uni-env'
+
 import { pages, subPackages } from '@/pages.json'
 
 export type PageInstance = Page.PageInstance<AnyObject, object> & { $page: Page.PageInstance<AnyObject, object> & { fullPath: string } }
@@ -83,19 +86,18 @@ export function getAllPages(key?: string) {
 
   // 这里处理分包
   const subPages: PageMetaDatum[] = []
-  ;(subPackages as SubPackages).forEach((subPageObj) => {
-    // console.log(subPageObj)
-    const { root } = subPageObj
-
-    subPageObj.pages
-      .filter(page => !key || page[key])
-      .forEach((page) => {
-        subPages.push({
-          ...page,
-          path: `/${root}/${page.path}`,
+    ; (subPackages as SubPackages).forEach((subPageObj) => {
+      // console.log(subPageObj)
+      const { root } = subPageObj
+      subPageObj.pages
+        .filter(page => !key || page[key])
+        .forEach((page) => {
+          subPages.push({
+            ...page,
+            path: `/${root}/${page.path}`,
+          })
         })
-      })
-  })
+    })
   const result = [...mainPages, ...subPages]
   // console.log(`getAllPages by ${key} result: `, result)
   return result

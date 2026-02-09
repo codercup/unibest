@@ -1,0 +1,133 @@
+// @ts-nocheck
+// #ifdef APP
+type EchartsEventHandler = (event: UTSJSONObject)=>void
+// type EchartsTempResolve = (obj : UTSJSONObject) => void
+// type EchartsTempOptions = UTSJSONObject
+export class Echarts {
+	options: UTSJSONObject = {} as UTSJSONObject
+	context: UniWebViewElement
+	eventMap: Map<string, EchartsEventHandler> = new Map()
+	private temp: UTSJSONObject[] = []
+	constructor(context: UniWebViewElement){
+		this.context = context
+		this.init()
+	}
+	init(){
+		this.context.evalJS(`init(null, null, ${JSON.stringify({})})`)
+		
+		this.context.addEventListener('message', (e : UniWebViewMessageEvent) => {
+			// event.stopPropagation()
+			// event.preventDefault()
+			
+			const detail = e.detail.data[0]
+			const file = detail.getString('file')
+			const data = detail.get('data')
+			const key = detail.getString('event')
+			const options = typeof data == 'object' ? (data as UTSJSONObject).getJSON('options'): null
+			const event = typeof data == 'object' ? (data as UTSJSONObject).getString('event'): null
+			if (key == 'log' && data != null) {
+				console.log(data)
+			}
+			if (event != null && options != null) {
+				this.dispatchAction(event.replace(/"/g,''), options)
+			}
+			if(file != null){
+				while (this.temp.length > 0) {
+					const opt = this.temp.pop()
+					const success = opt?.get('success')
+					if(typeof success == 'function'){
+						success as (res: UTSJSONObject) => void
+						success({tempFilePath: file})
+					}
+				}
+			}
+			
+		})
+	}
+	setOption(option: UTSJSONObject){
+		this.options = option;
+		this.context.evalJS(`setOption(${JSON.stringify([option])})`)
+	}
+	setOption(option: UTSJSONObject, notMerge: boolean = false, lazyUpdate: boolean = false){
+		this.options = option;
+		this.context.evalJS(`setOption(${JSON.stringify([option, notMerge, lazyUpdate])})`)
+	}
+	setOption(option: UTSJSONObject, notMerge: UTSJSONObject){
+		this.options = option;
+		this.context.evalJS(`setOption(${JSON.stringify([option, notMerge])})`)
+	}
+	getOption(): UTSJSONObject {
+		return this.options
+	}
+	showLoading(){
+		this.context.evalJS(`showLoading(${JSON.stringify([] as any[])})`);
+	}
+	showLoading(type: string, opts: UTSJSONObject){
+		this.context.evalJS(`showLoading(${JSON.stringify([type, opts])})`);
+	}
+	hideLoading(){
+		this.context.evalJS(`hideLoading()`);
+	}
+	clear(){
+		this.context.evalJS(`clear()`);
+	}
+	dispose(){
+		this.context.evalJS(`dispose()`);
+	}
+	resize(size:UTSJSONObject){
+		setTimeout(()=>{
+			this.context.evalJS(`resize(${JSON.stringify(size)})`);
+		},0)
+	}
+	resize(){
+		setTimeout(()=>{
+			this.context.evalJS(`resize()`);
+		},10)
+		
+	}
+	on(type:string, query: any, callback: EchartsEventHandler) {
+		const key = `${type}${JSON.stringify(query)}`
+		if(typeof callback == 'function'){
+			this.eventMap.set(key, callback)
+		}
+		this.context.evalJS(`on(${JSON.stringify([type, query])})`);
+		console.warn('uvue 暂不支持事件')
+	}
+	on(type:string, callback: EchartsEventHandler) {
+		const key = `${type}`
+		if(typeof callback == 'function'){
+			this.eventMap.set(key, callback)
+		}
+		this.context.evalJS(`on(${JSON.stringify([type])})`);
+		console.warn('uvue 暂不支持事件')
+	}
+	dispatchAction(type:string, options: UTSJSONObject){
+		const handler = this.eventMap.get(type)
+		if(handler!=null){
+			handler(options)
+		}
+	}
+	canvasToTempFilePath(opt: UTSJSONObject){
+		// this.context.evalJS(`on(${JSON.stringify(opt)})`);
+		this.context.evalJS(`canvasToTempFilePath(${JSON.stringify(opt)})`);
+		this.temp.push(opt)
+	}
+}
+
+// #endif
+// #ifndef APP
+export class Echarts {
+	constructor() {}
+	setOption(option: UTSJSONObject): void
+	isDisposed(): boolean;
+	clear(): void;
+	resize(size:UTSJSONObject): void;
+	resize(): void;
+	canvasToTempFilePath(opt : UTSJSONObject): void;
+	dispose(): void;
+	showLoading(cfg?: UTSJSONObject): void;
+	showLoading(name?: string, cfg?: UTSJSONObject): void;
+	hideLoading(): void;
+	getZr(): any
+}
+// #endif

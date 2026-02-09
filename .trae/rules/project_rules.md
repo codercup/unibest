@@ -66,6 +66,7 @@
 - 页面文件放在 [src/pages/]目录下
 - 使用约定式路由，文件名即路由路径
 - 页面配置在仅需要在 宏`definePage` 中配置标题等内容即可，会自动生成到 `pages.json` 中
+- definePage的顺序在最上面
 
 ## 组件开发
 - 全局组件文件放在 `src/components/` 目录下

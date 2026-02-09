@@ -1,7 +1,7 @@
 import path from 'node:path'
 import process from 'node:process'
 import Uni from '@uni-helper/plugin-uni'
-import Components from '@uni-helper/vite-plugin-uni-components'
+import UniComponents from '@uni-helper/vite-plugin-uni-components'
 // @see https://uni-helper.js.org/vite-plugin-uni-layouts
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 // @see https://github.com/uni-helper/vite-plugin-uni-manifest
@@ -15,7 +15,7 @@ import UniPlatform from '@uni-helper/vite-plugin-uni-platform'
  * 分包优化、模块异步跨包调用、组件异步跨包引用
  * @see https://github.com/uni-ku/bundle-optimizer
  */
-import Optimization from '@uni-ku/bundle-optimizer'
+import UniOptimization from '@uni-ku/bundle-optimizer'
 // https://github.com/uni-ku/root
 import UniKuRoot from '@uni-ku/root'
 import dayjs from 'dayjs'
@@ -44,7 +44,7 @@ export default defineConfig(({ command, mode }) => {
   // pnpm build:app 时得到 => build production
   // dev 和 build 命令可以分别使用 .env.development 和 .env.production 的环境变量
 
-  const { UNI_PLATFORM } = process.env
+  const { UNI_PLATFORM, SKIP_OPEN_DEVTOOLS } = process.env
   console.log('UNI_PLATFORM -> ', UNI_PLATFORM) // 得到 mp-weixin, h5, app 等
 
   const env = loadEnv(mode, path.resolve(process.cwd(), 'env'))
@@ -64,18 +64,26 @@ export default defineConfig(({ command, mode }) => {
     envDir: './env', // 自定义env目录
     base: VITE_APP_PUBLIC_BASE,
     plugins: [
+      // UniXXX 需要在 Uni 之前引入
       UniLayouts(),
       UniPlatform(),
       UniManifest(),
+      UniComponents({
+        extensions: ['vue'],
+        deep: true, // 是否递归扫描子目录，
+        directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
+        dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
+      }),
       UniPages({
-        exclude: ['**/components/**/**.*'],
+        exclude: ['**/components/**/**.*', '**/sections/**/**.*'],
         // pages 目录为 src/pages，分包目录不能配置在pages目录下！！
         // 是个数组，可以配置多个，但是不能为pages里面的目录！！
-        subPackages: [],
+        // "src/pages-demo" 是unibest demo 预留的，方便后续插入demo示例
+        subPackages: ['src/pages-demo'],
         dts: 'src/types/uni-pages.d.ts',
       }),
-      // Optimization 插件需要 page.json 文件，故应在 UniPages 插件之后执行
-      Optimization({
+      // UniOptimization 插件需要 page.json 文件，故应在 UniPages 插件之后执行
+      UniOptimization({
         enable: {
           'optimization': true,
           'async-import': true,
@@ -86,17 +94,9 @@ export default defineConfig(({ command, mode }) => {
         },
         logger: false,
       }),
-      // UniXXX 需要在 Uni 之前引入
       // 若存在改变 pages.json 的插件，请将 UniKuRoot 放置其后
       UniKuRoot({
-        excludePages: ['**/components/**/**.*'],
-      }),
-      // Components 需要在 Uni 之前引入
-      Components({
-        extensions: ['vue'],
-        deep: true, // 是否递归扫描子目录，
-        directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
-        dts: 'src/types/components.d.ts', // 自动生成的组件类型声明文件路径（用于 TypeScript 支持）
+        excludePages: ['**/components/**/**.*', '**/sections/**/**.*'],
       }),
       Uni(),
       {
@@ -126,7 +126,9 @@ export default defineConfig(({ command, mode }) => {
       UNI_PLATFORM === 'h5' && {
         name: 'html-transform',
         transformIndexHtml(html) {
-          return html.replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss')).replace('%VITE_APP_TITLE%', VITE_APP_TITLE)
+          return html
+            .replace('%BUILD_TIME%', dayjs().format('YYYY-MM-DD HH:mm:ss'))
+            .replace('%VITE_APP_TITLE%', VITE_APP_TITLE)
         },
       },
       // 打包分析插件，h5 + 生产环境才弹出
@@ -147,7 +149,8 @@ export default defineConfig(({ command, mode }) => {
       ),
       syncManifestPlugin(),
       // 自动打开开发者工具插件 (必须修改 .env 文件中的 VITE_WX_APPID)
-      openDevTools(),
+      // 上传时通过 SKIP_OPEN_DEVTOOLS=true 跳过
+      SKIP_OPEN_DEVTOOLS !== 'true' && openDevTools({ mode }),
     ],
     define: {
       __VITE_APP_PROXY__: JSON.stringify(VITE_APP_PROXY_ENABLE),
@@ -180,7 +183,8 @@ export default defineConfig(({ command, mode }) => {
               target: VITE_SERVER_BASEURL,
               changeOrigin: true,
               // 后端有/api前缀则不做处理，没有则需要去掉
-              rewrite: path => path.replace(new RegExp(`^${VITE_APP_PROXY_PREFIX}`), ''),
+              rewrite: path =>
+                path.replace(new RegExp(`^${VITE_APP_PROXY_PREFIX}`), ''),
             },
           }
         : undefined,

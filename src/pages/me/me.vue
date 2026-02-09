@@ -1,7 +1,12 @@
 <script lang="ts" setup>
 definePage({
   style: {
-    navigationBarTitleText: '我的',
+    'mp-alipay': {
+      defaultTitle: '我的',
+      // transparentTitle: 'always', // 可选值    auto/always/none
+      // titlePenetrate: 'YES',
+      titleBarColor: '#ffffff',
+    },
   },
 })
 </script>

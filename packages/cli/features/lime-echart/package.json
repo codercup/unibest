@@ -1,0 +1,9 @@
+{
+  "name": "@unibest/feature-lime-echart",
+  "version": "1.0.0",
+  "description": "unibest lime-echart feature",
+  "dependencies": {
+    "echarts": "^5.4.1",
+    "lodash-es": "^4.17.21"
+  }
+}

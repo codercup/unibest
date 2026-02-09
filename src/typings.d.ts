@@ -45,7 +45,7 @@ declare module '@uni-helper/vite-plugin-uni-pages' {
      *
      * 当前属性供 https://github.com/uni-helper/vite-plugin-uni-layouts 插件使用
      */
-    layout?: 'default'
+    layout?: 'default' | false
     /**
      * 是否从需要登录的路径中排除
      *
@@ -58,7 +58,7 @@ declare module '@uni-helper/vite-plugin-uni-pages' {
 // patch uni 类型
 // 1. 补全 uni.hideToast() 的 options 类型
 // 2. 补全 uni.hideLoading() 的 options 类型
-// 3. 使用方式见：https://github.com/unibest-tech/unibest/pull/241
+// 3. 使用方式见：https://github.com/feige996/unibest/pull/241
 declare global {
   declare namespace UniNamespace {
     /** 接口调用结束的回调函数（调用成功、失败都会执行） */
@@ -139,7 +139,11 @@ declare global {
      * }
      */
     // eslint-disable-next-line ts/method-signature-style
-    hideLoading<T extends UniNamespace.HideToastOption = UniNamespace.HideToastOption>(options?: T): void
+    hideLoading<
+      T extends UniNamespace.HideToastOption = UniNamespace.HideToastOption,
+    >(
+      options?: T,
+    ): void
     /**
      * 隐藏消息提示框
      *
@@ -164,7 +168,11 @@ declare global {
      * }
      */
     // eslint-disable-next-line ts/method-signature-style
-    hideToast<T extends UniNamespace.HideLoadingOption = UniNamespace.HideLoadingOption>(options?: T): void
+    hideToast<
+      T extends UniNamespace.HideLoadingOption = UniNamespace.HideLoadingOption,
+    >(
+      options?: T,
+    ): void
   }
 }
 

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<style type="text/css">
+			html,
+			body,
+			.canvas {
+				padding: 0;
+				margin: 0;
+				overflow-y: hidden;
+				background-color: transparent;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="canvas" id="limeChart"></div>
+		<script type="text/javascript" src="./uni.webview.1.5.5.js"></script>
+		<script type="text/javascript" src="./echarts.min.js"></script>
+		<script type="text/javascript" src="./ecStat.min.js"></script>
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-liquidfill@latest/dist/echarts-liquidfill.min.js"></script> -->
+		<script>
+			let chart = null;
+			let cache = [];
+			console.log = function() {
+				emit('log', {
+					log: arguments,
+				})
+			}
+
+			function emit(event, data) {
+				postMessage({
+					event,
+					data
+				})
+				cache = []
+			}
+
+			function postMessage(data) {
+				uni.webView.postMessage({
+					data
+				})
+				// window.__uniapp_x_.postMessage(JSON.stringify(data))
+			};
+
+			function stringify(key, value) {
+				if (typeof value === 'object' && value !== null) {
+					if (cache.indexOf(value) !== -1) {
+						return;
+					}
+					cache.push(value);
+				}
+				return value;
+			}
+
+			function parse(name, callback, options) {
+				const optionNameReg = /[\w]+\.setOption\(([\w]+\.)?([\w]+)\)/
+				if (optionNameReg.test(callback)) {
+					const optionNames = callback.match(optionNameReg)
+					if (optionNames[1]) {
+						const _this = optionNames[1].split('.')[0]
+						window[_this] = {}
+						window[_this][optionNames[2]] = options
+						return optionNames[2]
+					} else {
+						return null
+					}
+				}
+				return null
+			}
+
+			function init(callback, options, opts, theme) {
+				if (!chart) {
+					chart = echarts.init(document.getElementById('limeChart'), theme, opts)
+
+					if (options) {
+						chart.setOption(options)
+					}
+				}
+			}
+
+			function on(data) {
+				if (chart && data.length > 0) {
+					const [type, query] = data
+					const key = `${type}${JSON.stringify(query||'')}`
+					if (query) {
+						chart.on(type, query, function(options) {
+							var obj = {};
+							Object.keys(options).forEach(function(key) {
+								if (key != 'event') {
+									obj[key] = options[key];
+								}
+							});
+							emit(key, {
+								event: key,
+								options: obj,
+							});
+						});
+					} else {
+						chart.on(type, function(options) {
+							var obj = {};
+							Object.keys(options).forEach(function(key) {
+								if (key != 'event') {
+									obj[key] = options[key];
+								}
+							});
+							emit(key, {
+								event: key,
+								options: obj,
+							});
+						});
+					}
+				}
+
+			}
+
+			function setChart(callback, options) {
+				if (!callback) return
+				if (chart && callback && options) {
+					var r = null
+					const name = parse('r', callback, options)
+					if (name) this[name] = options
+					eval(`r = ${callback};`)
+					if (r) {
+						r(chart)
+					}
+				}
+			}
+
+			function setOption(data) {
+				if (chart) chart.setOption(data[0], data[1])
+			}
+
+			function showLoading(data) {
+				if (chart) chart.showLoading(data[0], data[1])
+			}
+
+			function hideLoading() {
+				if (chart) chart.hideLoading()
+			}
+
+			function clear() {
+				if (chart) chart.clear()
+
+			}
+
+			function dispose() {
+				if (chart) chart.dispose()
+			}
+
+			function resize(size) {
+				if (chart) chart.resize(size)
+			}
+
+			function canvasToTempFilePath(opt) {
+				if (chart) {
+					delete opt.success
+					const src = chart.getDataURL(opt)
+					postMessage({
+						// event: 'file',
+						file: src
+					})
+				}
+			}
+			
+			document.addEventListener('touchmove', () => {
+				
+			})
+		</script>
+	</body>
+</html>

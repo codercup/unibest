@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://github.com/unibest-tech/unibest">
+  <a href="https://github.com/feige996/unibest">
     <img width="160" src="./src/static/logo.svg">
   </a>
 </p>
 
 <h1 align="center">
-  <a href="https://github.com/unibest-tech/unibest" target="_blank">unibest - 最好的 uniapp 开发框架</a>
+  <a href="https://github.com/feige996/unibest" target="_blank">unibest - 最好的 uniapp 开发框架</a>
 </h1>
 
 <div align="center">
@@ -56,21 +56,103 @@
 ## ⚙️ 环境
 
 - node>=18
-- pnpm>=7.30
-- Vue Official>=2.1.10
+- pnpm>=9
+- Vue Official>=3.4
 - TypeScript>=5.0
 
-## 新版分支 
-- main == base
-- base --> base-i18n
-- base-login --> base-login-i18n
+## 🏗️ 项目结构
 
-## &#x1F4C2; 快速开始
+### 本仓库结构（CLI 开发者）
 
-执行 `pnpm create unibest` 创建项目
-执行 `pnpm i` 安装依赖
-执行 `pnpm dev` 运行 `H5`
-执行 `pnpm dev:mp` 运行 `微信小程序`
+```
+unibest/                    # 主仓库（main 分支）
+├── packages/
+│   └── cli/                # CLI 脚手架工具（发布到 npm）
+├── src/                    # 模板源码（同base分支）
+└── 其他配置文件
+```
+
+> cli 会从 base 分支拉取基础代码。
+
+### 用户项目结构（创建项目后）
+
+```
+my-project/                 # 用户项目
+├── src/                    # 源码
+├── pages.json              # 页面配置
+├── manifest.json           # 应用配置
+├── App.vue                 # 应用入口
+├── main.ts                 # 入口文件
+└── 其他配置文件
+```
+
+**注意：** 用户项目不包含 `packages/` 目录。
+
+### 双重用途
+
+本仓库既是**基础模板**，也是 **CLI 脚手架**的源码仓库：
+
+- **作为模板**：直接克隆 `git clone` 后即可开发
+- **作为 CLI**：通过 `pnpm create unibest` 创建新项目
+
+### CLI 发布
+
+`packages/cli/` 目录会发布到 npm 包 `create-unibest`，用户安装后从 Git main 分支克隆模板。
+
+## 📦 使用方式
+
+### 方式一：通过 CLI 创建新项目（推荐）
+
+```bash
+# 全局安装 CLI
+pnpm add -g create-unibest
+
+# 创建项目（从 main 分支克隆模板）
+pnpm create unibest my-project
+cd my-project
+
+pnpm install
+pnpm dev
+```
+
+### 方式二：创建时选择 Feature
+
+```bash
+# 创建项目并选择功能
+pnpm create unibest my-project
+
+# 或通过命令行参数直接指定
+pnpm create unibest my-project --i18n --login
+```
+
+### 方式三：创建后添加 Feature
+
+```bash
+cd my-project
+
+# 添加多语言
+pnpm create unibest add i18n
+
+# 添加登录策略
+pnpm create unibest add login
+
+# 同时添加多个
+pnpm create unibest add i18n login
+```
+
+### 方式四：直接克隆开发（备选）
+
+```bash
+# 克隆本仓库作为基础模板
+git clone https://github.com/feige996/unibest.git my-project
+cd my-project
+
+# 安装依赖并运行
+pnpm install
+pnpm dev        # 运行 H5
+pnpm dev:mp     # 运行微信小程序
+pnpm dev:app    # 运行 App
+```
 
 ## 📦 运行（支持热更新）
 

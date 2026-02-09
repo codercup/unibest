@@ -1,0 +1,45 @@
+{
+  "name": "create-unibest",
+  "type": "module",
+  "version": "4.0.10",
+  "updateTime": "2026-02-02",
+  "packageManager": "pnpm@10.10.0",
+  "description": "快速创建 unibest 项目的脚手架工具",
+  "author": "feige996",
+  "license": "MIT",
+  "homepage": "https://unibest.tech",
+  "bin": {
+    "best": "bin/index.js",
+    "create-unibest": "bin/index.js",
+    "unibest": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "features"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development tsup --watch",
+    "build": "cross-env NODE_ENV=production tsup",
+    "prepare": "pnpm build",
+    "start": "cross-env NODE_ENV=development node bin/index.js"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.0.0",
+    "dayjs": "^1.11.18",
+    "ejs": "^4.0.0",
+    "fs-extra": "^11.3.0",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^24.5.0",
+    "cross-env": "^7.0.3",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0"
+  }
+}

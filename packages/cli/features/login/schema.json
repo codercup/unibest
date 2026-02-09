@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "loginStrategy": {
+      "type": "string",
+      "enum": ["blacklist", "whitelist"],
+      "default": "blacklist",
+      "description": "登录策略：blacklist(黑名单) 或 whitelist(白名单)"
+    }
+  },
+  "required": []
+}

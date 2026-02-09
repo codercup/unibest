@@ -1,0 +1,9 @@
+{
+  "name": "@unibest/feature-i18n",
+  "version": "1.0.0",
+  "description": "unibest i18n feature",
+  "dependencies": {
+    "dayjs": "^1.11.0",
+    "vue-i18n": "^9.0.0"
+  }
+}

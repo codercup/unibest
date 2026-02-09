@@ -1,0 +1,50 @@
+# NPM 发布工作流
+
+## 发布步骤
+
+### 1. 检查登录状态
+```bash
+npm whoami
+```
+- 如果返回用户名 → 已登录，继续步骤 2
+- 如果返回错误或空 → 未登录，执行 `npm login`
+
+### 2. 登录 npm（如果未登录）
+```bash
+npm login
+# 输入用户名、密码，然后等待 OTP 验证码
+```
+- 密码输入不会显示，是正常的
+- OTP 会通过邮箱或 Authenticator app 发送
+- 如果登录失败（如 401），说明会话过期，需要重新登录
+
+### 3. 升级版本号
+```bash
+cd /path/to/package
+npm version patch --no-git-tag-version
+```
+
+### 4. 构建项目
+```bash
+pnpm build
+# 或 npm run build
+```
+
+### 5. 发布到 npm
+```bash
+npm publish --no-workspaces
+```
+
+### 6. 处理 OTP 验证码
+发布命令可能返回 `EOTP` 错误，要求提供一次性验证码：
+- **首次发布时直接需要 OTP**：询问用户 OTP 后加 `--otp` 参数重试
+- **首次发布不需要 OTP**：等待 npm 返回 EOTP 后再询问
+
+### 7. OTP 验证后重新发布
+```bash
+npm publish --no-workspaces --otp=<验证码>
+```
+
+## 完整命令序列
+
+```bash

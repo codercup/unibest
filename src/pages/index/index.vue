@@ -7,8 +7,14 @@ definePage({
   type: 'home',
   style: {
     // 'custom' 表示开启自定义导航栏，默认 'default'
-    navigationStyle: 'custom',
-    navigationBarTitleText: '首页',
+    'navigationStyle': 'custom',
+    'navigationBarTitleText': '首页',
+    'mp-alipay': {
+      defaultTitle: '首页',
+      transparentTitle: 'always', // 可选值    auto/always/none
+      titlePenetrate: 'YES',
+      titleBarColor: '#ffffff',
+    },
   },
 })
 
