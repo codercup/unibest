@@ -1,4 +1,5 @@
 import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
+import type { UserRole } from '@/api/types/login'
 import type { RemoveLeadingSlashFromUnion } from '@/typings'
 
 /**
@@ -31,4 +32,5 @@ export interface CustomTabBarItem {
   badge?: CustomTabBarItemBadge
   /** 是否是中间的鼓包tabbarItem */
   isBulge?: boolean
+  roles?: UserRole[]
 }
