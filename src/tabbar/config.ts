@@ -22,6 +22,7 @@ export const TABBAR_STRATEGY_MAP = {
 export const selectedTabbarStrategy = TABBAR_STRATEGY_MAP.CUSTOM_TABBAR
 
 // TODO: 2/3. 使用 NATIVE_TABBAR 时，更新下面的 tabbar 配置
+// 原生 tabbar 不支持运行时按角色动态变更；要按角色动态显示/隐藏，必须切换到自定义 tabbar
 export const nativeTabbarList: NativeTabBarItem[] = [
   {
     iconPath: 'static/tabbar/home.png',
