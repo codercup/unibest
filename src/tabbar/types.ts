@@ -32,5 +32,6 @@ export interface CustomTabBarItem {
   badge?: CustomTabBarItemBadge
   /** 是否是中间的鼓包tabbarItem */
   isBulge?: boolean
+  // roles 不写 → 所有用户都能看到；roles 写了 → 只有匹配角色可见
   roles?: UserRole[]
 }

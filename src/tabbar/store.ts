@@ -10,9 +10,8 @@ const baseTabbarList = reactive<CustomTabBarItem[]>(_tabbarList.map(item => ({
   pagePath: item.pagePath.startsWith('/') ? item.pagePath : `/${item.pagePath}`, // 统一成 '/' 开头的路径
 })))
 
-const userStore = useUserStore()
-
 const userRoles = computed(() => {
+  const userStore = useUserStore()
   const userInfo = userStore.userInfo.value
   if (Array.isArray(userInfo?.roles) && userInfo.roles.length > 0) {
     return userInfo.roles
