@@ -100,6 +100,7 @@ export function http<T>(options: CustomRequestOptions) {
               icon: 'none',
               title: responseData.msg || responseData.message || '请求错误',
             })
+            return reject(responseData.data)
           }
           return resolve(responseData.data)
         }
