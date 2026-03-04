@@ -1,96 +1,89 @@
-<route lang="json5" type="page">
-{
-  style: { navigationBarTitleText: 'ucharts 图表' },
-}
-</route>
-
 <template>
   <view class="content">
     <qiun-title-bar title="tooltip提示窗format" />
     <view class="charts-box">
       <qiun-data-charts
         type="column"
-        :echartsH5="true"
-        :echartsApp="true"
-        :chartData="chartsDataLine1"
-        tooltipFormat="tooltipDemo1"
+        :echarts-h5="true"
+        :echarts-app="true"
+        :chart-data="chartsDataLine1"
+        tooltip-format="tooltipDemo1"
       />
     </view>
     <qiun-title-bar title="图例的format" />
     <view class="charts-box">
       <qiun-data-charts
         type="line"
-        :echartsH5="true"
-        :echartsApp="true"
+        :echarts-h5="true"
+        :echarts-app="true"
         :eopts="{ legend: { format: 'legendFormat' } }"
-        :chartData="chartsDataColumn2"
+        :chart-data="chartsDataColumn2"
       />
     </view>
     <qiun-title-bar title="Y轴format方式1" />
     <view class="charts-box">
       <qiun-data-charts
         type="line"
-        :echartsH5="true"
-        :echartsApp="true"
+        :echarts-h5="true"
+        :echarts-app="true"
         :eopts="{ yAxis: { axisLabel: { format: 'yAxisFormatDemo' } } }"
-        :chartData="chartsDataLine1"
+        :chart-data="chartsDataLine1"
       />
     </view>
     <qiun-title-bar title="Y轴format方式2" />
     <view class="charts-box">
       <qiun-data-charts
         type="line"
-        :echartsH5="true"
-        :echartsApp="true"
+        :echarts-h5="true"
+        :echarts-app="true"
         :eopts="{ yAxis: { axisLabel: { formatter: '{value} 元' } } }"
-        :chartData="chartsDataLine1"
+        :chart-data="chartsDataLine1"
       />
     </view>
     <qiun-title-bar title="series数据点format方法1" />
     <view class="charts-box">
       <qiun-data-charts
         type="line"
-        :echartsH5="true"
-        :echartsApp="true"
+        :echarts-h5="true"
+        :echarts-app="true"
         :eopts="{ seriesTemplate: { label: { format: 'seriesFormatDemo' } } }"
-        :chartData="chartsDataLine1"
+        :chart-data="chartsDataLine1"
       />
     </view>
     <qiun-title-bar title="series数据点format方法2" />
     <view class="charts-box">
       <qiun-data-charts
         type="line"
-        :echartsH5="true"
-        :echartsApp="true"
+        :echarts-h5="true"
+        :echarts-app="true"
         :eopts="{ seriesTemplate: { label: { formatter: '{b}年{c}元' } } }"
-        :chartData="chartsDataLine1"
+        :chart-data="chartsDataLine1"
       />
     </view>
   </view>
 </template>
 
-<script>
-import demodata from './ucharts/data.json'
+<script setup>
+import { onMounted, ref } from 'vue'
+import demodata from './data.json'
 
-export default {
-  data() {
-    return {
-      chartsDataLine1: {},
-      chartsDataColumn2: {},
-    }
-  },
-  onLoad() {
-    this.getServerData()
-  },
-  methods: {
-    getServerData() {
-      setTimeout(() => {
-        this.chartsDataLine1 = JSON.parse(JSON.stringify(demodata.Line))
-        this.chartsDataColumn2 = JSON.parse(JSON.stringify(demodata.Column))
-      }, 1500)
-    },
-  },
+definePage({
+  style: { navigationBarTitleText: 'ucharts 图表' },
+})
+
+const chartsDataLine1 = ref({})
+const chartsDataColumn2 = ref({})
+
+function getServerData() {
+  setTimeout(() => {
+    chartsDataLine1.value = JSON.parse(JSON.stringify(demodata.Line))
+    chartsDataColumn2.value = JSON.parse(JSON.stringify(demodata.Column))
+  }, 1500)
 }
+
+onMounted(() => {
+  getServerData()
+})
 </script>
 
 <style>

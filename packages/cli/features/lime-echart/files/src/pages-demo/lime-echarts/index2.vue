@@ -1,12 +1,3 @@
-<route type="page" lang="json5">
-{
-  layout: "demo",
-  style: {
-    navigationBarTitleText: "echarts图表",
-  },
-}
-</route>
-
 <template>
   <view>折线图1</view>
   <view style="width: 100%; height: 200px">
@@ -20,65 +11,74 @@
   <view style="width: 100%; height: 200px">
     <l-echart ref="barChartRef" />
   </view>
-  <button @click="changeLineChartData">切换折线图1数据</button>
-  <button @click="changeBarChartData">改变柱状图样式</button>
+  <button @click="changeLineChartData">
+    切换折线图1数据
+  </button>
+  <button @click="changeBarChartData">
+    改变柱状图样式
+  </button>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { useBarEcharts, useLineEcharts } from "./index2";
-import { set } from "lodash-es";
-const [lineChartRef, lineOption, lineDraw] = useLineEcharts();
-const [lineChartRef2, lineOption2, lineDraw2] = useLineEcharts();
-const [barChartRef, barOption, barDraw] = useBarEcharts();
+import { set } from 'lodash-es'
+import { onMounted } from 'vue'
+import { useBarEcharts, useLineEcharts } from './index2'
+
+definePage({
+  style: { navigationBarTitleText: 'lime-echart 图表2' },
+})
+
+const [lineChartRef, lineOption, lineDraw] = useLineEcharts()
+const [lineChartRef2, lineOption2, lineDraw2] = useLineEcharts()
+const [barChartRef, barOption, barDraw] = useBarEcharts()
 
 // 初始化 折线图表1
-const initLineChart = () => {
+function initLineChart() {
   set(
     lineOption.value,
-    "series.data",
+    'series.data',
     [120, 132, 101, 134, 90, 230, 210, 220, 182, 191, 234, 290],
-  );
-  lineDraw();
-};
+  )
+  lineDraw()
+}
 
 // 初始化 折线图表2
-const initLineChart2 = () => {
+function initLineChart2() {
   set(
     lineOption2.value,
-    "series.data",
+    'series.data',
     [220, 182, 191, 234, 290, 330, 310, 320, 302, 301, 334, 390],
-  );
-  lineDraw2();
-};
+  )
+  lineDraw2()
+}
 
 // 初始化 柱状图表
-const initBarChart = () => {
-  set(barOption.value, "series.data", [120, 200, 150, 80, 70, 110, 130]);
-  barDraw();
-};
+function initBarChart() {
+  set(barOption.value, 'series.data', [120, 200, 150, 80, 70, 110, 130])
+  barDraw()
+}
 
 // 切换折线图数据
-const changeLineChartData = () => {
+function changeLineChartData() {
   set(
     lineOption.value,
-    "series.data",
+    'series.data',
     [324, 332, 301, 334, 390, 330, 320, 302, 301, 334, 390, 330],
-  );
-  lineDraw();
-};
+  )
+  lineDraw()
+}
 
 // 改变柱状图样式
-const changeBarChartData = () => {
-  set(barOption.value, "series.color", "#5677fc");
-  barDraw();
-};
+function changeBarChartData() {
+  set(barOption.value, 'series.color', '#5677fc')
+  barDraw()
+}
 
 onMounted(() => {
-  initLineChart();
-  initLineChart2();
-  initBarChart();
-});
+  initLineChart()
+  initLineChart2()
+  initBarChart()
+})
 </script>
 
 <style>

@@ -153,6 +153,7 @@ export async function promptUser(projectName?: string, argv: Record<string, any>
           { value: 'sard-uniapp', label: 'sard-uniapp' },
           { value: 'uv-ui', label: 'uv-ui' },
           { value: 'uview-plus', label: 'uview-plus' },
+          { value: 'tdesign', label: 'tdesign' },
         ],
         initialValue: 'none',
       })

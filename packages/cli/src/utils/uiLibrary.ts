@@ -83,6 +83,15 @@ export const UI_LIBRARY_CONFIGS: Record<UILibrary, UILibraryConfig | null> = {
     needUniScss: true,
     uniScssImport: '@import \'uview-plus/theme.scss\'; // /* 行为相关颜色 */',
   },
+  'tdesign': {
+    packageName: '@tdesign/uniapp',
+    easycom: {
+      pattern: '^t-(.*)',
+      path: '@tdesign/uniapp/$1/$1.vue',
+    },
+    mainImport: 'import \'@tdesign/uniapp/common/style/theme/index.css\';',
+    types: ['@tdesign/uniapp/global.d.ts'],
+  },
 }
 
 /**

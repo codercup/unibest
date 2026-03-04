@@ -2,7 +2,7 @@
 export type Platform = 'mp-weixin' | 'h5' | 'app' | 'mp-alipay' | 'mp-toutiao'
 
 /** 支持的UI库类型 */
-export type UILibrary = 'none' | 'wot-ui' | 'sard-uniapp' | 'uview-pro' | 'uv-ui' | 'uview-plus'
+export type UILibrary = 'none' | 'wot-ui' | 'sard-uniapp' | 'uview-pro' | 'uv-ui' | 'uview-plus' | 'tdesign'
 
 /** 支持的请求库类型 */
 export type RequestLibrary = 'request' | 'alovajs' | 'vue-query'

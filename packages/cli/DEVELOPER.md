@@ -51,5 +51,5 @@ pnpm build
 
 # 3. 登录并发布
 npm login --registry=https://registry.npmjs.org/
-npm publish
+npm publish --registry=https://registry.npmjs.org/
 ```
