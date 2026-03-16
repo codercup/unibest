@@ -36,6 +36,7 @@
     "preinstall": "npx only-allow pnpm",
     "uvm": "npx @dcloudio/uvm@latest",
     "uvm-rm": "node ./scripts/postupgrade.js",
+    "bump-version": "node ./scripts/bump-version.js",
     "postuvm": "echo upgrade uni-app success!",
     "dev:app": "uni -p app",
     "dev:app:test": "uni -p app --mode test",
