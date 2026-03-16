@@ -190,6 +190,9 @@ importers:
       cross-env:
         specifier: ^10.0.0
         version: 10.0.0
+      enquirer:
+        specifier: ^2.4.1
+        version: 2.4.1
       eslint:
         specifier: ^9.31.0
         version: 9.34.0(jiti@2.6.1)
@@ -211,6 +214,9 @@ importers:
       openapi-ts-request:
         specifier: ^1.10.0
         version: 1.10.0(@types/node@20.19.11)(@vue/compiler-sfc@3.5.22)(chokidar@3.6.0)(typescript@5.8.3)
+      picocolors:
+        specifier: ^1.1.1
+        version: 1.1.1
       postcss:
         specifier: ^8.4.49
         version: 8.5.6
