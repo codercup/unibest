@@ -39,9 +39,9 @@ function bumpVersionName(version, type) {
 async function run() {
   const source = fs.readFileSync(manifestPath, 'utf8')
   
-  // 匹配 versionCode 和 versionName 的正则表达式
-  const versionCodeRegex = /(versionCode\s*:\s*)(['"])(\d+)\2/
-  const versionNameRegex = /(versionName\s*:\s*)(['"])([\d\.]+)\2/
+  // 匹配 versionCode 和 versionName 的正则表达式，支持键名带有引号的情况，例如 'versionCode': '100'
+  const versionCodeRegex = /((?:['"])?versionCode(?:['"])?\s*:\s*)(['"])(\d+)\2/
+  const versionNameRegex = /((?:['"])?versionName(?:['"])?\s*:\s*)(['"])([\d\.]+)\2/
 
   const codeMatch = source.match(versionCodeRegex)
   const nameMatch = source.match(versionNameRegex)
