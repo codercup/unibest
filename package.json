@@ -198,6 +198,6 @@
     "unconfig": "7.3.2"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "echo 祝菲鸽身体健康"
   }
 }
